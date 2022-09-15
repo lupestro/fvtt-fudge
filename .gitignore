@@ -105,5 +105,5 @@ dist
 
 # Compiled results
 packs/*.db
-./fudge.mjs
-./fudge.mjs.map
+fudge.mjs
+fudge.mjs.map
