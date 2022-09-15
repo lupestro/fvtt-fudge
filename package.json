@@ -1,0 +1,34 @@
+{
+  "name": "fvtt-fudge",
+  "version": "1.0.0",
+  "main": "modules/fudge.mjs",
+  "license": "MIT",
+  "scripts": {
+    "build": "gulp buildAll",
+    "build:db": "gulp compilePacks",
+    "build:watch": "gulp ",
+    "lint": "gulp lint",
+    "lint:fix": "gulp lint:fix"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/eslint-parser": "^7.18.9",
+    "@rollup/plugin-node-resolve": "^14.0.1",
+    "eslint": "^7.5.0",
+    "eslint-plugin-jsdoc": "^39.3.6",
+    "fs": "0.0.1-security",
+    "gulp": "^4.0.2",
+    "gulp-eslint7": "^0.3.2",
+    "gulp-if": "^3.0.0",
+    "merge-stream": "^2.0.0",
+    "nedb": "^1.8.0",
+    "path": "^0.12.7",
+    "pnpm": "^7.11.0",
+    "rollup": "^2.79.0",
+    "yargs": "^17.5.1"
+  },
+  "overrides": {
+    "glob-parent": "^5.1.2",
+    "underscore": "^1.12.1"
+  }
+}

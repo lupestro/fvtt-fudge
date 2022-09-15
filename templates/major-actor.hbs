@@ -1,0 +1,258 @@
+    <form class="actor">
+        <header>
+            <section class="names">
+                <div class="field">
+                    <label>{{ localize 'FUDGE.CharacterName' }}
+                        <input name="charname" id="charname" type="text" value="{{actor.name}}" placeholder="{{ localize 'FUDGE.CharacterName' }}"/>
+                    </label>
+                </div>
+                <div class="field">
+                    <label for="playername">{{ localize 'FUDGE.PlayerName' }}
+                        <input name="playername" id="playername" type="text" value="Me" placeholder="My Name" />
+                    </label>
+                </div>
+            </section>
+            <section class="basedata">
+                <div class="traitinfo">
+                    <h2>{{ localize 'FUDGE.TraitValues' }}</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>{{ localize 'FUDGE.Level' }}</th>
+                                <th>{{ localize 'FUDGE.Value' }}</th>
+                                <th>{{ localize 'FUDGE.EPCost' }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Superb</td>
+                                <td>+3</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Great</td>
+                                <td>+2</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>Good</td>
+                                <td>+1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Fair</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Mediocre</td>
+                                <td>-1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Poor</td>
+                                <td>-2</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Terrible</td>
+                                <td>-3</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="stats">
+                    <h2>Stats</h2>
+                    <div class="fields">
+                        <label>{{ localize 'FUDGE.FP' }}
+                            <input name="fp" type="text" value="{{actor.system.fp}}" placeholder="{{ localize 'FUDGE.FP' }}"/>
+                        </label>
+                        <label>{{ localize 'FUDGE.EP' }}
+                            <input name="ep" type="text" value="{{actor.system.ep}}" placeholder="{{ localize 'FUDGE.EP' }}"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="wounds">
+                    <h2>{{ localize 'FUDGE.Wounds' }}</h2>
+                    <div class="woundlevels">
+                        <div class="level">
+                            <div>1-2</div>
+                            <div class="checks">
+                                <input type="checkbox">
+                                <input type="checkbox">
+                                <input type="checkbox">
+                            </div>
+                            <div>{{ localize "FUDGE.Scratch" }}</div>
+                        </div>
+                        <div class="level">
+                            <div>3-4</div>
+                            <div class="checks">
+                                <input type="checkbox">
+                            </div>
+                            <div>{{ localize 'FUDGE.Hurt' }} (-1)</div>
+                        </div>
+                        <div class="level">
+                            <div>5-6</div>
+                            <div class="checks">
+                                <input type="checkbox">
+                            </div>
+                            <div>{{ localize 'FUDGE.VeryHurt' }} (-2)</div>
+                        </div>
+                        <div class="level">
+                            <div>7-8</div>
+                            <div class="checks">
+                                <input type="checkbox">
+                            </div>
+                            <div>{{ localize 'FUDGE.Incapacitated' }}</div>
+                        </div>
+                        <div class="level">
+                            <div>9+</div>
+                            <div class="checks">
+                                <input type="checkbox">
+                            </div>
+                            <div>{{ localize 'FUDGE.NearDeath' }}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <main>
+            <section class="traits">
+                <section class="attributes">
+                    <h2>{{ localize 'FUDGE.Attributes' }}</h2>
+                    <div class="levellist">
+                        <label for="a1">Perception</label>
+                        <select id="a1" name="perception" data="Perception">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                        <label for="a2">Reasoning</label>
+                        <select id="a2" data="Reasoning">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                        <label for="a3">Resolve</label>
+                        <select id="a3" data="Resolve">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                        <label for="a4">Strength</label>
+                        <select id="a4" data="Strength">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                        <label for="a5">Dexterity</label>
+                        <select id="a5" data="Dexterity">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                        <label for="a6">Vigor</label>
+                        <select id="a6" data="Vigor">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                    </div>
+                </section>
+                <section class="gifts">
+                    <h2>{{ localize 'FUDGE.GiftsPowers' }}</h2>
+                    <div class="traitlist">
+                        <div id="g1" class="nonlevel-item">Acute Hearing</div>
+                        <button type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
+                        <div id="g2" class="nonlevel-item">Golden Voice</div>
+                        <button type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </section>
+                <section class="skills">
+                    <h2>{{ localize 'FUDGE.Skills' }}</h2>
+                    <div class="levellist levellist--dl">
+                        <label for="s1">Swordsmanship</label>
+                        <select id="s1" data="s1">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                        <button id="f1-x" class="edit-button" title="Edit" type="button"><i class="fas fa-edit"></i></button>
+                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                        <!-- Specialization example - kind of ugly right now - save for later
+                        <input id="s2-spec" name="s2-spec" placeholder="Rapier" class="specialization" style="margin-left: 20px;">
+                        <div></div>
+                        <div></div>
+                        -->
+                        <label for="s2">Diplomacy</label>
+                        <select id="s2" data="s2">
+                            <option value="3">Superb</option>
+                            <option value="2">Great</option>
+                            <option value="1">Good</option>
+                            <option value="0" selected>Fair</option>
+                            <option value="-1">Mediocre</option>
+                            <option value="-2">Poor</option>
+                            <option value="-3">Terrible</option>
+                        </select>
+                        <button id="f1-x" class="edit-button" title="Edit" type="button"><i class="fas fa-edit"></i></button>
+                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                    </div>
+                </section>
+                <section class="equipment">
+                    <h2>{{ localize 'FUDGE.Equipment' }}</h2>
+                    <div class="eqlist">
+                        <div class="eqtitle">Item</div>
+                        <div class="eqtitle">DF</div>
+                        <div class="eqtitle"></div>
+                        <div class="eqname">Fountain Pen</div>
+                        <div class="df"></div>
+                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                        <div class="eqname">Short Sword</div>
+                        <div class="df">O+2</div>
+                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                        <div class="eqname">Leather Jacket</div>
+                        <div class="df">D+1</div>
+                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                    </div>
+               </section>
+                <section class="faults">
+                    <h2>{{ localize 'FUDGE.Faults' }}</h2>
+                    <div class="traitlist">
+                        <div id="f1">Blurry Vision</div>
+                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                        <div id="f2">Arthritic Knee</div>
+                        <button id="f2-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </form>

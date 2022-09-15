@@ -1,0 +1,22 @@
+{
+    "FUDGE.SheetClassCharacter": "Default FUDGE Character Sheet",
+    "FUDGE.CharacterName": "Character Name",
+    "FUDGE.PlayerName": "Player Name",
+    "FUDGE.TraitValues": "Fudge Trait Values",
+    "FUDGE.Level": "Level",
+    "FUDGE.Value": "Value",
+    "FUDGE.EPCost": "EP Cost",
+    "FUDGE.FP": "FUDGE Points",
+    "FUDGE.EP": "Experience Points",
+    "FUDGE.Wounds": "Wounds",
+    "FUDGE.Scratch": "Scratch",
+    "FUDGE.Hurt": "Hurt",
+    "FUDGE.VeryHurt": "Very Hurt",
+    "FUDGE.Incapacitated": "Incapacitated",
+    "FUDGE.NearDeath": "Near Death",
+    "FUDGE.Attributes": "Attributes",
+    "FUDGE.Skills": "Skills",
+    "FUDGE.GiftsPowers": "Gifts & Powers",
+    "FUDGE.Faults": "Faults",
+    "FUDGE.Equipment": "Equipment"
+}

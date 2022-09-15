@@ -1,0 +1,61 @@
+{
+  "Actor": {
+    "types": ["major","simple"],
+    "templates": {
+      "basic": {
+        "fp": 0,
+        "ep": 0,
+        "wounds": {
+            "scratch": 0,
+            "hurt": 0,
+            "veryhurt": 0,
+            "incapacitated": 0,
+            "neardeath": 0
+          }
+      }
+    },
+    "major": {
+      "templates": ["basic"]
+    },
+    "simple": {
+      "wounds": {
+          "ouch": 0,
+          "down": 0
+      }
+    }
+  },
+  "Item": {
+    "types": ["traitlevelset", "attributeset","skill","gift","fault","equipment"],
+    "templates": {},
+    "traitlevelset": {
+      "levels": [
+        {
+          "name": "",
+          "value": 0,
+          "ep": 0
+        }
+      ]
+    },
+    "attributeset": {
+      "attributes": [
+        {
+          "name": "",
+          "level": 0
+        }
+      ]
+    },
+    "skill": {
+      "level": 0,
+      "group": "General"
+    },
+    "gift": {
+    },
+    "fault": {
+    },
+    "equipment": {
+      "odf": 0,
+      "ddf": 0,
+      "quantity":0
+    }
+  }
+}
