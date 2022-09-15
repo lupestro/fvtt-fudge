@@ -51,7 +51,6 @@ const lintJavascript = function() {
   const applyFixes = Boolean(parsedArgs.fix);
   const tasks = LINTING_PATHS.map( (path) => {
     const src = path.endsWith("/") ? `${path}**/*.mjs` : path;
-    // eslint-disable-next-line no-magic-numbers
     const dest = path.endsWith("/") ? path : `${path.split("/").slice(0, -1).join("/")}/`;
     return gulp
       .src(src)

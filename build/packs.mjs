@@ -1,4 +1,5 @@
-// eslint-env node
+// eslint-env node, commonjs
+
 import Datastore from "nedb";
 import fs from "fs";
 import gulp from "gulp";
@@ -33,6 +34,10 @@ const PACK_SRC = "packs/src";
  */
 const DB_CACHE = {};
 
+/**
+ * Indentation used for JSON in extraction
+ */
+const JSON_INDENT = 2;
 
 /**
  * Removes invisible whitespace characters and normalises single- and double-quotes.
@@ -118,6 +123,43 @@ const determineId = function (data, pack) {
 };
 
 /**
+ * Determine a subfolder name based on which pack is being extracted.
+ * @param {object} data  Data for the entry being extracted.
+ * @param {string} pack  Name of the pack.
+ * @returns {string}     Subfolder name the entry into which the entry should be created. An empty string if none.
+ * @private
+ */
+ const _getSubfolderName = function(data, pack) {
+  switch (pack) {
+    // Items should be grouped by type
+    case "items":
+      if ( data.type === "consumable" && data.system.consumableType ) {
+        return data.system.consumableType;
+      }
+      return data.type;
+
+    // Monsters should be grouped by CR
+    case "monsters":
+      if ( !data.system?.details?.type?.value ) {
+        return "";
+      }
+      return data.system.details.type.value;
+
+    // Spells should be grouped by level
+    case "spells":
+      if ( typeof data.system?.level === "undefined" ) {
+        return "";
+      }
+      if ( data.system.level === 0 ) {
+        return "cantrip";
+      }
+      return `level-${data.system.level}`;
+
+    default: return "";
+  }
+};
+
+/**
  * Cleans and formats source JSON files, removing unnecessary permissions and flags
  * and adding the proper spacing.
  *
@@ -128,8 +170,8 @@ const determineId = function (data, pack) {
 const cleanPacks = function() {
   const packName = parsedArgs.pack;
   const entryName = parsedArgs.name?.toLowerCase();
-  const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true })
-    .filter((file) => file.isDirectory() && ( !packName || (packName === file.name) ));
+  const folders = fs.readdirSync(PACK_SRC, {withFileTypes: true})
+    .filter((file) => file.isDirectory() && ( !packName || packName === file.name ));
 
   const packs = folders.map((folder) => {
     logger.info(`Cleaning pack ${folder.name}`);
@@ -137,15 +179,15 @@ const cleanPacks = function() {
       .pipe(through2.obj(async (file, enc, callback) => {
         const json = JSON.parse(file.contents.toString());
         const name = json.name.toLowerCase();
-        if ( entryName && (entryName !== name) ) {
+        if ( entryName && entryName !== name ) {
           return callback(null, file);
         }
         cleanPackEntry(json);
         if ( !json._id ) {
           json._id = await determineId(json, folder.name);
         }
-        fs.rmSync(file.path, { force: true });
-        fs.writeFileSync(file.path, `${JSON.stringify(json, null, 2)}\n`, { mode: 0o664 });
+        fs.rmSync(file.path, {force: true});
+        fs.writeFileSync(file.path, `${JSON.stringify(json, null, JSON_INDENT)}\n`, {mode: 0o664});
         callback(null, file);
       }));
   });
@@ -153,7 +195,6 @@ const cleanPacks = function() {
   return mergeStream(packs);
 };
 export const clean = cleanPacks;
-
 
 /* ----------------------------------------- */
 /*  Compile Packs                            */
@@ -173,8 +214,8 @@ const compilePacks = async function() {
 
   const packs = folders.map( (folder) => {
     const filePath = path.join(PACK_DEST, `${folder.name}.db`);
-    fs.rmSync(filePath, { force: true });
-    const db = fs.createWriteStream(filePath, { flags: "a", mode: 0o664 });
+    fs.rmSync(filePath, {force: true});
+    const db = fs.createWriteStream(filePath, {flags: "a", mode: 0o664});
     const data = [];
     logger.info(`Compiling pack ${folder.name}`);
     return gulp.src(path.join(PACK_SRC, folder.name, "/**/*.json"))
@@ -184,18 +225,20 @@ const compilePacks = async function() {
         data.push(json);
         callback(null, file);
       }, (callback) => {
+        // eslint-disable-next-line no-confusing-arrow
         data.sort( (lhs, rhs) => lhs._id > rhs._id ? 1 : -1);
-        data.forEach(entry => db.write(`${JSON.stringify(entry)}\n`));
+        data.forEach((entry) => db.write(`${JSON.stringify(entry)}\n`));
         callback();
       }));
   });
-  return await mergeStream(packs);
-}
+  const result = await mergeStream(packs);
+  return result;
+};
 export const compile = compilePacks;
 
 
 /* ----------------------------------------- */
-/*  Extract Packs
+/*  Extract Packs                            */
 /* ----------------------------------------- */
 
 /**
@@ -205,28 +248,34 @@ export const compile = compilePacks;
  * - `gulp extractPacks --pack classes` - Only extract the contents of the specified compendium.
  * - `gulp extractPacks --pack classes --name Barbarian` - Only extract a single item from the specified compendium.
  */
-function extractPacks() {
+const extractPacks = function () {
   const packName = parsedArgs.pack ?? "*";
   const entryName = parsedArgs.name?.toLowerCase();
   const packs = gulp.src(`${PACK_DEST}/**/${packName}.db`)
     .pipe(through2.obj((file, enc, callback) => {
       const filename = path.parse(file.path).name;
       const folder = path.join(PACK_SRC, filename);
-      if ( !fs.existsSync(folder) ) fs.mkdirSync(folder, { recursive: true, mode: 0o775 });
+      if ( !fs.existsSync(folder) ) {
+        fs.mkdirSync(folder, {recursive: true, mode: 0o775});
+      }
 
-      const db = new Datastore({ filename: file.path, autoload: true });
+      const db = new Datastore({filename: file.path, autoload: true});
       db.loadDatabase();
 
       db.find({}, (err, entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           const name = entry.name.toLowerCase();
-          if ( entryName && (entryName !== name) ) return;
+          if ( entryName && entryName !== name ) {
+            return;
+          }
           cleanPackEntry(entry);
-          const output = `${JSON.stringify(entry, null, 2)}\n`;
-          const outputName = name.replace("'", "").replace(/[^a-z0-9]+/gi, " ").trim().replace(/\s+|-{2,}/g, "-");
+          const output = `${JSON.stringify(entry, null, JSON_INDENT)}\n`;
+          const outputName = name.replace("'", "").replace(/[^a-z0-9]+/giu, " ").trim().replace(/\s+|-{2,}/gu, "-");
           const subfolder = path.join(folder, _getSubfolderName(entry, filename));
-          if ( !fs.existsSync(subfolder) ) fs.mkdirSync(subfolder, { recursive: true, mode: 0o775 });
-          fs.writeFileSync(path.join(subfolder, `${outputName}.json`), output, { mode: 0o664 });
+          if ( !fs.existsSync(subfolder) ) {
+            fs.mkdirSync(subfolder, {recursive: true, mode: 0o775});
+          }
+          fs.writeFileSync(path.join(subfolder, `${outputName}.json`), output, {mode: 0o664});
         });
       });
 
@@ -235,35 +284,5 @@ function extractPacks() {
     }));
 
   return mergeStream(packs);
-}
+};
 export const extract = extractPacks;
-
-
-/**
- * Determine a subfolder name based on which pack is being extracted.
- * @param {object} data  Data for the entry being extracted.
- * @param {string} pack  Name of the pack.
- * @returns {string}     Subfolder name the entry into which the entry should be created. An empty string if none.
- * @private
- */
-function _getSubfolderName(data, pack) {
-  switch (pack) {
-    // Items should be grouped by type
-    case "items":
-      if ( (data.type === "consumable") && data.system.consumableType ) return data.system.consumableType;
-      return data.type;
-
-    // Monsters should be grouped by CR
-    case "monsters":
-      if ( !data.system?.details?.type?.value ) return "";
-      return data.system.details.type.value;
-
-    // Spells should be grouped by level
-    case "spells":
-      if ( data.system?.level === undefined ) return "";
-      if ( data.system.level === 0 ) return "cantrip";
-      return `level-${data.system.level}`;
-
-    default: return "";
-  }
-}

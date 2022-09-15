@@ -113,10 +113,7 @@ module.exports = {
         "no-await-in-loop": "error",
         "no-bitwise": "error",
         "no-caller": "error",
-        "no-confusing-arrow": [
-            "error", 
-            {"onlyOneSimpleParam": true}
-        ],
+        "no-confusing-arrow": ["error", {"allowParens": true}],
         "no-console": "error",
         "no-constructor-return": "error",
         "no-continue": "error",
@@ -143,10 +140,7 @@ module.exports = {
         "no-lonely-if": "error",
         "no-loop-func": "error",
         "no-loss-of-precision": "error",
-        "no-magic-numbers": [
-            "error", 
-            {"ignore": [0, 1]} 
-        ],
+        "no-magic-numbers": ["error", {"ignore": [0, 1, -1]}],
         "no-mixed-operators": "error",
         "no-multi-assign": "error",
         "no-multi-spaces": "error",
