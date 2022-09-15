@@ -3,6 +3,6 @@
  */
  export default class ActorSheetFudgeMajor extends ActorSheet {
     get template() {
-        return `systems/fudge/templates/major-actor.hbs`;
+        return "systems/fudge/templates/major-actor.hbs";
     }
-};
+ }

@@ -1,12 +1,12 @@
-import Actor5e from "./documents/actor.mjs";
-import Item5e from "./documents/item.mjs";
+import ActorFudge from "./documents/actor.mjs";
+import ItemFudge from "./documents/item.mjs";
 import ActorSheetFudgeMajor from "./applications/major-actor.mjs";
 
-CONFIG.Actor.documentClass = Actor5e;
-CONFIG.Item.documentClass = Item5e;
+CONFIG.Actor.documentClass = ActorFudge;
+CONFIG.Item.documentClass = ItemFudge;
 
 Hooks.once("init", function() {
-    Actors.unregisterSheet("core", ActorSheet);
+    Actors.unregisterSheet("core", ActorFudge);
     Actors.registerSheet("fudge", ActorSheetFudgeMajor, {
       types: ["major"],
       makeDefault: true,

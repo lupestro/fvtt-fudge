@@ -6,9 +6,9 @@
   "scripts": {
     "build": "gulp buildAll",
     "build:db": "gulp compilePacks",
-    "build:watch": "gulp ",
     "lint": "gulp lint",
-    "lint:fix": "gulp lint:fix"
+    "lint:fix": "gulp lint:fix",
+    "extract": "gulp extractPacks"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",

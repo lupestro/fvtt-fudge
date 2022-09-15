@@ -1,3 +1,4 @@
+// eslint-env node
 import Datastore from "nedb";
 import fs from "fs";
 import gulp from "gulp";
@@ -33,8 +34,18 @@ const PACK_SRC = "packs/src";
 const DB_CACHE = {};
 
 
+/**
+ * Removes invisible whitespace characters and normalises single- and double-quotes.
+ * @param {string} str  The string to be cleaned.
+ * @returns {string}    The cleaned string.
+ */
+ const cleanString = function (str) {
+  // eslint-disable-next-line quotes
+  return str.replace(/\u2060/gu, "").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"');
+};
+
 /* ----------------------------------------- */
-/*  Clean Packs
+/*  Clean Packs                              */
 /* ----------------------------------------- */
 
 /**
@@ -43,24 +54,42 @@ const DB_CACHE = {};
  * @param {object} [options]
  * @param {boolean} [options.clearSourceId]  Should the core sourceId flag be deleted.
  */
-function cleanPackEntry(data, { clearSourceId=true }={}) {
-  if ( data.ownership ) data.ownership = { default: 0 };
-  if ( clearSourceId ) delete data.flags?.core?.sourceId;
+const cleanPackEntry = function (data, {clearSourceId = true} = {}) {
+  if ( data.ownership ) {
+    data.ownership = {default: 0};
+  }
+  if ( clearSourceId ) {
+    delete data.flags?.core?.sourceId;
+  }
   delete data.flags?.importSource;
   delete data.flags?.exportSource;
 
   // Remove empty entries in flags
-  if ( !data.flags ) data.flags = {};
+  if ( !data.flags ) {
+    data.flags = {};
+  }
   Object.entries(data.flags).forEach(([key, contents]) => {
-    if ( Object.keys(contents).length === 0 ) delete data.flags[key];
+    if ( Object.keys(contents).length === 0 ) {
+      delete data.flags[key];
+    }
   });
 
-  if ( data.effects ) data.effects.forEach(i => cleanPackEntry(i, { clearSourceId: false }));
-  if ( data.items ) data.items.forEach(i => cleanPackEntry(i, { clearSourceId: false }));
-  if ( data.system?.description?.value ) data.system.description.value = cleanString(data.system.description.value);
-  if ( data.label ) data.label = cleanString(data.label);
-  if ( data.name ) data.name = cleanString(data.name);
-}
+  if ( data.effects ) { 
+    data.effects.forEach( (effect) => cleanPackEntry(effect, {clearSourceId: false}));
+  }
+  if ( data.items ) {
+    data.items.forEach((item) => cleanPackEntry(item, {clearSourceId: false}));
+  }
+  if ( data.system?.description?.value ) {
+    data.system.description.value = cleanString(data.system.description.value);
+  }
+  if ( data.label ) {
+    data.label = cleanString(data.label);
+  }
+  if ( data.name ) {
+    data.name = cleanString(data.name);
+  }
+};
 
 
 /**
@@ -69,16 +98,16 @@ function cleanPackEntry(data, { clearSourceId=true }={}) {
  * @param {string} pack        Name of the pack to which this item belongs.
  * @returns {Promise<string>}  Resolves once the ID is determined.
  */
-function determineId(data, pack) {
-  const db_path = path.join(PACK_DEST, `${pack}.db`);
-  if ( !DB_CACHE[db_path] ) {
-    DB_CACHE[db_path] = new Datastore({ filename: db_path, autoload: true });
-    DB_CACHE[db_path].loadDatabase();
+const determineId = function (data, pack) {
+  const dbPath = path.join(PACK_DEST, `${pack}.db`);
+  if ( !DB_CACHE[dbPath] ) {
+    DB_CACHE[dbPath] = new Datastore({filename: dbPath, autoload: true});
+    DB_CACHE[dbPath].loadDatabase();
   }
-  const db = DB_CACHE[db_path];
+  const db = DB_CACHE[dbPath];
 
-  return new Promise((resolve, reject) => {
-    db.findOne({ name: data.name }, (err, entry) => {
+  return new Promise((resolve) => {
+    db.findOne({name: data.name}, (err, entry) => {
       if ( entry ) {
         resolve(entry._id);
       } else {
@@ -86,16 +115,7 @@ function determineId(data, pack) {
       }
     });
   });
-}
-
-/**
- * Removes invisible whitespace characters and normalises single- and double-quotes.
- * @param {string} str  The string to be cleaned.
- * @returns {string}    The cleaned string.
- */
-function cleanString(str) {
-  return str.replace(/\u2060/gu, "").replace(/[‘’]/gu, "'").replace(/[“”]/gu, '"');
-}
+};
 
 /**
  * Cleans and formats source JSON files, removing unnecessary permissions and flags
@@ -105,22 +125,25 @@ function cleanString(str) {
  * - `gulp cleanPacks --pack classes` - Only clean the source files for the specified compendium.
  * - `gulp cleanPacks --pack classes --name Barbarian` - Only clean a single item from the specified compendium.
  */
-function cleanPacks() {
+const cleanPacks = function() {
   const packName = parsedArgs.pack;
   const entryName = parsedArgs.name?.toLowerCase();
-  const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true }).filter(file =>
-    file.isDirectory() && ( !packName || (packName === file.name) )
-  );
+  const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true })
+    .filter((file) => file.isDirectory() && ( !packName || (packName === file.name) ));
 
-  const packs = folders.map(folder => {
+  const packs = folders.map((folder) => {
     logger.info(`Cleaning pack ${folder.name}`);
     return gulp.src(path.join(PACK_SRC, folder.name, "/**/*.json"))
       .pipe(through2.obj(async (file, enc, callback) => {
         const json = JSON.parse(file.contents.toString());
         const name = json.name.toLowerCase();
-        if ( entryName && (entryName !== name) ) return callback(null, file);
+        if ( entryName && (entryName !== name) ) {
+          return callback(null, file);
+        }
         cleanPackEntry(json);
-        if ( !json._id ) json._id = await determineId(json, folder.name);
+        if ( !json._id ) {
+          json._id = await determineId(json, folder.name);
+        }
         fs.rmSync(file.path, { force: true });
         fs.writeFileSync(file.path, `${JSON.stringify(json, null, 2)}\n`, { mode: 0o664 });
         callback(null, file);
@@ -128,12 +151,12 @@ function cleanPacks() {
   });
 
   return mergeStream(packs);
-}
+};
 export const clean = cleanPacks;
 
 
 /* ----------------------------------------- */
-/*  Compile Packs
+/*  Compile Packs                            */
 /* ----------------------------------------- */
 
 /**
@@ -142,14 +165,13 @@ export const clean = cleanPacks;
  * - `gulp compilePacks` - Compile all JSON files into their NEDB files.
  * - `gulp compilePacks --pack classes` - Only compile the specified pack.
  */
-async function compilePacks() {
+const compilePacks = async function() {
   const packName = parsedArgs.pack;
   // Determine which source folders to process
-  const folders = fs.readdirSync(PACK_SRC, { withFileTypes: true }).filter(file =>
-    file.isDirectory() && ( !packName || (packName === file.name) )
-  );
+  const folders = fs.readdirSync(PACK_SRC, {withFileTypes: true})
+    .filter((file) => file.isDirectory() && ( !packName || packName === file.name ));
 
-  const packs = folders.map(folder => {
+  const packs = folders.map( (folder) => {
     const filePath = path.join(PACK_DEST, `${folder.name}.db`);
     fs.rmSync(filePath, { force: true });
     const db = fs.createWriteStream(filePath, { flags: "a", mode: 0o664 });
@@ -161,8 +183,8 @@ async function compilePacks() {
         cleanPackEntry(json);
         data.push(json);
         callback(null, file);
-      }, callback => {
-        data.sort((lhs, rhs) => lhs._id > rhs._id ? 1 : -1);
+      }, (callback) => {
+        data.sort( (lhs, rhs) => lhs._id > rhs._id ? 1 : -1);
         data.forEach(entry => db.write(`${JSON.stringify(entry)}\n`));
         callback();
       }));

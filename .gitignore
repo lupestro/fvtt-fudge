@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Compiled results
+packs/*.db
+./fudge.mjs
+./fudge.mjs.map

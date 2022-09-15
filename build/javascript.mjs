@@ -1,9 +1,11 @@
+/* eslint-env node, es2022 */
+
 import eslint from "gulp-eslint7";
 import gulp from "gulp";
 import gulpIf from "gulp-if";
 import mergeStream from "merge-stream";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import { rollup } from "rollup";
+import {rollup} from "rollup";
 import yargs from "yargs";
 
 
@@ -17,7 +19,7 @@ const parsedArgs = yargs(process.argv).argv;
  * Paths of javascript files that should be linted.
  * @type {string[]}
  */
-const LINTING_PATHS = ["./module/"];
+const LINTING_PATHS = ["./module/**/*.mjs"];
 
 
 /**
@@ -25,7 +27,7 @@ const LINTING_PATHS = ["./module/"];
  *
  * - `gulp buildJS` - Compile all javascript files into into single file & build source maps.
  */
-async function compileJavascript() {
+const compileJavascript = async function () {
   const bundle = await rollup({
     input: "./module/fudge.mjs",
     plugins: [nodeResolve()]
@@ -36,9 +38,8 @@ async function compileJavascript() {
     sourcemap: true,
     sourcemapFile: "./module/fudge.mjs"
   });
-}
+};
 export const compile = compileJavascript;
-
 
 /**
  * Lint javascript sources and optionally applies fixes.
@@ -46,17 +47,18 @@ export const compile = compileJavascript;
  * - `gulp lint` - Lint all javascript files.
  * - `gulp lint --fix` - Lint and apply available fixes automatically.
  */
-function lintJavascript() {
-  const applyFixes = !!parsedArgs.fix;
-  const tasks = LINTING_PATHS.map(path => {
+const lintJavascript = function() {
+  const applyFixes = Boolean(parsedArgs.fix);
+  const tasks = LINTING_PATHS.map( (path) => {
     const src = path.endsWith("/") ? `${path}**/*.mjs` : path;
+    // eslint-disable-next-line no-magic-numbers
     const dest = path.endsWith("/") ? path : `${path.split("/").slice(0, -1).join("/")}/`;
     return gulp
       .src(src)
       .pipe(eslint({fix: applyFixes}))
       .pipe(eslint.format())
-      .pipe(gulpIf(file => file.eslint != null && file.eslint.fixed, gulp.dest(dest)));
+      .pipe(gulpIf((file) => file.eslint !== null && file.eslint.fixed, gulp.dest(dest)));
   });
   return mergeStream(tasks);
-}
+};
 export const lint = lintJavascript;
