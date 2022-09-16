@@ -11,6 +11,7 @@ module.exports = {
         "Actors": "readonly",
         "ActorSheet": "readonly",
         "Item": "readonly",
+        "Handlebars": "readonly",
         "Hooks": "readonly",
         "loadTemplates": "readonly"
     },

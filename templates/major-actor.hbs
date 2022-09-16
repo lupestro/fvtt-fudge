@@ -24,41 +24,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Superb</td>
-                                <td>+3</td>
-                                <td>8</td>
-                            </tr>
-                            <tr>
-                                <td>Great</td>
-                                <td>+2</td>
-                                <td>4</td>
-                            </tr>
-                            <tr>
-                                <td>Good</td>
-                                <td>+1</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Fair</td>
-                                <td>0</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Mediocre</td>
-                                <td>-1</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Poor</td>
-                                <td>-2</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td>Terrible</td>
-                                <td>-3</td>
-                                <td>1</td>
-                            </tr>
+                            {{#each traitlevels as |level|}}
+                                <tr>
+                                    <td>{{level.name}}</td>
+                                    <td>{{displayWithSign level.value}}</td>
+                                    <td>{{level.ep}}</td>
+                                </tr>
+                            {{/each}}
                         </tbody>
                     </table>
                 </div>
@@ -79,37 +51,45 @@
                         <div class="level">
                             <div>1-2</div>
                             <div class="checks">
-                                <input type="checkbox">
-                                <input type="checkbox">
-                                <input type="checkbox">
+                                {{#each woundlevels.scratch as | box |}}
+                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{/each}}
                             </div>
                             <div>{{ localize "FUDGE.Scratch" }}</div>
                         </div>
                         <div class="level">
                             <div>3-4</div>
                             <div class="checks">
-                                <input type="checkbox">
+                                {{#each woundlevels.hurt as | box |}}
+                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.Hurt' }} (-1)</div>
                         </div>
                         <div class="level">
                             <div>5-6</div>
                             <div class="checks">
-                                <input type="checkbox">
+                                {{#each woundlevels.veryhurt as | box |}}
+                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.VeryHurt' }} (-2)</div>
                         </div>
                         <div class="level">
                             <div>7-8</div>
                             <div class="checks">
-                                <input type="checkbox">
+                                {{#each woundlevels.incapacitated as | box |}}
+                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.Incapacitated' }}</div>
                         </div>
                         <div class="level">
                             <div>9+</div>
                             <div class="checks">
-                                <input type="checkbox">
+                                {{#each woundlevels.neardeath as | box |}}
+                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.NearDeath' }}</div>
                         </div>
@@ -122,109 +102,55 @@
                 <section class="attributes">
                     <h2>{{ localize 'FUDGE.Attributes' }}</h2>
                     <div class="levellist">
-                        <label for="a1">Perception</label>
-                        <select id="a1" name="perception" data="Perception">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
-                        <label for="a2">Reasoning</label>
-                        <select id="a2" data="Reasoning">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
-                        <label for="a3">Resolve</label>
-                        <select id="a3" data="Resolve">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
-                        <label for="a4">Strength</label>
-                        <select id="a4" data="Strength">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
-                        <label for="a5">Dexterity</label>
-                        <select id="a5" data="Dexterity">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
-                        <label for="a6">Vigor</label>
-                        <select id="a6" data="Vigor">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
+                        {{#each actor.items as |item|}}
+                            {{#if (eq item.type "attributeset")}}
+                                {{#each item.system.attributes as |attribute idx|}}
+                                    <label for="attr-{{idx}}">{{attribute.name}}</label>
+                                    <select id="attr-{{idx}}" name="attr-{{idx}}">
+                                        {{#each ../../traitlevels as |level|}}
+                                            <option value="{{level.value}}"
+                                            {{#if (eq attribute.level level.value)}} selected {{/if}}
+                                            >{{level.name}}</option>
+                                        {{/each}}
+                                    </select>
+                                {{/each}}
+                            {{/if}}
+                        {{/each}}
                     </div>
                 </section>
                 <section class="gifts">
                     <h2>{{ localize 'FUDGE.GiftsPowers' }}</h2>
                     <div class="traitlist">
-                        <div id="g1" class="nonlevel-item">Acute Hearing</div>
-                        <button type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
-                        <div id="g2" class="nonlevel-item">Golden Voice</div>
-                        <button type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
+                        {{#each actor.items as |item|}}
+                            {{#if (eq item.type "gift")}}
+                                <div class="nonlevel-item">{{item.name}}</div>
+                                <button id="del-{{item.id}}" type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
+                            {{/if}}
+                        {{/each}}
                     </div>
                 </section>
                 <section class="skills">
                     <h2>{{ localize 'FUDGE.Skills' }}</h2>
                     <div class="levellist levellist--dl">
-                        <label for="s1">Swordsmanship</label>
-                        <select id="s1" data="s1">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
-                        <button id="f1-x" class="edit-button" title="Edit" type="button"><i class="fas fa-edit"></i></button>
-                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
-                        <!-- Specialization example - kind of ugly right now - save for later
-                        <input id="s2-spec" name="s2-spec" placeholder="Rapier" class="specialization" style="margin-left: 20px;">
-                        <div></div>
-                        <div></div>
-                        -->
-                        <label for="s2">Diplomacy</label>
-                        <select id="s2" data="s2">
-                            <option value="3">Superb</option>
-                            <option value="2">Great</option>
-                            <option value="1">Good</option>
-                            <option value="0" selected>Fair</option>
-                            <option value="-1">Mediocre</option>
-                            <option value="-2">Poor</option>
-                            <option value="-3">Terrible</option>
-                        </select>
-                        <button id="f1-x" class="edit-button" title="Edit" type="button"><i class="fas fa-edit"></i></button>
-                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                        {{#each actor.items as |item|}}
+                            {{#if (eq item.type "skill")}}
+                                <label for="sel-{{item.id}}">{{item.name}}</label>
+                                <select id="sel-{{item.id}}" name="sel-{{item.id}}">
+                                    {{#each ../traitlevels as |level|}}
+                                        <option value="{{level.value}}"
+                                        {{#if (eq item.system.level level.value)}} selected {{/if}}
+                                        >{{level.name}}</option>
+                                    {{/each}}
+                                </select>
+                                <button id="edit-{{item.id}}" class="edit-button" title="Edit" type="button"><i class="fas fa-edit"></i></button>
+                                <button id="del-{{item.id}}" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                                <!-- Specialization example - kind of ugly right now - save for later
+                                <input id="s2-spec" name="s2-spec" placeholder="Rapier" class="specialization" style="margin-left: 20px;">
+                                <div></div>
+                                <div></div>
+                                -->
+                            {{/if}}
+                        {{/each}}
                     </div>
                 </section>
                 <section class="equipment">
@@ -233,24 +159,27 @@
                         <div class="eqtitle">Item</div>
                         <div class="eqtitle">DF</div>
                         <div class="eqtitle"></div>
-                        <div class="eqname">Fountain Pen</div>
-                        <div class="df"></div>
-                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
-                        <div class="eqname">Short Sword</div>
-                        <div class="df">O+2</div>
-                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
-                        <div class="eqname">Leather Jacket</div>
-                        <div class="df">D+1</div>
-                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                        {{#each actor.items as |item|}}
+                            {{#if (eq item.type "equipment")}}
+                                <div class="eqname">{{item.name}}</div>
+                                <div class="df">
+                                    {{#if item.system.odf}}O{{displayWithSign item.system.odf}}{{/if}}
+                                    {{#if item.system.ddf}}D{{displayWithSign item.system.ddf}}{{/if}}
+                                </div>
+                                <button id="del-{{item.id}}" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                            {{/if}}
+                        {{/each}}
                     </div>
                </section>
                 <section class="faults">
                     <h2>{{ localize 'FUDGE.Faults' }}</h2>
                     <div class="traitlist">
-                        <div id="f1">Blurry Vision</div>
-                        <button id="f1-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
-                        <div id="f2">Arthritic Knee</div>
-                        <button id="f2-x" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
+                        {{#each actor.items as |item|}}
+                            {{#if (eq item.type "fault")}}
+                                <div class="nonlevel-item">{{item.name}}</div>
+                                <button id="del-{{item.id}}" type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
+                            {{/if}}
+                        {{/each}}
                     </div>
                 </section>
             </section>
