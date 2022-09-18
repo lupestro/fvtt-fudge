@@ -167,3 +167,6 @@ main {
 .eqlist .eqtitle {
     font-weight: bold;
 }
+.delete-button i {
+    pointer-events: none;
+}

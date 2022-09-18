@@ -4,10 +4,11 @@
   "description": "Games based on the Freeform Universal Do-It-Yourself Gaming Engine (FUDGE).",
   "version": "1.0.0",
   "authors": [
-    { 
+    {
       "name": "lupestro",
       "email": "lupestro@macksoft.com",
-      "discord": "@lupestro#2211"
+      "discord": "@lupestro#2211",
+      "flags": {}
     }
   ],
   "compatibility": {
@@ -28,7 +29,8 @@
       "path": "packs/skills.db",
       "type": "Item",
       "system": "fudge",
-      "module": "fudge"
+      "private": false,
+      "flags": {}
     },
     {
       "name": "gifts",
@@ -36,7 +38,8 @@
       "path": "packs/gifts.db",
       "type": "Item",
       "system": "fudge",
-      "module": "fudge"
+      "private": false,
+      "flags": {}
     },
     {
       "name": "faults",
@@ -44,7 +47,8 @@
       "path": "packs/faults.db",
       "type": "Item",
       "system": "fudge",
-      "module": "fudge"
+      "private": false,
+      "flags": {}
     },
     {
       "name": "equipment",
@@ -52,17 +56,18 @@
       "path": "packs/equipment.db",
       "type": "Item",
       "system": "fudge",
-      "module": "fudge"
+      "private": false,
+      "flags": {}
     }
   ],
   "languages": [
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
-  "socket": false,
   "url": "https://github.com/lupestro/fvtt-fudge/",
   "manifest": "https://raw.githubusercontent.com/lupestro/fvtt-fudge/main/system.json",
   "download": "https://raw.githubusercontent.com/lupestro//fvtt-fudge/main/fvtt-fudge.zip"

@@ -38,10 +38,10 @@
                     <h2>Stats</h2>
                     <div class="fields">
                         <label>{{ localize 'FUDGE.FP' }}
-                            <input name="fp" type="text" value="{{actor.system.fp}}" placeholder="{{ localize 'FUDGE.FP' }}"/>
+                            <input id="fp" name="fp" type="text" value="{{actor.system.fp}}" placeholder="{{ localize 'FUDGE.FP' }}"/>
                         </label>
                         <label>{{ localize 'FUDGE.EP' }}
-                            <input name="ep" type="text" value="{{actor.system.ep}}" placeholder="{{ localize 'FUDGE.EP' }}"/>
+                            <input id="ep" name="ep" type="text" value="{{actor.system.ep}}" placeholder="{{ localize 'FUDGE.EP' }}"/>
                         </label>
                     </div>
                 </div>
@@ -51,8 +51,8 @@
                         <div class="level">
                             <div>1-2</div>
                             <div class="checks">
-                                {{#each woundlevels.scratch as | box |}}
-                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{#each woundlevels.scratch as | box idx |}}
+                                    <input id="scratch-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
                                 {{/each}}
                             </div>
                             <div>{{ localize "FUDGE.Scratch" }}</div>
@@ -60,8 +60,8 @@
                         <div class="level">
                             <div>3-4</div>
                             <div class="checks">
-                                {{#each woundlevels.hurt as | box |}}
-                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{#each woundlevels.hurt as | box idx |}}
+                                    <input id="hurt-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
                                 {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.Hurt' }} (-1)</div>
@@ -69,8 +69,8 @@
                         <div class="level">
                             <div>5-6</div>
                             <div class="checks">
-                                {{#each woundlevels.veryhurt as | box |}}
-                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{#each woundlevels.veryhurt as | box idx |}}
+                                    <input id="veryhurt-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
                                 {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.VeryHurt' }} (-2)</div>
@@ -78,8 +78,8 @@
                         <div class="level">
                             <div>7-8</div>
                             <div class="checks">
-                                {{#each woundlevels.incapacitated as | box |}}
-                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{#each woundlevels.incapacitated as | box idx |}}
+                                    <input id="incapacitated-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
                                 {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.Incapacitated' }}</div>
@@ -87,8 +87,8 @@
                         <div class="level">
                             <div>9+</div>
                             <div class="checks">
-                                {{#each woundlevels.neardeath as | box |}}
-                                    <input type="checkbox" {{#if box}}checked{{/if}}>
+                                {{#each woundlevels.neardeath as | box idx |}}
+                                    <input id="neardeath-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
                                 {{/each}}
                             </div>
                             <div>{{ localize 'FUDGE.NearDeath' }}</div>
@@ -106,7 +106,7 @@
                             {{#if (eq item.type "attributeset")}}
                                 {{#each item.system.attributes as |attribute idx|}}
                                     <label for="attr-{{idx}}">{{attribute.name}}</label>
-                                    <select id="attr-{{idx}}" name="attr-{{idx}}">
+                                    <select id="attr-{{idx}}" name="attr-{{idx}}" class="traitselect">
                                         {{#each ../../traitlevels as |level|}}
                                             <option value="{{level.value}}"
                                             {{#if (eq attribute.level level.value)}} selected {{/if}}
@@ -135,7 +135,7 @@
                         {{#each actor.items as |item|}}
                             {{#if (eq item.type "skill")}}
                                 <label for="sel-{{item.id}}">{{item.name}}</label>
-                                <select id="sel-{{item.id}}" name="sel-{{item.id}}">
+                                <select id="sel-{{item.id}}" name="sel-{{item.id}}" class="traitselect">
                                     {{#each ../traitlevels as |level|}}
                                         <option value="{{level.value}}"
                                         {{#if (eq item.system.level level.value)}} selected {{/if}}
