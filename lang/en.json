@@ -1,5 +1,6 @@
 {
     "FUDGE.SheetClassCharacter": "Default FUDGE Character Sheet",
+    "FUDGE.SheetClassItem": "Default FUDGE Item Sheet",
     "FUDGE.CharacterName": "Character Name",
     "FUDGE.PlayerName": "Player Name",
     "FUDGE.TraitValues": "Fudge Trait Values",
@@ -18,5 +19,11 @@
     "FUDGE.Skills": "Skills",
     "FUDGE.GiftsPowers": "Gifts & Powers",
     "FUDGE.Faults": "Faults",
-    "FUDGE.Equipment": "Equipment"
+    "FUDGE.Equipment": "Equipment",
+    "FUDGE.SkillGroup": "Skill Group",
+    "FUDGE.ODF": "Offensive DF (ODF)",
+    "FUDGE.DDF": "Defensive DF (DDF)",
+    "FUDGE.Quantity": "Quantity",
+    "FUDGE.Notes": "Notes",
+    "FUDGE.Description": "Description"
 }

@@ -1,187 +1,214 @@
-    <form class="actor">
-        <header>
-            <section class="names">
-                <div class="field">
-                    <label>{{ localize 'FUDGE.CharacterName' }}
-                        <input name="charname" id="charname" type="text" value="{{actor.name}}" placeholder="{{ localize 'FUDGE.CharacterName' }}"/>
-                    </label>
-                </div>
-                <div class="field">
-                    <label for="playername">{{ localize 'FUDGE.PlayerName' }}
-                        <input name="playername" id="playername" type="text" value="Me" placeholder="My Name" />
-                    </label>
-                </div>
-            </section>
-            <section class="basedata">
-                <div class="traitinfo">
-                    <h2>{{ localize 'FUDGE.TraitValues' }}</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>{{ localize 'FUDGE.Level' }}</th>
-                                <th>{{ localize 'FUDGE.Value' }}</th>
-                                <th>{{ localize 'FUDGE.EPCost' }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each traitlevels as |level|}}
-                                <tr>
-                                    <td>{{level.name}}</td>
-                                    <td>{{displayWithSign level.value}}</td>
-                                    <td>{{level.ep}}</td>
-                                </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-                <div class="stats">
-                    <h2>Stats</h2>
-                    <div class="fields">
-                        <label>{{ localize 'FUDGE.FP' }}
-                            <input id="fp" name="fp" type="text" value="{{actor.system.fp}}" placeholder="{{ localize 'FUDGE.FP' }}"/>
-                        </label>
-                        <label>{{ localize 'FUDGE.EP' }}
-                            <input id="ep" name="ep" type="text" value="{{actor.system.ep}}" placeholder="{{ localize 'FUDGE.EP' }}"/>
-                        </label>
-                    </div>
-                </div>
-                <div class="wounds">
-                    <h2>{{ localize 'FUDGE.Wounds' }}</h2>
-                    <div class="woundlevels">
-                        <div class="level">
-                            <div>1-2</div>
-                            <div class="checks">
-                                {{#each woundlevels.scratch as | box idx |}}
-                                    <input id="scratch-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
-                                {{/each}}
-                            </div>
-                            <div>{{ localize "FUDGE.Scratch" }}</div>
-                        </div>
-                        <div class="level">
-                            <div>3-4</div>
-                            <div class="checks">
-                                {{#each woundlevels.hurt as | box idx |}}
-                                    <input id="hurt-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
-                                {{/each}}
-                            </div>
-                            <div>{{ localize 'FUDGE.Hurt' }} (-1)</div>
-                        </div>
-                        <div class="level">
-                            <div>5-6</div>
-                            <div class="checks">
-                                {{#each woundlevels.veryhurt as | box idx |}}
-                                    <input id="veryhurt-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
-                                {{/each}}
-                            </div>
-                            <div>{{ localize 'FUDGE.VeryHurt' }} (-2)</div>
-                        </div>
-                        <div class="level">
-                            <div>7-8</div>
-                            <div class="checks">
-                                {{#each woundlevels.incapacitated as | box idx |}}
-                                    <input id="incapacitated-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
-                                {{/each}}
-                            </div>
-                            <div>{{ localize 'FUDGE.Incapacitated' }}</div>
-                        </div>
-                        <div class="level">
-                            <div>9+</div>
-                            <div class="checks">
-                                {{#each woundlevels.neardeath as | box idx |}}
-                                    <input id="neardeath-{{idx}}" class="woundbox" type="checkbox" {{#if box}}checked{{/if}}>
-                                {{/each}}
-                            </div>
-                            <div>{{ localize 'FUDGE.NearDeath' }}</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </header>
-        <main>
-            <section class="traits">
-                <section class="attributes">
-                    <h2>{{ localize 'FUDGE.Attributes' }}</h2>
-                    <div class="levellist">
-                        {{#each actor.items as |item|}}
-                            {{#if (eq item.type "attributeset")}}
-                                {{#each item.system.attributes as |attribute idx|}}
-                                    <label for="attr-{{idx}}">{{attribute.name}}</label>
-                                    <select id="attr-{{idx}}" name="attr-{{idx}}" class="traitselect">
-                                        {{#each ../../traitlevels as |level|}}
-                                            <option value="{{level.value}}"
-                                            {{#if (eq attribute.level level.value)}} selected {{/if}}
-                                            >{{level.name}}</option>
-                                        {{/each}}
-                                    </select>
-                                {{/each}}
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                </section>
-                <section class="gifts">
-                    <h2>{{ localize 'FUDGE.GiftsPowers' }}</h2>
-                    <div class="traitlist">
-                        {{#each actor.items as |item|}}
-                            {{#if (eq item.type "gift")}}
-                                <div class="nonlevel-item">{{item.name}}</div>
-                                <button id="del-{{item.id}}" type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                </section>
-                <section class="skills">
-                    <h2>{{ localize 'FUDGE.Skills' }}</h2>
-                    <div class="levellist levellist--dl">
-                        {{#each actor.items as |item|}}
-                            {{#if (eq item.type "skill")}}
-                                <label for="sel-{{item.id}}">{{item.name}}</label>
-                                <select id="sel-{{item.id}}" name="sel-{{item.id}}" class="traitselect">
-                                    {{#each ../traitlevels as |level|}}
-                                        <option value="{{level.value}}"
-                                        {{#if (eq item.system.level level.value)}} selected {{/if}}
-                                        >{{level.name}}</option>
-                                    {{/each}}
-                                </select>
-                                <button id="edit-{{item.id}}" class="edit-button" title="Edit" type="button"><i class="fas fa-edit"></i></button>
-                                <button id="del-{{item.id}}" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
-                                <!-- Specialization example - kind of ugly right now - save for later
-                                <input id="s2-spec" name="s2-spec" placeholder="Rapier" class="specialization" style="margin-left: 20px;">
-                                <div></div>
-                                <div></div>
-                                -->
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                </section>
-                <section class="equipment">
-                    <h2>{{ localize 'FUDGE.Equipment' }}</h2>
-                    <div class="eqlist">
-                        <div class="eqtitle">Item</div>
-                        <div class="eqtitle">DF</div>
-                        <div class="eqtitle"></div>
-                        {{#each actor.items as |item|}}
-                            {{#if (eq item.type "equipment")}}
-                                <div class="eqname">{{item.name}}</div>
-                                <div class="df">
-                                    {{#if item.system.odf}}O{{displayWithSign item.system.odf}}{{/if}}
-                                    {{#if item.system.ddf}}D{{displayWithSign item.system.ddf}}{{/if}}
-                                </div>
-                                <button id="del-{{item.id}}" class="delete-button" title="Delete" type="button"><i class="fas fa-trash"></i></button>
-                            {{/if}}
-                        {{/each}}
-                    </div>
-               </section>
-                <section class="faults">
-                    <h2>{{ localize 'FUDGE.Faults' }}</h2>
-                    <div class="traitlist">
-                        {{#each actor.items as |item|}}
-                            {{#if (eq item.type "fault")}}
-                                <div class="nonlevel-item">{{item.name}}</div>
-                                <button id="del-{{item.id}}" type="button" class="delete-button" title="Delete"><i class="fas fa-trash"></i></button>
-                            {{/if}}
-                        {{/each}}
-                    </div>
-                </section>
-            </section>
-        </main>
-    </form>
+<form class="actor">
+  <header>
+    <section class="names">
+      <div class="field">
+        <label>{{ localize 'FUDGE.CharacterName' }}
+          <input name="charname" id="charname" type="text" 
+            value="{{actor.name}}" 
+            placeholder="{{ localize 'FUDGE.CharacterName' }}"/>
+        </label>
+      </div>
+      <div class="field">
+        <label for="playername">{{ localize 'FUDGE.PlayerName' }}
+          <input name="playername" id="playername" type="text" value="Me" 
+            placeholder="My Name" />
+        </label>
+      </div>
+    </section>
+    <section class="basedata">
+      <div class="traitinfo">
+        <h2>{{ localize 'FUDGE.TraitValues' }}</h2>
+        <table>
+          <thead>
+            <tr>
+                <th>{{ localize 'FUDGE.Level' }}</th>
+                <th>{{ localize 'FUDGE.Value' }}</th>
+                <th>{{ localize 'FUDGE.EPCost' }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each traitlevels as |level|}}
+              <tr>
+                <td>{{level.name}}</td>
+                <td>{{displayWithSign level.value}}</td>
+                <td>{{level.ep}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="stats">
+        <h2>Stats</h2>
+        <div class="fields">
+          <label>{{ localize 'FUDGE.FP' }}
+            <input id="fp" name="fp" type="text" value="{{actor.system.fp}}" 
+              placeholder="{{ localize 'FUDGE.FP' }}"/>
+          </label>
+          <label>{{ localize 'FUDGE.EP' }}
+            <input id="ep" name="ep" type="text" value="{{actor.system.ep}}" 
+              placeholder="{{ localize 'FUDGE.EP' }}"/>
+          </label>
+        </div>
+      </div>
+      <div class="wounds">
+        <h2>{{ localize 'FUDGE.Wounds' }}</h2>
+        <div class="woundlevels">
+          <div class="level">
+            <div>1-2</div>
+            <div class="checks">
+              {{#each woundlevels.scratch as | box idx |}}
+                <input id="scratch-{{idx}}" class="woundbox" type="checkbox" 
+                  {{#if box}}checked{{/if}}>
+              {{/each}}
+            </div>
+            <div>{{ localize "FUDGE.Scratch" }}</div>
+          </div>
+          <div class="level">
+            <div>3-4</div>
+            <div class="checks">
+              {{#each woundlevels.hurt as | box idx |}}
+                <input id="hurt-{{idx}}" class="woundbox" type="checkbox" 
+                  {{#if box}}checked{{/if}}>
+              {{/each}}
+            </div>
+            <div>{{ localize 'FUDGE.Hurt' }} (-1)</div>
+          </div>
+          <div class="level">
+            <div>5-6</div>
+            <div class="checks">
+              {{#each woundlevels.veryhurt as | box idx |}}
+                  <input id="veryhurt-{{idx}}" class="woundbox" type="checkbox" 
+                    {{#if box}}checked{{/if}}>
+              {{/each}}
+            </div>
+            <div>{{ localize 'FUDGE.VeryHurt' }} (-2)</div>
+          </div>
+          <div class="level">
+            <div>7-8</div>
+            <div class="checks">
+              {{#each woundlevels.incapacitated as | box idx |}}
+                <input id="incapacitated-{{idx}}" class="woundbox" type="checkbox"
+                  {{#if box}}checked{{/if}}>
+              {{/each}}
+            </div>
+            <div>{{ localize 'FUDGE.Incapacitated' }}</div>
+          </div>
+          <div class="level">
+            <div>9+</div>
+            <div class="checks">
+              {{#each woundlevels.neardeath as | box idx |}}
+                <input id="neardeath-{{idx}}" class="woundbox" type="checkbox" 
+                  {{#if box}}checked{{/if}}>
+              {{/each}}
+            </div>
+            <div>{{ localize 'FUDGE.NearDeath' }}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="traits">
+      <section class="attributes">
+        <h2>{{ localize 'FUDGE.Attributes' }}</h2>
+        <div class="levellist levellist-attr">
+            {{#each attributeset.system.attributes as |attribute idx|}}
+              <label for="attr-{{idx}}">{{attribute.name}}</label>
+              <select id="attr-{{idx}}" name="attr-{{idx}}" class="traitselect">
+                {{#each ../traitlevels as |level|}}
+                  <option value="{{level.value}}"
+                  {{#if (eq attribute.level level.value)}} selected {{/if}}
+                  >
+                    {{level.name}}
+                  </option>
+                {{/each}}
+              </select>
+              <button id="roll-attr-{{idx}}" type="button" class="roll-button" 
+                title="Roll"><i class="fas fa-dice-d6"></i></button>
+            {{/each}}
+        </div>
+      </section>
+      <section class="gifts">
+        <h2>{{ localize 'FUDGE.GiftsPowers' }}</h2>
+        <div class="traitlist">
+          {{#each actor.items as |item|}}
+              {{#if (eq item.type "gift")}}
+                <div class="nonlevel-item">{{item.name}}</div>
+                <button id="del-{{item.id}}" type="button" class="delete-button" 
+                  title="Delete"><i class="fas fa-trash"></i></button>
+              {{/if}}
+          {{/each}}
+        </div>
+      </section>
+      <section class="skills">
+          <h2>{{ localize 'FUDGE.Skills' }}</h2>
+          <div class="levellist levellist--dl">
+            {{#each actor.items as |item|}}
+              {{#if (eq item.type "skill")}}
+                <label for="sel-{{item.id}}">{{item.name}}</label>
+                <select id="sel-{{item.id}}" name="sel-{{item.id}}" 
+                  class="traitselect">
+                  {{#each ../traitlevels as |level|}}
+                    <option value="{{level.value}}"
+                    {{#if (eq item.system.level level.value)}} selected {{/if}}
+                    >
+                      {{level.name}}
+                    </option>
+                  {{/each}}
+                </select>
+                <button id="roll-skill-{{item.id}}" class="roll-button" title="Roll" 
+                  type="button" ><i class="fas fa-dice-d6"></i></button>
+                <!-- <button id="edit-{{item.id}}" class="edit-button" title="Edit" 
+                  type="button"><i class="fas fa-edit"></i></button> -->
+                <button id="del-{{item.id}}" class="delete-button" title="Delete" 
+                  type="button"><i class="fas fa-trash"></i></button>
+                <!-- Specialization example - kind of ugly right now - save for later
+                <input id="s2-spec" name="s2-spec" placeholder="Rapier" 
+                  class="specialization" style="margin-left: 20px;">
+                <div></div>
+                <div></div>
+                -->
+              {{/if}}
+            {{/each}}
+          </div>
+      </section>
+      <section class="equipment">
+        <h2>{{ localize 'FUDGE.Equipment' }}</h2>
+        <div class="eqlist">
+          <div class="eqtitle">Item</div>
+          <div class="eqtitle">DF</div>
+          <div class="eqtitle"></div>
+          {{#each actor.items as |item|}}
+            {{#if (eq item.type "equipment")}}
+              <div class="eqname">{{item.name}}</div>
+              <div class="df">
+                {{#if item.system.odf}}O{{displayWithSign item.system.odf}}{{/if}}
+                {{#if item.system.ddf}}D{{displayWithSign item.system.ddf}}{{/if}}
+              </div>
+              <button id="del-{{item.id}}" class="delete-button" title="Delete" 
+                type="button"><i class="fas fa-trash"></i></button>
+            {{/if}}
+          {{/each}}
+        </div>
+      </section>
+      <section class="faults">
+        <h2>{{ localize 'FUDGE.Faults' }}</h2>
+        <div class="traitlist">
+          {{#each actor.items as |item|}}
+            {{#if (eq item.type "fault")}}
+              <div class="nonlevel-item">{{item.name}}</div>
+              <button id="del-{{item.id}}" class="delete-button" title="Delete"
+                type="button"><i class="fas fa-trash"></i></button>
+            {{/if}}
+          {{/each}}
+        </div>
+      </section>
+    </section>
+    <section class="notes">
+      <h2>{{ localize 'FUDGE.Notes' }}</h2>
+        {{editor descriptionHTML class="desc" target="system.notes" button=true 
+            editable=editable engine="prosemirror" collaborate=false}}
+
+    </section>
+  </main>
+</form>

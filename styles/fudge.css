@@ -144,6 +144,9 @@ main {
     gap: 5px;
     padding: 5px 0px;
 }
+.levellist.levellist-attr {
+    grid-template-columns: auto 1fr 20px;
+}
 .levellist.levellist--dl {
     grid-template-columns: auto 1fr 20px 20px;
 }
@@ -167,6 +170,18 @@ main {
 .eqlist .eqtitle {
     font-weight: bold;
 }
-.delete-button i {
+.delete-button i, .roll-button i, .edit-button i {
     pointer-events: none;
+}
+
+.item .properties {
+    display: grid;
+    gap: 5px;
+    padding: 5px;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+
+}
+.item .properties input.numeric {
+    width: 50px;
 }
