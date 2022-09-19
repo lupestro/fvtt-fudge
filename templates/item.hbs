@@ -3,16 +3,16 @@
   <input class="fullwidth" name="itemname" id="itemname" type="text" value="{{item.name}}" placeholder={{localize "FUDGE.ItemName"}}  />
   <div class="properties">
     {{#if (eq item.type "equipment")}}
-      <label for="itemodf">{{localize "FUDGE.ODF"}} </label>
-      <input class="numeric" name="itemodf" id="itemodf" type="text" value="{{item.system.odf}}"/>
-      <label for="itemddf">{{localize "FUDGE.DDF"}} </label>
-      <input class="numeric" name="itemddf" id="itemddf" type="text" value="{{item.system.ddf}}"/>
-      <label for="itemqty">{{localize "FUDGE.Quantity"}}</label>
-      <input class="numeric" name="itemqty" id="itemqty" type="text" value="{{item.system.quantity}}" />
+      <label for="odf">{{localize "FUDGE.ODF"}} </label>
+      <input class="numeric" name="odf" id="odf" type="text" value="{{item.system.odf}}"/>
+      <label for="ddf">{{localize "FUDGE.DDF"}} </label>
+      <input class="numeric" name="ddf" id="ddf" type="text" value="{{item.system.ddf}}"/>
+      <label for="quantity">{{localize "FUDGE.Quantity"}}</label>
+      <input class="numeric" name="quantity" id="quantity" type="text" value="{{item.system.quantity}}" />
     {{/if}}
     {{#if (eq item.type "skill")}}
       <label for="skillgroup">{{localize "FUDGE.SkillGroup"}}</label>
-      <input class="perline" name="itemname" id="itemname" type="text" value="{{item.system.group}}" />
+      <input name="skillgroup" id="skillgroup" type="text" value="{{item.system.group}}" />
     {{/if}}
   </div>
   <h2>{{localize 'FUDGE.Description'}}</h2>

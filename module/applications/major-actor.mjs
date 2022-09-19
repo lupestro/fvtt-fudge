@@ -42,18 +42,17 @@
     context.attributeset = this.object.items.find((item) =>
       item.type === "attributeset");
 
-    foundry.utils.mergeObject(context, {
-      descriptionHTML: await TextEditor.enrichHTML(actor.system.notes, {
-        secrets: actor.isOwner,
-        async: true,
-        relativeTo: this.actor
-      }),
+    context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {
+      secrets: actor.isOwner,
+      async: true,
+      relativeTo: this.actor
     });
   
     return context;
   }
 
   activateListeners(html) {
+    super.activateListeners(html);
     html.find(".traitselect").change(this._onLevelChange.bind(this));
     html.find(".woundbox").change(this._onWoundsChange.bind(this));
     html.find("#charname").change(this._onCharacterNameChange.bind(this));
