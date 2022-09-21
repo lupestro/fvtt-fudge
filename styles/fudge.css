@@ -185,3 +185,9 @@ main {
 .item .properties input.numeric {
     width: 50px;
 }
+.item .properties #attributes {
+    min-height: 100px;
+    height: 150px;
+    width: 150px;
+    min-width: 100px;
+}

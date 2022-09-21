@@ -25,5 +25,6 @@
     "FUDGE.DDF": "Defensive DF (DDF)",
     "FUDGE.Quantity": "Quantity",
     "FUDGE.Notes": "Notes",
-    "FUDGE.Description": "Description"
+    "FUDGE.Description": "Description",
+    "FUDGE.AttributesEntry": "Attributes (one per line)"
 }
