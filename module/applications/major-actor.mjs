@@ -153,20 +153,17 @@ import TraitRoll from '../trait-roll.mjs';
     const [prefix, type, id] = event.target.id.split("-");
     if (prefix === "roll") {
       if (this.woundModifier === -10) {
-        let d = new Dialog({
+        await Dialog.prompt({
           title: game.i18n.localize("FUDGE.NoActionsTitle"),
           content: game.i18n.localize("FUDGE.NoActionsNearDeath"),
-          buttons: {}
+          label: "OK"
          });
-         await d.render(true);
       } else if (this.woundModifier === -5) {
-        let d = new Dialog({
+        await Dialog.prompt({
           title: game.i18n.localize("FUDGE.NoActionsTitle"),
           content: game.i18n.localize("FUDGE.NoActionsIncapacitated"),
-          buttons: {}
+          label: "OK"
          });
-         await d.render(true);
-        //TODO: Issue message for Incapacitated
       } else {
         let traitModifier = this.getTraitModifier(type, id);
 
