@@ -1,3 +1,5 @@
+
+import TraitRoll from '../trait-roll.mjs';
 /**
  * Extend the base ActorSheet class to implement our character sheet.
  */
@@ -62,6 +64,37 @@
     html.find(".roll-button").click(this._onRollClick.bind(this));
   }
 
+  // -------- Utility methods --------
+
+  getTraitModifier(type, id) {
+    let modifier = 0;
+    let traitName = "";
+    if (type === "attr") {
+      let attrset = this.object.items.find ( 
+        (item) => item.type === "attributeset" );
+      modifier = attrset.system.attributes[parseInt(id)].level;
+      traitName = attrset.system.attributes[parseInt(id)].name;
+    } else if (type === "skill") {
+      let skill = this.object.items.get(id);
+      modifier = skill.system.level;
+      traitName = skill.name;
+    }
+    return {modifier, traitName};
+  }
+  get woundModifier () {
+    if (this.object.system.wounds.neardeath > 0) {
+      return -10;
+    } else if (this.object.system.wounds.incapacitated > 0) {
+      return -5;
+    } else if (this.object.system.wounds.veryhurt > 0) {
+      return -2;
+    } else if (this.object.system.wounds.hurt > 0) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+
   // -------- Event Listeners --------
 
   async _onLevelChange(event) {
@@ -116,29 +149,34 @@
       await this.object.deleteEmbeddedDocuments('Item', [id]);
     }
   }
-
   async _onRollClick(event) {
     const [prefix, type, id] = event.target.id.split("-");
     if (prefix === "roll") {
-      let modifier = 0;
-      let name = "";
-      if (type === "attr") {
-        let attrset = this.object.items.find ( 
-          (item) => item.type === "attributeset" );
-        modifier = attrset.system.attributes[parseInt(id)].level;
-        name = attrset.system.attributes[parseInt(id)].name;
-      } else if (type === "skill") {
-        let skill = this.object.items.get(id);
-        modifier = skill.system.level;
-        name = skill.name;
+      if (this.woundModifier === -10) {
+        let d = new Dialog({
+          title: game.i18n.localize("FUDGE.NoActionsTitle"),
+          content: game.i18n.localize("FUDGE.NoActionsNearDeath"),
+          buttons: {}
+         });
+         await d.render(true);
+      } else if (this.woundModifier === -5) {
+        let d = new Dialog({
+          title: game.i18n.localize("FUDGE.NoActionsTitle"),
+          content: game.i18n.localize("FUDGE.NoActionsIncapacitated"),
+          buttons: {}
+         });
+         await d.render(true);
+        //TODO: Issue message for Incapacitated
+      } else {
+        let traitModifier = this.getTraitModifier(type, id);
+
+        let r = new TraitRoll("4df + (@levelmod) + (@woundmod)", {levelmod: traitModifier.modifier, woundmod: this.woundModifier});
+        await r.evaluate({async: true});
+        let chatMessage = await r.toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: game.i18n.localize("FUDGE.Rolling").replace("{traitname}", traitModifier.traitName)
+        });
       }
-      console.log(name, modifier);
-      let r = new Roll("4df + (@mod)", {mod: modifier});
-      await r.evaluate({async: true});
-      let chatMessage = await r.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: `Rolling ${name}...`
-      });
     }
   }
 }

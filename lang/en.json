@@ -26,5 +26,16 @@
     "FUDGE.Quantity": "Quantity",
     "FUDGE.Notes": "Notes",
     "FUDGE.Description": "Description",
-    "FUDGE.AttributesEntry": "Attributes (one per line)"
+    "FUDGE.AttributesEntry": "Attributes (one per line)",
+    "FUDGE.Rolling": "Rolling {traitname}...",
+    "FUDGE.NoActionsTitle": "Cannot Perform Actions",
+    "FUDGE.NoActionsIncapacitated": "<p>When Incapacitated, a character cannot act.</p>",
+    "FUDGE.NoActionsNearDeath": "<p>When Near Death, a character cannot act.</p>",
+    "FUDGE.TraitLevel.Superb": "Superb",
+    "FUDGE.TraitLevel.VeryGood": "Very Good",
+    "FUDGE.TraitLevel.Good": "Good",
+    "FUDGE.TraitLevel.Fair": "Fair",
+    "FUDGE.TraitLevel.Mediocre": "Mediocre",
+    "FUDGE.TraitLevel.Poor": "Poor",
+    "FUDGE.TraitLevel.Terrible": "Terrible"
 }

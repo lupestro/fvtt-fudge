@@ -2,6 +2,7 @@ import ActorFudge from "./documents/actor.mjs";
 import ItemFudge from "./documents/item.mjs";
 import ActorSheetFudgeMajor from "./applications/major-actor.mjs";
 import ItemSheetFudge from "./applications/item.mjs";
+import TraitRoll from "./trait-roll.mjs";
 
 CONFIG.Actor.documentClass = ActorFudge;
 CONFIG.Item.documentClass = ItemFudge;
@@ -22,6 +23,8 @@ const displayWithSign = function(num) {
 };
 
 Hooks.once("init", function() {
+  CONFIG.Dice.rolls.push(TraitRoll);
+ 
   Actors.unregisterSheet("core", ActorFudge);
   Actors.registerSheet("fudge", ActorSheetFudgeMajor, {
     types: ["major"],
