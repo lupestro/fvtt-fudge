@@ -37,5 +37,8 @@
     "FUDGE.TraitLevel.Fair": "Fair",
     "FUDGE.TraitLevel.Mediocre": "Mediocre",
     "FUDGE.TraitLevel.Poor": "Poor",
-    "FUDGE.TraitLevel.Terrible": "Terrible"
+    "FUDGE.TraitLevel.Terrible": "Terrible",
+    "FUDGE.AboutFudge.Title":"About FUDGE",
+    "FUDGE.AboutFudge.LegalNotice":
+    "<p>Fudge is a roleplaying game written by Steffan O'Sullivan, with extensive input from the Usenet community of rec.games.design and other online forums. The core rules of Fudge are available free on the Internet at http:/www.fudgerpg.com and other sites. Fudge was designed to be customized, and may be used with any gaming genre. Fudge gamemasters and game designers are encouraged to modify Fudge to suit their needs, and to share their modifications and additions with the Fudge community. The Fudge game system is copyrighted © 2000, 2005 by Grey Ghost Press, Inc., and is available for use under the Open Game License. See the fudgerpg.com website for more information.</p>\n<p>The Fudge logo is a trademark of Grey Ghost Press, Inc,. and is used under license. Logo design by Daniel M. Davis, www.agyris.net</p>"
 }

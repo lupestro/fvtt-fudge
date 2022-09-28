@@ -22,6 +22,17 @@ const displayWithSign = function(num) {
   return num > 0 ? `+${num}` : num.toString();
 };
 
+Hooks.once("ready", async function() {
+  if (!game.user.getFlag("fudge", "visited")) {
+    await Dialog.prompt({
+      title: game.i18n.localize("FUDGE.AboutFudge.Title"),
+      content: game.i18n.localize("FUDGE.AboutFudge.LegalNotice"),
+      label: "OK"
+    });
+    game.user.setFlag("fudge", "visited", true);
+  }
+});
+
 Hooks.once("init", function() {
   CONFIG.Dice.rolls.push(TraitRoll);
  
