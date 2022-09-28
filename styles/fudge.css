@@ -26,7 +26,7 @@ main {
     text-align: center;
 }
 
-.names {
+.names .field {
     display: flex;
     flex-direction: row;
     padding-bottom: 10px;
@@ -34,7 +34,14 @@ main {
 }
 .names .field {
     flex: 1 1 auto;
+    font-size: 24px;
 }
+
+.names .field label {
+    padding: 0px;
+    display:none;
+}
+
 .names .field input {
     min-width: 200px;
 }
@@ -145,10 +152,10 @@ main {
     padding: 5px 0px;
 }
 .levellist.levellist-attr {
-    grid-template-columns: auto 1fr 20px;
+    grid-template-columns: 20px auto 1fr;
 }
 .levellist.levellist--dl {
-    grid-template-columns: auto 1fr 20px 20px;
+    grid-template-columns: 20px auto 1fr 20px;
 }
 
 .levellist label {

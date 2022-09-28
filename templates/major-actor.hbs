@@ -2,17 +2,10 @@
   <header>
     <section class="names">
       <div class="field">
-        <label>{{ localize 'FUDGE.CharacterName' }}
-          <input name="charname" id="charname" type="text" 
-            value="{{actor.name}}" 
-            placeholder="{{ localize 'FUDGE.CharacterName' }}"/>
-        </label>
-      </div>
-      <div class="field">
-        <label for="playername">{{ localize 'FUDGE.PlayerName' }}
-          <input name="playername" id="playername" type="text" value="Me" 
-            placeholder="My Name" />
-        </label>
+        <label for="charname">{{ localize 'FUDGE.CharacterName' }}</label>
+        <input name="charname" id="charname" type="text" 
+          value="{{actor.name}}" 
+          placeholder="{{ localize 'FUDGE.CharacterName' }}"/>
       </div>
     </section>
     <section class="basedata">
@@ -113,6 +106,8 @@
         <h2>{{ localize 'FUDGE.Attributes' }}</h2>
         <div class="levellist levellist-attr">
             {{#each attributeset.system.attributes as |attribute idx|}}
+              <button id="roll-attr-{{idx}}" type="button" class="roll-button" 
+                title="Roll"><i class="fas fa-dice-d6"></i></button>
               <label for="attr-{{idx}}">{{attribute.name}}</label>
               <select id="attr-{{idx}}" name="attr-{{idx}}" class="traitselect">
                 {{#each ../traitlevels as |level|}}
@@ -123,8 +118,6 @@
                   </option>
                 {{/each}}
               </select>
-              <button id="roll-attr-{{idx}}" type="button" class="roll-button" 
-                title="Roll"><i class="fas fa-dice-d6"></i></button>
             {{/each}}
         </div>
       </section>
@@ -145,6 +138,8 @@
           <div class="levellist levellist--dl">
             {{#each actor.items as |item|}}
               {{#if (eq item.type "skill")}}
+                <button id="roll-skill-{{item.id}}" class="roll-button" title="Roll" 
+                  type="button" ><i class="fas fa-dice-d6"></i></button>
                 <label for="sel-{{item.id}}">{{item.name}}</label>
                 <select id="sel-{{item.id}}" name="sel-{{item.id}}" 
                   class="traitselect">
@@ -156,8 +151,6 @@
                     </option>
                   {{/each}}
                 </select>
-                <button id="roll-skill-{{item.id}}" class="roll-button" title="Roll" 
-                  type="button" ><i class="fas fa-dice-d6"></i></button>
                 <!-- <button id="edit-{{item.id}}" class="edit-button" title="Edit" 
                   type="button"><i class="fas fa-edit"></i></button> -->
                 <button id="del-{{item.id}}" class="delete-button" title="Delete" 
