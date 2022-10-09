@@ -1,0 +1,24 @@
+{
+  "name": "Fanatic Patriot",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Your country, right or wrong.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664651698072,
+    "modifiedTime": 1664651715312,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "88gtGfESmkwytOtY"
+}

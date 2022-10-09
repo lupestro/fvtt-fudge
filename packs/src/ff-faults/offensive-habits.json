@@ -1,0 +1,24 @@
+{
+  "name": "Offensive Habits",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Too many to list. Some of the other Faults listed actually fall under this category, such as Nosy, Grouchy, Garrulous, etc.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664652950731,
+    "modifiedTime": 1664652972150,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "YZu5ETffEDzwETKF"
+}

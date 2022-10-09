@@ -1,0 +1,24 @@
+{
+  "name": "Pain Tolerance",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Ignore wound penalties at Hurt, and you are only at –1 at Very Hurt.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664649049932,
+    "modifiedTime": 1664649621247,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "Yn4dHbYrFHWO1p5T"
+}

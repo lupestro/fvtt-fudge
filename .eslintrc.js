@@ -10,10 +10,19 @@ module.exports = {
         "Actor": "readonly",
         "Actors": "readonly",
         "ActorSheet": "readonly",
+        "ChatMessage": "readonly",
+        "Dialog": "readonly",
         "Item": "readonly",
+        "Items": "readonly",
+        "ItemSheet": "readonly",
         "Handlebars": "readonly",
         "Hooks": "readonly",
-        "loadTemplates": "readonly"
+        "Roll": "readonly",
+        "TextEditor": "readonly",
+        "foundry": "readonly",
+        "game": "readonly",
+        "loadTemplates": "readonly",
+        "renderTemplate": "readonly"
     },
     "extends": "eslint:recommended",
     "parserOptions": {

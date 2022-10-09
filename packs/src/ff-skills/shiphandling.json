@@ -1,0 +1,26 @@
+{
+  "name": "Shiphandling",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Directing seamen to correctly handle a large sailing ship.  Includes piloting and navigation skills.</p>",
+    "level": -3,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1664658545741,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0
+}

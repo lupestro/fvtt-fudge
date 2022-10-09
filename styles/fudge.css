@@ -198,3 +198,10 @@ main {
     width: 150px;
     min-width: 100px;
 }
+
+.item .properties label {
+    padding: 5px;
+}
+.item .properties .hiddenlabel {
+    visibility: hidden;
+}

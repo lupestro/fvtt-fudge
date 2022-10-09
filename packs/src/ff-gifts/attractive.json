@@ -1,0 +1,24 @@
+{
+  "name": "Attractive",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You’re good looking – either handsome, beautiful, pretty, or whatever you wish. (Warning: the more attractive you are, the more power you have over susceptible people, true, but the more likely you are to be abducted, etc.)</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664647426062,
+    "modifiedTime": 1664649560552,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "AyK6SgRCCVU2Yaqj"
+}

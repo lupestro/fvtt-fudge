@@ -1,0 +1,24 @@
+{
+  "name": "Common Sense",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>When you are about to do something incredibly stupid that will harm yourself or the party, the GM will warn you</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664647630741,
+    "modifiedTime": 1664649567024,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "6rXDPPXSeIUeR0ca"
+}

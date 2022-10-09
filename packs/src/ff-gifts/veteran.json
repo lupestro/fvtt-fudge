@@ -1,0 +1,24 @@
+{
+  "name": "Veteran",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You’re experienced – add one level to each of three skills that are currently at Fair or Mediocre</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664649437295,
+    "modifiedTime": 1664649644464,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "5wVz2YZRrNHMQ1z2"
+}

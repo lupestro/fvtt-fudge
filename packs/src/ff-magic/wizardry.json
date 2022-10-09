@@ -1,0 +1,26 @@
+{
+  "name": "Wizardry",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>The “Wise Arts.” The most scholarly of scholarly magic, Wizardry concerns itself with the laws of magic, the flow of mana, and the underlying structures of spells, incantations, and enchantments. Wizards know many ways to gather mana, and how to use it efficiently.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1664658545741,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0
+}

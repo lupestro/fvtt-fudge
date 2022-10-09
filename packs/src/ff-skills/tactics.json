@@ -1,0 +1,26 @@
+{
+  "name": "Tactics",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Knowledge of the best way to arrange a group of warriors so as to take best advantage of the situation, terrain, their skills, etc. Also reading an opposing group’s tactical sophistication level.</p>",
+    "level": -2,
+    "group": "Combat",
+    "group2": ""
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1664658545741,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0
+}

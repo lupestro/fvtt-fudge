@@ -1,0 +1,24 @@
+{
+  "name": "Humanitarian",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You help the needy for no pay.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664652221348,
+    "modifiedTime": 1664652250287,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "3CiaPW2ek2PCFCtn"
+}

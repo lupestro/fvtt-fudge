@@ -24,37 +24,73 @@
   ],
   "packs": [
     {
-      "name": "skills",
-      "label": "Skills",
-      "path": "packs/skills.db",
+      "name": "ff-characters",
+      "label": "Fantasy Fudge Characters",
+      "path": "packs/ff-characters.db",
+      "type": "Actor",
+      "system": "fudge",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "attributes",
+      "label": "Fudge Attributes",
+      "path": "packs/attributes.db",
       "type": "Item",
       "system": "fudge",
       "private": false,
       "flags": {}
     },
     {
-      "name": "gifts",
-      "label": "Gifts",
-      "path": "packs/gifts.db",
+      "name": "ff-skills",
+      "label": "Fantasy Fudge Skills",
+      "path": "packs/ff-skills.db",
       "type": "Item",
       "system": "fudge",
       "private": false,
       "flags": {}
     },
     {
-      "name": "faults",
-      "label": "Faults",
-      "path": "packs/faults.db",
+      "name": "ff-magic",
+      "label": "Fantasy Fudge Magic",
+      "path": "packs/ff-magic.db",
       "type": "Item",
       "system": "fudge",
       "private": false,
       "flags": {}
     },
     {
-      "name": "equipment",
-      "label": "Equipment",
-      "path": "packs/equipment.db",
+      "name": "ff-gifts",
+      "label": "Fantasy Fudge Gifts",
+      "path": "packs/ff-gifts.db",
       "type": "Item",
+      "system": "fudge",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "ff-faults",
+      "label": "Fantasy Fudge Faults",
+      "path": "packs/ff-faults.db",
+      "type": "Item",
+      "system": "fudge",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "ff-equipment",
+      "label": "Fantasy Fudge Equipment",
+      "path": "packs/ff-equipment.db",
+      "type": "Item",
+      "system": "fudge",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "journals",
+      "label": "Fudge Journals",
+      "path": "packs/journals.db",
+      "type": "JournalEntry",
       "system": "fudge",
       "private": false,
       "flags": {}

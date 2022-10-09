@@ -1,0 +1,24 @@
+{
+  "name": "Color Blindness",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You confuse lots of colors.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664650952740,
+    "modifiedTime": 1664650973217,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "2IAwbBRYvhA8OxeU"
+}

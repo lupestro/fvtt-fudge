@@ -1,0 +1,24 @@
+{
+  "name": "Lazy",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You work hard at avoiding work.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664652478572,
+    "modifiedTime": 1664652495569,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "mpCktX4UdSUf4GeT"
+}

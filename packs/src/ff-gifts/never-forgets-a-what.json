@@ -1,0 +1,24 @@
+{
+  "name": "Never Forgets a (What?)",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Fill in the blank with name, face, or whatever the GM will allow.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648886102,
+    "modifiedTime": 1664649610110,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "LVdFM79SrMeoVL7q"
+}

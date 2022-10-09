@@ -1,0 +1,26 @@
+{
+  "name": "Botany",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Broad knowledge of plants – their habitats, growing needs, uses, dangers, etc.  See Herb Lore, Farming, Basketry, Poisons, etc., for more specific skills.</p>",
+    "level": -2,
+    "group": "Knowledge",
+    "group2": ""
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1664658545741,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0
+}

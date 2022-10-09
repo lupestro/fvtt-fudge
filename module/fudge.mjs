@@ -44,7 +44,7 @@ Hooks.once("init", function() {
   });
   Items.unregisterSheet("core", ItemFudge);
   Items.registerSheet("fudge", ItemSheetFudge, {
-    types: ["attributeset","skill","gift","fault","equipment"],
+    types: ["attributeset", "skill", "gift", "fault", "equipment"],
     makeDefault: true,
     label: "FUDGE.SheetClassItem"
   });

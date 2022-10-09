@@ -85,12 +85,12 @@ const cleanPackEntry = function (data, {clearSourceId = true} = {}) {
   if ( data.items ) {
     data.items.forEach((item) => cleanPackEntry(item, {clearSourceId: false}));
   }
-  if ( data.system?.description?.value ) {
-    data.system.description.value = cleanString(data.system.description.value);
+  if ( data.system?.description ) {
+    data.system.description = cleanString(data.system.description);
   }
-  if ( data.label ) {
-    data.label = cleanString(data.label);
-  }
+  // if ( data.label ) {
+  //   data.label = cleanString(data.label);
+  // }
   if ( data.name ) {
     data.name = cleanString(data.name);
   }
@@ -227,7 +227,9 @@ const compilePacks = async function() {
       }, (callback) => {
         // eslint-disable-next-line no-confusing-arrow
         data.sort( (lhs, rhs) => lhs._id > rhs._id ? 1 : -1);
-        data.forEach((entry) => db.write(`${JSON.stringify(entry)}\n`));
+        data.forEach((entry) => { 
+          db.write(`${JSON.stringify(entry)}\n`);
+        });
         callback();
       }));
   });

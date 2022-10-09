@@ -1,0 +1,24 @@
+{
+  "name": "Compulsive Generosity",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You are at –3 Willpower to resist giving things away to those perceived to be needier than you.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664651159339,
+    "modifiedTime": 1664651196529,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "lYHFW1hyCXuvMuxX"
+}

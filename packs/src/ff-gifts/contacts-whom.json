@@ -1,0 +1,24 @@
+{
+  "name": "Contacts (whom?)",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You know some influential or knowledgeable people who can supply you with information.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664647672972,
+    "modifiedTime": 1664649569573,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0,
+  "_id": "mA9jhV9C0Wv4gQJW"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Herb Lore",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Knowledge of, preparation of, dosage of, and dangers of using herbs as medicinal agents. While it may tell you which herbs to avoid, this skill does not go into specific poisons – see Poisons for that skill. See Botany for a broader knowledge of plants.</p>",
+    "level": -2,
+    "group": "Scouting",
+    "group2": "Knowledge"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1664658545741,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0
+}

@@ -53,8 +53,9 @@
     },
     "skill": {
       "templates": ["described"],
-      "level": 0,
-      "group": "General"
+      "level": -2,
+      "group": "General",
+      "group2": ""
     },
     "gift": {
       "templates": ["described"]

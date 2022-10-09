@@ -15,8 +15,10 @@
       <input class="numeric" name="quantity" id="quantity" type="text" value="{{item.system.quantity}}" />
     {{/if}}
     {{#if (eq item.type "skill")}}
-      <label for="skillgroup">{{localize "FUDGE.SkillGroup"}}</label>
+      <label for="skillgroup">{{localize "FUDGE.SkillGroups"}}</label>
       <input name="skillgroup" id="skillgroup" type="text" value="{{item.system.group}}" />
+      <label xfor="skillgroup2" class="hiddenlabel">{{localize "FUDGE.SkillGroup"}}</label>
+      <input name="skillgroup2" id="skillgroup2" type="text" value="{{item.system.group2}}" />
     {{/if}}
   </div>
   <h2>{{localize 'FUDGE.Description'}}</h2>

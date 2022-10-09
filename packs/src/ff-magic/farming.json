@@ -1,0 +1,26 @@
+{
+  "name": "Farming (Magical)",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>A very common use of hedge magic, you can bless or curse crops: increased yield, faster growth, etc. - or the opposite.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1664658545741,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": null,
+  "sort": 0
+}
