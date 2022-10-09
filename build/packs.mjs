@@ -200,6 +200,27 @@ export const clean = cleanPacks;
 /*  Compile Packs                            */
 /* ----------------------------------------- */
 
+const _packageCompendiumFromJson = async function ( packsrc, packdest, packname) {
+  const packFilename = path.join(packdest, `${packname}.db`);
+  logger.info(`Removing compendium: ${packFilename}`);
+  fs.rmSync(packFilename, {force: true});
+  const realDB = new Datastore({filename: packFilename, autoload: true});  
+  const files = fs.readdirSync(path.join(packsrc, packname), {withFileTypes: true})
+      .filter((file) => file.name.endsWith('.json')).map(dirent => dirent.name);
+  // console.log('Files:',files);
+  for (const file of files) {
+    const filedata = JSON.parse(fs.readFileSync(path.join(packsrc, packname, file), {encoding:'utf-8'}));
+    cleanPackEntry(filedata);
+    if (!filedata._id) {
+      filedata._id = realDB.createNewId();
+    }
+    filedata.folder = "";
+    realDB.insert(filedata);
+  }
+  logger.info(`Built compendium: ${packFilename}`);
+  return Promise.resolve(files.length);
+}
+
 /**
  * Compile the source JSON files into compendium packs.
  *
@@ -213,31 +234,12 @@ const compilePacks = async function() {
     .filter((file) => file.isDirectory() && ( !packName || packName === file.name ));
 
   const packs = folders.map( (folder) => {
-    const filePath = path.join(PACK_DEST, `${folder.name}.db`);
-    fs.rmSync(filePath, {force: true});
-    const db = fs.createWriteStream(filePath, {flags: "a", mode: 0o664});
-    const data = [];
     logger.info(`Compiling pack ${folder.name}`);
-    return gulp.src(path.join(PACK_SRC, folder.name, "/**/*.json"))
-      .pipe(through2.obj((file, enc, callback) => {
-        const json = JSON.parse(file.contents.toString());
-        cleanPackEntry(json);
-        data.push(json);
-        callback(null, file);
-      }, (callback) => {
-        // eslint-disable-next-line no-confusing-arrow
-        data.sort( (lhs, rhs) => lhs._id > rhs._id ? 1 : -1);
-        data.forEach((entry) => { 
-          db.write(`${JSON.stringify(entry)}\n`);
-        });
-        callback();
-      }));
+    return _packageCompendiumFromJson(PACK_SRC, PACK_DEST, folder.name);
   });
-  const result = await mergeStream(packs);
-  return result;
+  return packs;
 };
 export const compile = compilePacks;
-
 
 /* ----------------------------------------- */
 /*  Extract Packs                            */

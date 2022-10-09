@@ -7,12 +7,23 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "From RegExp",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/build/skills-from-re.js",
             "args": ["skill-template.json" ,"srd-skill-list.txt"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Compile Packs",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+            "args": ["compilePacks"]
         }
+
     ]
 }
