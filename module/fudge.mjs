@@ -22,6 +22,21 @@ const displayWithSign = function(num) {
   return num > 0 ? `+${num}` : num.toString();
 };
 
+const registerSystemSettings = function() {
+  game.settings.register("fudge", "traitlevels", {
+    name: "FUDGE.TraitLevels",
+    hint: "FUDGE.TraitLevelsHint",
+    scope: "world",
+    config: true,
+    default: "normal",
+    type: String,
+    choices: {
+      standard: "FUDGE.TraitLevelsStandard",
+      extended: "FUDGE.TraitLevelsExtended",
+    }
+  });
+}
+
 Hooks.once("ready", async function() {
   if (!game.user.getFlag("fudge", "visited")) {
     await Dialog.prompt({
@@ -36,6 +51,7 @@ Hooks.once("ready", async function() {
 Hooks.once("init", function() {
   CONFIG.Dice.rolls.push(TraitRoll);
  
+  registerSystemSettings();
   Actors.unregisterSheet("core", ActorFudge);
   Actors.registerSheet("fudge", ActorSheetFudgeMajor, {
     types: ["major"],

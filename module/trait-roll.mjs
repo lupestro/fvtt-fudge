@@ -25,13 +25,19 @@ export default class TraitRoll extends Roll {
   async render(options) {
     const LEVELSET = [
       {name: game.i18n.localize("FUDGE.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGE.TraitLevel.VeryGood"), value: +2}, // eslint-disable-line no-magic-numbers
+      {name: game.i18n.localize("FUDGE.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
       {name: game.i18n.localize("FUDGE.TraitLevel.Good"), value: +1},
       {name: game.i18n.localize("FUDGE.TraitLevel.Fair"), value: 0},
       {name: game.i18n.localize("FUDGE.TraitLevel.Mediocre"), value: -1},
       {name: game.i18n.localize("FUDGE.TraitLevel.Poor"), value: -2},
       {name: game.i18n.localize("FUDGE.TraitLevel.Terrible"), value: -3}
     ];
+    if (game.settings.get("fudge","traitlevels") === "extended") {
+      LEVELSET.unshift(
+        {name: game.i18n.localize("FUDGE.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
+        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4}
+      );
+    }
     const isPrivate = options.isPrivate ?? false;
     const template = options.template ?? this.constructor.CHAT_TEMPLATE;
     const {flavor} = options;

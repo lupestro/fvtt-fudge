@@ -26,21 +26,11 @@
     }
   },
   "Item": {
-    "types": ["traitlevelset", "attributeset","skill","gift","fault","equipment"],
+    "types": ["attributeset","skill","gift","fault","equipment"],
     "templates": { 
       "described": {
         "description": "<p></p>"
       }
-    },
-    "traitlevelset": {
-      "templates": ["described"],
-      "levels": [
-        {
-          "name": "",
-          "value": 0,
-          "ep": 0
-        }
-      ]
     },
     "attributeset": {
       "templates": ["described"],

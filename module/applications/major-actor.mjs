@@ -49,11 +49,22 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
         }
       }
     }
-
-    const traitlevelset = this.object.items.find((item) => item.type === "traitlevelset");
-    context.traitlevels = traitlevelset?.system.levels;
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
-
+    context.traitlevels = [
+      {name: game.i18n.localize("FUDGE.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
+      {name: game.i18n.localize("FUDGE.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
+      {name: game.i18n.localize("FUDGE.TraitLevel.Good"), value: +1},
+      {name: game.i18n.localize("FUDGE.TraitLevel.Fair"), value: 0},
+      {name: game.i18n.localize("FUDGE.TraitLevel.Mediocre"), value: -1},
+      {name: game.i18n.localize("FUDGE.TraitLevel.Poor"), value: -2},
+      {name: game.i18n.localize("FUDGE.TraitLevel.Terrible"), value: -3}
+    ];
+    if (game.settings.get("fudge","traitlevels") === "extended") {
+      context.traitlevels.unshift(
+        {name: game.i18n.localize("FUDGE.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
+        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4}
+      );
+    }
     context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {
       secrets: actor.isOwner,
       async: true,
