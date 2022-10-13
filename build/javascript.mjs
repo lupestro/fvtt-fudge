@@ -33,7 +33,7 @@ const compileJavascript = async function () {
     plugins: [nodeResolve()]
   });
   await bundle.write({
-    file: "./fudge.mjs",
+    file: "./fudge-compiled.mjs",
     format: "es",
     sourcemap: true,
     sourcemapFile: "./module/fudge.mjs"
