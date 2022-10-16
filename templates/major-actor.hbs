@@ -126,7 +126,9 @@
         <div class="traitlist">
           {{#each actor.items as |item|}}
               {{#if (eq item.type "gift")}}
-                <div class="nonlevel-item">{{item.name}}</div>
+                <div class="nonlevel-item">
+                  <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
+                </div>
                 <button id="del-{{item.id}}" type="button" class="delete-button" 
                   title="Delete"><i class="fas fa-trash"></i></button>
               {{/if}}
@@ -140,7 +142,9 @@
               {{#if (eq item.type "skill")}}
                 <button id="roll-skill-{{item.id}}" class="roll-button" title="Roll" 
                   type="button" ><i class="fas fa-dice-d6"></i></button>
-                <label for="sel-{{item.id}}">{{item.name}}</label>
+                <label for="sel-{{item.id}}">
+                  <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
+                </label>
                 <select id="sel-{{item.id}}" name="sel-{{item.id}}" 
                   class="traitselect">
                   {{#each ../traitlevels as |level|}}
@@ -173,7 +177,9 @@
           <div class="eqtitle"></div>
           {{#each actor.items as |item|}}
             {{#if (eq item.type "equipment")}}
-              <div class="eqname">{{item.name}}</div>
+              <div class="eqname">
+                <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
+              </div>
               <div class="df">
                 {{#if item.system.odf}}O{{displayWithSign item.system.odf}}{{/if}}
                 {{#if item.system.ddf}}D{{displayWithSign item.system.ddf}}{{/if}}
@@ -189,7 +195,9 @@
         <div class="traitlist">
           {{#each actor.items as |item|}}
             {{#if (eq item.type "fault")}}
-              <div class="nonlevel-item">{{item.name}}</div>
+              <div class="nonlevel-item">
+                <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
+              </div>
               <button id="del-{{item.id}}" class="delete-button" title="Delete"
                 type="button"><i class="fas fa-trash"></i></button>
             {{/if}}
@@ -197,7 +205,7 @@
         </div>
       </section>
     </section>
-    <section class="notes">
+    <section class="actor-notes">
       <h2>{{ localize 'FUDGE.Notes' }}</h2>
         {{editor notesHTML class="desc" target="system.notes" button=true 
             editable=editable engine="prosemirror" collaborate=false}}

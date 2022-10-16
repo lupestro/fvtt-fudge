@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["major","simple"],
+    "types": ["major"],
     "templates": {
       "basic": {
         "fp": 0,
@@ -17,12 +17,6 @@
     },
     "major": {
       "templates": ["basic"]
-    },
-    "simple": {
-      "wounds": {
-          "ouch": 0,
-          "down": 0
-      }
     }
   },
   "Item": {

@@ -59,17 +59,13 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
       {name: game.i18n.localize("FUDGE.TraitLevel.Poor"), value: -2},
       {name: game.i18n.localize("FUDGE.TraitLevel.Terrible"), value: -3}
     ];
-    if (game.settings.get("fudge","traitlevels") === "extended") {
+    if (game.settings.get("fudge", "traitlevels") === "extended") {
       context.traitlevels.unshift(
         {name: game.i18n.localize("FUDGE.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
-        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4}
+        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
       );
     }
-    context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {
-      secrets: actor.isOwner,
-      async: true,
-      relativeTo: this.actor
-    });
+    context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {async: true});
   
     return context;
   }
@@ -83,6 +79,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     html.find("#ep").change(this._onScoreChange.bind(this));
     html.find(".delete-button").click(this._onDeleteClick.bind(this));
     html.find(".roll-button").click(this._onRollClick.bind(this));
+    html.find(".itemname").click(this._onSelectItem.bind(this));
   }
 
   // -------- Utility methods --------
@@ -198,5 +195,11 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
         });
       }
     }
+  }
+
+  _onSelectItem(event) {
+    const itemId = event.target.getAttribute("data-id");
+    const item = this.object.items.get(itemId);
+    item.sheet.render(true);
   }
 }

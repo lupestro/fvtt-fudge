@@ -109,4 +109,5 @@ dist
 # Compiled results
 packs/*.db
 fudge.mjs
-fudge.mjs.map
+fudge-compiled.mjs
+fudge-compiled.mjs.map

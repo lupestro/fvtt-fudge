@@ -8,11 +8,7 @@ export default class ItemSheetFudge extends ItemSheet {
     const context = await super.getData(options);
     const {item} = context;
     foundry.utils.mergeObject(context, {
-      descriptionHTML: await TextEditor.enrichHTML(item.system.description, {
-        secrets: item.isOwner,
-        async: true,
-        relativeTo: this.item
-      })
+      descriptionHTML: await TextEditor.enrichHTML(item.system.description, {async: true})
     });
     if (item.type === "attributeset") {
       context.attributelist = item.system.attributes.map((attribute) => attribute.name).join("\n");

@@ -106,7 +106,7 @@ main {
 .traits {
     display: grid;
     grid-template-areas: 'attributes gifts skills' 'equipment faults skills';
-    grid-template-columns: 3fr 2fr 3fr;
+    grid-template-columns: 2fr 1fr 2fr;
     grid-template-rows: 1fr 1fr;
     gap: 5px;
 }
@@ -116,6 +116,11 @@ main {
     background: none;
     border: none;
 }
+.traits button.itemname {
+    text-align: left;
+    padding: 0px;
+}
+
 .traits .attributes {
     grid-area: attributes;
 }
@@ -152,14 +157,14 @@ main {
     padding: 5px 0px;
 }
 .levellist.levellist-attr {
-    grid-template-columns: 20px auto 1fr;
+    grid-template-columns: 20px auto 90px;
 }
 .levellist.levellist--dl {
-    grid-template-columns: 20px auto 1fr 20px;
+    grid-template-columns: 20px auto 90px 20px;
 }
 
 .levellist label {
-    padding: 5px;
+    padding: 0;
 }
 .levellist .specialization {
     padding: 0 10px;
@@ -181,7 +186,20 @@ main {
     pointer-events: none;
 }
 
-.item .properties {
+.actor-notes {
+    display: flex;
+    flex-direction: column;
+}
+.actor-notes .editor {
+    flex: 1 1 200px;
+}
+
+.itemsheet #itemname {
+    font-size: 24px;
+    height: 30px;
+}
+
+.itemsheet .properties {
     display: grid;
     gap: 5px;
     padding: 5px;
@@ -189,19 +207,28 @@ main {
     align-items: center;
 
 }
-.item .properties input.numeric {
+.itemsheet .properties input.numeric {
     width: 50px;
 }
-.item .properties #attributes {
+.itemsheet .properties #attributes {
     min-height: 100px;
     height: 150px;
     width: 150px;
     min-width: 100px;
 }
 
-.item .properties label {
+.itemsheet .properties label {
     padding: 5px;
 }
-.item .properties .hiddenlabel {
+.itemsheet .properties .hiddenlabel {
     visibility: hidden;
 }
+
+.item-description {
+    display: flex;
+    flex-direction: column;
+}
+.item-description .editor {
+    flex: 1 1 200px;
+}
+

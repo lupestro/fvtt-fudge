@@ -32,10 +32,10 @@ const registerSystemSettings = function() {
     type: String,
     choices: {
       standard: "FUDGE.TraitLevelsStandard",
-      extended: "FUDGE.TraitLevelsExtended",
+      extended: "FUDGE.TraitLevelsExtended"
     }
   });
-}
+};
 
 Hooks.once("ready", async function() {
   if (!game.user.getFlag("fudge", "visited")) {

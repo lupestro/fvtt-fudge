@@ -1,7 +1,7 @@
-<form class="item">
+<form class="itemsheet">
   <label class="hidden" for="itemname">{{localize "FUDGE.ItemName"}} </label>
   <input class="fullwidth" name="itemname" id="itemname" type="text" value="{{item.name}}" placeholder={{localize "FUDGE.ItemName"}}  />
-  <div class="properties">
+  <section class="properties">
     {{#if (eq item.type "attributeset")}}
       <label for="attributes">{{localize "FUDGE.AttributesEntry"}}</label>
       <textarea id="attributes" class="attributeset">{{attributelist}}</textarea>
@@ -20,9 +20,10 @@
       <label xfor="skillgroup2" class="hiddenlabel">{{localize "FUDGE.SkillGroup"}}</label>
       <input name="skillgroup2" id="skillgroup2" type="text" value="{{item.system.group2}}" />
     {{/if}}
-  </div>
-  <h2>{{localize 'FUDGE.Description'}}</h2>
-  {{editor descriptionHTML class="desc" target="system.description" button=true 
+  </section>
+  <section class="item-description">
+    <h2>{{localize 'FUDGE.Description'}}</h2>
+    {{editor descriptionHTML class="desc" target="system.description" button=true 
       editable=editable engine="prosemirror" collaborate=false}}
-
+  </section>
 </form>

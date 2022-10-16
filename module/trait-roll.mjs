@@ -32,10 +32,10 @@ export default class TraitRoll extends Roll {
       {name: game.i18n.localize("FUDGE.TraitLevel.Poor"), value: -2},
       {name: game.i18n.localize("FUDGE.TraitLevel.Terrible"), value: -3}
     ];
-    if (game.settings.get("fudge","traitlevels") === "extended") {
+    if (game.settings.get("fudge", "traitlevels") === "extended") {
       LEVELSET.unshift(
         {name: game.i18n.localize("FUDGE.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
-        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4}
+        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
       );
     }
     const isPrivate = options.isPrivate ?? false;
