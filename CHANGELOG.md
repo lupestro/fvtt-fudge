@@ -1,5 +1,11 @@
 # Fudge system for FoundryVTT
 
+## 1.0.1    Incorporate issues raised in private playtest
+- [FEATURE] Clicking item names brings up item sheets
+- [BUGFIX] Dropdown display collapsed to nothing when narrowing actor sheet
+- [BUGFIX] Addressed usability issues with edit areas
+- [BUGFIX] Removed vestiges of unimplemented feature for simple actors
+
 ## 1.0.0    Initial public release - basic Fudge
 Everything you should need to play a game using subjective character creation.
 - [FEATURE] Standard Fudge character sheet - Drag items onto sheet for traits and equipment. Click die next to attribute or skill to roll.
