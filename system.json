@@ -1,8 +1,8 @@
 {
-  "id": "fudge",
-  "title": "Fudge",
+  "id": "fudge-rpg",
+  "title": "Fudge RPG",
   "description": "Games based on the Freeform Universal Do-It-Yourself Gaming Engine (FUDGE).",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "authors": [
     {
       "name": "lupestro",
@@ -28,7 +28,7 @@
       "label": "Fantasy Fudge Characters",
       "path": "packs/ff-characters.db",
       "type": "Actor",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     },
@@ -37,7 +37,7 @@
       "label": "Fudge Attributes",
       "path": "packs/attributes.db",
       "type": "Item",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     },
@@ -46,7 +46,7 @@
       "label": "Fantasy Fudge Skills",
       "path": "packs/ff-skills.db",
       "type": "Item",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     },
@@ -55,7 +55,7 @@
       "label": "Fantasy Fudge Magic",
       "path": "packs/ff-magic.db",
       "type": "Item",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     },
@@ -64,7 +64,7 @@
       "label": "Fantasy Fudge Gifts",
       "path": "packs/ff-gifts.db",
       "type": "Item",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     },
@@ -73,7 +73,7 @@
       "label": "Fantasy Fudge Faults",
       "path": "packs/ff-faults.db",
       "type": "Item",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     },
@@ -82,7 +82,7 @@
       "label": "Fantasy Fudge Equipment",
       "path": "packs/ff-equipment.db",
       "type": "Item",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     },
@@ -91,7 +91,7 @@
       "label": "Fudge Journals",
       "path": "packs/journals.db",
       "type": "JournalEntry",
-      "system": "fudge",
+      "system": "fudge-rpg",
       "private": false,
       "flags": {}
     }
@@ -106,5 +106,5 @@
   ],
   "url": "https://github.com/lupestro/fvtt-fudge/",
   "manifest": "https://raw.githubusercontent.com/lupestro/fvtt-fudge/main/system.json",
-  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-1.0.0/fudge-release-1.0.0.zip"
+  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-1.0.0/fudge-rpg-release-1.0.0.zip"
 }

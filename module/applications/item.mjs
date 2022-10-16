@@ -1,6 +1,6 @@
 export default class ItemSheetFudge extends ItemSheet {
   get template() {
-    return "systems/fudge/templates/item.hbs";
+    return "systems/fudge-rpg/templates/item.hbs";
   }
 
   /** @override */

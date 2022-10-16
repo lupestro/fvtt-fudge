@@ -44,7 +44,7 @@
         "controls": true,
         "volume": 0.5
       },
-      "src": "systems/fudge/FudgeOGLicense.pdf",
+      "src": "systems/fudge-rpg/FudgeOGLicense.pdf",
       "system": {},
       "ownership": {
         "default": -1
@@ -54,7 +54,7 @@
   ],
   "flags": {},
   "_stats": {
-    "systemId": "fudge",
+    "systemId": "fudge-rpg",
     "systemVersion": "1.0.0",
     "coreVersion": "10.286",
     "createdTime": 1664332130088,

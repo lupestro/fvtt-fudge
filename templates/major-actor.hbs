@@ -2,21 +2,21 @@
   <header>
     <section class="names">
       <div class="field">
-        <label for="charname">{{ localize 'FUDGE.CharacterName' }}</label>
+        <label for="charname">{{ localize 'FUDGERPG.CharacterName' }}</label>
         <input name="charname" id="charname" type="text" 
           value="{{actor.name}}" 
-          placeholder="{{ localize 'FUDGE.CharacterName' }}"/>
+          placeholder="{{ localize 'FUDGERPG.CharacterName' }}"/>
       </div>
     </section>
     <section class="basedata">
       <div class="traitinfo">
-        <h2>{{ localize 'FUDGE.TraitValues' }}</h2>
+        <h2>{{ localize 'FUDGERPG.TraitValues' }}</h2>
         <table>
           <thead>
             <tr>
-                <th>{{ localize 'FUDGE.Level' }}</th>
-                <th>{{ localize 'FUDGE.Value' }}</th>
-                <th>{{ localize 'FUDGE.EPCost' }}</th>
+                <th>{{ localize 'FUDGERPG.Level' }}</th>
+                <th>{{ localize 'FUDGERPG.Value' }}</th>
+                <th>{{ localize 'FUDGERPG.EPCost' }}</th>
             </tr>
           </thead>
           <tbody>
@@ -33,18 +33,18 @@
       <div class="stats">
         <h2>Stats</h2>
         <div class="fields">
-          <label>{{ localize 'FUDGE.FP' }}
+          <label>{{ localize 'FUDGERPG.FP' }}
             <input id="fp" name="fp" type="text" value="{{actor.system.fp}}" 
-              placeholder="{{ localize 'FUDGE.FP' }}"/>
+              placeholder="{{ localize 'FUDGERPG.FP' }}"/>
           </label>
-          <label>{{ localize 'FUDGE.EP' }}
+          <label>{{ localize 'FUDGERPG.EP' }}
             <input id="ep" name="ep" type="text" value="{{actor.system.ep}}" 
-              placeholder="{{ localize 'FUDGE.EP' }}"/>
+              placeholder="{{ localize 'FUDGERPG.EP' }}"/>
           </label>
         </div>
       </div>
       <div class="wounds">
-        <h2>{{ localize 'FUDGE.Wounds' }}</h2>
+        <h2>{{ localize 'FUDGERPG.Wounds' }}</h2>
         <div class="woundlevels">
           <div class="level">
             <div>1-2</div>
@@ -54,7 +54,7 @@
                   {{#if box}}checked{{/if}}>
               {{/each}}
             </div>
-            <div>{{ localize "FUDGE.Scratch" }}</div>
+            <div>{{ localize "FUDGERPG.Scratch" }}</div>
           </div>
           <div class="level">
             <div>3-4</div>
@@ -64,7 +64,7 @@
                   {{#if box}}checked{{/if}}>
               {{/each}}
             </div>
-            <div>{{ localize 'FUDGE.Hurt' }} (-1)</div>
+            <div>{{ localize 'FUDGERPG.Hurt' }} (-1)</div>
           </div>
           <div class="level">
             <div>5-6</div>
@@ -74,7 +74,7 @@
                     {{#if box}}checked{{/if}}>
               {{/each}}
             </div>
-            <div>{{ localize 'FUDGE.VeryHurt' }} (-2)</div>
+            <div>{{ localize 'FUDGERPG.VeryHurt' }} (-2)</div>
           </div>
           <div class="level">
             <div>7-8</div>
@@ -84,7 +84,7 @@
                   {{#if box}}checked{{/if}}>
               {{/each}}
             </div>
-            <div>{{ localize 'FUDGE.Incapacitated' }}</div>
+            <div>{{ localize 'FUDGERPG.Incapacitated' }}</div>
           </div>
           <div class="level">
             <div>9+</div>
@@ -94,7 +94,7 @@
                   {{#if box}}checked{{/if}}>
               {{/each}}
             </div>
-            <div>{{ localize 'FUDGE.NearDeath' }}</div>
+            <div>{{ localize 'FUDGERPG.NearDeath' }}</div>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
   <main>
     <section class="traits">
       <section class="attributes">
-        <h2>{{ localize 'FUDGE.Attributes' }}</h2>
+        <h2>{{ localize 'FUDGERPG.Attributes' }}</h2>
         <div class="levellist levellist-attr">
             {{#each attributeset.system.attributes as |attribute idx|}}
               <button id="roll-attr-{{idx}}" type="button" class="roll-button" 
@@ -122,7 +122,7 @@
         </div>
       </section>
       <section class="gifts">
-        <h2>{{ localize 'FUDGE.GiftsPowers' }}</h2>
+        <h2>{{ localize 'FUDGERPG.GiftsPowers' }}</h2>
         <div class="traitlist">
           {{#each actor.items as |item|}}
               {{#if (eq item.type "gift")}}
@@ -136,7 +136,7 @@
         </div>
       </section>
       <section class="skills">
-          <h2>{{ localize 'FUDGE.Skills' }}</h2>
+          <h2>{{ localize 'FUDGERPG.Skills' }}</h2>
           <div class="levellist levellist--dl">
             {{#each actor.items as |item|}}
               {{#if (eq item.type "skill")}}
@@ -170,7 +170,7 @@
           </div>
       </section>
       <section class="equipment">
-        <h2>{{ localize 'FUDGE.Equipment' }}</h2>
+        <h2>{{ localize 'FUDGERPG.Equipment' }}</h2>
         <div class="eqlist">
           <div class="eqtitle">Item</div>
           <div class="eqtitle">DF</div>
@@ -191,7 +191,7 @@
         </div>
       </section>
       <section class="faults">
-        <h2>{{ localize 'FUDGE.Faults' }}</h2>
+        <h2>{{ localize 'FUDGERPG.Faults' }}</h2>
         <div class="traitlist">
           {{#each actor.items as |item|}}
             {{#if (eq item.type "fault")}}
@@ -206,7 +206,7 @@
       </section>
     </section>
     <section class="actor-notes">
-      <h2>{{ localize 'FUDGE.Notes' }}</h2>
+      <h2>{{ localize 'FUDGERPG.Notes' }}</h2>
         {{editor notesHTML class="desc" target="system.notes" button=true 
             editable=editable engine="prosemirror" collaborate=false}}
 

@@ -16,7 +16,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
   // -------- Overrides --------
 
   get template() {
-    return "systems/fudge/templates/major-actor.hbs";
+    return "systems/fudge-rpg/templates/major-actor.hbs";
   }
 
   /*
@@ -51,18 +51,18 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     }
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
     context.traitlevels = [
-      {name: game.i18n.localize("FUDGE.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGE.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGE.TraitLevel.Good"), value: +1},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Fair"), value: 0},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Mediocre"), value: -1},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Poor"), value: -2},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Terrible"), value: -3}
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Good"), value: +1},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Fair"), value: 0},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Mediocre"), value: -1},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Poor"), value: -2},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Terrible"), value: -3}
     ];
-    if (game.settings.get("fudge", "traitlevels") === "extended") {
+    if (game.settings.get("fudge-rpg", "traitlevels") === "extended") {
       context.traitlevels.unshift(
-        {name: game.i18n.localize("FUDGE.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
-        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
+        {name: game.i18n.localize("FUDGERPG.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
+        {name: game.i18n.localize("FUDGERPG.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
       );
     }
     context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {async: true});
@@ -171,14 +171,14 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     if (prefix === "roll") {
       if (this.woundModifier === WOUND_MODIFIER_NEARDEATH) {
         await Dialog.prompt({
-          title: game.i18n.localize("FUDGE.NoActionsTitle"),
-          content: game.i18n.localize("FUDGE.NoActionsNearDeath"),
+          title: game.i18n.localize("FUDGERPG.NoActionsTitle"),
+          content: game.i18n.localize("FUDGERPG.NoActionsNearDeath"),
           label: "OK"
          });
       } else if (this.woundModifier === WOUND_MODIFIER_INCAPACITATED) {
         await Dialog.prompt({
-          title: game.i18n.localize("FUDGE.NoActionsTitle"),
-          content: game.i18n.localize("FUDGE.NoActionsIncapacitated"),
+          title: game.i18n.localize("FUDGERPG.NoActionsTitle"),
+          content: game.i18n.localize("FUDGERPG.NoActionsIncapacitated"),
           label: "OK"
          });
       } else {
@@ -191,7 +191,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
         await roll.evaluate({async: true});
         await roll.toMessage({
           speaker: ChatMessage.getSpeaker({actor: this.actor}),
-          flavor: game.i18n.localize("FUDGE.Rolling").replace("{traitname}", traitModifier.traitName)
+          flavor: game.i18n.localize("FUDGERPG.Rolling").replace("{traitname}", traitModifier.traitName)
         });
       }
     }

@@ -24,18 +24,18 @@ export default class TraitRoll extends Roll {
 
   async render(options) {
     const LEVELSET = [
-      {name: game.i18n.localize("FUDGE.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGE.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGE.TraitLevel.Good"), value: +1},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Fair"), value: 0},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Mediocre"), value: -1},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Poor"), value: -2},
-      {name: game.i18n.localize("FUDGE.TraitLevel.Terrible"), value: -3}
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Good"), value: +1},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Fair"), value: 0},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Mediocre"), value: -1},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Poor"), value: -2},
+      {name: game.i18n.localize("FUDGERPG.TraitLevel.Terrible"), value: -3}
     ];
-    if (game.settings.get("fudge", "traitlevels") === "extended") {
+    if (game.settings.get("fudge-rpg", "traitlevels") === "extended") {
       LEVELSET.unshift(
-        {name: game.i18n.localize("FUDGE.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
-        {name: game.i18n.localize("FUDGE.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
+        {name: game.i18n.localize("FUDGERPG.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
+        {name: game.i18n.localize("FUDGERPG.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
       );
     }
     const isPrivate = options.isPrivate ?? false;

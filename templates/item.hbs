@@ -1,28 +1,28 @@
 <form class="itemsheet">
-  <label class="hidden" for="itemname">{{localize "FUDGE.ItemName"}} </label>
-  <input class="fullwidth" name="itemname" id="itemname" type="text" value="{{item.name}}" placeholder={{localize "FUDGE.ItemName"}}  />
+  <label class="hidden" for="itemname">{{localize "FUDGERPG.ItemName"}} </label>
+  <input class="fullwidth" name="itemname" id="itemname" type="text" value="{{item.name}}" placeholder={{localize "FUDGERPG.ItemName"}}  />
   <section class="properties">
     {{#if (eq item.type "attributeset")}}
-      <label for="attributes">{{localize "FUDGE.AttributesEntry"}}</label>
+      <label for="attributes">{{localize "FUDGERPG.AttributesEntry"}}</label>
       <textarea id="attributes" class="attributeset">{{attributelist}}</textarea>
     {{/if}}
     {{#if (eq item.type "equipment")}}
-      <label for="odf">{{localize "FUDGE.ODF"}} </label>
+      <label for="odf">{{localize "FUDGERPG.ODF"}} </label>
       <input class="numeric" name="odf" id="odf" type="text" value="{{item.system.odf}}"/>
-      <label for="ddf">{{localize "FUDGE.DDF"}} </label>
+      <label for="ddf">{{localize "FUDGERPG.DDF"}} </label>
       <input class="numeric" name="ddf" id="ddf" type="text" value="{{item.system.ddf}}"/>
-      <label for="quantity">{{localize "FUDGE.Quantity"}}</label>
+      <label for="quantity">{{localize "FUDGERPG.Quantity"}}</label>
       <input class="numeric" name="quantity" id="quantity" type="text" value="{{item.system.quantity}}" />
     {{/if}}
     {{#if (eq item.type "skill")}}
-      <label for="skillgroup">{{localize "FUDGE.SkillGroups"}}</label>
+      <label for="skillgroup">{{localize "FUDGERPG.SkillGroups"}}</label>
       <input name="skillgroup" id="skillgroup" type="text" value="{{item.system.group}}" />
-      <label xfor="skillgroup2" class="hiddenlabel">{{localize "FUDGE.SkillGroup"}}</label>
+      <label xfor="skillgroup2" class="hiddenlabel">{{localize "FUDGERPG.SkillGroup"}}</label>
       <input name="skillgroup2" id="skillgroup2" type="text" value="{{item.system.group2}}" />
     {{/if}}
   </section>
   <section class="item-description">
-    <h2>{{localize 'FUDGE.Description'}}</h2>
+    <h2>{{localize 'FUDGERPG.Description'}}</h2>
     {{editor descriptionHTML class="desc" target="system.description" button=true 
       editable=editable engine="prosemirror" collaborate=false}}
   </section>

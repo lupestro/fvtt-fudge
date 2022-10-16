@@ -23,28 +23,28 @@ const displayWithSign = function(num) {
 };
 
 const registerSystemSettings = function() {
-  game.settings.register("fudge", "traitlevels", {
-    name: "FUDGE.TraitLevels",
-    hint: "FUDGE.TraitLevelsHint",
+  game.settings.register("fudge-rpg", "traitlevels", {
+    name: "FUDGERPG.TraitLevels",
+    hint: "FUDGERPG.TraitLevelsHint",
     scope: "world",
     config: true,
     default: "normal",
     type: String,
     choices: {
-      standard: "FUDGE.TraitLevelsStandard",
-      extended: "FUDGE.TraitLevelsExtended"
+      standard: "FUDGERPG.TraitLevelsStandard",
+      extended: "FUDGERPG.TraitLevelsExtended"
     }
   });
 };
 
 Hooks.once("ready", async function() {
-  if (!game.user.getFlag("fudge", "visited")) {
+  if (!game.user.getFlag("fudge-rpg", "visited")) {
     await Dialog.prompt({
-      title: game.i18n.localize("FUDGE.AboutFudge.Title"),
-      content: game.i18n.localize("FUDGE.AboutFudge.LegalNotice"),
+      title: game.i18n.localize("FUDGERPG.AboutFudge.Title"),
+      content: game.i18n.localize("FUDGERPG.AboutFudge.LegalNotice"),
       label: "OK"
     });
-    game.user.setFlag("fudge", "visited", true);
+    game.user.setFlag("fudge-rpg", "visited", true);
   }
 });
 
@@ -53,18 +53,18 @@ Hooks.once("init", function() {
  
   registerSystemSettings();
   Actors.unregisterSheet("core", ActorFudge);
-  Actors.registerSheet("fudge", ActorSheetFudgeMajor, {
+  Actors.registerSheet("fudge-rpg", ActorSheetFudgeMajor, {
     types: ["major"],
     makeDefault: true,
-    label: "FUDGE.SheetClassCharacter"
+    label: "FUDGERPG.SheetClassCharacter"
   });
   Items.unregisterSheet("core", ItemFudge);
-  Items.registerSheet("fudge", ItemSheetFudge, {
+  Items.registerSheet("fudge-rpg", ItemSheetFudge, {
     types: ["attributeset", "skill", "gift", "fault", "equipment"],
     makeDefault: true,
-    label: "FUDGE.SheetClassItem"
+    label: "FUDGERPG.SheetClassItem"
   });
 Handlebars.registerHelper({displayWithSign});
 loadPartials([]);
-  //   "systems/fudge/templates/partials/traitlevel-selector.hbs"
+  //   "systems/fudge-rpg/templates/partials/traitlevel-selector.hbs"
 });

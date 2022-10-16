@@ -1,6 +1,7 @@
 # Fudge system for FoundryVTT
 
-## 1.0.1    Incorporate issues raised in private playtest
+## 1.1.0    Incorporate issues raised in private playtest and re-brand for uniqueness
+- [BREAKING] Needed to rebrand to "fudge-rpg" before publishing - the id "fudge" was already taken by a small module.
 - [FEATURE] Clicking item names brings up item sheets
 - [BUGFIX] Dropdown display collapsed to nothing when narrowing actor sheet
 - [BUGFIX] Addressed usability issues with edit areas
@@ -33,7 +34,8 @@ Everything you should need to play a game using subjective character creation.
 
 For now, these need to be managed by hand but none of them should outright prevent play. 
 * If you need to use scale, it may require adjusting rolls appearing in chat in order to compare them across species. 
-* The others should have little to no impact during play. T
+* The others should have little to no impact during play.
 * The ones in bold (first in each list) have my attention as the next things to tackle, though, for good reason.
 
-Once the base system is relatively complete, our vision is to support specific Fudge-based systems as modules, provided we get the right licensing to do it.
+Once the base system is relatively complete, our vision is to support specific Fudge-based systems as modules, 
+provided we get the right licensing to do it.

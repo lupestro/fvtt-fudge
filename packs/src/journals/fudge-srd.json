@@ -18,7 +18,7 @@
         "controls": true,
         "volume": 0.5
       },
-      "src": "systems/fudge/fudge_srd.pdf",
+      "src": "systems/fudge-rpg/fudge_srd.pdf",
       "system": {},
       "ownership": {
         "default": -1
@@ -31,7 +31,7 @@
   },
   "flags": {},
   "_stats": {
-    "systemId": "fudge",
+    "systemId": "fudge-rpg",
     "systemVersion": "1.0.0",
     "coreVersion": "10.286",
     "createdTime": 1664646668090,
