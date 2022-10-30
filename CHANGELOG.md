@@ -1,5 +1,10 @@
 # Fudge system for FoundryVTT
 
+## 1.2.0    A few features to grease play that didn't get into 1.1
+- [FEATURE] Character portrait
+- [FEATURE] Default attribute set upon character creation
+- [FEATURE] Objective character creation with settable initial skill and attribute levels and gifts.
+
 ## 1.1.0    Incorporate issues raised in private playtest and re-brand for uniqueness
 - [BREAKING] Needed to rebrand to "fudge-rpg" before publishing - the id "fudge" was already taken by a small module.
 - [FEATURE] Clicking item names brings up item sheets
@@ -22,7 +27,6 @@ Everything you should need to play a game using subjective character creation.
     - mechanism for supplying custom traits.
   - Character creation:
     - **5-point Fudge.**
-    - objective character creation.
     - sample equipment.
     - sample actors.
   - Combat flow: 
