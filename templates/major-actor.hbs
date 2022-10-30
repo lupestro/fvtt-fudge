@@ -1,14 +1,13 @@
 <form class="actor">
   <header>
-    <section class="names">
-      <div class="field">
+    <section class="basedata">
+      <div class="name">
         <label for="charname">{{ localize 'FUDGERPG.CharacterName' }}</label>
         <input name="charname" id="charname" type="text" 
           value="{{actor.name}}" 
           placeholder="{{ localize 'FUDGERPG.CharacterName' }}"/>
       </div>
-    </section>
-    <section class="basedata">
+      <img class="picture" data-edit="img" title="{{actor.name}}" src="{{actor.img}}" /> 
       <div class="traitinfo">
         <h2>{{ localize 'FUDGERPG.TraitValues' }}</h2>
         <table>
@@ -103,7 +102,10 @@
   <main>
     <section class="traits">
       <section class="attributes">
-        <h2>{{ localize 'FUDGERPG.Attributes' }}</h2>
+        <div class="header-with-count">
+          <h2>{{ localize 'FUDGERPG.Attributes' }}</h2>
+          <input id="attribute-points" class="occ-count" value="{{actor.system.unspent.attrlevels}}"/>
+        </div>
         <div class="levellist levellist-attr">
             {{#each attributeset.system.attributes as |attribute idx|}}
               <button id="roll-attr-{{idx}}" type="button" class="roll-button" 
@@ -122,7 +124,10 @@
         </div>
       </section>
       <section class="gifts">
-        <h2>{{ localize 'FUDGERPG.GiftsPowers' }}</h2>
+        <div class="header-with-count">
+          <h2>{{ localize 'FUDGERPG.GiftsPowers' }}</h2>
+          <input id="gift-points" class="occ-count" value="{{actor.system.unspent.gifts}}"}/>
+        </div>
         <div class="traitlist">
           {{#each actor.items as |item|}}
               {{#if (eq item.type "gift")}}
@@ -136,7 +141,10 @@
         </div>
       </section>
       <section class="skills">
-          <h2>{{ localize 'FUDGERPG.Skills' }}</h2>
+          <div class="header-with-count">
+            <h2>{{ localize 'FUDGERPG.Skills' }}</h2>
+            <input id="skill-points" class="occ-count"  value="{{actor.system.unspent.skilllevels}}"/>
+          </div>
           <div class="levellist levellist--dl">
             {{#each actor.items as |item|}}
               {{#if (eq item.type "skill")}}
@@ -191,7 +199,10 @@
         </div>
       </section>
       <section class="faults">
-        <h2>{{ localize 'FUDGERPG.Faults' }}</h2>
+        <div class="header-with-count">
+          <h2>{{ localize 'FUDGERPG.Faults' }}</h2>
+          <input id="fault-points" class="occ-count" value="{{actor.system.unspent.faults}}"/>
+        </div>
         <div class="traitlist">
           {{#each actor.items as |item|}}
             {{#if (eq item.type "fault")}}

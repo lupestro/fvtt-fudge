@@ -6,6 +6,7 @@ const WOUND_MODIFIER_INCAPACITATED = -5;
 const WOUND_MODIFIER_VERYHURT = -2;
 const WOUND_MODIFIER_HURT = -1;
 const WOUND_MODIFIER_OK = 0;
+const SKILL_LEVEL_POOR = -2;
 
 /**
  * Extend the base ActorSheet class to implement our character sheet.
@@ -77,6 +78,10 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     html.find("#charname").change(this._onCharacterNameChange.bind(this));
     html.find("#fp").change(this._onScoreChange.bind(this));
     html.find("#ep").change(this._onScoreChange.bind(this));
+    html.find("#attribute-points").change(this._onAttributePointsChange.bind(this));
+    html.find("#gift-points").change(this._onGiftPointsChange.bind(this));
+    html.find("#skill-points").change(this._onSkillPointsChange.bind(this));
+    html.find("#fault-points").change(this._onFaultPointsChange.bind(this));
     html.find(".delete-button").click(this._onDeleteClick.bind(this));
     html.find(".roll-button").click(this._onRollClick.bind(this));
     html.find(".itemname").click(this._onSelectItem.bind(this));
@@ -119,13 +124,22 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     const level = parseInt(control.value, 10);
     const [prefix, id] = control.id.split("-");
     if (prefix === "attr") {
+      const attrIndex = parseInt(id, 10);
       const attrset = this.object.items.find((item) => item.type === "attributeset" );
+      const oldLevel = attrset.system.attributes[attrIndex].level;
       const newAttributes = foundry.utils.deepClone(attrset.system.attributes);
-      newAttributes[parseInt(id, 10)].level = level;
-      await attrset.update({"system.attributes": newAttributes});  
+      newAttributes[attrIndex].level = level;
+      await attrset.update({"system.attributes": newAttributes});
+      await this.object.update({
+        "system.unspent.attrlevels": this.object.system.unspent.attrlevels - (level - oldLevel)
+      });
     } else if (prefix === "sel") {
       const skill = this.object.items.get(id);
+      const oldLevel = skill.system.level;
       await skill.update({"system.level": level});
+      await this.object.update({
+        "system.unspent.skilllevels": this.object.system.unspent.skilllevels - (level - oldLevel)
+      });
     } 
   }
 
@@ -146,6 +160,34 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
   async _onCharacterNameChange(event) {
     await this.object.update({name: event.target.value.trim()});
   }
+  
+  async _onAttributePointsChange(event) {
+    const result = parseInt(event.target.value, 10);
+    if (!isNaN(result)) {
+      await this.object.update({"system.unspent.attrlevels": result});
+    }
+  }
+
+  async _onSkillPointsChange(event) {
+    const result = parseInt(event.target.value, 10);
+    if (!isNaN(result)) {
+      await this.object.update({"system.unspent.skilllevels": result});
+    }
+  }
+
+  async _onGiftPointsChange(event) {
+    const result = parseInt(event.target.value, 10);
+    if (!isNaN(result)) {
+      await this.object.update({"system.unspent.gifts": result});
+    }
+  }
+
+  async _onFaultPointsChange(event) {
+    const result = parseInt(event.target.value, 10);
+    if (!isNaN(result)) {
+      await this.object.update({"system.unspent.faults": result});
+    }
+  }
 
   async _onScoreChange(event) {
     const result = parseInt(event.target.value, 10);
@@ -162,6 +204,19 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
   async _onDeleteClick(event) {
     const [prefix, id] = event.target.id.split("-");
     if (prefix === "del") {
+      const item = this.object.items.get(id);
+      if (item.type === "skill") {
+        await this.object.update({
+          "system.unspent.skilllevels":
+            this.object.system.unspent.skilllevels - (SKILL_LEVEL_POOR - item.system.level)
+        });
+      }
+      if (item.type === "gift") {
+        await this.object.update({"system.unspent.gifts": this.object.system.unspent.gifts + 1});
+      }
+      if (item.type === "fault") {
+        await this.object.update({"system.unspent.faults": this.object.system.unspent.faults - 1});
+      }
       await this.object.deleteEmbeddedDocuments("Item", [id]);
     }
   }

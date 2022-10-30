@@ -14,12 +14,14 @@ export default class ItemSheetFudge extends ItemSheet {
       context.attributelist = item.system.attributes.map((attribute) => attribute.name).join("\n");
     }
     return context;
-  }  
+  }
 
   activateListeners(html) {
     super.activateListeners(html);
     html.find("#itemname").change(this._onNameChange.bind(this));
     html.find("#attributes").change(this._onAttributesChange.bind(this));
+    html.find("#muscleweapon").change(this._onMuscleWeaponAttributeChange.bind(this));
+    html.find("#damagecapacity").change(this._onDamageCapacityAttributeChange.bind(this));
     html.find("#skillgroup").change(this._onSkillGroupChange.bind(this));
     html.find("#skillgroup2").change(this._onSkillGroup2Change.bind(this));
     html.find("#odf").change(this._onNumberFieldChange.bind(this));
@@ -49,6 +51,14 @@ export default class ItemSheetFudge extends ItemSheet {
     await this.object.update( {"system.attributes": newAttributes});
   }
 
+  async _onMuscleWeaponAttributeChange(event) {
+    await this.object.update( {"system.muscleweapon": event.target.value});
+  }
+
+  async _onDamageCapacityAttributeChange(event) {
+    await this.object.update( {"system.damagecap": event.target.value});
+  }
+  
   async _onSkillGroupChange(event) {
     await this.object.update({"system.group": event.target.value.trim()});
   }

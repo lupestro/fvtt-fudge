@@ -13,10 +13,18 @@
           "neardeath": 0
         },
         "notes": "<p></p>"
+      },
+      "occ": {
+        "unspent": {
+          "attrlevels": 0,
+          "skilllevels": 0,
+          "gifts": 0,
+          "faults": 0
+        }
       }
     },
     "major": {
-      "templates": ["basic"]
+      "templates": ["basic","occ"]
     }
   },
   "Item": {
@@ -33,7 +41,9 @@
           "name": "",
           "level": 0
         }
-      ]
+      ],
+      "muscleweapon": "",
+      "damagecap": ""
     },
     "skill": {
       "templates": ["described"],

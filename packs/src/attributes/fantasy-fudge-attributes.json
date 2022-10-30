@@ -29,7 +29,9 @@
         "name": "Health",
         "level": 0
       }
-    ]
+    ],
+    "muscleweapon": "Strength",
+    "damagecap": "Health"
   },
   "effects": [],
   "ownership": {

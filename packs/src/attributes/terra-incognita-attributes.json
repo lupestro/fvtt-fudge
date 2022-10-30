@@ -29,7 +29,9 @@
         "name": "Vigor",
         "level": 0
       }
-    ]
+    ],
+    "muscleweapon": "Strength",
+    "damagecap": "Vigor"
   },
   "effects": [],
   "ownership": {

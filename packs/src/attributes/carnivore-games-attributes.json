@@ -29,7 +29,9 @@
         "name": "Will",
         "level": 0
       }
-    ]
+    ],
+    "muscleweapon": "Brawn",
+    "damagecap": "Stamina"
   },
   "effects": [],
   "flags": {},

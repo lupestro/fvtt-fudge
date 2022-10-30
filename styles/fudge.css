@@ -26,32 +26,30 @@ main {
     text-align: center;
 }
 
-.names .field {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 10px;
-
-}
-.names .field {
-    flex: 1 1 auto;
+.name {
     font-size: 24px;
 }
 
-.names .field label {
+.name label {
     padding: 0px;
     display:none;
 }
 
-.names .field input {
+.name input {
     min-width: 200px;
 }
 
 .basedata {
     display: grid;
-    grid-template-areas: 'info stats' 'info wounds';
-    grid-template-columns: auto 1fr; 
-    grid: 2 2;
+    grid-template-areas: 'name name picture' 'info stats picture' 'info wounds wounds';
+    grid-template-columns: auto 1fr 150px; 
     gap: 5px;
+}
+.basedata .name {
+    grid-area: name;
+}
+.basedata .picture {
+    grid-area: picture;
 }
 .basedata h2 {
     text-align: center;
@@ -106,7 +104,7 @@ main {
 .traits {
     display: grid;
     grid-template-areas: 'attributes gifts skills' 'equipment faults skills';
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 3fr 2fr 3fr;
     grid-template-rows: 1fr 1fr;
     gap: 5px;
 }
@@ -135,6 +133,17 @@ main {
 }
 .traits .faults {
     grid-area: faults;
+}
+.traits .header-with-count {
+    display: flex;
+    flex-direction: row;
+}
+.traits .header-with-count h2 {
+    flex: 1 1 auto;
+}
+.traits .occ-count {
+    width: 30px;
+    height: 30px;
 }
 .traits > section {
     border: 1px solid #000000;
@@ -210,10 +219,15 @@ main {
 .itemsheet .properties input.numeric {
     width: 50px;
 }
+
 .itemsheet .properties #attributes {
     min-height: 100px;
     height: 150px;
     width: 150px;
+    min-width: 100px;
+}
+.itemsheet .properties #damagecapacity, 
+.itemsheet .properties #muscleweapon {
     min-width: 100px;
 }
 
