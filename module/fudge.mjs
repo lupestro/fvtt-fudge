@@ -40,8 +40,28 @@ const availableAttributes = () => {
   });
   return result;
 };
+/**
+ * We have to register these at ready, because they require
+ * looking at items and loaded compendia for attribute sets.
+ */
+const registerResourceDependentSystemSettings = function() {
+  game.settings.register("fudge-rpg", "defaultattributeset", {
+    name: "FUDGERPG.DefaultAttributeSet",
+    hint: "FUDGERPG.DefaultAttributeSetHint",
+    scope: "world",
+    config: true,
+    default: FANTASY_FUDGE_ATTRIBUTES_FROM_COMPENDIUM,
+    type: String,
+    choices: availableAttributes()
+  });
+}
 
-const registerSystemSettings = function() {
+/**
+ * We register everything that we can at init. This is especially
+ * important for the trait levels because they are used in
+ * restoring the chat history.
+ */
+const registerIndependentSystemSettings = function() {
   game.settings.register("fudge-rpg", "traitlevels", {
     name: "FUDGERPG.TraitLevels",
     hint: "FUDGERPG.TraitLevelsHint",
@@ -53,16 +73,6 @@ const registerSystemSettings = function() {
       standard: "FUDGERPG.TraitLevelsStandard",
       extended: "FUDGERPG.TraitLevelsExtended"
     }
-  });
-  
-  game.settings.register("fudge-rpg", "defaultattributeset", {
-    name: "FUDGERPG.DefaultAttributeSet",
-    hint: "FUDGERPG.DefaultAttributeSetHint",
-    scope: "world",
-    config: true,
-    default: FANTASY_FUDGE_ATTRIBUTES_FROM_COMPENDIUM,
-    type: String,
-    choices: availableAttributes()
   });
   
   game.settings.register("fudge-rpg", "initialattrlevels", {
@@ -101,7 +111,7 @@ Hooks.once("ready", async function() {
     });
     game.user.setFlag("fudge-rpg", "visited", true);
   }
-  registerSystemSettings();
+  registerResourceDependentSystemSettings();
 });
 
 Hooks.once("init", function() {
@@ -120,6 +130,7 @@ Hooks.once("init", function() {
     label: "FUDGERPG.SheetClassItem"
   });
 Handlebars.registerHelper({displayWithSign});
+registerIndependentSystemSettings();
 loadPartials([]);
   //   "systems/fudge-rpg/templates/partials/traitlevel-selector.hbs"
 });

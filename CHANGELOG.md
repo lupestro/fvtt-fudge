@@ -1,5 +1,11 @@
 # Fudge system for FoundryVTT
 
+## 1.3.0    Drag and Drop support within character sheet
+- [FEATURE] Drag and drop to reorder lists in character sheet
+- [FEATURE] Drag and drop to "horse-trade" unused levels
+- [CLEANUP] "Stats" wasn't translated. Renamed it to "General Traits"
+- [BUGFIX] Rolls in chat history now appear properly on startup
+
 ## 1.2.0    A few features to grease play that didn't get into 1.1
 - [FEATURE] Character portrait
 - [FEATURE] Default attribute set upon character creation

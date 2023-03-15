@@ -149,30 +149,39 @@ main {
     border: 1px solid #000000;
     padding: 5px;
 }
+
 .traitlist {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.nonlevel-row {
     display: grid;
-    grid-auto-rows: auto;
     grid-template-columns: auto 20px;
     align-items: center;
-    gap: 5px;
 }
-
-.levellist {
+.attribute-row {
     display: grid;
-    grid-auto-rows: auto;
-    grid-template-columns: auto 1fr;
     align-items: center;
-    gap: 5px;
-    padding: 5px 0px;
-}
-.levellist.levellist-attr {
+    padding: 2px 0;
     grid-template-columns: 20px auto 90px;
 }
-.levellist.levellist--dl {
+.skill-row {
+    display: grid;
+    align-items: center;
+    padding: 2px 0;
     grid-template-columns: 20px auto 90px 20px;
 }
+.equipment-row {
+    display: grid;
+    grid-template-columns: 1fr auto 20px;
+    align-items: center;
+}
+.equipment-row .eqtitle {
+    font-weight: bold;
+}
 
-.levellist label {
+.traitlist label {
     padding: 0;
 }
 .levellist .specialization {
@@ -180,17 +189,6 @@ main {
     width: 120px;
 }
 
-.eqlist {
-    display: grid;
-    grid: auto 2;
-    grid-template-columns: 1fr auto 20px;
-    align-items: center;
-    gap: 5px;
-    padding: 5px;
-}
-.eqlist .eqtitle {
-    font-weight: bold;
-}
 .delete-button i, .roll-button i, .edit-button i {
     pointer-events: none;
 }

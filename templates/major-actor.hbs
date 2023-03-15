@@ -30,7 +30,7 @@
         </table>
       </div>
       <div class="stats">
-        <h2>Stats</h2>
+        <h2>{{localize 'FUDGERPG.GeneralTraits'}}</h2>
         <div class="fields">
           <label>{{ localize 'FUDGERPG.FP' }}
             <input id="fp" name="fp" type="text" value="{{actor.system.fp}}" 
@@ -106,20 +106,23 @@
           <h2>{{ localize 'FUDGERPG.Attributes' }}</h2>
           <input id="attribute-points" class="occ-count" value="{{actor.system.unspent.attrlevels}}"/>
         </div>
-        <div class="levellist levellist-attr">
+        <div class="traitlist">
             {{#each attributeset.system.attributes as |attribute idx|}}
-              <button id="roll-attr-{{idx}}" type="button" class="roll-button" 
-                title="Roll"><i class="fas fa-dice-d6"></i></button>
-              <label for="attr-{{idx}}">{{attribute.name}}</label>
-              <select id="attr-{{idx}}" name="attr-{{idx}}" class="traitselect">
-                {{#each ../traitlevels as |level|}}
-                  <option value="{{level.value}}"
-                  {{#if (eq attribute.level level.value)}} selected {{/if}}
-                  >
-                    {{level.name}}
-                  </option>
-                {{/each}}
-              </select>
+              <div class="attribute-row" data-index="{{idx}}">
+                <button id="roll-attr-{{idx}}" type="button" class="roll-button" title="Roll">
+                  <i class="fas fa-dice-d6"></i>
+                </button>
+                <label for="attr-{{idx}}">{{attribute.name}}</label>
+                <select id="attr-{{idx}}" name="attr-{{idx}}" class="traitselect">
+                  {{#each ../traitlevels as |level|}}
+                    <option value="{{level.value}}"
+                      {{#if (eq attribute.level level.value)}} selected {{/if}}
+                    >
+                      {{level.name}}
+                    </option>
+                  {{/each}}
+                </select>
+              </div>
             {{/each}}
         </div>
       </section>
@@ -128,15 +131,18 @@
           <h2>{{ localize 'FUDGERPG.GiftsPowers' }}</h2>
           <input id="gift-points" class="occ-count" value="{{actor.system.unspent.gifts}}"}/>
         </div>
-        <div class="traitlist">
-          {{#each actor.items as |item|}}
-              {{#if (eq item.type "gift")}}
-                <div class="nonlevel-item">
-                  <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
-                </div>
-                <button id="del-{{item.id}}" type="button" class="delete-button" 
-                  title="Delete"><i class="fas fa-trash"></i></button>
-              {{/if}}
+        <div class="traitlist item-list">
+          {{#each items as |item|}}
+            {{#if (eq item.type "gift")}}
+              <div class="nonlevel-row item" data-item-id="{{item._id}}">
+                <button type="button" data-id="{{item._id}}" class="itemname">
+                  {{item.name}}
+                </button>
+                <button id="del-{{item._id}}" type="button" class="delete-button" title="Delete">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            {{/if}}
           {{/each}}
         </div>
       </section>
@@ -145,55 +151,61 @@
             <h2>{{ localize 'FUDGERPG.Skills' }}</h2>
             <input id="skill-points" class="occ-count"  value="{{actor.system.unspent.skilllevels}}"/>
           </div>
-          <div class="levellist levellist--dl">
-            {{#each actor.items as |item|}}
+          <div class="traitlist item-list">
+            {{#each items as |item|}}
               {{#if (eq item.type "skill")}}
-                <button id="roll-skill-{{item.id}}" class="roll-button" title="Roll" 
-                  type="button" ><i class="fas fa-dice-d6"></i></button>
-                <label for="sel-{{item.id}}">
-                  <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
-                </label>
-                <select id="sel-{{item.id}}" name="sel-{{item.id}}" 
-                  class="traitselect">
-                  {{#each ../traitlevels as |level|}}
-                    <option value="{{level.value}}"
-                    {{#if (eq item.system.level level.value)}} selected {{/if}}
-                    >
-                      {{level.name}}
-                    </option>
-                  {{/each}}
-                </select>
-                <!-- <button id="edit-{{item.id}}" class="edit-button" title="Edit" 
-                  type="button"><i class="fas fa-edit"></i></button> -->
-                <button id="del-{{item.id}}" class="delete-button" title="Delete" 
-                  type="button"><i class="fas fa-trash"></i></button>
-                <!-- Specialization example - kind of ugly right now - save for later
-                <input id="s2-spec" name="s2-spec" placeholder="Rapier" 
-                  class="specialization" style="margin-left: 20px;">
-                <div></div>
-                <div></div>
-                -->
+                <div class="skill-row item" data-item-id="{{item._id}}">
+                  <button id="roll-skill-{{item._id}}" class="roll-button" title="Roll" 
+                    type="button" ><i class="fas fa-dice-d6"></i></button>
+                  <label for="sel-{{item._id}}">
+                    <button type="button" data-id="{{item._id}}" class="itemname">{{item.name}}</button>
+                  </label>
+                  <select id="sel-{{item._id}}" name="sel-{{item._id}}" 
+                    class="traitselect">
+                    {{#each ../traitlevels as |level|}}
+                      <option value="{{level.value}}"
+                      {{#if (eq item.system.level level.value)}} selected {{/if}}
+                      >
+                        {{level.name}}
+                      </option>
+                    {{/each}}
+                  </select>
+                  <!-- <button id="edit-{{item.id}}" class="edit-button" title="Edit" 
+                    type="button"><i class="fas fa-edit"></i></button> -->
+                  <button id="del-{{item._id}}" class="delete-button" title="Delete" 
+                    type="button"><i class="fas fa-trash"></i></button>
+                  <!-- Specialization example - kind of ugly right now - save for later
+                  <input id="s2-spec" name="s2-spec" placeholder="Rapier" 
+                    class="specialization" style="margin-left: 20px;">
+                  <div></div>
+                  <div></div>
+                  -->
+                </div>
               {{/if}}
             {{/each}}
           </div>
       </section>
       <section class="equipment">
         <h2>{{ localize 'FUDGERPG.Equipment' }}</h2>
-        <div class="eqlist">
-          <div class="eqtitle">Item</div>
-          <div class="eqtitle">DF</div>
-          <div class="eqtitle"></div>
-          {{#each actor.items as |item|}}
+        <div class=" traitlist item-list">
+          <div class="equipment-row">
+            <div class="eqtitle">Item</div>
+            <div class="eqtitle">DF</div>
+            <div class="eqtitle"></div>
+          </div>
+          {{#each items as |item|}}
             {{#if (eq item.type "equipment")}}
-              <div class="eqname">
-                <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
+              <div class="equipment-row item" data-item-id="{{item._id}}">
+                <div class="eqname">
+                  <button type="button" data-id="{{item._id}}" class="itemname">{{item.name}}</button>
+                </div>
+                <div class="df">
+                  {{#if item.system.odf}}O{{displayWithSign item.system.odf}}{{/if}}
+                  {{#if item.system.ddf}}D{{displayWithSign item.system.ddf}}{{/if}}
+                </div>
+                <button id="del-{{item._id}}" class="delete-button" title="Delete" 
+                  type="button"><i class="fas fa-trash"></i></button>
               </div>
-              <div class="df">
-                {{#if item.system.odf}}O{{displayWithSign item.system.odf}}{{/if}}
-                {{#if item.system.ddf}}D{{displayWithSign item.system.ddf}}{{/if}}
-              </div>
-              <button id="del-{{item.id}}" class="delete-button" title="Delete" 
-                type="button"><i class="fas fa-trash"></i></button>
             {{/if}}
           {{/each}}
         </div>
@@ -203,14 +215,15 @@
           <h2>{{ localize 'FUDGERPG.Faults' }}</h2>
           <input id="fault-points" class="occ-count" value="{{actor.system.unspent.faults}}"/>
         </div>
-        <div class="traitlist">
-          {{#each actor.items as |item|}}
+        <div class="traitlist item-list">
+          {{#each items as |item|}}
             {{#if (eq item.type "fault")}}
-              <div class="nonlevel-item">
-                <button type="button" data-id="{{item.id}}" class="itemname">{{item.name}}</button>
+              <div class="item nonlevel-row" data-item-id="{{item._id}}">
+                <button type="button" data-id="{{item._id}}" class="itemname">{{item.name}}</button>
+                <button id="del-{{item._id}}" class="delete-button" title="Delete" type="button">
+                  <i class="fas fa-trash"></i>
+                </button>
               </div>
-              <button id="del-{{item.id}}" class="delete-button" title="Delete"
-                type="button"><i class="fas fa-trash"></i></button>
             {{/if}}
           {{/each}}
         </div>
