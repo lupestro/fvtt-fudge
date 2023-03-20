@@ -1,0 +1,99 @@
+.five-point-sheet {
+  min-width: 650px;
+}
+.five-point {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.fp-unspent .name-row {
+  display: flex;
+  width: 190px;
+}
+.fp-unspent .name-row label {
+  flex: 1 0 auto;
+  padding: 5px;
+}
+.fp-unspent .name-row input {
+  flex: 0 0 20px;
+  width: 30px;  
+}
+.fp-column {
+  flex: 1 1 auto;
+}
+.fp-column-title {
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 0px;
+}
+.fp-group {
+  margin: 5px 0;
+  padding: 5px;
+  border: solid 2px;
+  border-radius: 5px;
+  background-color: lightgray;
+  width: 200px;
+}
+.fp-group .name-row {
+  display: flex;
+}
+.fp-group .name-row label {
+  flex: 1 1 auto;
+  padding: 5px;
+}
+.fp-group .name-row input {
+  flex: 0 0 20px;
+  width: 30px;
+}
+.fp-group .breadth-row {
+  min-width: 170px;
+}
+.fp-group .breadth-row label {
+  margin-right: 0px;
+  padding: 5px;
+}
+
+.fp-general-group-list {
+  padding: 0 10px;
+}
+.fp-general-group-list p {
+  padding: 0;
+  margin: 0;
+}
+
+.fp-skill-level {
+  display: flex;
+  column-gap: 2px;
+  align-items: center;
+  min-width: 250px;
+  margin: 5px 0;
+}
+.fp-skill-level .skill-name {
+  flex: 1 1 auto;
+  padding: 5px;
+  font-weight: 700;
+  border: solid 2px;
+  border-radius: 5px;
+  background-color: lightgray;
+  min-height: 30px;
+}
+.fp-skill-level .skill-level {
+  flex: 0 0 50px;
+}
+.fp-skill-level select {
+  flex: 0 0 50px;
+}
+.fp-skill-level button {
+  flex: 0 0 20px;
+  appearance: inherit;
+  background: none;
+  padding: 0;
+  border: none;
+  height: 20px;
+  width: 20px;
+}
+
+.fp-skill {
+  margin:0;
+  padding: 5px;
+}

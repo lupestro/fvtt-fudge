@@ -1,5 +1,6 @@
 
 import TraitRoll from "../trait-roll.mjs";
+import FivePointWorksheet from "./five-point.mjs";
 
 const WOUND_MODIFIER_NEARDEATH = -10;
 const WOUND_MODIFIER_INCAPACITATED = -5;
@@ -110,6 +111,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     html.find(".delete-button").click(this._onDeleteClick.bind(this));
     html.find(".roll-button").click(this._onRollClick.bind(this));
     html.find(".itemname").click(this._onSelectItem.bind(this));
+    html.find("#fivepoint").click(this._onFivePointFudge.bind(this));
   }
 
   _onDragStart(event) {
@@ -126,7 +128,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
       const data = TextEditor.getDragEventData(event);
       if (data.from) {
         const srcElement = this.form.querySelector(`#${data.from}`);
-        this._tradePoints (srcElement, event.toElement);
+        this.tradePoints (srcElement, event.toElement);
       }
     } else {
       super._onDrop(event);
@@ -161,6 +163,30 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
       return WOUND_MODIFIER_HURT;
     } 
     return WOUND_MODIFIER_OK;
+  }
+
+  tradePoints(fromElement, toElement) {
+    if (fromElement.id !== toElement.id) {
+      if (LEVEL_TRADES[`${fromElement.id}:${toElement.id}`]) {
+        const trade = LEVEL_TRADES[`${fromElement.id}:${toElement.id}`]
+          .split('/')
+          .map(item => parseFloat(item));
+        const fromValue = parseFloat(fromElement.value);
+        const toValue = parseFloat(toElement.value);
+        if (!isNaN(fromValue) && !isNaN(toValue)) {
+          if (fromValue >= trade[0]) {
+            let updatedValues = {};
+            updatedValues[TRADE_PROPS[fromElement.id]] = fromValue - trade[0];
+            updatedValues[TRADE_PROPS[toElement.id]] = toValue + trade[1];
+            this.object.update(updatedValues);
+          } else {
+            console.log(`Not enough points for trade: ${fromElement.id} -> ${toElement.id}`);
+          }
+        }
+      }  
+    } else {
+      console.log (`Dragged to self: ${toElement.id}`);
+    }
   }
 
   // -------- Event Listeners --------
@@ -304,27 +330,11 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     item.sheet.render(true);
   }
 
-  _tradePoints(fromElement, toElement) {
-    if (fromElement.id !== toElement.id) {
-      if (LEVEL_TRADES[`${fromElement.id}:${toElement.id}`]) {
-        const trade = LEVEL_TRADES[`${fromElement.id}:${toElement.id}`]
-          .split('/')
-          .map(item => parseFloat(item));
-        const fromValue = parseFloat(fromElement.value);
-        const toValue = parseFloat(toElement.value);
-        if (!isNaN(fromValue) && !isNaN(toValue)) {
-          if (fromValue >= trade[0]) {
-            let updatedValues = {};
-            updatedValues[TRADE_PROPS[fromElement.id]] = fromValue - trade[0];
-            updatedValues[TRADE_PROPS[toElement.id]] = toValue + trade[1];
-            this.object.update(updatedValues);
-          } else {
-            console.log(`Not enough points for trade: ${fromElement.id} -> ${toElement.id}`);
-          }
-        }
-      }  
-    } else {
-      console.log (`Dragged to self: ${toElement.id}`);
-    }
+  _onFivePointFudge(event) {
+    new FivePointWorksheet(
+      this.actor, 
+      { popOut: true, resizable: true, width: 500 }
+    ).render(true);
+
   }
 }

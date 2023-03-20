@@ -21,10 +21,11 @@
           "gifts": 0,
           "faults": 0
         }
-      }
+      },
+      "five-point": {}
     },
     "major": {
-      "templates": ["basic","occ"]
+      "templates": ["basic","occ","five-point"]
     }
   },
   "Item": {

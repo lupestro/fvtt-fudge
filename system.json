@@ -17,7 +17,7 @@
     "maximum": "10"
   },
   "esmodules": [
-    "fudge.mjs"
+    "module/fudge.mjs"
   ],
   "styles": [
     "styles/fudge.css"

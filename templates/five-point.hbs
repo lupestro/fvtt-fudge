@@ -1,0 +1,66 @@
+<form class="five-point-form">
+  <div class="fp-unspent">
+    <div class="name-row">
+      <label for="unspent-points">Unspent Group Points</label>
+      <input class="unspent-points" value="{{data.system.fivePoint.unspent}}">
+    </div>       
+  </div>
+  <div class="five-point">
+    <div class="fp-column group">
+      <p class="fp-column-title">Skill Groups</p>
+      <div class="fp-group-list"></div>
+        {{#each data.system.fivePoint.groups as | group |}}
+          <div class="fp-group fp-skill-group">
+              <div class="name-row">
+                <label for="{{group.name}}-points">{{group.name}}</label>
+                <input id="{{group.name}}-points" value="{{group.points}}">
+              </div>
+              <div class="breadth-row">
+                <input id="{{group.name}}-broad" type="radio" value="Broad" name="{{group.name}}-breadth">
+                <label for="{{group.name}}-broad">Broad</label>
+                <input id="{{group-name}}-narrow" type="radio" value="Narrow" name="{{group.name}}-breadth"> 
+                <label for="{{group.name}}-narrow">Narrow</label>
+              </div>
+          </div>
+        {{/each}}
+        <div class="fp-group p-general-group">
+          <div class="name-row">
+            <label for="General-points">General</label>
+            <input id="General-points" value="{{data.system.fivePoint.generalPoints}}">
+          </div>
+          <div class="fp-general-group-list">
+            {{#each this.data.system.fivePoint.generalGroups as |group| }}
+              <p>{{group}}</p>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="fp-column levels">
+        <p class="fp-column-title">Skill Levels</p>
+        <div class="fp-skill-level-list">
+          {{#each selectedGroupLevels as |level|}}
+            <div class="fp-skill-level">
+              <span class="skill-level">{{level.level}}:</span>
+              <span class="skill-name">{{level.name}}</span>
+              <button id="level-split" type="button" class="roll-button" title="Split">
+                  <i class="fas fa-split"></i>
+              </button>
+              <button id="level-delete" type="button" class="roll-button" title="Delete">
+                  <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      <div class="fp-column skills">
+        <p class="fp-column-title">Skills in Group</p>
+        <div class="fp-=skill-list">
+          {{#each selectedGroupSkills as |skill|}}
+            <p class="fp-skill">{{skill}}</p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</form>
