@@ -1,6 +1,5 @@
-export default class FivePointWorksheet extends DocumentSheet { // subsidiary doc-sheet for actor
-
-  selectedGroup;
+// Subsidiary doc-sheet for actor
+export default class FivePointWorksheet extends DocumentSheet { 
 
   // -------- Overrides --------
 
@@ -8,7 +7,7 @@ export default class FivePointWorksheet extends DocumentSheet { // subsidiary do
     static get defaultOptions() {
       return foundry.utils.mergeObject(super.defaultOptions, {
         id: "five-point-worksheet",
-        classes: ["fudge-rpg","five-point-sheet"],
+        classes: ["fudge-rpg", "five-point-sheet"],
         template: "systems/fudge-rpg/templates/five-point.hbs",
         width: 500,
         closeOnSubmit: true,
@@ -23,13 +22,16 @@ export default class FivePointWorksheet extends DocumentSheet { // subsidiary do
   }
 
     /** @inheritDoc */
-    async getData(options) {
+  getData(options) {
     const context = super.getData(options);
-    //context.options.title = context.title = `Five-Point Fudge Worksheet: ${context.data.name}`;
+    
+    // Our only pure display state
+    this.selectedGroup = "Athletic"; 
 
-    this.selectedGroup = "Athletic"; // Our only pure display state
-
-    context.selectedGroupLevels = this.selectedGroup ? context.data.system.fivePoint.groups.find(group => group.name === this.selectedGroup).levels: [];
+    context.selectedGroupLevels = 
+      this.selectedGroup
+        ? context.data.system.fivePoint.groups.find((group) => group.name === this.selectedGroup).levels
+        : [];
     context.selectedGroupSkills = this.selectedGroup ? context.data.system.groupSkills[this.selectedGroup] : [];
 
     return context;

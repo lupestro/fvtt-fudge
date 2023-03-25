@@ -1,6 +1,6 @@
-
 import TraitRoll from "../trait-roll.mjs";
 import FivePointWorksheet from "./five-point.mjs";
+import {tradePoints} from "../trades.mjs";
 
 const WOUND_MODIFIER_NEARDEATH = -10;
 const WOUND_MODIFIER_INCAPACITATED = -5;
@@ -8,26 +8,6 @@ const WOUND_MODIFIER_VERYHURT = -2;
 const WOUND_MODIFIER_HURT = -1;
 const WOUND_MODIFIER_OK = 0;
 const SKILL_LEVEL_POOR = -2;
-const LEVEL_TRADES = {
-  "skill-points:attribute-points": "3/1",
-  "skill-points:gift-points": "6/1",
-  "skill-points:fault-points":"-6/1",
-  "attribute-points:skill-points":"1/3",
-  "attribute-points:gift-points": "2/1",
-  "attribute-points:fault-points": "-2/1",
-  "gift-points:skill-points": "1/6",
-  "gift-points:attribute-points": "1/2",
-  "gift-points:fault-points": "-1/1",
-  "fault-points:skill-points":"1/-6",
-  "fault-points:attribute-points":"1/-2",
-  "fault-points:gift-points":"1/-1",
-};
-const TRADE_PROPS = {
-  "attribute-points": "system.unspent.attrlevels",
-  "gift-points": "system.unspent.gifts",
-  "skill-points": "system.unspent.skilllevels",
-  "fault-points": "system.unspent.faults",
-};
 
 /**
  * Extend the base ActorSheet class to implement our character sheet.
@@ -42,10 +22,11 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
   }
 
   static get defaultOptions() {
-    let newOptions = super.defaultOptions;
+    const newOptions = super.defaultOptions;
     newOptions.dragDrop.push({dragSelector: ".occ-count", dropSelector: ".occ-count"});
     return newOptions;
   }
+
   /*
    * The context data provided by getData is the data made available to the template.
    * It is not available via "this", so it cannot be used in event listeners.
@@ -77,21 +58,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
       }
     }
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
-    context.traitlevels = [
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Good"), value: +1},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Fair"), value: 0},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Mediocre"), value: -1},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Poor"), value: -2},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Terrible"), value: -3}
-    ];
-    if (game.settings.get("fudge-rpg", "traitlevels") === "extended") {
-      context.traitlevels.unshift(
-        {name: game.i18n.localize("FUDGERPG.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
-        {name: game.i18n.localize("FUDGERPG.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
-      );
-    }
+    context.traitlevels = this.object.traitLevels;
     context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {async: true});
   
     return context;
@@ -123,12 +90,18 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
       super._onDragStart(event);
     }
   }
+
   _onDrop(event) {
     if (event.toElement.classList.contains("occ-count")) {
       const data = TextEditor.getDragEventData(event);
       if (data.from) {
         const srcElement = this.form.querySelector(`#${data.from}`);
-        this.tradePoints (srcElement, event.toElement);
+        try {
+          this.object.update(tradePoints(srcElement, event.toElement));
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log(error.message);
+        }
       }
     } else {
       super._onDrop(event);
@@ -163,30 +136,6 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
       return WOUND_MODIFIER_HURT;
     } 
     return WOUND_MODIFIER_OK;
-  }
-
-  tradePoints(fromElement, toElement) {
-    if (fromElement.id !== toElement.id) {
-      if (LEVEL_TRADES[`${fromElement.id}:${toElement.id}`]) {
-        const trade = LEVEL_TRADES[`${fromElement.id}:${toElement.id}`]
-          .split('/')
-          .map(item => parseFloat(item));
-        const fromValue = parseFloat(fromElement.value);
-        const toValue = parseFloat(toElement.value);
-        if (!isNaN(fromValue) && !isNaN(toValue)) {
-          if (fromValue >= trade[0]) {
-            let updatedValues = {};
-            updatedValues[TRADE_PROPS[fromElement.id]] = fromValue - trade[0];
-            updatedValues[TRADE_PROPS[toElement.id]] = toValue + trade[1];
-            this.object.update(updatedValues);
-          } else {
-            console.log(`Not enough points for trade: ${fromElement.id} -> ${toElement.id}`);
-          }
-        }
-      }  
-    } else {
-      console.log (`Dragged to self: ${toElement.id}`);
-    }
   }
 
   // -------- Event Listeners --------
@@ -330,11 +279,10 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
     item.sheet.render(true);
   }
 
-  _onFivePointFudge(event) {
+  _onFivePointFudge() {
     new FivePointWorksheet(
       this.actor, 
-      { popOut: true, resizable: true, width: 500 }
+      {popOut: true, resizable: true, width: 500}
     ).render(true);
-
   }
 }

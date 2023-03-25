@@ -12,6 +12,7 @@ module.exports = {
         "ActorSheet": "readonly",
         "ChatMessage": "readonly",
         "Dialog": "readonly",
+        "DocumentSheet": "readonly",
         "Item": "readonly",
         "Items": "readonly",
         "ItemSheet": "readonly",

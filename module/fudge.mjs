@@ -40,6 +40,7 @@ const availableAttributes = () => {
   });
   return result;
 };
+
 /**
  * We have to register these at ready, because they require
  * looking at items and loaded compendia for attribute sets.
@@ -54,7 +55,7 @@ const registerResourceDependentSystemSettings = function() {
     type: String,
     choices: availableAttributes()
   });
-}
+};
 
 /**
  * We register everything that we can at init. This is especially
