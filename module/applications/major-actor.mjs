@@ -58,7 +58,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
       }
     }
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
-    context.traitlevels = this.object.traitLevels;
+    context.traitlevels = this.object.system.traitlevels;
     context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {async: true});
   
     return context;
