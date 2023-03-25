@@ -108,6 +108,9 @@ dist
 
 # Compiled results
 packs/*.db
+packs/attributes/
+packs/ff-*/
+packs/journals/
 fudge.mjs
 fudge-compiled.mjs
 fudge-compiled.mjs.map
