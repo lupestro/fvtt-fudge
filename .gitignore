@@ -114,3 +114,6 @@ packs/ff-*/
 fudge.mjs
 fudge-compiled.mjs
 fudge-compiled.mjs.map
+
+# Test results
+playwright-report/
