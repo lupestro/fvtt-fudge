@@ -14,8 +14,9 @@
   "devDependencies": {
     "@babel/core": "^7.19.0",
     "@babel/eslint-parser": "^7.18.9",
-    "@rollup/plugin-node-resolve": "^14.0.1",
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
     "@playwright/test": "^1.31.2",
+    "@rollup/plugin-node-resolve": "^14.0.1",
     "eslint": "^7.32.0",
     "eslint-plugin-jsdoc": "^39.3.6",
     "fs": "0.0.1-security",
@@ -27,8 +28,8 @@
     "path": "^0.12.7",
     "pnpm": "^7.11.0",
     "rollup": "^2.79.0",
-    "yargs": "^17.5.1",
-    "v8-to-istanbul": "^9.0.1"
+    "v8-to-istanbul": "^9.0.1",
+    "yargs": "^17.5.1"
   },
   "overrides": {
     "glob-parent": "^5.1.2",

@@ -8,15 +8,28 @@
 }
 .fp-unspent .name-row {
   display: flex;
-  width: 190px;
+  align-items: center;
 }
 .fp-unspent .name-row label {
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   padding: 5px;
 }
 .fp-unspent .name-row input {
-  flex: 0 0 20px;
+  flex: 0 0 30px;
   width: 30px;  
+  height: 25px;
+}
+.fp-unspent .name-row.overdraft {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+}
+.fp-unspent .name-row .fp-spacer {
+  flex: 1 1 auto;
+}
+.fp-unspent .name-row .fp-apply {
+  flex: 0 0 100px;
+  padding: 5px;
 }
 .fp-column {
   flex: 1 1 auto;
@@ -33,6 +46,9 @@
   border-radius: 5px;
   background-color: lightgray;
   width: 200px;
+}
+.fp-group.selected {
+  background-color: darkgray;
 }
 .fp-group .name-row {
   display: flex;
@@ -56,9 +72,20 @@
 .fp-general-group-list {
   padding: 0 10px;
 }
-.fp-general-group-list p {
+.fp-general-group-list span {
   padding: 0;
   margin: 0;
+  min-width: 70px;
+  display: inline-block;
+}
+.fp-general-group-list button {
+  flex: 0 0 20px;
+  appearance: inherit;
+  background: none;
+  padding: 0;
+  border: none;
+  height: 20px;
+  width: 20px;
 }
 
 .fp-skill-level {
@@ -78,7 +105,7 @@
   min-height: 30px;
 }
 .fp-skill-level .skill-level {
-  flex: 0 0 50px;
+  flex: 0 0 60px;
 }
 .fp-skill-level select {
   flex: 0 0 50px;
@@ -92,7 +119,10 @@
   height: 20px;
   width: 20px;
 }
-
+.fp-skill-list {
+  overflow-y:scroll;
+  max-height: 67vh;
+}
 .fp-skill {
   margin:0;
   padding: 5px;

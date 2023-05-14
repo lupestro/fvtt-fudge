@@ -4,10 +4,9 @@
 export default class ActorFudge extends Actor {
 
   /** @inheritdoc */
-  async prepareDerivedData() {
+  prepareDerivedData() {
     this._prepareTraitLevels();
-    await this._prepareGroupSkills();
-    this._prepareFivePointGroups();
+    this._prepareFivePoint();
   }
 
   /** @inheritdoc */
@@ -106,66 +105,28 @@ export default class ActorFudge extends Actor {
     }
   }
 
-  async _prepareGroupSkills() {
-    const result = {};
-    for (const pack of game.packs) {  
-      if (pack.metadata.type === "Item") {
-        const skills = pack.index.filter((item) => item.type === "skill");
-        for (const skill of skills ) {
-          // eslint-disable-next-line no-await-in-loop
-          const item = await pack.getDocument(skill._id);
-          if (item) {
-            this._pushItemGroupIntoGroupSkills(item.name, item.system.group, result);
-            this._pushItemGroupIntoGroupSkills(item.name, item.system.group2, result);
-          }
-        }
-      }
-    }
-    this.system.groupSkills = result;
-  }
-
-  _pushItemGroupIntoGroupSkills(itemName, groupName, result) {
-    if (groupName) {
-      if (groupName in result) {
-        result[groupName].push(itemName);
-      } else {
-        result[groupName] = [itemName];
-      }
-    }
-  }
-
   _getTraitLevelName(value) {
     return this.system.traitlevels.find((level) => level.value === value).name;
   }
 
-  _prepareFivePointGroups() {
-    const emptyGroups = [];
-    for (const key of Object.keys(this.system.groupSkills)) {
-      emptyGroups.push({name: key, points: 0, levels: []});
+  _prepareFivePoint() {
+    if (this.system.fivePoint) {
+      // Clean out any zero-point groups from the structure - we don't store those anymore
+      const newGroups = [];
+      for (const group of this.system.fivePoint.groups) {
+        if (group.points !== 0) {
+          newGroups.push(group);
+        }
+      }
+      this.system.fivePoint.groups = newGroups;
+    } else {
+      // If we're starting from scratch, create the initial five-point structure
+      this.system.fivePoint = {
+        unspent: 5,
+        generalPoints: 0,
+        generalGroups: [],
+        groups: []
+      };
     }
-    this.system.fivePoint = {
-      unspent: 5,
-      generalPoints: 0,
-      generalGroups: [],
-      groups: emptyGroups
-    };
-
-    // HACK: Provide some canned data until we can build it with the GUI
-    const GOOD = 1;
-    const GREAT = 2;
-    this.system.fivePoint.generalGroups = ["Social", "Covert"];
-    this.system.fivePoint.groups[0].levels.push({
-      name: "Acrobatics/Tumbling",
-      level: this._getTraitLevelName(GREAT)
-    }, {
-      name: "",
-      level: this._getTraitLevelName(GREAT)
-    }, {
-      name: "Equestrian Acrobatics",
-      level: this._getTraitLevelName(GOOD)
-    }, {
-      name: "",
-      level: this._getTraitLevelName(GOOD)
-    });  
   }
 }

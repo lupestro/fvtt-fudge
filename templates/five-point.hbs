@@ -2,35 +2,44 @@
   <div class="fp-unspent">
     <div class="name-row">
       <label for="unspent-points">Unspent Group Points</label>
-      <input class="unspent-points" value="{{data.system.fivePoint.unspent}}">
+      <input id="unspent-points" readonly value="{{data.system.fivePoint.unspent}}">
+      <span class="fp-spacer"></span>
+      <button class="fp-apply">
+        Apply
+      </button>
     </div>       
   </div>
   <div class="five-point">
     <div class="fp-column group">
       <p class="fp-column-title">Skill Groups</p>
       <div class="fp-group-list"></div>
-        {{#each data.system.fivePoint.groups as | group |}}
-          <div class="fp-group fp-skill-group">
+        {{#each groupData as | group |}}
+          <div class="fp-group fp-skill-group{{#if (eq group.name ../selectedGroup)}} selected{{/if}}" data-value="{{group.name}}">
               <div class="name-row">
                 <label for="{{group.name}}-points">{{group.name}}</label>
-                <input id="{{group.name}}-points" value="{{group.points}}">
+                <input id="{{group.name}}-points" class="group-points" value="{{group.points}}">
               </div>
               <div class="breadth-row">
-                <input id="{{group.name}}-broad" type="radio" value="Broad" name="{{group.name}}-breadth">
+                <input id="{{group.name}}-broad" type="radio" class="broad-group" {{#if (not group.narrow)}}checked{{/if}} value="Broad" name="{{group.name}}-breadth">
                 <label for="{{group.name}}-broad">Broad</label>
-                <input id="{{group-name}}-narrow" type="radio" value="Narrow" name="{{group.name}}-breadth"> 
+                <input id="{{group.name}}-narrow" type="radio" class="narrow-group" {{#if group.narrow}}checked{{/if}} value="Narrow" name="{{group.name}}-breadth"> 
                 <label for="{{group.name}}-narrow">Narrow</label>
               </div>
           </div>
         {{/each}}
-        <div class="fp-group p-general-group">
+        <div class="fp-group fp-general-group{{#if (eq "General" selectedGroup)}} selected{{/if}}">
           <div class="name-row">
             <label for="General-points">General</label>
-            <input id="General-points" value="{{data.system.fivePoint.generalPoints}}">
+            <input id="General-points" class="group-points" value="{{data.system.fivePoint.generalPoints}}">
           </div>
           <div class="fp-general-group-list">
-            {{#each this.data.system.fivePoint.generalGroups as |group| }}
-              <p>{{group}}</p>
+            {{#each this.data.system.fivePoint.generalGroups as |group index| }}
+              <div class="general-group">
+                <span>{{group}}</span>
+                <button id="group-{{index}}-delete" type="button" class="group-delete roll-button" title="Delete">
+                    <i class="fas fa-trash"></i>
+                </button>
+              </div>
             {{/each}}
           </div>
         </div>
@@ -38,14 +47,14 @@
       <div class="fp-column levels">
         <p class="fp-column-title">Skill Levels</p>
         <div class="fp-skill-level-list">
-          {{#each selectedGroupLevels as |level|}}
-            <div class="fp-skill-level">
+          {{#each selectedGroupLevels as |level index|}}
+            <div class="fp-skill-level" data-value="{{index}}">
               <span class="skill-level">{{level.level}}:</span>
               <span class="skill-name">{{level.name}}</span>
-              <button id="level-split" type="button" class="roll-button" title="Split">
+              <button id="level-{{index}}-split" type="button" class="level-split roll-button" title="Split">
                   <i class="fas fa-split"></i>
               </button>
-              <button id="level-delete" type="button" class="roll-button" title="Delete">
+              <button id="level-{{index}}-delete" type="button" class="level-delete roll-button" title="Delete">
                   <i class="fas fa-trash"></i>
               </button>
             </div>
@@ -54,9 +63,9 @@
       </div>
       <div class="fp-column skills">
         <p class="fp-column-title">Skills in Group</p>
-        <div class="fp-=skill-list">
-          {{#each selectedGroupSkills as |skill|}}
-            <p class="fp-skill">{{skill}}</p>
+        <div class="fp-skill-list">
+          {{#each groupSkills as |skill|}}
+            <p class="fp-skill" data-value="{{skill}}">{{skill}}</p>
           {{/each}}
         </div>
       </div>
