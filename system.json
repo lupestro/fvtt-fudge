@@ -13,7 +13,7 @@
   ],
   "compatibility": {
     "minimum": "10",
-    "verified": "10",
+    "verified": "11.299",
     "maximum": "11"
   },
   "esmodules": [
@@ -29,8 +29,11 @@
       "path": "packs/ff-characters.db",
       "type": "Actor",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "attributes",
@@ -38,8 +41,11 @@
       "path": "packs/attributes.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "ff-skills",
@@ -47,8 +53,11 @@
       "path": "packs/ff-skills.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "ff-magic",
@@ -56,8 +65,11 @@
       "path": "packs/ff-magic.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "ff-gifts",
@@ -65,8 +77,11 @@
       "path": "packs/ff-gifts.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "ff-faults",
@@ -74,8 +89,11 @@
       "path": "packs/ff-faults.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "ff-equipment",
@@ -83,8 +101,11 @@
       "path": "packs/ff-equipment.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "journals",
@@ -92,8 +113,11 @@
       "path": "packs/journals.db",
       "type": "JournalEntry",
       "system": "fudge-rpg",
-      "private": false,
-      "flags": {}
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "languages": [
