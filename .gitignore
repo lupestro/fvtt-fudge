@@ -108,6 +108,8 @@ dist
 
 # Compiled results
 packs/*.db
+packs/*
+!packs/src
 fudge.mjs
 fudge-compiled.mjs
 fudge-compiled.mjs.map
