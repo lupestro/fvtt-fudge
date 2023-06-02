@@ -99,4 +99,4 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: './system.json, ./${{steps.get_vars.outputs.ZIP_NAME}}'
         tag: ${{steps.get_vars.outputs.TAG_NAME}}
-        body: '**Installation:** To manually install this release, please use the following manifest URL: ${{steps.get_vars.outputs.RELEASE_INSTALL_URL}}'
+        body: 'Please copy/paste the current release data from CHANGELOG.md into this field'

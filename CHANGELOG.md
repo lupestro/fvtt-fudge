@@ -1,5 +1,8 @@
 # Fudge system for FoundryVTT
 
+## 1.4.0    FoundryVTT 11 support
+- [FEATURE] Bumped to support both FoundryVTT 10 and 11
+
 ## 1.3.0    Drag and Drop support within character sheet
 - [FEATURE] Drag and drop to reorder lists in character sheet
 - [FEATURE] Drag and drop to "horse-trade" unused levels

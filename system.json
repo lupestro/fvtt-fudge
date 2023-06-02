@@ -2,7 +2,7 @@
   "id": "fudge-rpg",
   "title": "Fudge RPG",
   "description": "Games based on the Freeform Universal Do-It-Yourself Gaming Engine (FUDGE).",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "authors": [
     {
       "name": "lupestro",
@@ -29,11 +29,12 @@
       "path": "packs/ff-characters.db",
       "type": "Actor",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     },
     {
       "name": "attributes",
@@ -41,11 +42,12 @@
       "path": "packs/attributes.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     },
     {
       "name": "ff-skills",
@@ -53,11 +55,12 @@
       "path": "packs/ff-skills.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     },
     {
       "name": "ff-magic",
@@ -65,11 +68,12 @@
       "path": "packs/ff-magic.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     },
     {
       "name": "ff-gifts",
@@ -77,11 +81,12 @@
       "path": "packs/ff-gifts.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     },
     {
       "name": "ff-faults",
@@ -89,11 +94,12 @@
       "path": "packs/ff-faults.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     },
     {
       "name": "ff-equipment",
@@ -101,11 +107,12 @@
       "path": "packs/ff-equipment.db",
       "type": "Item",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     },
     {
       "name": "journals",
@@ -113,11 +120,12 @@
       "path": "packs/journals.db",
       "type": "JournalEntry",
       "system": "fudge-rpg",
-      "flags": {},
+      "private": false,
       "ownership": {
-        "PLAYER": "OBSERVER",
+        "PLAYER": "OBSERVER", 
         "ASSISTANT": "OWNER"
-      }
+      },
+      "flags": {}
     }
   ],
   "languages": [
@@ -130,5 +138,5 @@
   ],
   "url": "https://github.com/lupestro/fvtt-fudge/",
   "manifest": "https://raw.githubusercontent.com/lupestro/fvtt-fudge/main/system.json",
-  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-1.3.0/fudge-rpg-release-1.3.0.zip"
+  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-1.4.0/fudge-rpg-release-1.4.0.zip"
 }
