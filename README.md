@@ -11,7 +11,7 @@ Install the system. Build a world using the system. Configure whether your world
 I am developing this in distinct stages that could be released into the FoundryVTT ecosystem:
  1.  An editable character sheet that can be referred to in game, with editable items that can be dragged onto a character: attribute sets, skills, gifts, faults, and equipment. **[Done]**
  2.  Rollable attributes and skills with effect of wounds taken into account and named results in chat. **[Done]**
- 3.  Bookkeeping support for objective character creation, 5-point Fudge, and character advancement.
+ 3.  Bookkeeping support for objective character creation, 5-point Fudge, and character advancement. **[OCC and 5-Point Done]**
  4.  More automated combat mechanics where the players indicate what skill and weapon they are using for attack, what defense is being performed, and the system does the math and updates the sheets.
  5.  Modules for different FUDGE-based systems, with required licensing and perhaps even endorsement by the vendors.
 

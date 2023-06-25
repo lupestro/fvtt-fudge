@@ -1,5 +1,18 @@
 # Fudge system for FoundryVTT
 
+## 2.0.0    Five-Point Fudge support - now FoundryVTT 11 only
+- [BREAKING] Requires FoundryVTT 11 
+  * Fantasy Fudge Skill Compendium now has internal folders, but much more usable for it. 
+  * Will be adding internal folders for other compendia in the future where it makes sense.
+- [FEATURE] Five-point Fudge worksheet: 
+  * draws from configured skills compendium plus any game items that use the same groups.
+  * skill group composition "as written" - not yet customizable
+    * 5 group points to spend
+    * narrow and broad groups of 1-4 points
+    * skills from 1-3 designated groups in a one-point general group
+  * supports skill splits - unsplitting still a bit primitive but managable
+  * feeds skills to main sheet with a  click and a confirmation
+
 ## 1.4.0    FoundryVTT 11 support
 - [FEATURE] Bumped to support both FoundryVTT 10 and 11
 
