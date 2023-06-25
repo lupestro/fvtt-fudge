@@ -1,0 +1,25 @@
+{
+  "name": "Appearance",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Your appearance is off-putting in some way, whether ugly or unkempt.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664650679191,
+    "modifiedTime": 1664650706055,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "rOBCAY37fwjZvwvU",
+  "_key": "!items!rOBCAY37fwjZvwvU"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Quick Reflexes",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Not easily surprised by any physical attack, and you adjust quickly to shifting footing.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664649230054,
+    "modifiedTime": 1664649631025,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "ICmX9h98Q9XrTVrU",
+  "_key": "!items!ICmX9h98Q9XrTVrU"
+}

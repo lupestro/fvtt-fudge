@@ -1,0 +1,25 @@
+{
+  "name": "Night Vision",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You see well in dim light, but not in absolute darkness, of course.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648998560,
+    "modifiedTime": 1664649619267,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "lRWg5CGj79m28jjE",
+  "_key": "!items!lRWg5CGj79m28jjE"
+}

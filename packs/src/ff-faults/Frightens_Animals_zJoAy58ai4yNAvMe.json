@@ -1,0 +1,25 @@
+{
+  "name": "Frightens Animals",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You have an aura that animals find terrifying.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664651734703,
+    "modifiedTime": 1664651758166,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "zJoAy58ai4yNAvMe",
+  "_key": "!items!zJoAy58ai4yNAvMe"
+}

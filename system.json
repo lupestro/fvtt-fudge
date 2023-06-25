@@ -38,11 +38,9 @@
           "color": "#4c719a",
           "packs": [
             "ff-rules",
-            "ff-characters",
             "ff-skills",
             "ff-gifts",
-            "ff-faults",
-            "ff-equipment"
+            "ff-faults"
           ]
         }
       ]
@@ -66,18 +64,6 @@
       "label": "Fantasy Fudge Rules",
       "path": "packs/ff-rules",
       "type": "Item",
-      "system": "fudge-rpg",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "ff-characters",
-      "label": "Fantasy Fudge Characters",
-      "path": "packs/ff-characters",
-      "type": "Actor",
       "system": "fudge-rpg",
       "flags": {},
       "ownership": {
@@ -113,18 +99,6 @@
       "name": "ff-faults",
       "label": "Fantasy Fudge Faults",
       "path": "packs/ff-faults",
-      "type": "Item",
-      "system": "fudge-rpg",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "ff-equipment",
-      "label": "Fantasy Fudge Equipment",
-      "path": "packs/ff-equipment",
       "type": "Item",
       "system": "fudge-rpg",
       "flags": {},

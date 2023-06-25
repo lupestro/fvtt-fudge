@@ -1,0 +1,25 @@
+{
+  "name": "Gullible",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>-3 to Reasoning to believe an unknown \"fact.\"</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664652099433,
+    "modifiedTime": 1664652155639,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "sFCC7ZtMeMTlIx1T",
+  "_key": "!items!sFCC7ZtMeMTlIx1T"
+}

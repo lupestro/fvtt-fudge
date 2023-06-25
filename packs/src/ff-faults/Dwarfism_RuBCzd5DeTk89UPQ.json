@@ -1,0 +1,25 @@
+{
+  "name": "Dwarfism",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You are very short for your race.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664651499564,
+    "modifiedTime": 1664651568083,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "RuBCzd5DeTk89UPQ",
+  "_key": "!items!RuBCzd5DeTk89UPQ"
+}

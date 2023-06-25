@@ -1,0 +1,25 @@
+{
+  "name": "Stubborn",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You don't easily admit you're wrong. Has nothing to do with Willpower.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664653919074,
+    "modifiedTime": 1664653937044,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "UH8s2bonQpHbTTwn",
+  "_key": "!items!UH8s2bonQpHbTTwn"
+}

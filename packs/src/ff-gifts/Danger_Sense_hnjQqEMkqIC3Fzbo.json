@@ -1,0 +1,25 @@
+{
+  "name": "Danger Sense",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>The GM will make a Situational roll – on a Good or better result, you'll be warned of some imminent danger.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664647899104,
+    "modifiedTime": 1664649571609,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "hnjQqEMkqIC3Fzbo",
+  "_key": "!items!hnjQqEMkqIC3Fzbo"
+}

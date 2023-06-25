@@ -1,0 +1,25 @@
+{
+  "name": "Lucky",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Once per hour (real time), you may reroll a bad dice roll, and choose the better of the two rolls.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648545508,
+    "modifiedTime": 1664649599596,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "aVKbotJ1tFNtKuav",
+  "_key": "!items!aVKbotJ1tFNtKuav"
+}

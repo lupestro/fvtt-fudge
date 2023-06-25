@@ -1,0 +1,25 @@
+{
+  "name": "Focused",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You are at +1 to any lengthy task, but don't notice things outside this task, such as that brigand about to skewer you...</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648224168,
+    "modifiedTime": 1664649581700,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "h0qcm3Le8fnAxtUT",
+  "_key": "!items!h0qcm3Le8fnAxtUT"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Idealist",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You're not grounded in reality.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664652264683,
+    "modifiedTime": 1664652289401,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "2VXCS1DDUqgjTe1p",
+  "_key": "!items!2VXCS1DDUqgjTe1p"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Quixotic",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You vigorously champion lost causes.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664653593966,
+    "modifiedTime": 1664653613065,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "gc1Hz7TDUDRnpUi1",
+  "_key": "!items!gc1Hz7TDUDRnpUi1"
+}

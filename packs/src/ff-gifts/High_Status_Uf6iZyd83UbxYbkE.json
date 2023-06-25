@@ -1,0 +1,25 @@
+{
+  "name": "High Status",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You are of the gentry or religious class – or nobility if you take this Gift twice</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648447338,
+    "modifiedTime": 1664649595138,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "Uf6iZyd83UbxYbkE",
+  "_key": "!items!Uf6iZyd83UbxYbkE"
+}

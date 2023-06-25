@@ -1,0 +1,25 @@
+{
+  "name": "Patron (whom?)",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Someone in power likes you. This can be simply a letter of recommendation, or it can be a favor granted.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664649098638,
+    "modifiedTime": 1664649624916,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "CrQkS54hjbohRz0R",
+  "_key": "!items!CrQkS54hjbohRz0R"
+}

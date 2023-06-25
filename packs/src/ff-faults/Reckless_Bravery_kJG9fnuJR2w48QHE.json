@@ -1,0 +1,25 @@
+{
+  "name": "Reckless Bravery",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You take no thought for your safety in dangerous situations.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664653651246,
+    "modifiedTime": 1664653670823,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "kJG9fnuJR2w48QHE",
+  "_key": "!items!kJG9fnuJR2w48QHE"
+}

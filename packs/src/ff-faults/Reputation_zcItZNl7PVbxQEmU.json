@@ -1,0 +1,25 @@
+{
+  "name": "Reputation",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You're well known as some sort of louse.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664653691570,
+    "modifiedTime": 1664653718807,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "zcItZNl7PVbxQEmU",
+  "_key": "!items!zcItZNl7PVbxQEmU"
+}

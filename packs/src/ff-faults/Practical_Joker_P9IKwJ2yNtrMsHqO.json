@@ -1,0 +1,25 @@
+{
+  "name": "Practical Joker",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You can't resist. Somebody's gonna hurt you someday.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664653393786,
+    "modifiedTime": 1664653410135,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "P9IKwJ2yNtrMsHqO",
+  "_key": "!items!P9IKwJ2yNtrMsHqO"
+}

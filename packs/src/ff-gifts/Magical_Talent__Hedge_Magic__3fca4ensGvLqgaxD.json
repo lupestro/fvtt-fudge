@@ -1,0 +1,25 @@
+{
+  "name": "Magical Talent (Hedge Magic)",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>The ability to perform feats of Hedge Magic. You may take this gift multiple times.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648758284,
+    "modifiedTime": 1664649604105,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "3fca4ensGvLqgaxD",
+  "_key": "!items!3fca4ensGvLqgaxD"
+}

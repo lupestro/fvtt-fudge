@@ -1,0 +1,53 @@
+{
+  "name": "Terra Incognita Attributes",
+  "type": "attributeset",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p></p>",
+    "attributes": [
+      {
+        "name": "Perception",
+        "level": 0
+      },
+      {
+        "name": "Reasoning",
+        "level": 0
+      },
+      {
+        "name": "Resolve",
+        "level": 0
+      },
+      {
+        "name": "Strength",
+        "level": 0
+      },
+      {
+        "name": "Dexterity",
+        "level": 0
+      },
+      {
+        "name": "Vigor",
+        "level": 0
+      }
+    ],
+    "muscleweapon": "Strength",
+    "damagecap": "Vigor"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1663790705936,
+    "modifiedTime": 1664656010352,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "L0yVzzzfsEPiwRMl",
+  "_key": "!items!L0yVzzzfsEPiwRMl"
+}

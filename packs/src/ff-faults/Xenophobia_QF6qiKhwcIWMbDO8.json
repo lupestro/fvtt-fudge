@@ -1,0 +1,25 @@
+{
+  "name": "Xenophobia",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You dislike and fear people different from the folks you grew up with.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664654277381,
+    "modifiedTime": 1664654295753,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "QF6qiKhwcIWMbDO8",
+  "_key": "!items!QF6qiKhwcIWMbDO8"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Loyal to Companions",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You won't abandon, cheat, hide treasure from, etc., the party members. This one may be mandatory.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664652560669,
+    "modifiedTime": 1664652593296,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "wJKRxlbh3MRSfkCi",
+  "_key": "!items!wJKRxlbh3MRSfkCi"
+}

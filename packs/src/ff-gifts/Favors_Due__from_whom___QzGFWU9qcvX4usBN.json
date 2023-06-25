@@ -1,0 +1,25 @@
+{
+  "name": "Favors Due (from whom?)",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Some people owe you favors, which you may collect. Each favor you collect must be approved by the GM.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648162029,
+    "modifiedTime": 1664649579828,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "QzGFWU9qcvX4usBN",
+  "_key": "!items!QzGFWU9qcvX4usBN"
+}

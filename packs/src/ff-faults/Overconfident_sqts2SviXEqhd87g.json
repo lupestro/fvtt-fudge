@@ -1,0 +1,25 @@
+{
+  "name": "Overconfident",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You know you can't fail.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664653127303,
+    "modifiedTime": 1664653143949,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "sqts2SviXEqhd87g",
+  "_key": "!items!sqts2SviXEqhd87g"
+}

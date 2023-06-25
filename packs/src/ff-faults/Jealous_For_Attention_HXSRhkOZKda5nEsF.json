@@ -1,0 +1,25 @@
+{
+  "name": "Jealous For Attention",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You have to be the star.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664652403221,
+    "modifiedTime": 1664652433260,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "HXSRhkOZKda5nEsF",
+  "_key": "!items!HXSRhkOZKda5nEsF"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Compulsive Gambling",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You are at –3 Willpower to resist a gambling game.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664651100099,
+    "modifiedTime": 1664651141751,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "PTvyr5xh7gGho75w",
+  "_key": "!items!PTvyr5xh7gGho75w"
+}

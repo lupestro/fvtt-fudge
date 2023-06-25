@@ -1,0 +1,25 @@
+{
+  "name": "Fudge SRD",
+  "pages": [
+    "NbSrLX7iLbrmIveQ"
+  ],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "2.0.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664646668090,
+    "modifiedTime": 1687719836700,
+    "lastModifiedBy": "d5eSOE08jUUFXNgy"
+  },
+  "folder": null,
+  "_id": "ZSpLpOUGYeRBfKXc",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "d5eSOE08jUUFXNgy": 3
+  },
+  "_key": "!journal!ZSpLpOUGYeRBfKXc"
+}

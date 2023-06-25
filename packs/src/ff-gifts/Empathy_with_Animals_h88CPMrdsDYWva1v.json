@@ -1,0 +1,25 @@
+{
+  "name": "Empathy with Animals",
+  "type": "gift",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Animals trust you and domesticated ones tend to obey you. Cruelty to animals nullifies this Gift.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664648006540,
+    "modifiedTime": 1664649575630,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "h88CPMrdsDYWva1v",
+  "_key": "!items!h88CPMrdsDYWva1v"
+}

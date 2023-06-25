@@ -24,5 +24,5 @@ export const extractPacks = gulp.series(packs.extract);
 export const buildAll = gulp.parallel(
   //css.compile,
   javascript.compile,
-  packs.compile
+  //packs.compile
 );

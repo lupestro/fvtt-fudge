@@ -1,0 +1,25 @@
+{
+  "name": "Truthfulness",
+  "type": "fault",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You can't tell a believable lie.</p>"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.0.0",
+    "coreVersion": "10.286",
+    "createdTime": 1664654049402,
+    "modifiedTime": 1664654122244,
+    "lastModifiedBy": "BTl0cPfh6E6EXtBD"
+  },
+  "folder": "",
+  "sort": 0,
+  "_id": "LipFPLwwgUpofNzn",
+  "_key": "!items!LipFPLwwgUpofNzn"
+}
