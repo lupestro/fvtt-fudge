@@ -1,8 +1,7 @@
-fvtt package unpack --nedb -n attributes    --outputDirectory ./packs/src/attributes
-fvtt package unpack --nedb -n journals      --outputDirectory ./packs/src/journals
-fvtt package unpack --nedb -n ff-characters --outputDirectory ./packs/src/ff-characters
-fvtt package unpack --nedb -n ff-gifts      --outputDirectory ./packs/src/ff-gifts
-fvtt package unpack --nedb -n ff-faults     --outputDirectory ./packs/src/ff-faults
-fvtt package unpack --nedb -n ff-equipment  --outputDirectory ./packs/src/ff-equipment
-fvtt package unpack --nedb -n ff-rules  --outputDirectory ./packs/src/ff-rules
-
+rm -Rf ./packs/src2/attributes ./packs/src2/journals ./packs/src2/ff-rules ./packs/src2/ff-skills ./packs/src2/ff-gifts ./packs/src2/ff-faults
+fvtt package unpack -n attributes    --outputDirectory ./packs/src2/attributes
+fvtt package unpack -n journals      --outputDirectory ./packs/src2/journals
+fvtt package unpack -n ff-skills     --outputDirectory ./packs/src2/ff-skills
+fvtt package unpack -n ff-gifts      --outputDirectory ./packs/src2/ff-gifts
+fvtt package unpack -n ff-faults     --outputDirectory ./packs/src2/ff-faults
+fvtt package unpack -n ff-rules      --outputDirectory ./packs/src2/ff-rules

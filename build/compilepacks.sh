@@ -1,4 +1,4 @@
-rm -Rf ./packs/attributes ./packs/journals ./packs/ff-rules ./packs/ff-characters ./packs/ff-skills ./packs/ff-gifts ./packs/ff-faults ./packs/ff-equipment
+rm -Rf ./packs/attributes ./packs/journals ./packs/ff-rules ./packs/ff-skills ./packs/ff-gifts ./packs/ff-faults 
 npx fvtt package pack --outputDirectory ./packs -n attributes    --inputDirectory ./packs/src/attributes
 npx fvtt package pack --outputDirectory ./packs -n journals      --inputDirectory ./packs/src/journals
 npx fvtt package pack --outputDirectory ./packs -n ff-rules      --inputDirectory ./packs/src/ff-rules
