@@ -1,0 +1,31 @@
+{
+  "name": "Engineer",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Designing and making tools, structures, sewer systems, etc.</p>",
+    "level": -2,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687695161869,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "jD97jKi1pQfddoko",
+  "_id": "8UgBc4LHth5NzNoF",
+  "sort": 100049,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!8UgBc4LHth5NzNoF"
+}

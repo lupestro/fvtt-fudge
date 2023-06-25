@@ -121,7 +121,7 @@
 }
 .fp-skill-list {
   overflow-y:scroll;
-  max-height: 67vh;
+  max-height: 550px;
 }
 .fp-skill {
   margin:0;

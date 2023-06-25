@@ -1,0 +1,31 @@
+{
+  "name": "Con",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Making people believe in some plan or product you are pushing.</p>",
+    "level": -2,
+    "group": "Social",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687694992003,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "ziLA7pqBnoY7rQyz",
+  "_id": "YJeyInak3VSQ4x0G",
+  "sort": 162500,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!YJeyInak3VSQ4x0G"
+}

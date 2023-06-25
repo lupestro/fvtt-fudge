@@ -1,0 +1,31 @@
+{
+  "name": "Barter/Haggle",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Raising or reducing prices, depending on whether you're selling or buying.  Opposed by the other person's Barter/Haggle skill.</p>",
+    "level": -2,
+    "group": "Social",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687694721320,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "ziLA7pqBnoY7rQyz",
+  "_id": "Gg5FAe7bInF429FW",
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!Gg5FAe7bInF429FW"
+}

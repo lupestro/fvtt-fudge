@@ -1,0 +1,31 @@
+{
+  "name": "Tailor",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Turning cloth into clothes, as well as mending clothing. Can also make other items out of cloth, such as tents.</p>",
+    "level": -2,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700732742,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "jD97jKi1pQfddoko",
+  "_id": "AD74b9dsnycy0OIa",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!AD74b9dsnycy0OIa"
+}

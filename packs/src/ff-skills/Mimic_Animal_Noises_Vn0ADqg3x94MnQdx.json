@@ -1,0 +1,31 @@
+{
+  "name": "Mimic Animal Noises",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Making a noise which sounds like a specific animal.</p>",
+    "level": -2,
+    "group": "Scouting",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700413486,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "aQLE0PJS8cVDWANo",
+  "_id": "Vn0ADqg3x94MnQdx",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!Vn0ADqg3x94MnQdx"
+}

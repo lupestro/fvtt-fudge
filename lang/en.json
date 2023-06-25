@@ -21,6 +21,8 @@
     "FUDGERPG.InitialSkillLevelsHint": "Number of levels for player to distribute among skills of new character",
     "FUDGERPG.InitialGifts": "Initial Gifts",
     "FUDGERPG.InitialGiftsHint": "Number of gifts the player can give to new character",
+    "FUDGERPG.FivePointSkillCompendium": "Five Point Fudge Skills",
+    "FUDGERPG.FivePointSkillCompendiumHint": "Skill Compendium Defining Skills for Five Point Fudge",
 
     "FUDGERPG.SheetClassCharacter": "Default FUDGE Character Sheet",
     "FUDGERPG.SheetClassItem": "Default FUDGE Item Sheet",
@@ -56,7 +58,24 @@
     "FUDGERPG.NoActionsTitle": "Cannot Perform Actions",
     "FUDGERPG.NoActionsIncapacitated": "<p>This actor is Incapacitated, too wounded to act.</p>",
     "FUDGERPG.NoActionsNearDeath": "<p>This actor is Near Death, too wounded to act.</p>",
+ 
     "FUDGERPG.AboutFudge.Title":"About FUDGE",
     "FUDGERPG.AboutFudge.LegalNotice":
-    "<p>Fudge is a roleplaying game written by Steffan O'Sullivan, with extensive input from the Usenet community of rec.games.design and other online forums. The core rules of Fudge are available free on the Internet at http:/www.fudgerpg.com and other sites. Fudge was designed to be customized, and may be used with any gaming genre. Fudge gamemasters and game designers are encouraged to modify Fudge to suit their needs, and to share their modifications and additions with the Fudge community. The Fudge game system is copyrighted © 2000, 2005 by Grey Ghost Press, Inc., and is available for use under the Open Game License. See the fudgerpg.com website for more information.</p>\n<p>The Fudge logo is a trademark of Grey Ghost Press, Inc,. and is used under license. Logo design by Daniel M. Davis, www.agyris.net</p>"
+    "<p>Fudge is a roleplaying game written by Steffan O'Sullivan, with extensive input from the Usenet community of rec.games.design and other online forums. The core rules of Fudge are available free on the Internet at http:/www.fudgerpg.com and other sites. Fudge was designed to be customized, and may be used with any gaming genre. Fudge gamemasters and game designers are encouraged to modify Fudge to suit their needs, and to share their modifications and additions with the Fudge community. The Fudge game system is copyrighted © 2000, 2005 by Grey Ghost Press, Inc., and is available for use under the Open Game License. See the fudgerpg.com website for more information.</p>\n<p>The Fudge logo is a trademark of Grey Ghost Press, Inc,. and is used under license. Logo design by Daniel M. Davis, www.agyris.net</p>",
+    
+    "FUDGERPG.FivePoint.Title": "Five-Point Fudge Worksheet",
+    "FUDGERPG.FivePoint.UnspentGroupPoints":"Unspent Group Points",
+    "FUDGERPG.FivePoint.SkillGroups": "Skill Groups",
+    "FUDGERPG.FivePoint.BroadGroup": "Broad",
+    "FUDGERPG.FivePoint.NarrowGroup": "Narrow",
+    "FUDGERPG.FivePoint.GeneralGroup": "General",
+    "FUDGERPG.FivePoint.SkillLevels": "Skill Levels",
+    "FUDGERPG.FivePoint.GroupSkills": "Skills in Group",
+    "FUDGERPG.FivePoint.Apply": "Apply",
+    "FUDGERPG.FivePoint.UnsplitTitle": "How to undo a split",
+    "FUDGERPG.FivePoint.UnsplitContent": 
+    "<p>You have split a skill into two skills at the next lower level. To undo the split with the least disruption: <ul><li>Switch the group between Narrow and Broad</li><li>For the general group, remove the group point and re-add it</li></ul></p>",
+    "FUDGERPG.FivePoint.ConfirmTitle": "Are you sure?",
+    "FUDGERPG.FivePoint.ConfirmContent": 
+    "<p>Continuing will replace the skills in your character sheet with the skills in this dialog, and will set your remaining skill points to zero.</p><p><b>Are you sure you want to do this?</b></p>"
 }

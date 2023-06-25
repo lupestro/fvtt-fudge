@@ -1,0 +1,31 @@
+{
+  "name": "Shield",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Using a shield or buckler in combat, both on offense and defense.</p>",
+    "level": -1,
+    "group": "Combat",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700617901,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "uNPfGUInAQuBVCn7",
+  "_id": "57muoGz79apnfiSz",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!57muoGz79apnfiSz"
+}

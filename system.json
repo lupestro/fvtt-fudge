@@ -12,8 +12,8 @@
     }
   ],
   "compatibility": {
-    "minimum": "10",
-    "verified": "11.299",
+    "minimum": "11",
+    "verified": "11.302",
     "maximum": "11"
   },
   "esmodules": [
@@ -22,110 +22,128 @@
   "styles": [
     "styles/fudge.css"
   ],
-  "packs": [
+  "packFolders": [
     {
-      "name": "ff-characters",
-      "label": "Fantasy Fudge Characters",
-      "path": "packs/ff-characters.db",
-      "type": "Actor",
-      "system": "fudge-rpg",
-      "private": false,
-      "ownership": {
-        "PLAYER": "OBSERVER", 
-        "ASSISTANT": "OWNER"
-      },
-      "flags": {}
-    },
+      "name": "Fudge RPG",
+      "sorting": "m",
+      "color": "#6666cc",
+      "packs": [
+        "attributes",
+        "journals"
+      ],
+      "folders": [
+        {
+          "name": "Fantasy Fudge",
+          "sorting": "a",
+          "color": "#4c719a",
+          "packs": [
+            "ff-rules",
+            "ff-characters",
+            "ff-skills",
+            "ff-gifts",
+            "ff-faults",
+            "ff-equipment"
+          ]
+        }
+      ]
+    }
+  ],
+  "packs": [
     {
       "name": "attributes",
       "label": "Fudge Attributes",
-      "path": "packs/attributes.db",
+      "path": "packs/attributes",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
+      "flags": {},
       "ownership": {
-        "PLAYER": "OBSERVER", 
+        "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
+    },
+    {
+      "name": "ff-rules",
+      "label": "Fantasy Fudge Rules",
+      "path": "packs/ff-rules",
+      "type": "Item",
+      "system": "fudge-rpg",
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "ff-characters",
+      "label": "Fantasy Fudge Characters",
+      "path": "packs/ff-characters",
+      "type": "Actor",
+      "system": "fudge-rpg",
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     },
     {
       "name": "ff-skills",
       "label": "Fantasy Fudge Skills",
-      "path": "packs/ff-skills.db",
+      "path": "packs/ff-skills",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
+      "flags": {},
       "ownership": {
-        "PLAYER": "OBSERVER", 
+        "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
-    },
-    {
-      "name": "ff-magic",
-      "label": "Fantasy Fudge Magic",
-      "path": "packs/ff-magic.db",
-      "type": "Item",
-      "system": "fudge-rpg",
-      "private": false,
-      "ownership": {
-        "PLAYER": "OBSERVER", 
-        "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     },
     {
       "name": "ff-gifts",
       "label": "Fantasy Fudge Gifts",
-      "path": "packs/ff-gifts.db",
+      "path": "packs/ff-gifts",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
+      "flags": {},
       "ownership": {
-        "PLAYER": "OBSERVER", 
+        "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     },
     {
       "name": "ff-faults",
       "label": "Fantasy Fudge Faults",
-      "path": "packs/ff-faults.db",
+      "path": "packs/ff-faults",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
+      "flags": {},
       "ownership": {
-        "PLAYER": "OBSERVER", 
+        "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     },
     {
       "name": "ff-equipment",
       "label": "Fantasy Fudge Equipment",
-      "path": "packs/ff-equipment.db",
+      "path": "packs/ff-equipment",
       "type": "Item",
       "system": "fudge-rpg",
-      "private": false,
+      "flags": {},
       "ownership": {
-        "PLAYER": "OBSERVER", 
+        "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     },
     {
       "name": "journals",
       "label": "Fudge Journals",
-      "path": "packs/journals.db",
+      "path": "packs/journals",
       "type": "JournalEntry",
       "system": "fudge-rpg",
-      "private": false,
+      "flags": {},
       "ownership": {
-        "PLAYER": "OBSERVER", 
+        "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     }
   ],
   "languages": [

@@ -1,0 +1,31 @@
+{
+  "name": "Bow",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Using and caring for a bow and arrows, either longbow or short bow.</p>",
+    "level": -3,
+    "group": "Combat",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687694877260,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "uNPfGUInAQuBVCn7",
+  "_id": "AfOVdjNTnth9pvXx",
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!AfOVdjNTnth9pvXx"
+}

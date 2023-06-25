@@ -1,0 +1,31 @@
+{
+  "name": "Detect Lies (Magical)",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Telling when someone is lying.  Opposed by Lies/Pretense.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687699981529,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "dis09nEaYcTLwnQR",
+  "_id": "IzpkYybUh75BRQ5D",
+  "sort": 800000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!IzpkYybUh75BRQ5D"
+}

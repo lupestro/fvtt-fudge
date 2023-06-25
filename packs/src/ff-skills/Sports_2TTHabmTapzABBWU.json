@@ -1,0 +1,31 @@
+{
+  "name": "Sports",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Each sport is a separate skill – Camp-ball (similar to football), Hurling, Pole-Throwing (Caber-Tossing and the like), Stickball (lacrosse), Stone (similar to Horseshoes), etc. Other popular \"sports\" are covered by other skills; Bow (for archery contests), Falconry, Hunting, Riding, etc..</p>",
+    "level": -2,
+    "group": "Athletic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700671154,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "oVgdhq7VaeIy2ZGA",
+  "_id": "2TTHabmTapzABBWU",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!2TTHabmTapzABBWU"
+}

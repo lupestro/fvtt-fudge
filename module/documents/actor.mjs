@@ -1,5 +1,5 @@
-
 /* Extend the base Actor class to implement additional system-specific logic. */
+import FivePointFudgeDoc from "./five-point.mjs";
 
 export default class ActorFudge extends Actor {
 
@@ -105,28 +105,43 @@ export default class ActorFudge extends Actor {
     }
   }
 
-  _getTraitLevelName(value) {
+  _prepareFivePoint() {
+    this.system.fivePoint = new FivePointFudgeDoc(this.system.fivePoint);
+  }
+
+  getTraitLevelName(value) {
     return this.system.traitlevels.find((level) => level.value === value).name;
   }
 
-  _prepareFivePoint() {
-    if (this.system.fivePoint) {
-      // Clean out any zero-point groups from the structure - we don't store those anymore
-      const newGroups = [];
-      for (const group of this.system.fivePoint.groups) {
-        if (group.points !== 0) {
-          newGroups.push(group);
+  async replaceSkills(newSkills) {
+    // First get rid of the old skills
+    const currentSkillIds = this.items.filter((item) => item.type === "skill").map((item) => item.id);
+    await this.deleteEmbeddedDocuments("Item", currentSkillIds);
+    const newSkillDocs = [];
+    // Then build the new skill list straight from the data in the pack
+    for (const skill in newSkills) {
+      if (Object.prototype.hasOwnProperty.call(newSkills, skill)) {
+        if (newSkills[skill].pack) {
+          // eslint-disable-next-line no-await-in-loop
+          const newSkillDoc = await newSkills[skill].pack.getDocument(newSkills[skill].id);
+          newSkillDocs.push(newSkillDoc);
+        } else {
+          const newSkillDoc = game.items.find((item) => item.type === "skill" && item.name === skill);
+          if (newSkillDoc) {
+            newSkillDocs.push(newSkillDoc);
+          }
         }
       }
-      this.system.fivePoint.groups = newGroups;
-    } else {
-      // If we're starting from scratch, create the initial five-point structure
-      this.system.fivePoint = {
-        unspent: 5,
-        generalPoints: 0,
-        generalGroups: [],
-        groups: []
-      };
     }
+    newSkillDocs.sort((first, second) => (first.name < second.name ? -1 : first.name > second.name ? 1 : 0));
+    const docs = await this.createEmbeddedDocuments("Item", newSkillDocs);
+    // Then update the embedded items with the skill levels chosen - docs has different ids than newSkillDocs
+    const updates = [];
+    let sortOrder = 0;
+    for (const doc of docs) {
+        updates.push({_id: doc.id, "system.level": newSkills[doc.name].level, "sort": sortOrder});
+        sortOrder += 1;
+    }
+    await this.updateEmbeddedDocuments("Item", updates);
   }
 }

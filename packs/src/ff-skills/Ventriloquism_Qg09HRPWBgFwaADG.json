@@ -1,0 +1,31 @@
+{
+  "name": "Ventriloquism",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>\"throwing your voice\" so as to make it sound as if it comes from somewhere else.  Also disguising your voice.</p>",
+    "level": -2,
+    "group": "Covert",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700865598,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "3WKWQuPjhmwyHvNR",
+  "_id": "Qg09HRPWBgFwaADG",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!Qg09HRPWBgFwaADG"
+}

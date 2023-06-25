@@ -1,0 +1,31 @@
+{
+  "name": "Pick Pockets",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Removing items from an individual's pockets, belt, purse, etc., without them noticing it.  Opposed by Perception.</p>",
+    "level": -3,
+    "group": "Covert",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700521861,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "3WKWQuPjhmwyHvNR",
+  "_id": "GdBjX2i3pKYv9Xvv",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!GdBjX2i3pKYv9Xvv"
+}

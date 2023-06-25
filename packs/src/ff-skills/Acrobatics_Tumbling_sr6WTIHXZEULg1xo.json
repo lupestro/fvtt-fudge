@@ -1,0 +1,31 @@
+{
+  "name": "Acrobatics/Tumbling",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Moving your body gracefully and successfully through difficult maneuvers, such as rolls, tumbles, leaps, springing to your feet, etc.</p>",
+    "level": -2,
+    "group": "Athletic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687694568040,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "oVgdhq7VaeIy2ZGA",
+  "_id": "sr6WTIHXZEULg1xo",
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!sr6WTIHXZEULg1xo"
+}

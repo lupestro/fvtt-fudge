@@ -1,0 +1,31 @@
+{
+  "name": "Navigation",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Finding your way based on the stars, position of the sun, map-reading, etc.</p>",
+    "level": -2,
+    "group": "Scouting",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700451314,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "aQLE0PJS8cVDWANo",
+  "_id": "FAbyK9QXRSEhfnPS",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!FAbyK9QXRSEhfnPS"
+}

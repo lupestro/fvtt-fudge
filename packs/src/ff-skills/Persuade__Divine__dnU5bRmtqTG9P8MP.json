@@ -1,0 +1,31 @@
+{
+  "name": "Persuade (Divine)",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Convincing an individual of your point of view. Opposed by Reasoning.</p><p><b>Prerequisite:</b> Divine Favor</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700056231,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "HbnmFsaRQCeT4yqW",
+  "_id": "dnU5bRmtqTG9P8MP",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!dnU5bRmtqTG9P8MP"
+}

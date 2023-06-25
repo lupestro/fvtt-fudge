@@ -1,0 +1,31 @@
+{
+  "name": "Camouflage",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Blending in with your surroundings so you don't stand out. Primarily used in natural settings – use Disguise in urban settings. (However, a case could be made for using Camouflage skill to hide in an alley, for example.)</p>",
+    "level": -2,
+    "group": "Scouting",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687694964190,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "aQLE0PJS8cVDWANo",
+  "_id": "QjtbZ9TGldLJbc3Y",
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!QjtbZ9TGldLJbc3Y"
+}

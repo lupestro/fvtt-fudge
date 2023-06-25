@@ -1,0 +1,31 @@
+{
+  "name": "Etiquette",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Knowledge of good manners in any society, and the ability to carry them out.  Not as specific as Savoir-Faire, but gives a broader base for knowledge.</p>",
+    "level": -2,
+    "group": "Social",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687695171140,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "ziLA7pqBnoY7rQyz",
+  "_id": "cPq1IVI8fNOmp9UX",
+  "sort": 156250,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!cPq1IVI8fNOmp9UX"
+}

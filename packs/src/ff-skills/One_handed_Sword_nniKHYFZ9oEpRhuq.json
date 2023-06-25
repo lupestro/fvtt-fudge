@@ -1,0 +1,31 @@
+{
+  "name": "One-handed Sword",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Using any sword designed to be used with one hand.</p>",
+    "level": -2,
+    "group": "Combat",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700475021,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "uNPfGUInAQuBVCn7",
+  "_id": "nniKHYFZ9oEpRhuq",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!nniKHYFZ9oEpRhuq"
+}

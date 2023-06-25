@@ -1,0 +1,31 @@
+{
+  "name": "Armorer",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Making, altering, and repairing armor.</p>",
+    "level": -3,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687694679556,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "jD97jKi1pQfddoko",
+  "_id": "hJNX4R0TwBRo96jw",
+  "sort": 150000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!hJNX4R0TwBRo96jw"
+}

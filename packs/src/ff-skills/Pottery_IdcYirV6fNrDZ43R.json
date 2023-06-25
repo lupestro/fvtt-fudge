@@ -1,0 +1,31 @@
+{
+  "name": "Pottery",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Making pots, plates, bowls, etc., from clay. Includes the ability to assess the value of other potters' work, knowledge of good clay sources, etc.</p>",
+    "level": -2,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700550965,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "jD97jKi1pQfddoko",
+  "_id": "IdcYirV6fNrDZ43R",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!IdcYirV6fNrDZ43R"
+}

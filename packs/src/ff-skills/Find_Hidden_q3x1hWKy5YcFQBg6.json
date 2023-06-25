@@ -1,0 +1,31 @@
+{
+  "name": "Find Hidden",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Locating concealed doors, compartments, catches, etc.</p>",
+    "level": -2,
+    "group": "Covert",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687695241740,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "3WKWQuPjhmwyHvNR",
+  "_id": "q3x1hWKy5YcFQBg6",
+  "sort": 112500,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!q3x1hWKy5YcFQBg6"
+}

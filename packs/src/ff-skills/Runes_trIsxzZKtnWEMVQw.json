@@ -1,0 +1,31 @@
+{
+  "name": "Runes",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>The use of arcane symbols (runes, sigils, hieroglyphics, and other marks) to cast spells and enchant items.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700086777,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "1ZqkewKVRD2ozOkI",
+  "_id": "trIsxzZKtnWEMVQw",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!trIsxzZKtnWEMVQw"
+}

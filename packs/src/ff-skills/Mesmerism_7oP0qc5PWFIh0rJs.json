@@ -1,0 +1,31 @@
+{
+  "name": "Mesmerism",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Affecting minds with magic. Mesmerism may be opposed by the Willpower attribute.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700026875,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "1ZqkewKVRD2ozOkI",
+  "_id": "7oP0qc5PWFIh0rJs",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!7oP0qc5PWFIh0rJs"
+}

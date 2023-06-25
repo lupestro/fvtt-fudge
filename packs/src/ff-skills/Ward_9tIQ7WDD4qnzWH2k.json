@@ -1,0 +1,31 @@
+{
+  "name": "Ward",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>You can protect a person or all within a room-sized area from supernatural evil, either spells, spirits, undead, demons, etc.</p><p><b>Prerequisite:</b> Divine Favor</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700155351,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "HbnmFsaRQCeT4yqW",
+  "_id": "9tIQ7WDD4qnzWH2k",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!9tIQ7WDD4qnzWH2k"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Flatter",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Making people like you by complimenting them to the point they begin to trust your judgement. Opposed by Willpower.</p>",
+    "level": -2,
+    "group": "Social",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687695261556,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "ziLA7pqBnoY7rQyz",
+  "_id": "USiAJO4PnIWYyA8O",
+  "sort": 151563,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!USiAJO4PnIWYyA8O"
+}

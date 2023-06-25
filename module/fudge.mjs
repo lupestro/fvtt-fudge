@@ -7,6 +7,7 @@ import TraitRoll from "./trait-roll.mjs";
 CONFIG.Actor.documentClass = ActorFudge;
 CONFIG.Item.documentClass = ItemFudge;
 const FANTASY_FUDGE_ATTRIBUTES_FROM_COMPENDIUM = "RqHSqHtArZYVOJap";
+const FANTASY_FUDGE_SKILLS_COMPENDIUM = "fudge-rpg.ff-skills";
 
 // eslint-disable-next-line no-unused-vars
 const loadPartials = function(partials) {
@@ -41,6 +42,17 @@ const availableAttributes = () => {
   return result;
 };
 
+const availableSkillSets = () => {
+  const result = {};
+  game.packs.forEach((pack) => {
+    if (pack.metadata.type === "Item") {
+      if (pack.index.find((item) => item.type === "skill")) {
+        result[pack.metadata.id] = pack.metadata.label;
+    }
+  }});
+  return result;
+}
+
 /**
  * We have to register these at ready, because they require
  * looking at items and loaded compendia for attribute sets.
@@ -54,6 +66,15 @@ const registerResourceDependentSystemSettings = function() {
     default: FANTASY_FUDGE_ATTRIBUTES_FROM_COMPENDIUM,
     type: String,
     choices: availableAttributes()
+  });
+  game.settings.register("fudge-rpg", "fivepointskillcompendium", {
+    name: "FUDGERPG.FivePointSkillCompendium",
+    hint: "FUDGERPG.FivePointSkillCompendiumHint",
+    scope: "world",
+    config: true,
+    default: FANTASY_FUDGE_SKILLS_COMPENDIUM,
+    type: String,
+    choices: availableSkillSets()
   });
 };
 

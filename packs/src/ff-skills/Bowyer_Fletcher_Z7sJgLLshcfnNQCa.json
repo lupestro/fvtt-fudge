@@ -1,0 +1,31 @@
+{
+  "name": "Bowyer/Fletcher",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Making bows and arrows, including harvesting the appropriate material.</p>",
+    "level": -3,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687694883758,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "jD97jKi1pQfddoko",
+  "_id": "Z7sJgLLshcfnNQCa",
+  "sort": 103125,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!Z7sJgLLshcfnNQCa"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Teaching (Divine)",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Imparting knowledge or skills to others.</p><p><b>Prerequisite:</b> Divine Favor</p>",
+    "level": -2,
+    "group": "Magic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700119569,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "HbnmFsaRQCeT4yqW",
+  "_id": "ROOXIR4dc83qhHhM",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!ROOXIR4dc83qhHhM"
+}

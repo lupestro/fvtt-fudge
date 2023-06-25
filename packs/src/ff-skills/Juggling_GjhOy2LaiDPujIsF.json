@@ -1,0 +1,31 @@
+{
+  "name": "Juggling",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Juggling anything you can lift. See also Performing.</p>",
+    "level": -2,
+    "group": "Athletic",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700267631,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "oVgdhq7VaeIy2ZGA",
+  "_id": "GjhOy2LaiDPujIsF",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!GjhOy2LaiDPujIsF"
+}

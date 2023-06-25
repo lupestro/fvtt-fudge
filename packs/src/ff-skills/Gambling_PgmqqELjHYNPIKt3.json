@@ -1,0 +1,31 @@
+{
+  "name": "Gambling",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Gaming for money. Note that some gambling includes games of skill, and others games of chance – this skill helps largely with the former, and knowledge of the latter, including a good estimate of the odds. Also the ability to cheat at games, and spot cheaters.</p>",
+    "level": -2,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687695305107,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "jD97jKi1pQfddoko",
+  "_id": "PgmqqELjHYNPIKt3",
+  "sort": 100007,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!PgmqqELjHYNPIKt3"
+}

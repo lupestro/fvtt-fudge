@@ -1,0 +1,31 @@
+{
+  "name": "Geography",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Broader than Area Knowledge, Geography is the knowledge of general topography, terrain nature, biomes, etc.</p>",
+    "level": -2,
+    "group": "Knowledge",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687695313057,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "E0iT3RVBkVJHbveO",
+  "_id": "pDz7o6rEOi7cS4IA",
+  "sort": 156250,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!pDz7o6rEOi7cS4IA"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Detect Lies",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Telling when someone is lying.  Opposed by Lies/Pretense.</p>",
+    "level": -2,
+    "group": "Covert",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687695126135,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "3WKWQuPjhmwyHvNR",
+  "_id": "QaGNnfO7wt1MAg0u",
+  "sort": 100000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!QaGNnfO7wt1MAg0u"
+}

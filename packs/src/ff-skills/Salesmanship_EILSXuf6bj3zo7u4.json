@@ -1,0 +1,31 @@
+{
+  "name": "Salesmanship",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Selling someone something. Opposed by Willpower.</p>",
+    "level": -2,
+    "group": "Social",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700585522,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "ziLA7pqBnoY7rQyz",
+  "_id": "EILSXuf6bj3zo7u4",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!EILSXuf6bj3zo7u4"
+}

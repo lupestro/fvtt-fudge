@@ -1,0 +1,31 @@
+{
+  "name": "Performing",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Stage presence – actively entertaining people. You'll need another skill to actually entertain with, such as Juggler, Storyteller, Musician, etc. A musician without the Performing skill may be skilled at producing music, but lacks \"audience connection\" and won't be as popular as a musician with good Performing skill.</p>",
+    "level": -2,
+    "group": "Professional",
+    "group2": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687700504858,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "jD97jKi1pQfddoko",
+  "_id": "tFSTJSCCKURLvXXE",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!tFSTJSCCKURLvXXE"
+}

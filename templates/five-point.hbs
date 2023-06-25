@@ -1,17 +1,17 @@
 <form class="five-point-form">
   <div class="fp-unspent">
     <div class="name-row">
-      <label for="unspent-points">Unspent Group Points</label>
+      <label for="unspent-points">{{ localize 'FUDGERPG.FivePoint.UnspentGroupPoints' }}</label>
       <input id="unspent-points" readonly value="{{data.system.fivePoint.unspent}}">
       <span class="fp-spacer"></span>
-      <button class="fp-apply">
-        Apply
+      <button type="button" class="fp-apply">
+        {{ localize 'FUDGERPG.FivePoint.Apply' }}
       </button>
     </div>       
   </div>
   <div class="five-point">
     <div class="fp-column group">
-      <p class="fp-column-title">Skill Groups</p>
+      <p class="fp-column-title">{{ localize 'FUDGERPG.FivePoint.SkillGroups' }}</p>
       <div class="fp-group-list"></div>
         {{#each groupData as | group |}}
           <div class="fp-group fp-skill-group{{#if (eq group.name ../selectedGroup)}} selected{{/if}}" data-value="{{group.name}}">
@@ -21,16 +21,16 @@
               </div>
               <div class="breadth-row">
                 <input id="{{group.name}}-broad" type="radio" class="broad-group" {{#if (not group.narrow)}}checked{{/if}} value="Broad" name="{{group.name}}-breadth">
-                <label for="{{group.name}}-broad">Broad</label>
+                <label for="{{group.name}}-broad">{{ localize 'FUDGERPG.FivePoint.BroadGroup' }}</label>
                 <input id="{{group.name}}-narrow" type="radio" class="narrow-group" {{#if group.narrow}}checked{{/if}} value="Narrow" name="{{group.name}}-breadth"> 
-                <label for="{{group.name}}-narrow">Narrow</label>
+                <label for="{{group.name}}-narrow">{{ localize 'FUDGERPG.FivePoint.NarrowGroup' }}</label>
               </div>
           </div>
         {{/each}}
-        <div class="fp-group fp-general-group{{#if (eq "General" selectedGroup)}} selected{{/if}}">
+        <div class="fp-group fp-general-group{{#if (eq "" selectedGroup)}} selected{{/if}}">
           <div class="name-row">
-            <label for="General-points">General</label>
-            <input id="General-points" class="group-points" value="{{data.system.fivePoint.generalPoints}}">
+            <label for="General-points">{{ localize 'FUDGERPG.FivePoint.GeneralGroup' }}</label>
+            <input id="General-points" class="group-points" value="{{generalGroup.points}}">
           </div>
           <div class="fp-general-group-list">
             {{#each this.data.system.fivePoint.generalGroups as |group index| }}
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="fp-column levels">
-        <p class="fp-column-title">Skill Levels</p>
+        <p class="fp-column-title">{{ localize 'FUDGERPG.FivePoint.SkillLevels' }}</p>
         <div class="fp-skill-level-list">
           {{#each selectedGroupLevels as |level index|}}
             <div class="fp-skill-level" data-value="{{index}}">
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="fp-column skills">
-        <p class="fp-column-title">Skills in Group</p>
+        <p class="fp-column-title">{{ localize 'FUDGERPG.FivePoint.GroupSkills' }}</p>
         <div class="fp-skill-list">
           {{#each groupSkills as |skill|}}
             <p class="fp-skill" data-value="{{skill}}">{{skill}}</p>

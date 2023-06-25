@@ -1,0 +1,31 @@
+{
+  "name": "Alchemy",
+  "type": "skill",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Knowledge of the processes and ingredients used to create elixirs and talismans of magical power. See Magic, below, for the Scholarly Magic version, which allows you to create alchemical mixtures as well as recognize them.</p>",
+    "level": -4,
+    "group": "Knowledge",
+    "group2": "Magic"
+  },
+  "effects": [],
+  "flags": {
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "fudge-rpg",
+    "systemVersion": "1.4.0",
+    "coreVersion": "11.302",
+    "createdTime": 1664656794755,
+    "modifiedTime": 1687699893948,
+    "lastModifiedBy": "5yxqCrX1sUttwqmu"
+  },
+  "folder": "E0iT3RVBkVJHbveO",
+  "_id": "0VpDZbKSd0QEIzsk",
+  "sort": 400000,
+  "ownership": {
+    "default": 0,
+    "5yxqCrX1sUttwqmu": 3
+  },
+  "_key": "!items!0VpDZbKSd0QEIzsk"
+}
