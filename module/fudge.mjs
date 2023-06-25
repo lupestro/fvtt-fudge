@@ -48,10 +48,11 @@ const availableSkillSets = () => {
     if (pack.metadata.type === "Item") {
       if (pack.index.find((item) => item.type === "skill")) {
         result[pack.metadata.id] = pack.metadata.label;
-    }
-  }});
+      }
+    } 
+  });
   return result;
-}
+};
 
 /**
  * We have to register these at ready, because they require

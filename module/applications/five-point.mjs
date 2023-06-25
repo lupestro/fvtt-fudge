@@ -1,6 +1,15 @@
 const GENERAL_GROUP_LEVEL_CAP = 1;
 const OTHER_GROUP_LEVEL_CAP = 4;
 
+const sortByName = function (first, second) {
+  if (first.name < second.name) {
+    return -1;
+  } else if (first.name > second.name) {
+    return 1;
+  } 
+  return 0;
+};
+
 // Subsidiary doc-sheet for actor
 export default class FivePointWorksheet extends DocumentSheet { 
 
@@ -129,7 +138,7 @@ export default class FivePointWorksheet extends DocumentSheet {
         data.push(ag ?? {name: group, points: 0, narrow: true, levels: []});
       }
     }
-    data.sort((first, second) => (first.name < second.name? -1 : second.name < first.name ? 1 : 0 ));
+    data.sort(sortByName);
     return data;
   }
 

@@ -70,7 +70,8 @@ export default class FivePointFudgeDoc {
                 }
             }
         }
-        const localItems = game.items.filter((item) => item.type === "skill" && item.system.group && groupedSkills[item.system.group]);
+        const localItems = game.items.filter((item) => item.type === "skill" && 
+            item.system.group && groupedSkills[item.system.group]);
         for (const item of localItems) {
             groupedSkills[item.system.group].push(item.name);
             if (groupedSkills[item.system.group2]) {
@@ -80,7 +81,7 @@ export default class FivePointFudgeDoc {
         return groupedSkills;
     }
 
-    getSkillItems(actor) {
+    getSkillItems() {
         const skills = {};
         const fivePointCompendium = game.settings.get("fudge-rpg", "fivepointskillcompendium");
         for (const aGroup of this.groups) {
@@ -92,7 +93,8 @@ export default class FivePointFudgeDoc {
         }
         for (const pack of game.packs) {  
             if (pack.metadata.type === "Item") {
-                const packSkills = pack.index.filter((item) => item.type === "skill" && pack.metadata.id === fivePointCompendium);
+                const packSkills = 
+                    pack.index.filter((item) => item.type === "skill" && pack.metadata.id === fivePointCompendium);
                 for (const skill of packSkills ) {
                     if (skill.name in skills) {
                         skills[skill.name].id = skill._id;

@@ -1,6 +1,15 @@
 /* Extend the base Actor class to implement additional system-specific logic. */
 import FivePointFudgeDoc from "./five-point.mjs";
 
+const sortByName = function (first, second) {
+  if (first.name < second.name) {
+    return -1;
+  } else if (first.name > second.name) {
+    return 1;
+  } 
+  return 0;
+};
+
 export default class ActorFudge extends Actor {
 
   /** @inheritdoc */
@@ -133,7 +142,7 @@ export default class ActorFudge extends Actor {
         }
       }
     }
-    newSkillDocs.sort((first, second) => (first.name < second.name ? -1 : first.name > second.name ? 1 : 0));
+    newSkillDocs.sort(sortByName);
     const docs = await this.createEmbeddedDocuments("Item", newSkillDocs);
     // Then update the embedded items with the skill levels chosen - docs has different ids than newSkillDocs
     const updates = [];
