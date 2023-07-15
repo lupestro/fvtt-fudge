@@ -29,7 +29,7 @@ export default class FivePointWorksheet extends DocumentSheet {
       id: "five-point-worksheet",
       classes: ["fudge-rpg", "five-point-sheet"],
       template: "systems/fudge-rpg/templates/five-point.hbs",
-      width: 500,
+      width: 700,
       closeOnSubmit: true,
       sheetConfig: false,
       title: game.i18n.localize("FUDGERPG.FivePoint.Title")

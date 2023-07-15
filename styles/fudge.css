@@ -74,7 +74,7 @@ main {
 }
 .basedata .fields {
     display: flex;
-    flex-direction: horizontal;
+    flex-direction: row;
 }
 .basedata .fields label {
     padding: 10px;
@@ -82,6 +82,13 @@ main {
 .basedata .fields input {
     padding: 5px;
     width: 50px;
+}
+.basedata .fields button  {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 16px;
+    flex: 0 0 50px;
+    height: 50px;
 }
 .basedata .traitinfo table {
     width: 100%;

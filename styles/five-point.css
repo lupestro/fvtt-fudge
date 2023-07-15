@@ -1,5 +1,6 @@
 .five-point-sheet {
-  min-width: 650px;
+  min-width: 700px;
+  min-height: 650px;
 }
 .five-point {
   display: flex;
@@ -33,6 +34,10 @@
 }
 .fp-column {
   flex: 1 1 auto;
+  min-width: 200px;
+}
+.fp-column.levels {
+  min-width: 250px;
 }
 .fp-column-title {
   font-weight: bold;
@@ -92,7 +97,6 @@
   display: flex;
   column-gap: 2px;
   align-items: center;
-  min-width: 250px;
   margin: 5px 0;
 }
 .fp-skill-level .skill-name {
@@ -121,7 +125,7 @@
 }
 .fp-skill-list {
   overflow-y:scroll;
-  max-height: 550px;
+  max-height: 580px;
 }
 .fp-skill {
   margin:0;
