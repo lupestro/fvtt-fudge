@@ -2,7 +2,7 @@
 
 ## 2.0.0    Five-Point Fudge support - now FoundryVTT 11 only
 - [BREAKING] Requires FoundryVTT 11 
-  * Fantasy Fudge Skill Compendium now has internal folders, but much more usable for it. 
+  * Fantasy Fudge Skill Compendium now has internal folders, but is much more usable for it. 
   * Will be adding internal folders for other compendia in the future where it makes sense.
 - [FEATURE] Five-point Fudge worksheet: 
   * draws from configured skills compendium plus any game items that use the same groups.
@@ -11,7 +11,7 @@
     * narrow and broad groups of 1-4 points
     * skills from 1-3 designated groups in a one-point general group
   * supports skill splits - unsplitting still a bit primitive but managable
-  * feeds skills to main sheet with a  click and a confirmation
+  * feeds skills to main sheet with a click and a confirmation
 
 ## 1.4.0    FoundryVTT 11 support
 - [FEATURE] Bumped to support both FoundryVTT 10 and 11
@@ -48,7 +48,6 @@ Everything you should need to play a game using subjective character creation.
     - powers as separate from gifts.
     - mechanism for supplying custom traits.
   - Character creation:
-    - **5-point Fudge.**
     - sample equipment.
     - sample actors.
   - Combat flow: 
@@ -61,7 +60,7 @@ Everything you should need to play a game using subjective character creation.
 For now, these need to be managed by hand but none of them should outright prevent play. 
 * If you need to use scale, it may require adjusting rolls appearing in chat in order to compare them across species. 
 * The others should have little to no impact during play.
-* The ones in bold (first in each list) have my attention as the next things to tackle, though, for good reason.
+* The ones in bold have my attention as the next things to tackle, though, for good reason.
 
 Once the base system is relatively complete, our vision is to support specific Fudge-based systems as modules, 
 provided we get the right licensing to do it.
