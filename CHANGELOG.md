@@ -1,5 +1,10 @@
 # Fudge system for FoundryVTT
 
+## Unreleased  - Pyramid die and wounds bar
+- [EXPERIMENTAL] Pyramid die - roll 2dp rather than 4df for a more spread -4 to 4 probability curve. Available to fiddle with but not yet integrated.
+- [DESIGN] A segmented token resource bar for Fudge wounds - just docs so far.
+- [DESIGN] Token HUD support for readily adding and removing wounds - just docs so far.
+
 ## 2.0.0    Five-Point Fudge support - now FoundryVTT 11 only
 - [BREAKING] Requires FoundryVTT 11 
   * Fantasy Fudge Skill Compendium now has internal folders, but is much more usable for it. 

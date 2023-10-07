@@ -1,0 +1,16 @@
+  <svg xmlns="http://www.w3.org/2000/svg" width="300" height="15">
+    <defs>
+      <clipPath id="halfgroup-clip">
+        <path d="M0,7.5 l0,-2.5 l5,-5 l290,0 l5,5 l0,5 l-5,5 l-290,0 l-5,-5 z" />
+      </clipPath>
+    </defs>
+    <rect clip-path="url(#halfgroup-clip)" fill="green" x="0" y="0" width="90" height="15" />
+    <rect clip-path="url(#halfgroup-clip)" fill="lightgreen" x="90" y="0" width="30" height="15" />
+    <rect clip-path="url(#halfgroup-clip)" fill="orange" x="120" y="0" width="30" height="15" />
+    <rect clip-path="url(#halfgroup-clip)" fill="yellow" x="150" y="0" width="30" height="15" />
+    <rect clip-path="url(#halfgroup-clip)" fill="firebrick" x="180" y="0" width="30" height="15" />
+    <rect clip-path="url(#halfgroup-clip)" fill="pink" x="210" y="0" width="30" height="15" />
+    <rect clip-path="url(#halfgroup-clip)" fill="darkviolet" x="240" y="0" width="30" height="15" />
+    <rect clip-path="url(#halfgroup-clip)" fill="silver" x="270" y="0" width="30" height="15" />
+    <path stroke="blue" stroke-width="2" fill="none" d="M0,7.5 l0,-2.5 l5,-5 l290,0 l5,5 l0,5 l-5,5 l-290,0 l-5,-5 z" />
+  </svg>

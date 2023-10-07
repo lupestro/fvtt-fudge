@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <style>
+            .group {
+                display:flex;
+            }
+            .title {
+                flex: 0 0 150px;
+            }
+            .bar {
+                flex: 1 1 500px;
+            }
+            .dark {
+                background-color: black;
+                color: white;
+            }
+            .medium {
+                background-color: gray;
+            }
+            .tokenbar button {
+              height: 25px;
+              font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            function generateSegment(clipid, blockwidth, barheight, pos, count, color) {
+              let items=[];
+              if (count > 0) {
+                items.push(`  <rect clip-path="url(#${clipid})" fill="${color}" x="${pos}" y="0" width="${blockwidth*count}" height="${barheight}" />`);
+              }
+              return items;
+            }
+            function generateBar(id, barheight, barwidth, checks, full) {
+              let clipid=`${id}-clip`;
+              let items=[
+                `<svg xmlns="http://www.w3.org/2000/svg" width="${barwidth}" height="${barheight}">`,
+                "  <defs>",
+                `    <clipPath id="${clipid}">`,
+                `      <path d="M0,${barheight/2} l0,-${barheight/2-5} l5,-5 l${barwidth-10},0 l5,5 l0,${barheight-10} l-5,5 l-${barwidth-10},0 l-5,-5 z" >`,
+                `    </clipPath>`,
+                "  </defs>"
+              ];
+              const colors=[['green','lightgreen'],['orange','yellow'],['firebrick','pink'],['darkviolet','violet'],['gray','silver']];
+              let blockwidth = barwidth / checks.reduce(function(pv, cv) { return pv + cv; }, 0);
+              let pos = 0;
+              for (const [index, count] of checks.entries()) {
+                let fullcount = full[index];
+                console.log(index, count, fullcount, count - fullcount);
+                items = items.concat(generateSegment(clipid, blockwidth, barheight, pos, fullcount, colors[index][0]));
+                pos += fullcount * blockwidth;
+                items = items.concat(generateSegment(clipid, blockwidth, barheight, pos, count-fullcount, colors[index][1]));
+                pos += (count - fullcount) * blockwidth;
+              }
+              items.push(`  <path stroke="blue" stroke-width="2" fill="none" d="M0,${barheight/2} l0,-${barheight/2-5} l5,-5 l${barwidth-10},0 l5,5 l0,${barheight-10} l-5,5 l-${barwidth-10},0 l-5,-5 z" >`);
+              items.push('</svg>')
+              return items;
+            }
+            function insertBar(id, barheight, barwidth, checks, full) {
+              let items = generateBar(id, barheight, barwidth, checks, full);
+              console.log(items.join("\r\n"));
+              document.getElementById(id).innerHTML = items.join("\r\n");
+            }    
+          </script>
+    <ul>Samples:
+        <li class="group"><hr/></li>
+        <li class="group"><span class="title">Empty group:</span><span class="bar" id="emptygroup"/><script> insertBar('emptygroup', 15, 300, [4,2,2,1,1],[0,0,0,0,0]);</script></li>
+        <li class="group"><span class="title">Half-full group:</span> <span class="bar" id="halfgroup"/><script> insertBar('halfgroup', 15, 300, [4,2,2,1,1],[3,1,1,1,0]);</script></li>
+        <li class="group"><span class="title">Seriously in trouble:</span><span class="bar" id="trouble"/><script> insertBar('trouble', 15, 300, [4,2,2,1,1],[4,2,2,1,1]);</script></li>
+        <li class="group"><hr/></li>
+        <li class="group dark"><hr/></li>
+        <li class="group dark"><span class="title">Empty group:</span><span class="bar" id="emptygroup2"/><script> insertBar('emptygroup2', 15, 300, [4,2,2,1,1],[0,0,0,0,0]);</script></li>
+        <li class="group dark"><span class="title">Half-full group:</span> <span class="bar" id="halfgroup2"/><script> insertBar('halfgroup2', 15, 300, [4,2,2,1,1],[3,1,1,1,0]);</script></li>
+        <li class="group dark"><span class="title">Seriously in trouble:</span><span class="bar" id="trouble2"/><script> insertBar('trouble2', 15, 300, [4,2,2,1,1],[4,2,2,1,1]);</script></li>
+        <li class="group dark"><hr/></li>
+        <li class="group medium"><hr/></li>
+        <li class="group medium"><span class="title">Empty group:</span><span class="bar" id="emptygroup3"/><script> insertBar('emptygroup3', 15, 300, [4,2,2,1,1],[0,0,0,0,0]);</script></li>
+        <li class="group medium"><span class="title">Half-full group:</span> <span class="bar" id="halfgroup3"/><script> insertBar('halfgroup3', 15, 300, [4,2,2,1,1],[3,1,1,1,0]);</script></li>
+        <li class="group medium"><span class="title">Seriously in trouble:</span><span class="bar" id="trouble3"/><script> insertBar('trouble3', 15, 300, [4,2,2,1,1],[4,2,2,1,1]);</script></li>
+        <li class="group medium"><hr/></li>
+    </ul>
+    <div class="tokenbar">
+    <button type='button'>&#x25A1;&#x25A1;&#x25A1;&#x25A1;</button>
+    <button type='button'>&#x25A1;&#x25A1;</button>
+    <button type='button'>&#x25A1;&#x25A1;</button>
+    <button type="button">&#x25A1;</button>
+    <button type="button">&#x25A1;</button>
+    </div>
+    </body>
+</html>

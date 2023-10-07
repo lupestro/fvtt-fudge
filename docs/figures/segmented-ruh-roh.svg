@@ -1,0 +1,13 @@
+  <svg xmlns="http://www.w3.org/2000/svg" width="300" height="15">
+    <defs>
+      <clipPath id="trouble-clip">
+        <path d="M0,7.5 l0,-2.5 l5,-5 l290,0 l5,5 l0,5 l-5,5 l-290,0 l-5,-5 z" />
+      </clipPath>
+    </defs>
+    <rect clip-path="url(#trouble-clip)" fill="green" x="0" y="0" width="120" height="15" />
+    <rect clip-path="url(#trouble-clip)" fill="orange" x="120" y="0" width="60" height="15" />
+    <rect clip-path="url(#trouble-clip)" fill="firebrick" x="180" y="0" width="60" height="15" />
+    <rect clip-path="url(#trouble-clip)" fill="darkviolet" x="240" y="0" width="30" height="15" />
+    <rect clip-path="url(#trouble-clip)" fill="gray" x="270" y="0" width="30" height="15" />
+    <path stroke="blue" stroke-width="2" fill="none" d="M0,7.5 l0,-2.5 l5,-5 l290,0 l5,5 l0,5 l-5,5 l-290,0 l-5,-5 z" />
+  </svg>

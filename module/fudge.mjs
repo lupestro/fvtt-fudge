@@ -3,6 +3,7 @@ import ItemFudge from "./documents/item.mjs";
 import ActorSheetFudgeMajor from "./applications/major-actor.mjs";
 import ItemSheetFudge from "./applications/item.mjs";
 import TraitRoll from "./trait-roll.mjs";
+import PyramidFudgeDie from "./pyramid-fudge-die.mjs";
 
 CONFIG.Actor.documentClass = ActorFudge;
 CONFIG.Item.documentClass = ItemFudge;
@@ -139,7 +140,9 @@ Hooks.once("ready", async function() {
 
 Hooks.once("init", function() {
   CONFIG.Dice.rolls.push(TraitRoll);
- 
+  CONFIG.Dice.types.push(PyramidFudgeDie);
+  CONFIG.Dice.terms["p"] = PyramidFudgeDie;
+
   Actors.unregisterSheet("core", ActorFudge);
   Actors.registerSheet("fudge-rpg", ActorSheetFudgeMajor, {
     types: ["major"],
@@ -156,4 +159,14 @@ Handlebars.registerHelper({displayWithSign});
 registerIndependentSystemSettings();
 loadPartials([]);
   //   "systems/fudge-rpg/templates/partials/traitlevel-selector.hbs"
+});
+
+Hooks.once("diceSoNiceReady", (dice3d) => {
+  dice3d.addSystem( {id: "fudge-rpg", name: "Fudge"}, "preferred");
+  dice3d.addDicePreset( {
+    type: "dp",
+    labels: ["\u2212\u2212", "\u2212", " ", "+", "++", "\u2212\u2212", "\u2212", " ", "+", "++"],
+    system: "fudge-rpg",
+    values: {min: -2, max: 2}
+  }, "d5");
 });
