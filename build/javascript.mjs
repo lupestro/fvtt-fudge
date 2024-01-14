@@ -1,6 +1,6 @@
 /* eslint-env node, es2022 */
 
-import eslint from "gulp-eslint7";
+import eslint from "gulp-eslint-new";
 import gulp from "gulp";
 import gulpIf from "gulp-if";
 import mergeStream from "merge-stream";

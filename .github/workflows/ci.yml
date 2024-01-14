@@ -72,9 +72,12 @@ jobs:
     - name: Build All
       run: |
         pnpm install
+        pnpm lint
         pnpm build
         pnpm test
         mv --force fudge-compiled.mjs fudge.mjs
 
     # Create a zip file with all files required by the module to add to the release
-    - run: zip ${{steps.name_zip.outputs.ZIP_NAME}} -r lang templates packs/attributes packs/journals packs/ff-*  styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json
+    - name: Zip It
+      run: |
+        zip ${{steps.name_zip.outputs.ZIP_NAME}} -r lang templates packs/attributes packs/journals packs/ff-*  styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json

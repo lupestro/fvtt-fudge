@@ -12,6 +12,8 @@ module.exports = {
         "ActorSheet": "readonly",
         "ChatMessage": "readonly",
         "Dialog": "readonly",
+        "DiceTerm" : "readonly",
+        "Die": "readonly",
         "DocumentSheet": "readonly",
         "Item": "readonly",
         "Items": "readonly",
@@ -27,7 +29,7 @@ module.exports = {
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 12,
+        "ecmaVersion": 2022,
         "sourceType": "module"
     },
     "rules": {
