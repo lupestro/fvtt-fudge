@@ -10,7 +10,8 @@
     "lint": "gulp lint",
     "lint:fix": "gulp lint:fix",
     "extract:nedb": "gulp extractPacks",
-    "test": "yarn playwright test --reporter=html"
+    "test" : "echo -- no CI tests yet - test locally with playwright using pnpm test:local ",
+    "test:local": "yarn playwright test --reporter=html"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",

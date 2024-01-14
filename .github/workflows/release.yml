@@ -25,12 +25,12 @@ jobs:
       id: get_vars
       run: |
         TAG=${GITHUB_REF/refs\/tags\//}
-        echo ::set-output name=TAG_NAME::$TAG
-        echo ::set-output name=ZIP_NAME::fudge-rpg-$TAG.zip
-        echo ::set-output name=RELEASE_DOWNLOAD_URL::https://github.com/${{github.repository}}/releases/download/$TAG/fudge-rpg-$TAG.zip
-        echo ::set-output name=RELEASE_INSTALL_URL::https://github.com/${{github.repository}}/releases/download/$TAG/system.json
+        echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
+        echo "ZIP_NAME=fudge-rpg-$TAG.zip" >> $GITHUB_OUTPUT
+        echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/fudge-rpg-$TAG.zip" >> $GITHUB_OUTPUT
+        echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json" >> $GITHUB_OUTPUT
         JSON=$(cat ./system.json)
-        echo ::set-output name=SYSTEM_JSON::${JSON//'%'/'%25'}
+        echo "SYSTEM_JSON=${JSON//'%'/'%25'}" >>$GITHUB_OUTPUT
 
 
     # Run some tests to make sure our `system.json` is correct
@@ -53,7 +53,7 @@ jobs:
           exit 1
         fi
 
-        # Validate that the package download url matches the release asset that will be created.
+        # Validate that the package download url matches the release ashttps://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/set that will be created.
         if [[ ! $RELEASE_DOWNLOAD == $PACKAGE_DOWNLOAD ]]; then
           echo "The system.json download url does not match the created release asset url."
           echo "system.json: $PACKAGE_DOWNLOAD"
@@ -74,13 +74,17 @@ jobs:
     # `npm ci` is recommended:
     # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
     - name: Install Dependencies
-      run: npm ci
+      uses: pnpm/action-setup@v2
+      with: 
+        version: 8
+        run_install: true
 
 
     # Run our `build` script
     - name: Build All
       run: |
-        npm run build --if-present
+        pnpm install
+        pnpm build
         mv --force fudge-compiled.mjs fudge.mjs
 
     # Create a zip file with all files required by the module to add to the release
