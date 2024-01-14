@@ -37,6 +37,17 @@ export default class TraitRoll extends Roll {
         {name: game.i18n.localize("FUDGERPG.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
         {name: game.i18n.localize("FUDGERPG.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
       );
+      LEVELSET.push({
+        name: game.i18n.localize("FUDGERPG.TraitLevel.Abysmal"), value: -4 // eslint-disable-line no-magic-numbers
+      }); 
+    }
+    if (game.settings.get("fudge-rpg", "traitlevels") === "expanded") {
+      LEVELSET.unshift({
+        name: game.i18n.localize("FUDGERPG.TraitLevel.Legendary"), value: +4 // eslint-disable-line no-magic-numbers
+      });
+      LEVELSET.push({
+        name: game.i18n.localize("FUDGERPG.TraitLevel.Abysmal"), value: -4 // eslint-disable-line no-magic-numbers
+      });
     }
     const isPrivate = options.isPrivate ?? false;
     const template = options.template ?? this.constructor.CHAT_TEMPLATE;

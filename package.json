@@ -4,9 +4,9 @@
   "main": "modules/fudge.mjs",
   "license": "MIT",
   "scripts": {
-    "build": "gulp buildJS && ./build/compilepacks.sh",
+    "build": "gulp buildJS && node ./build/compilePacks.mjs",
     "build:nedb": "gulp compilePacks",
-    "build:db": "./build/compilePacks.sh",
+    "build:db": "node ./build/compilePacks.mjs",
     "lint": "gulp lint",
     "lint:fix": "gulp lint:fix",
     "extract:nedb": "gulp extractPacks",

@@ -2,7 +2,7 @@
   "id": "fudge-rpg",
   "title": "Fudge RPG",
   "description": "Games based on the Freeform Universal Do-It-Yourself Gaming Engine (FUDGE).",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "authors": [
     {
       "name": "lupestro",
@@ -13,7 +13,7 @@
   ],
   "compatibility": {
     "minimum": "11",
-    "verified": "11.305",
+    "verified": "11.315",
     "maximum": "11"
   },
   "esmodules": [

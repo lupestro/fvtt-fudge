@@ -80,12 +80,7 @@ const registerResourceDependentSystemSettings = function() {
   });
 };
 
-/**
- * We register everything that we can at init. This is especially
- * important for the trait levels because they are used in
- * restoring the chat history.
- */
-const registerIndependentSystemSettings = function() {
+const registerTraitLevels = function() {
   game.settings.register("fudge-rpg", "traitlevels", {
     name: "FUDGERPG.TraitLevels",
     hint: "FUDGERPG.TraitLevelsHint",
@@ -95,10 +90,35 @@ const registerIndependentSystemSettings = function() {
     type: String,
     choices: {
       standard: "FUDGERPG.TraitLevelsStandard",
+      expanded: "FUDGERPG.TraitLevelsExpanded",
       extended: "FUDGERPG.TraitLevelsExtended"
     }
   });
-  
+};
+
+const registerBaseDieRoll = function() {
+  game.settings.register("fudge-rpg", "baseroll", {
+    name: "FUDGERPG.BaseDieRoll",
+    hint: "FUDGERPG.BaseDieRollHint",
+    scope: "world",
+    config: true,
+    default: "standard",
+    type: String,
+    choices: {
+      standard: "FUDGERPG.BaseDieRollFudge",
+      dsixes: "FUDGERPG.BaseDieRollDiffD6",
+      pyramid: "FUDGERPG.BaseDieRollPyramid"
+    }
+  });
+};
+
+/**
+ * We register everything that we can at init. This is especially
+ * important for the trait levels because they are used in
+ * restoring the chat history.
+ */
+const registerIndependentSystemSettings = function() {
+  registerTraitLevels();
   game.settings.register("fudge-rpg", "initialattrlevels", {
     name: "FUDGERPG.InitialAttrLevels",
     hint: "FUDGERPG.InitialAttrLevelsHint",
@@ -123,7 +143,7 @@ const registerIndependentSystemSettings = function() {
     default: 2,
     type: Number
   });
-
+  registerBaseDieRoll();
 };
 
 Hooks.once("ready", async function() {
@@ -139,9 +159,10 @@ Hooks.once("ready", async function() {
 });
 
 Hooks.once("init", function() {
+  const PYRAMID = "p";
   CONFIG.Dice.rolls.push(TraitRoll);
   CONFIG.Dice.types.push(PyramidFudgeDie);
-  CONFIG.Dice.terms["p"] = PyramidFudgeDie;
+  CONFIG.Dice.terms[PYRAMID] = PyramidFudgeDie;
 
   Actors.unregisterSheet("core", ActorFudge);
   Actors.registerSheet("fudge-rpg", ActorSheetFudgeMajor, {

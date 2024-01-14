@@ -3,31 +3,31 @@
 ## Work areas
 
 * [x] Raw HTML/CSS Layout to discover data
-* [ ] Activate worksheet from actor sheet
+* [x] Activate worksheet from actor sheet
 
 ### Configuration Flow
-* [ ] Configure sources of `SkillGroupSet` ** Note 1
-* [ ] Build SkillGroupSet for popup from items and configured sources: `getSkillGroups`
+* [x] Configure sources of `SkillGroupSet` ** Note 1
+* [x] Build SkillGroupSet for popup from items and configured sources: `getSkillGroups`
 
 ### Worksheet Flow
-* [ ] Popup displays raw HTML with CSS
-* [ ] Save => Deliver `SkillLevel[]` back to actor sheet [from provided `FivePointData`]
-* [ ] Save => Intercept with a confirmation dialog before proceeding
-* [ ] Craft handlebars with {{#each}} & {{data}} to display FivePointData
+* [x] Popup displays raw HTML with CSS
+* [x] Save => Deliver `SkillLevel[]` back to actor sheet [from provided `FivePointData`]
+* [x] Save => Intercept with a confirmation dialog before proceeding
+* [x] Craft handlebars with {{#each}} & {{data}} to display FivePointData
 * Event Handling:
-  * [ ] Select Skill Group => display skills of group (right column)
-  * [ ] Drag Skill Group to General Group => updates FivePointData generalGroups
-  * [ ] Change Group Points => Set Skill Levels (center column) ** Note 2
-  * [ ] Change Group Breadth => Set Skill Levels (center column) ** Note 2
-  * [ ] Drag Skills to Skill Levels => Populate skill levels
-  * [ ] Drag Skill Levels to Skill Levels => Swap skills in two levels
-  * [ ] Click Delete Button on Skill Level => Depopulate the skill level
-  * [ ] Click Split Button on Skill Level => Split to two of lower level, first populated
+  * [x] Select Skill Group => display skills of group (right column)
+  * [x] Drag Skill Group to General Group => updates FivePointData generalGroups
+  * [x] Change Group Points => Set Skill Levels (center column) ** Note 2
+  * [x] Change Group Breadth => Set Skill Levels (center column) ** Note 2
+  * [x] Drag Skills to Skill Levels => Populate skill levels
+  * [x] Drag Skill Levels to Skill Levels => Swap skills in two levels
+  * [x] Click Delete Button on Skill Level => Depopulate the skill level
+  * [x] Click Split Button on Skill Level => Split to two of lower level, first populated
   * [ ] Click Join with Two Skill Levels selected => Join to one of higher level, none populated
 
 ### Persistence
-* [ ] Populate initial `FivePointData` data from saved actor document
-* [ ] Store updated `FivePointData` data to actor document on save
+* [x] Populate initial `FivePointData` data from saved actor document
+* [x] Store updated `FivePointData` data to actor document on save
 
 ### Notes
 1. Initially, select a single skill compendium

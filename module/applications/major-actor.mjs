@@ -259,8 +259,20 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
          });
       } else {
         const traitModifier = this.getTraitModifier(type, id);
+        let rolldice = "4dF";
+        switch (game.settings.get("fudge-rpg", "baseroll")) {
+          case "pyramid": 
+            rolldice = "2dP"; 
+            break;
+          case "dsixes":
+            rolldice = "(d6-d6)";
+            break;
+          case "standard":
+          default:
+            rolldice = "4dF";
+        }
 
-        const roll = new TraitRoll("4df + (@levelmod) + (@woundmod)", {
+        const roll = new TraitRoll(`${rolldice} + (@levelmod) + (@woundmod)`, {
           levelmod: traitModifier.modifier, 
           woundmod: this.woundModifier
         });

@@ -1,8 +1,9 @@
 {
     "FUDGERPG.TraitLevels": "Trait Levels",
-    "FUDGERPG.TraitLevelsHint": "Set of named trait levels with numeric values",
+    "FUDGERPG.TraitLevelsHint": "Set of named trait levels with numeric values - ** restart to apply **",
     "FUDGERPG.TraitLevelsStandard": "Standard Trait Levels",
     "FUDGERPG.TraitLevelsExtended": "Extended Trait Levels",
+    "FUDGERPG.TraitLevelsExpanded": "Expanded Trait Levels",
     "FUDGERPG.TraitLevel.Legendary": "Legendary",
     "FUDGERPG.TraitLevel.Heroic": "Heroic",
     "FUDGERPG.TraitLevel.Superb": "Superb",
@@ -12,6 +13,7 @@
     "FUDGERPG.TraitLevel.Mediocre": "Mediocre",
     "FUDGERPG.TraitLevel.Poor": "Poor",
     "FUDGERPG.TraitLevel.Terrible": "Terrible",
+    "FUDGERPG.TraitLevel.Abysmal": "Abysmal",
 
     "FUDGERPG.DefaultAttributeSet": "Default Attribute Set",
     "FUDGERPG.DefaultAttributeSetHint": "The attribute set to provide when creating a new character",
@@ -24,6 +26,11 @@
     "FUDGERPG.FivePointSkillCompendium": "Five-Point Fudge Skills",
     "FUDGERPG.FivePointSkillCompendiumHint": "Skill Compendium Defining Skills for Five Point Fudge",
 
+    "FUDGERPG.BaseDieRoll": "Base Die Roll",
+    "FUDGERPG.BaseDieRollHint": "Affects Probability Curve",
+    "FUDGERPG.BaseDieRollFudge": "4dF",
+    "FUDGERPG.BaseDieRollDiffD6": "d6-d6",
+    "FUDGERPG.BaseDieRollPyramid": "2dP",
     "FUDGERPG.SheetClassCharacter": "Default FUDGE Character Sheet",
     "FUDGERPG.SheetClassItem": "Default FUDGE Item Sheet",
     "FUDGERPG.CharacterName": "Character Name",

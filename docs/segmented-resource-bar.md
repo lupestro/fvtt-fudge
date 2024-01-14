@@ -31,8 +31,12 @@ Another feature that will not appear initially is condition tracking for the imp
 
 ### Edges
 The interception points needed for Fudge to implement this are relatively few:
-* The use of Foundry resource bars is configurable, so everything `fudge-rpg` does about the resource bars needs to honor where the user chose to ask to track the resource `wounds`. It could be above or below the icon - or neither - or both.
-* `fudge-rpg` will need to subclass the Foundry `Token` class so it can override `Token#drawBars()`, providing a custom implementation of the resource for wounds. 
-* `fudge-rpg` will also need to subclass the Foundry `TokenHUD` to override the drawing of the HUD item associated with the resource for wounds.
+* The use of Foundry resource bars is configurable, so everything `fudge-rpg` does about the resource bars needs to honor where the user chose to ask to track the `wounds` resource. It could be above or below the icon - or neither - or both.
+* `fudge-rpg` will need to subclass the Foundry `Token` class. 
+  * It will need to override `Token#drawBars()`, providing a custom implementation of the resource for wounds. By default, the token display doesn't show any bars right now.
+  * When the user selects resources to display in the token config, the individual values for the levels of wounds appear in the list that the user selects from. The number of boxes for each level don't form a maximum, either, making them pretty useless. We need to ensure the list shows the aggregate value `wounds` rather than the individual levels.
+* `fudge-rpg` will also need to subclass the Foundry `TokenHUD`.
+  * This will give it the hooks to override the drawing of the HUD item associated with the resource for wounds.
+
 
 The rest of this is [TBD] until we've studied the interception areas.
