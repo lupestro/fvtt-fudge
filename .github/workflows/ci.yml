@@ -5,6 +5,7 @@ on:
     branches: [ $default-branch ]
   pull_request:
     branches: [ $default-branch ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,31 +24,28 @@ jobs:
     - name: Set up variables
       id: get_vars
       run: |
-        TAG=${GITHUB_REF/refs\/tags\//}
-        echo "TAG_NAME=$TAG" >> $GITHUB_OUTPUT
-        echo "ZIP_NAME=fudge-rpg-$TAG.zip" >> $GITHUB_OUTPUT
+        echo "ZIP_NAME=fudge-rpg.zip" >> $GITHUB_OUTPUT
         JSON=$(cat ./system.json)
-        echo "SYSTEM_JSON=${JSON//'%'/'%25'}" >>$GITHUB_OUTPUT
+        echo ::set-output name=SYSTEM_JSON::${JSON//'%'/'%25'}
 
     - name: Verify correct naming
       env:
-          TAG_NAME: ${{ steps.get_vars.outputs.TAG_NAME }}
           ZIP_NAME: ${{ steps.get_vars.outputs.ZIP_NAME }}
+          # SYSTEM_JSON: ${{steps.get_vars.outputs.SYSTEM_JSON}}
           # Extract version and download url from system.json
           # https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
           PACKAGE_VERSION: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).version}}
           PACKAGE_DOWNLOAD: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).download}}
       run: |
-          echo "tag name: $TAG_NAME"
-          echo "system.json: $PACKAGE_VERSION"
           echo "zip name: $ZIP_NAME"
+          echo "package version: $PACKAGE_VERSION"
+          echo "package download: $PACKAGE_DOWNLOAD"
   
     # Set up Node
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: '18.x'
-        cache: 'npm'
 
     # Set up pnpm
     - name: Install Dependencies
