@@ -21,26 +21,40 @@ jobs:
     # Expected Release Download URL: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
     # Expected Release system.json URL: ${{ steps.get_vars.outputs.RELEASE_INSTALL_URL }}
     # Stringified system.json contents: ${{ steps.get_vars.outputs.SYSTEM_JSON }}
-    - name: Set up variables
+    - name: Collect the system JSON
       id: get_vars
       run: |
-        echo "ZIP_NAME=fudge-rpg.zip" >> $GITHUB_OUTPUT
         JSON=$(cat ./system.json)
         echo ::set-output name=SYSTEM_JSON::${JSON//'%'/'%25'}
 
-    - name: Verify correct naming
+    - name: Name the zip
+      id: name_zip
       env:
-          ZIP_NAME: ${{ steps.get_vars.outputs.ZIP_NAME }}
-          # SYSTEM_JSON: ${{steps.get_vars.outputs.SYSTEM_JSON}}
-          # Extract version and download url from system.json
-          # https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
-          PACKAGE_VERSION: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).version}}
-          PACKAGE_DOWNLOAD: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).download}}
+        # Extract version and download url from system.json
+        # https://docs.github.com/en/actions/learn-github-actions/expressions#fromjson
+        PACKAGE_VERSION: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).version}}
+        PACKAGE_DOWNLOAD: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).download}}
       run: |
-          echo "zip name: $ZIP_NAME"
-          echo "package version: $PACKAGE_VERSION"
-          echo "package download: $PACKAGE_DOWNLOAD"
+        echo "ZIP_NAME=fudge-rpg-release-$PACKAGE_VERSION.zip" >> $GITHUB_OUTPUT
+        echo "PROJECTED_DOWNLOAD=https://github.com/${{github.repository}}/releases/download/release-$PACKAGE_VERSION/fudge-rpg-release-$PACKAGE_VERSION.zip" >> $GITHUB_OUTPUT
   
+    - name: Verify package download URL reflects package version
+      env:
+        ZIP_NAME: ${{ steps.name_zip.outputs.ZIP_NAME }}
+        PACKAGE_VERSION: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).version}}
+        PACKAGE_DOWNLOAD: ${{fromJSON(steps.get_vars.outputs.SYSTEM_JSON).download}}
+        PROJECTED_DOWNLOAD: ${{ steps.name_zip.outputs.PROJECTED_DOWNLOAD }}
+      run: |
+        echo "zip name: $ZIP_NAME"
+        echo "package version: $PACKAGE_VERSION"
+        echo "package download: $PACKAGE_DOWNLOAD"
+        echo "version download: $PROJECTED_DOWNLOAD"
+        if [[ ! $PROJECTED_DOWNLOAD == $PACKAGE_DOWNLOAD ]]; then
+          echo "The system.json download url is inconsistent with the system.json version."
+          echo "Please fix this and push the tag again."
+          exit 1
+        fi
+
     # Set up Node
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -63,4 +77,4 @@ jobs:
         mv --force fudge-compiled.mjs fudge.mjs
 
     # Create a zip file with all files required by the module to add to the release
-    - run: zip ${{steps.get_vars.outputs.ZIP_NAME}} -r lang templates packs/attributes packs/journals packs/ff-*  styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json
+    - run: zip ${{steps.name_zip.outputs.ZIP_NAME}} -r lang templates packs/attributes packs/journals packs/ff-*  styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json
