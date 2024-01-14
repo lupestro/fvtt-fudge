@@ -30,8 +30,7 @@ jobs:
         echo "RELEASE_DOWNLOAD_URL=https://github.com/${{github.repository}}/releases/download/$TAG/fudge-rpg-$TAG.zip" >> $GITHUB_OUTPUT
         echo "RELEASE_INSTALL_URL=https://github.com/${{github.repository}}/releases/download/$TAG/system.json" >> $GITHUB_OUTPUT
         JSON=$(cat ./system.json)
-        echo "SYSTEM_JSON=${JSON//'%'/'%25'}" >>$GITHUB_OUTPUT
-
+        echo ::set-output name=SYSTEM_JSON::${JSON//'%'/'%25'}
 
     # Run some tests to make sure our `system.json` is correct
     # Exit before setting up node if not
@@ -88,8 +87,9 @@ jobs:
         mv --force fudge-compiled.mjs fudge.mjs
 
     # Create a zip file with all files required by the module to add to the release
-    - run: zip ${{steps.get_vars.outputs.ZIP_NAME}} -r lang templates packs/attributes packs/journals packs/ff-*  styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json
-
+    - name: Zip It
+      run: |
+        zip ${{steps.get_vars.outputs.ZIP_NAME}} -r lang templates packs/attributes packs/journals packs/ff-*  styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json
 
     # Create a release for this specific version
     - name: Update Release with Files
