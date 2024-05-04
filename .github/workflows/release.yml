@@ -61,6 +61,11 @@ jobs:
           exit 1
         fi
 
+    # Set up pnpm
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v3 # docs https://pnpm.io/continuous-integration#github-actions
+      with:
+        version: 8  # Optional: specify a pnpm version
 
     # Set up Node
     - name: Use Node.js ${{ matrix.node-version }}
@@ -69,20 +74,15 @@ jobs:
         node-version: '18.x'
         cache: 'pnpm'
 
-
-    # `npm ci` is recommended:
-    # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-    - name: Install Dependencies
-      uses: pnpm/action-setup@v3
-      with: 
-        version: 8
-        run_install: true
+    # Build node_modules
+    - name: Portal Install Node.js dependencies
+      run: |
+        pnpm install
 
 
     # Run our `build` script
     - name: Build All
       run: |
-        pnpm install
         pnpm build
         mv --force fudge-compiled.mjs fudge.mjs
 
