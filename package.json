@@ -1,16 +1,17 @@
 {
   "name": "fvtt-fudge",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "modules/fudge.mjs",
   "license": "MIT",
   "scripts": {
     "build": "gulp buildJS && node ./build/compilepacks.mjs",
+    "build:js": "gulp buildJS && cpy fudge-compiled.mjs . --rename=fudge.mjs",
     "build:nedb": "gulp compilePacks",
     "build:db": "node ./build/compilepacks.mjs",
     "lint": "gulp lint",
     "lint:fix": "gulp lint:fix",
     "extract:nedb": "gulp extractPacks",
-    "test" : "echo -- no CI tests yet - test locally with playwright using pnpm test:local ",
+    "test": "echo -- no CI tests yet - test locally with playwright using pnpm test:local ",
     "test:local": "yarn playwright test --reporter=html"
   },
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@foundryvtt/foundryvtt-cli": "^1.0.2",
     "@playwright/test": "^1.31.2",
     "@rollup/plugin-node-resolve": "^14.0.1",
+    "cpy-cli": "^5.0.0",
     "eslint": "^8.56.0",
     "eslint-plugin-jsdoc": "^48.0.2",
     "fancy-log": "^1.3.3",

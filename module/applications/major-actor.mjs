@@ -276,7 +276,7 @@ export default class ActorSheetFudgeMajor extends ActorSheet {
           levelmod: traitModifier.modifier, 
           woundmod: this.woundModifier
         });
-        await roll.evaluate({async: true});
+        await roll.evaluate();
         await roll.toMessage({
           speaker: ChatMessage.getSpeaker({actor: this.actor}),
           flavor: game.i18n.localize("FUDGERPG.Rolling").replace("{traitname}", traitModifier.traitName)

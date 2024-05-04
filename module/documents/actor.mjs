@@ -37,7 +37,8 @@ export default class ActorFudge extends Actor {
    * This gets called before the new item gets created, so for unique items, we can remove the old one first.
    * Also tracks gifts and faults against the allotted numbers, but doesn't enforce limits.
    */
-  async _onCreateEmbeddedDocuments(embeddedName, items, ...args) {
+  /* eslint-disable-next-line max-params */
+  async _onCreateDescendantDocuments(parent, collection, items, data, options, userId) {
     const allOldUniqueIds = [];
     let giftCount = 0;
     let faultCount = 0;
@@ -80,7 +81,7 @@ export default class ActorFudge extends Actor {
     if (allOldUniqueIds.length > 0) {
       await this.deleteEmbeddedDocuments("Item", allOldUniqueIds);
     }
-    await super._onCreateEmbeddedDocuments(embeddedName, items, ...args);
+    await super._onCreateDescendantDocuments(parent, collection, items, data, options, userId);
   }
 
   // Utility methods

@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
 
     # Set up our some variables for future use
@@ -64,7 +64,7 @@ jobs:
 
     # Set up Node
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18.x'
         cache: 'npm'
@@ -73,7 +73,7 @@ jobs:
     # `npm ci` is recommended:
     # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
     - name: Install Dependencies
-      uses: pnpm/action-setup@v2
+      uses: pnpm/action-setup@v3
       with: 
         version: 8
         run_install: true

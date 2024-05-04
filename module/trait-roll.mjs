@@ -53,7 +53,7 @@ export default class TraitRoll extends Roll {
     const template = options.template ?? this.constructor.CHAT_TEMPLATE;
     const {flavor} = options;
     if ( !this._evaluated ) {
-      await this.evaluate({async: true});
+      await this.evaluate();
     }
     const chatData = {
       formula: isPrivate ? "???" : this._formula,
