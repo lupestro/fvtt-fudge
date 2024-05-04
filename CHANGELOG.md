@@ -1,7 +1,7 @@
 # Fudge system for FoundryVTT
 
 ## 2.2.0 - Basic FoundryVTT 12 compatibility
-- [FEATURE] Verified that it at least comes up cleanly in both FoundryVTT 11 and 12 - not fully verified in V12 yet.
+- [FEATURE] Verified that it comes up cleanly in both FoundryVTT 11 and 12. (Please report any issues I missed - testing here is sadly not yet comprehensive.)
 
 ## 2.1.0  - Pyramid Fudge die and expanded trait ladder
 - [FEATURE] Added another trait ladder - "Expanded" - has Legendary above Superb and Abysmal below Terrible - also added Abysmal to the larger "Extended" ladder.
