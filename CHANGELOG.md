@@ -1,5 +1,10 @@
 # Fudge system for FoundryVTT
 
+## 2.3.0 - Small Improvements
+- [INFO] Updated README.md with pyramid dice information
+- [FEATURE] Provide UI for images on items
+- [BUGFIX] Cleaned up V12 console noise around pyramid die support
+
 ## 2.2.0 - Basic FoundryVTT 12 compatibility
 - [FEATURE] Verified that it comes up cleanly in both FoundryVTT 11 and 12. (Please report any issues I missed - testing here is sadly not yet comprehensive.)
 

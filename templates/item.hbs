@@ -1,38 +1,41 @@
 <form class="itemsheet">
   <label class="hidden" for="itemname">{{localize "FUDGERPG.ItemName"}} </label>
   <input class="fullwidth" name="itemname" id="itemname" type="text" value="{{item.name}}" placeholder={{localize "FUDGERPG.ItemName"}}  />
-  <section class="properties">
-    {{#if (eq item.type "attributeset")}}
-      <label for="attributes">{{localize "FUDGERPG.AttributesEntry"}}</label>
-      <textarea id="attributes" class="attributeset">{{attributelist}}</textarea>
-      <label for="muscleweapon">{{localize "FUDGERPG.MuscleWeaponAttr"}}</label>
-      <select id="muscleweapon" class="attrchoose">
-        {{#each item.system.attributes as |attr|}}
-          <option value="{{attr.name}}" {{#if (eq attr.name ../item.system.muscleweapon)}} selected {{/if}}>{{attr.name}}</option>
-        {{/each}}
-      </select>
-      <label for="damagecapacity">{{localize "FUDGERPG.DamageCapacityAttr"}}</label>
-      <select id="damagecapacity" class="attrchoose">
-        {{#each item.system.attributes as |attr|}}
-          <option value="{{attr.name}}"{{#if (eq attr.name ../item.system.damagecap)}} selected {{/if}}>{{attr.name}}</option>
-        {{/each}}
-      </select>
-    {{/if}}
-    {{#if (eq item.type "equipment")}}
-      <label for="odf">{{localize "FUDGERPG.ODF"}} </label>
-      <input class="numeric" name="odf" id="odf" type="text" value="{{item.system.odf}}"/>
-      <label for="ddf">{{localize "FUDGERPG.DDF"}} </label>
-      <input class="numeric" name="ddf" id="ddf" type="text" value="{{item.system.ddf}}"/>
-      <label for="quantity">{{localize "FUDGERPG.Quantity"}}</label>
-      <input class="numeric" name="quantity" id="quantity" type="text" value="{{item.system.quantity}}" />
-    {{/if}}
-    {{#if (eq item.type "skill")}}
-      <label for="skillgroup">{{localize "FUDGERPG.SkillGroups"}}</label>
-      <input name="skillgroup" id="skillgroup" type="text" value="{{item.system.group}}" />
-      <label xfor="skillgroup2" class="hiddenlabel">{{localize "FUDGERPG.SkillGroup"}}</label>
-      <input name="skillgroup2" id="skillgroup2" type="text" value="{{item.system.group2}}" />
-    {{/if}}
-  </section>
+  <div class="divided">
+    <img class="picture" data-edit="img" title="{{item.name}}" src="{{item.img}}" /> 
+    <section class="properties">
+      {{#if (eq item.type "attributeset")}}
+        <label for="attributes">{{localize "FUDGERPG.AttributesEntry"}}</label>
+        <textarea id="attributes" class="attributeset">{{attributelist}}</textarea>
+        <label for="muscleweapon">{{localize "FUDGERPG.MuscleWeaponAttr"}}</label>
+        <select id="muscleweapon" class="attrchoose">
+          {{#each item.system.attributes as |attr|}}
+            <option value="{{attr.name}}" {{#if (eq attr.name ../item.system.muscleweapon)}} selected {{/if}}>{{attr.name}}</option>
+          {{/each}}
+        </select>
+        <label for="damagecapacity">{{localize "FUDGERPG.DamageCapacityAttr"}}</label>
+        <select id="damagecapacity" class="attrchoose">
+          {{#each item.system.attributes as |attr|}}
+            <option value="{{attr.name}}"{{#if (eq attr.name ../item.system.damagecap)}} selected {{/if}}>{{attr.name}}</option>
+          {{/each}}
+        </select>
+      {{/if}}
+      {{#if (eq item.type "equipment")}}
+        <label for="odf">{{localize "FUDGERPG.ODF"}} </label>
+        <input class="numeric" name="odf" id="odf" type="text" value="{{item.system.odf}}"/>
+        <label for="ddf">{{localize "FUDGERPG.DDF"}} </label>
+        <input class="numeric" name="ddf" id="ddf" type="text" value="{{item.system.ddf}}"/>
+        <label for="quantity">{{localize "FUDGERPG.Quantity"}}</label>
+        <input class="numeric" name="quantity" id="quantity" type="text" value="{{item.system.quantity}}" />
+      {{/if}}
+      {{#if (eq item.type "skill")}}
+        <label for="skillgroup">{{localize "FUDGERPG.SkillGroups"}}</label>
+        <input name="skillgroup" id="skillgroup" type="text" value="{{item.system.group}}" />
+        <label xfor="skillgroup2" class="hiddenlabel">{{localize "FUDGERPG.SkillGroup"}}</label>
+        <input name="skillgroup2" id="skillgroup2" type="text" value="{{item.system.group2}}" />
+      {{/if}}
+    </section>
+  </div>
   <section class="item-description">
     <h2>{{localize 'FUDGERPG.Description'}}</h2>
     {{editor descriptionHTML class="desc" target="system.description" button=true 

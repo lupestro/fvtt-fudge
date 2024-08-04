@@ -1,12 +1,14 @@
- /**
-  * A type of DiceTerm used to represent a five-sided Fate/Fudge die.
-  * Mathematically behaves like 1d5-3
-  * @extends {DiceTerm}
-  */
+/**
+ * A type of DiceTerm used to represent a five-sided Fate/Fudge die.
+ * Mathematically behaves like 1d5-3
+ * @extends {foundry.dice.terms.DiceTerm}
+ */
  const MIN_VALUE = -2;
  const MAX_VALUE = 2;
  const ZERO_OFFSET = 3;
-export default class PyramidFudgeDie extends DiceTerm {
+ const VersionNeutralDiceTerm = foundry.dice.terms.DiceTerm ? foundry.dice.terms.DiceTerm : DiceTerm;
+ const VersionNeutralDie = foundry.dice.terms.Die ? foundry.dice.terms.Die : Die;
+ export default class PyramidFudgeDie extends VersionNeutralDiceTerm {
   constructor(termData) {
     super(termData);
     this.faces = 5;
@@ -17,14 +19,14 @@ export default class PyramidFudgeDie extends DiceTerm {
 
   /** @inheritdoc */
   static MODIFIERS = {
-    "r": Die.prototype.reroll,
-    "rr": Die.prototype.rerollRecursive,
-    "k": Die.prototype.keep,
-    "kh": Die.prototype.keep,
-    "kl": Die.prototype.keep,
-    "d": Die.prototype.drop,
-    "dh": Die.prototype.drop,
-    "dl": Die.prototype.drop
+    "r": VersionNeutralDie.prototype.reroll,
+    "rr": VersionNeutralDie.prototype.rerollRecursive,
+    "k": VersionNeutralDie.prototype.keep,
+    "kh": VersionNeutralDie.prototype.keep,
+    "kl": VersionNeutralDie.prototype.keep,
+    "d": VersionNeutralDie.prototype.drop,
+    "dh": VersionNeutralDie.prototype.drop,
+    "dl": VersionNeutralDie.prototype.drop
   };
 
    /* -------------------------------------------- */

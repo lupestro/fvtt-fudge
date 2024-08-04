@@ -2,7 +2,7 @@
   "id": "fudge-rpg",
   "title": "Fudge RPG",
   "description": "Games based on the Freeform Universal Do-It-Yourself Gaming Engine (FUDGE).",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "authors": [
     {
       "name": "lupestro",
@@ -13,7 +13,7 @@
   ],
   "compatibility": {
     "minimum": "11",
-    "verified": "12.321",
+    "verified": "12.325",
     "maximum": "12"
   },
   "esmodules": [
@@ -41,7 +41,8 @@
             "ff-skills",
             "ff-gifts",
             "ff-faults"
-          ]
+          ],
+          "folders": []
         }
       ]
     }
@@ -130,5 +131,5 @@
   ],
   "url": "https://github.com/lupestro/fvtt-fudge/",
   "manifest": "https://raw.githubusercontent.com/lupestro/fvtt-fudge/main/system.json",
-  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.2.0/fudge-rpg-release-2.2.0.zip"
+  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.3.0/fudge-rpg-release-2.3.0.zip"
 }

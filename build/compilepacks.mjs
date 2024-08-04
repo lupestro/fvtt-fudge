@@ -5,11 +5,15 @@ import { promises as fs } from "fs";
 const MODULE_ID = process.cwd();
 
 const packs = await fs.readdir("./packs/src");
-for (const pack of packs) {
-  if (pack === ".gitattributes") continue;
-  console.log("Packing " + pack);
-  await compilePack(
+const packlist = packs.map((pack)=> {
+  // eslint-disable-next-line no-console
+  console.log("Starting packing: ", pack);
+  return compilePack(
     `${MODULE_ID}/packs/src/${pack}`,
     `${MODULE_ID}/packs/${pack}`
-  );
-}
+  ).then(() => {
+  // eslint-disable-next-line no-console
+    console.log("Completed packing: ", pack);
+  });
+});
+await Promise.all(packlist);

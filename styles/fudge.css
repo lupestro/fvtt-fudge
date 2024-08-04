@@ -214,7 +214,15 @@ main {
     font-size: 24px;
     height: 30px;
 }
-
+.itemsheet .divided {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+}
+.itemsheet img {
+    width: 100px;
+    height: 100px;
+}
 .itemsheet .properties {
     display: grid;
     gap: 5px;

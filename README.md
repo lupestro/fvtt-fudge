@@ -5,12 +5,64 @@ This project implements a FUDGE system for Foundry Virtual Tabletop (FoundryVTT)
 ## Using the System
 
 Install the system. Build a world using the system. 
-* Configure whether your world should use the standard or extended trait levels. You must pick the attribute set to use (or create one of your own.) 
+* Configure whether your world should use the standard, expanded, or extended trait levels. You must pick the attribute set to use (or create one of your own.) 
 * Make characters and drag items onto them for attribute sets, skills, gifts, faults, and equipment. The compendia contain the traits used by Fantasy Fudge, supplied as OGL content. You may find them useful, or you can create your own items. 
 * Use the 5-point Fudge worksheet with the Fantasy Fudge skill set (or your own compendium of skills) for easy skill selection. 
 * Make a story, roll some dice, and take some damage. 
 
-That's about it.
+That's about it, but I've added a couple of extras.
+
+### Pyramid Fudge Dice
+
+This also adds a Fudge die that has arguably better characteristics for gameplay. 
+* A Fudge die is essentially a d3, drawn on a d6, adjusted for a 0 center value 
+* A Pyramid Fudge die is a d5, drawn on a D10, adjusted for a 0 center value, with the extra values being -- and ++.
+
+You roll two of them, and this leads to a curve between -4 and +4 with fewer rolls on the center values and more rolls in the wings. 
+More random outcomes lead to more interesting gameplay. 
+In the following diagram, the f graph is the 4dF outcome and the p graph is the 2dP outcome.
+```
+25% +
+    |                   f
+    |
+    |
+    |
+20% +              f    p    f
+    |
+    |
+    |
+    |              p         p
+15% +
+    |
+    |
+    |         pf                  fp
+    |
+10% +
+    |
+    |    p                             p
+    |
+    |
+5%  +    f                             f
+    p                                       p
+    |
+    |
+    f                                       f
+0%  +----+----+----+----+----+----+----+----+
+   -4   -3   -2   -1    0    1    2    3    4
+```
+The "p" curve is a linear pyramid to a max of 20% at zero. The "f" curve is a sharp normal curve, with much lower 
+probability at the edges, and a much sharper zero peak at 24%. Your odds of hitting numbers like -2 and +2 are the 
+same with either type of roll, but your odds of hitting +/-3 or +/4 are really rare in the standard 4dF, with the 
+probability concentrated between -1 and +1, which is just plain boring if you end up rolling a lot. 
+
+You still won't hit the higher and lower values with 2dP nearly as often as you hit between -2 to +2, but your odds 
+of -4 or +4 are roughly comparable to hitting 1 or 20 on a d20, so the crit experience is similar to D&D, and with the 
+pyramid curve, the roleplaying experience is similar to a 2d6 system. This feels like the best of all possible worlds.
+
+Meanwhile, all the values are still between -4 and +4, so nothing else in the system needs to be touched.
+
+You can always roll 2dP or 4dF from the chat, but there is a configuration setting for which roll to use by default.
+I built in what Dice So Nice needs to roll a D10 as a dP.
 
 ## Plan
 
