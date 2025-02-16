@@ -10,7 +10,15 @@ const sortByName = function (first, second) {
   return 0;
 };
 
-// Subsidiary doc-sheet for actor
+/**
+ * Subsidiary doc-sheet for actor provides five-point character generation workflow.
+ * 
+ * All data examination and item change is via actor.system.fivePointCache,
+ * (fivePointCache is an object of derived data from actor.system.fivepoint model data.)
+ * Once changes are complete, actor.fivepoint is updated from the cache before leaving method.
+ * This applies related changes atomically.
+ */
+
 export default class FivePointWorksheet extends DocumentSheet { 
 
   // -------- Overrides --------
@@ -44,7 +52,7 @@ export default class FivePointWorksheet extends DocumentSheet {
   /** @inheritDoc */
   async getData(options) {
     const context = super.getData(options);
-    this.groups ??= await this.object.system.fivePoint.collectGroupSkills(this.object);
+    this.groups ??= await this.object.system.fivePointCache.collectGroupSkills(this.object);
 
     context.selectedGroup = this.selectedGroup;
     context.groupData = this.groupData;
@@ -52,7 +60,7 @@ export default class FivePointWorksheet extends DocumentSheet {
     // Get the skill list
     if (this.selectedGroup === "") {
       context.groupSkills = [];
-      for ( const group of this.object.system.fivePoint.generalGroups) {
+      for ( const group of this.object.system.fivePointCache.generalgroups) {
         context.groupSkills = context.groupSkills.concat(this.groups[group]);
       }
     } else {
@@ -60,7 +68,7 @@ export default class FivePointWorksheet extends DocumentSheet {
     }
     context.groupSkills?.sort();
     // Get the general group 
-    context.generalGroup = this.object.system.fivePoint.groups.find((actorGroup) => actorGroup.name === "");
+    context.generalGroup = this.object.system.fivePointCache.groups.find((actorGroup) => actorGroup.name === "");
     if (!context.generalGroup) {
       context.generalGroup = {name: "", points: 0, narrow: true, levels: []};
     }
@@ -101,7 +109,7 @@ export default class FivePointWorksheet extends DocumentSheet {
           const target = event.toElement.closest(".fp-skill-level");
           const index = target.getAttribute("data-value");
           if (this._setSkillLevel(this.selectedGroup, index, data.from)) {
-            await this.object.update({"system.fivePoint": this.object.system.fivePoint});
+            await this.object.update({"system.fivepoint": this.object.system.fivePointCache});
           }
           
         } catch (error) {
@@ -114,8 +122,8 @@ export default class FivePointWorksheet extends DocumentSheet {
       if (data.from) {
         try {
           const group = data.from;
-          if (this.object.system.fivePoint.addGroupToGeneral(group)) {
-            await this.object.update({"system.fivePoint": this.object.system.fivePoint});      
+          if (this.object.system.fivePointCache.addGroupToGeneral(group)) {
+            await this.object.update({"system.fivepoint": this.object.system.fivePointCache});      
           }
         } catch (error) {
           // eslint-disable-next-line no-console
@@ -134,7 +142,7 @@ export default class FivePointWorksheet extends DocumentSheet {
     const data = [];
     for (const group in this.groups) {
       if (Object.prototype.hasOwnProperty.call(this.groups, group)) {
-        const ag = this.object.system.fivePoint.groups.find((actorGroup) => actorGroup.name === group);
+        const ag = this.object.system.fivePointCache.groups.find((actorGroup) => actorGroup.name === group);
         data.push(ag ?? {name: group, points: 0, narrow: true, levels: []});
       }
     }
@@ -176,8 +184,8 @@ async _onPointsChange(event) {
         ? Math.min(parseInt(pointsText, 10), GENERAL_GROUP_LEVEL_CAP) 
         : Math.min(parseInt(pointsText, 10), OTHER_GROUP_LEVEL_CAP);
       event.target.value = points.toString();
-      if (this.object.system.fivePoint.setGroupPoints(group, points, this._isGroupNarrow(group))) {
-        await this.object.update({"system.fivePoint": this.object.system.fivePoint});
+      if (this.object.system.fivePointCache.setGroupPoints(group, points, this._isGroupNarrow(group))) {
+        await this.object.update({"system.fivepoint": this.object.system.fivePointCache});
       }
     }
   }
@@ -186,8 +194,8 @@ async _onPointsChange(event) {
     let [group] = event.target.id.split("-");
     const points = parseInt(this.form.querySelector(`#${group}-points`).value.trim(), 10);
     group = group === "General" ? "" : group;
-    if (this.object.system.fivePoint.setGroupPoints(group, points, this._isGroupNarrow(group))) {
-      await this.object.update({"system.fivePoint": this.object.system.fivePoint});
+    if (this.object.system.fivePointCache.setGroupPoints(group, points, this._isGroupNarrow(group))) {
+      await this.object.update({"system.fivepoint": this.object.system.fivePointCache});
     }
   }
 
@@ -195,9 +203,9 @@ async _onPointsChange(event) {
     const target = event.target.closest(".fp-skill-level");
     const index = target.getAttribute("data-value");
     const selectedGroupData = this._getDataForGroup(this.selectedGroup);
-    if (selectedGroupData && this.object.system.fivePoint.removeSkillFromLevel(this.selectedGroup, index)) {
+    if (selectedGroupData && this.object.system.fivePointCache.removeSkillFromLevel(this.selectedGroup, index)) {
       selectedGroupData.levels[index].name = "";
-      await this.object.update({"system.fivePoint": this.object.system.fivePoint});
+      await this.object.update({"system.fivepoint": this.object.system.fivePointCache});
     }
   }
 
@@ -205,8 +213,8 @@ async _onPointsChange(event) {
     const target = event.target.closest(".fp-skill-level");
     const index = target.getAttribute("data-value");
     const selectedGroupData = this._getDataForGroup(this.selectedGroup);
-    if (selectedGroupData && this.object.system.fivePoint.splitSkillLevel(this.selectedGroup, index)) {
-      await this.object.update({"system.fivePoint": this.object.system.fivePoint});
+    if (selectedGroupData && this.object.system.fivePointCache.splitSkillLevel(this.selectedGroup, index)) {
+      await this.object.update({"system.fivepoint": this.object.system.fivePointCache});
     }
     await Dialog.prompt({
       title: game.i18n.localize("FUDGERPG.FivePoint.UnsplitTitle"),
@@ -218,10 +226,10 @@ async _onPointsChange(event) {
   async _onGeneralGroupDelete(event) {
     const [, indextext] = event.target.id.split("-");
     const index = parseInt(indextext, 10);
-    if (this.object.system.fivePoint.removeGroupFromGeneral(index)) {
+    if (this.object.system.fivePointCache.removeGroupFromGeneral(index)) {
       // Find what skills remain available in the general group
       let groupSkills = [];
-      for ( const group of this.object.system.fivePoint.generalGroups) {
+      for ( const group of this.object.system.fivePointCache.generalgroups) {
         groupSkills = groupSkills.concat(this.groups[group]).sort();
       }
       // Remove any skills from the group's levels that are no longer available
@@ -233,7 +241,7 @@ async _onPointsChange(event) {
           }
         }
       }
-      await this.object.update({"system.fivePoint": this.object.system.fivePoint});
+      await this.object.update({"system.fivepoint": this.object.system.fivePointCache});
     }
   }
 
@@ -241,7 +249,7 @@ async _onPointsChange(event) {
     await Dialog.confirm({
       title: game.i18n.localize("FUDGERPG.FivePoint.ConfirmTitle"),
       content: game.i18n.localize("FUDGERPG.FivePoint.ConfirmContent"),
-      yes: () => this.object.replaceSkills(this.object.system.fivePoint.getSkillItems()),
+      yes: () => this.object.replaceSkills(this.object.system.fivePointCache.getSkillItems()),
       defaultYes: false
      });
      return true;
@@ -251,7 +259,7 @@ async _onPointsChange(event) {
 
   _setSkillLevel(groupName, index, skillName) {
     const selectedGroupData = this._getDataForGroup(groupName);
-    if (selectedGroupData && this.object.system.fivePoint.addSkillToLevel(groupName, index, skillName)) {
+    if (selectedGroupData && this.object.system.fivePointCache.addSkillToLevel(groupName, index, skillName)) {
       selectedGroupData.levels[index].name = skillName;
       return true;
     }
@@ -260,7 +268,7 @@ async _onPointsChange(event) {
 
   _getDataForGroup (groupName) {
     if (groupName === "") {
-      const generalGroup = this.object.system.fivePoint.groups.find((aGroup) => aGroup.name === "");
+      const generalGroup = this.object.system.fivePointCache.groups.find((aGroup) => aGroup.name === "");
       return generalGroup ?? {name: "", points: 0, narrow: true, levels: []};
     } 
     return this.groupData.find((group) => group.name === groupName);

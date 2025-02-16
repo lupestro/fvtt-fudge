@@ -30,9 +30,9 @@
       {{/if}}
       {{#if (eq item.type "skill")}}
         <label for="skillgroup">{{localize "FUDGERPG.SkillGroups"}}</label>
-        <input name="skillgroup" id="skillgroup" type="text" value="{{item.system.group}}" />
+        <input name="skillgroup" id="skillgroup" type="text" value="{{item.group}}" />
         <label xfor="skillgroup2" class="hiddenlabel">{{localize "FUDGERPG.SkillGroup"}}</label>
-        <input name="skillgroup2" id="skillgroup2" type="text" value="{{item.system.group2}}" />
+        <input name="skillgroup2" id="skillgroup2" type="text" value="{{item.group2}}" />
       {{/if}}
     </section>
   </div>

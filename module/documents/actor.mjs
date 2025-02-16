@@ -1,5 +1,5 @@
 /* Extend the base Actor class to implement additional system-specific logic. */
-import FivePointFudgeDoc from "./five-point.mjs";
+import FivePointCache from "../five-point-cache.mjs";
 
 const sortByName = function (first, second) {
   if (first.name < second.name) {
@@ -12,10 +12,26 @@ const sortByName = function (first, second) {
 
 export default class ActorFudge extends Actor {
 
+  static migrateData(data) {
+    // Deal with naming changes when we moved to data models
+    if (data.type === "major") {
+      data.type = "character";
+    }
+    if (data.system && data.system.fivePoint) {
+      if (data.system.fivePoint.generalGroups) {
+        data.system.fivePoint.generalgroups = data.system.fivePoint.generalGroups;
+        delete data.system.fivePoint.generalGroups;
+      }
+      data.system.fivepoint = data.system.fivePoint;
+      delete data.system.fivePoint;
+    }    
+    return super.migrateData(data);
+  }
+
   /** @inheritdoc */
   prepareDerivedData() {
     this._prepareTraitLevels();
-    this._prepareFivePoint();
+    this.system.fivePointCache = new FivePointCache(this.system.fivepoint);
   }
 
   /** @inheritdoc */
@@ -127,10 +143,6 @@ export default class ActorFudge extends Actor {
         value: -4 // eslint-disable-line no-magic-numbers
       });
     }
-  }
-
-  _prepareFivePoint() {
-    this.system.fivePoint = new FivePointFudgeDoc(this.system.fivePoint);
   }
 
   getTraitLevelName(value) {

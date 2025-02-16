@@ -14,7 +14,7 @@
   "compatibility": {
     "minimum": "11",
     "verified": "12.330",
-    "maximum": "12"
+    "maximum": "13"
   },
   "esmodules": [
     "fudge.mjs"
@@ -22,6 +22,36 @@
   "styles": [
     "styles/fudge.css"
   ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields":["notes"]
+      },
+      "major": {
+        "htmlFields":["notes"]
+      }
+    },
+    "Item": {
+      "traitlevelset": {
+        "htmlFields": ["description"]
+      },
+      "attributeset": {
+        "htmlFields": ["description"]
+      },
+      "skill": {
+        "htmlFields": ["description"]
+      },
+      "gift": {
+        "htmlFields": ["description"]
+      },
+      "fault": {
+        "htmlFields": ["description"]
+      },
+      "equipment": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
   "packFolders": [
     {
       "name": "Fudge RPG",

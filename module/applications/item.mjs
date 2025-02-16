@@ -13,6 +13,8 @@ export default class ItemSheetFudge extends ItemSheet {
     if (item.type === "attributeset") {
       context.attributelist = item.system.attributes.map((attribute) => attribute.name).join("\n");
     }
+    item.group = this.object.system.groups.length ? this.object.system.groups[0] : "";
+    item.group2 = this.object.system.groups.length > 1 ? this.object.system.groups[1] : "";
     return context;
   }
 
@@ -60,11 +62,15 @@ export default class ItemSheetFudge extends ItemSheet {
   }
   
   async _onSkillGroupChange(event) {
-    await this.object.update({"system.group": event.target.value.trim()});
+    const newGroups = [event.target.value.trim(), this.object.system.groups[1]]
+      .filter((item) => item !== "" && typeof item !== "undefined");
+    await this.object.update({"system.groups": newGroups});
   }
 
   async _onSkillGroup2Change(event) {
-    await this.object.update({"system.group2": event.target.value.trim()});
+    const newGroups = [this.object.system.groups[0], event.target.value.trim()]
+      .filter((item) => item !== "" && typeof item !== "undefined");
+    await this.object.update({"system.groups": newGroups});
   }
   
   async _onNumberFieldChange(event) {

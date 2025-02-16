@@ -2,7 +2,7 @@
   <div class="fp-unspent">
     <div class="name-row">
       <label for="unspent-points">{{ localize 'FUDGERPG.FivePoint.UnspentGroupPoints' }}</label>
-      <input id="unspent-points" readonly value="{{data.system.fivePoint.unspent}}">
+      <input id="unspent-points" readonly value="{{data.system.fivepoint.unspent}}">
       <span class="fp-spacer"></span>
       <button type="button" class="fp-apply">
         {{ localize 'FUDGERPG.FivePoint.Apply' }}
@@ -33,7 +33,7 @@
             <input id="General-points" class="group-points" value="{{generalGroup.points}}">
           </div>
           <div class="fp-general-group-list">
-            {{#each this.data.system.fivePoint.generalGroups as |group index| }}
+            {{#each this.data.system.fivepoint.generalgroups as |group index| }}
               <div class="general-group">
                 <span>{{group}}</span>
                 <button id="group-{{index}}-delete" type="button" class="group-delete roll-button" title="Delete">
