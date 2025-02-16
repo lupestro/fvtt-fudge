@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Knowledge, use, preparation, and dosage of various poisons.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

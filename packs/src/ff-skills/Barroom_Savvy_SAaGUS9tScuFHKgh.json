@@ -5,8 +5,10 @@
   "system": {
     "description": "<p>Like Urban Survival, but very specific to barrooms.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": "Covert"
+    "groups": [
+      "Social",
+      "Covert"
+    ]
   },
   "effects": [],
   "flags": {

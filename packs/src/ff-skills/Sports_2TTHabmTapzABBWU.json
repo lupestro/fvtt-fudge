@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Each sport is a separate skill – Camp-ball (similar to football), Hurling, Pole-Throwing (Caber-Tossing and the like), Stickball (lacrosse), Stone (similar to Horseshoes), etc. Other popular \"sports\" are covered by other skills; Bow (for archery contests), Falconry, Hunting, Riding, etc..</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

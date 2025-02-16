@@ -21,6 +21,7 @@ class CharacterData extends foundry.abstract.TypeDataModel {
     return {
       fp: new NumberField({required: false, integer: true, min: 0, initial: 0}),
       ep: new NumberField({required: false, integer: true, min: 0, initial: 0}), 
+      mana: new NumberField({required: false, integer: true, min: 0, initial: 0}), 
       wounds: new SchemaField({
           scratch: new SchemaField(resourceField(0, 0)),
           hurt: new SchemaField(resourceField(0, 0)),

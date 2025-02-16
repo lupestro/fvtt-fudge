@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>The archetypal hedge magic skill: preparation of magical concoctions. While not as potent as alchemical elixirs, they are quicker to make. Common potions include healing, sleep, love, charisma, strength, endurance, etc. - ask the GM what's possible. Use <em>Poisons</em> for harmful potions.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

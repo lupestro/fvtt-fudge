@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>A very common use of hedge magic, you can bless or curse crops: increased yield, faster growth, etc. - or the opposite.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

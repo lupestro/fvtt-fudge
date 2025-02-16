@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Readying a weapon for combat use effectively instantly. A different skill for each weapon, and some weapons cannot be fast-drawn.</p>",
     "level": -2,
-    "group": "Combat",
-    "group2": ""
+    "groups": [
+     "Combat"
+   ]
   },
   "effects": [],
   "flags": {

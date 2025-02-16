@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Knowledge of historical figures and events. This can be a broad and shallow skill, such as World History, or a narrower and deeper skill, such as history of a specific state.</p>",
     "level": -2,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

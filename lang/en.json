@@ -9,6 +9,10 @@
                     "ep": {
                         "label": "Experience Points"
                     },
+                    "mana": {
+                        "label": "Mana",
+                        "placeholder": "Mana (with relevant gift)"
+                    },
                     "wounds": {
                         "scratch": {
                             "value": {
@@ -189,7 +193,7 @@
         "SheetClassCharacter": "Default FUDGE Character Sheet",
         "SheetClassItem": "Default FUDGE Item Sheet",
         "CharacterName": "Character Name",
-        "TraitValues": "Fudge Trait Values",
+        "TraitValues": "Trait Values",
         "Level": "Level",
         "Value": "Value",
         "EPCost": "EP Cost",

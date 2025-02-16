@@ -13,8 +13,11 @@ export default class ItemSheetFudge extends ItemSheet {
     if (item.type === "attributeset") {
       context.attributelist = item.system.attributes.map((attribute) => attribute.name).join("\n");
     }
-    item.group = this.object.system.groups.length ? this.object.system.groups[0] : "";
-    item.group2 = this.object.system.groups.length > 1 ? this.object.system.groups[1] : "";
+    if (this.object.system.groups) {
+      // Only applies to skills
+      item.group = this.object.system.groups.length ? this.object.system.groups[0] : "";
+      item.group2 = this.object.system.groups.length > 1 ? this.object.system.groups[1] : "";  
+    }
     return context;
   }
 

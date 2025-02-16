@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Working metal into tools, weapons, ornaments, etc.</p>",
     "level": -3,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

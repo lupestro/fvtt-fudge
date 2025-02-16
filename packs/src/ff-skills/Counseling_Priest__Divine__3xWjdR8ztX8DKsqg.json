@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Comforting the afflicted, restoring good emotional health, helping people through grief, etc.</p><p><b>Prerequisite:</b> Divine Favor</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

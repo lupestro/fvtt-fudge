@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Fortune telling for other folk - grants no inkling of your own future.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

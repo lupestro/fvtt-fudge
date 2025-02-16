@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Similar to Survival, but requires some tools, such as blankets, pots, an axe, a tent, etc.  In return, it allows greater comfort and quality of life in the wild.</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {

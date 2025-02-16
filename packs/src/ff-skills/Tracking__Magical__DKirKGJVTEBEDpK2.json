@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Following animals or sentient beings in terrain where they might leave traces. Of limited use in urban areas, it is more a nature skill.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

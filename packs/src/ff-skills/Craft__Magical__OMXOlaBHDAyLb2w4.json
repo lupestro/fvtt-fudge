@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Most of the craft skills, such as Pottery, Smithy, Tailor, etc., allow you to make superior quality items more quickly. These items are of exceptional quality, but are not really magic items… or are they?</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

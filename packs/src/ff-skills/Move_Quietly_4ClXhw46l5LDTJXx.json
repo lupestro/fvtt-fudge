@@ -5,8 +5,10 @@
   "system": {
     "description": "<p>Moving without attracting attention. Opposed by Perception.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": "Covert"
+    "groups": [
+      "Athletic",
+      "Covert"
+    ]
   },
   "effects": [],
   "flags": {

@@ -70,8 +70,9 @@ export default class FivePointCache {
                     // eslint-disable-next-line no-await-in-loop
                     const item = await pack.getDocument(skill._id);
                     if (item) {
+                        // eslint-disable-next-line max-depth
                         for (const group of item.system.groups) {
-                            this._pushItemGroupIntoGroupSkills(item.name, group, groupedSkills);                            
+                            this._pushItemGroupIntoGroupSkills(item.name, group, groupedSkills);
                         }
                     }
                 }

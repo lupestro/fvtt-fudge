@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Moving your body gracefully and successfully through difficult maneuvers, such as rolls, tumbles, leaps, springing to your feet, etc.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

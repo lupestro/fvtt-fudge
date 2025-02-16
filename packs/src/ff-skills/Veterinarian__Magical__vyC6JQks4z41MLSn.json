@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Expeditious and efficacious healing. For evil hedge witches, this is also the skill used to sicken animals, a common complaint in former days.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

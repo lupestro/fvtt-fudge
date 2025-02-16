@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Convincing an individual of your point of view. Opposed by Reasoning.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

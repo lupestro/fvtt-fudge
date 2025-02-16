@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>You can stop bleeding with a touch and enable the severely injured to survive until appropriate care is available.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

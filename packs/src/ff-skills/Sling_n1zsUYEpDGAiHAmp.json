@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Using a sling in combat.</p>",
     "level": -3,
-    "group": "Combat",
-    "group2": ""
+    "groups": [
+     "Combat"
+   ]
   },
   "effects": [],
   "flags": {

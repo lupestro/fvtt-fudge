@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Speaking and understanding a language.  Every character knows their native language well at no cost – take this skill to learn foreign languages. Each language learned is a separate skill.</p>",
     "level": -4,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

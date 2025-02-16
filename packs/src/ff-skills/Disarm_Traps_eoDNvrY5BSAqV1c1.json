@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Deactivating a trap without harm.  This may or may not cause noise, however….</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

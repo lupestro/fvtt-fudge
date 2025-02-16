@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>The use of arcane symbols (runes, sigils, hieroglyphics, and other marks) to cast spells and enchant items.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

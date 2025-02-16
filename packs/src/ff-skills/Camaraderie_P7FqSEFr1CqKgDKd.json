@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Being entertaining in social settings, such as at a bar, at a party, around a campfire, etc., which can gain someone's confidence and approval.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

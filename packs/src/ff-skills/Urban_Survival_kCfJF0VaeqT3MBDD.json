@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>The skill of the urban poor: where to find free or cheap food, shelter and clothing; what parts of the city to avoid, who not to offend, etc.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

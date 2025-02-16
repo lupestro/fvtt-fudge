@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Using known processes and ingredients to create elixirs and talismans of magical power.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
     "level": 0,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

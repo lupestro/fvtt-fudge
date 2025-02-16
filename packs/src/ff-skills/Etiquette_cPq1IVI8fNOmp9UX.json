@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Knowledge of good manners in any society, and the ability to carry them out.  Not as specific as Savoir-Faire, but gives a broader base for knowledge.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

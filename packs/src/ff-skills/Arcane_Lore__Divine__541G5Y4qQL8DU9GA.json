@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Knowledge of occult things – otherworldly stories, legends, etc.</p><p><b>Prerequisite:</b> Divine Favor</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

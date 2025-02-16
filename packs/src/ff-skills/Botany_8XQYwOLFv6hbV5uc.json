@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Broad knowledge of plants – their habitats, growing needs, uses, dangers, etc.  See Herb Lore, Farming, Basketry, Poisons, etc., for more specific skills.</p>",
     "level": -2,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Making fake documents and/or signatures that look authentic.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

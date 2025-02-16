@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>You can force spirits and demons from another plane to return to their proper plane.</p><p><b>Prerequisite:</b> Divine Favor</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

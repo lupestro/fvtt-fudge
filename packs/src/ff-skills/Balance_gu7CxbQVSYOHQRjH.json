@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Keeping one's equilibrium in awkward physical situations, such as tightrope walking, beam walking, crossing a stream on a log, etc.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

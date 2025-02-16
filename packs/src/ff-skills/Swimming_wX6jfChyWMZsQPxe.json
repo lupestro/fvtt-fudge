@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Moving yourself in water without danger of drowning.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

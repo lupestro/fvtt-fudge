@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Hiding any traces that people or animals used an area. This includes hiding tracks as well as camping areas.</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {

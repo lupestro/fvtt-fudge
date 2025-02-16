@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Directing seamen to correctly handle a large sailing ship.  Includes piloting and navigation skills.</p>",
     "level": -3,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

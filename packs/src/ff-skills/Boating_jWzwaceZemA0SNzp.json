@@ -5,8 +5,10 @@
   "system": {
     "description": "<p>Small boat handling.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": "Scouting"
+    "groups": [
+      "Athletic",
+      "Scouting"
+    ]
   },
   "effects": [],
   "flags": {

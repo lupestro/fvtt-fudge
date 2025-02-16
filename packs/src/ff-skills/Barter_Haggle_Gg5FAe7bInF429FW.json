@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Raising or reducing prices, depending on whether you're selling or buying.  Opposed by the other person's Barter/Haggle skill.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

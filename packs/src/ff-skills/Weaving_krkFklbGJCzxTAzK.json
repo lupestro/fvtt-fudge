@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Spinning yarn from wool or plants, then making cloth from yarn.</p>",
     "level": -2,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

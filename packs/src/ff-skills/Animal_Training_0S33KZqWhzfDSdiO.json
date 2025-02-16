@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Training animals for specific tasks.</p>",
     "level": -2,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

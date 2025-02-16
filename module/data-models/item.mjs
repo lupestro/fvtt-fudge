@@ -49,8 +49,7 @@ class GiftData extends FudgeItemData {
 
   static defineSchema() {
     return {
-      ...super.defineSchema(),
-      "cost": new NumberField({required: false, integer: true, min: 1, initial: 1})
+      ...super.defineSchema()
     };
   }
 }

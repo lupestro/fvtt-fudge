@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Dissembling your true intentions, origins, or role from others. Opposed by Detect Lies.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

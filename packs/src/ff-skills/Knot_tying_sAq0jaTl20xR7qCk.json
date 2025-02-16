@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Tying functional and/or ornamental knots for various purposes.</p>",
     "level": -1,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

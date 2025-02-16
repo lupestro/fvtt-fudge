@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Delivering witty sayings, usually double entendres, which cannot be construed as libelous but carry hidden insults or stings.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

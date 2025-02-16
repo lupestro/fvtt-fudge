@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>The knowledge of magic spells, results, abilities, etc. Does not require any Magical Ability, nor is it required to perform magic.</p>",
     "level": -4,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

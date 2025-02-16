@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Functioning smoothly, without social blunders, in any upper or middle class setting.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {
