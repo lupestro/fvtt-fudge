@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Perceiving things with more than the usual five senses.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

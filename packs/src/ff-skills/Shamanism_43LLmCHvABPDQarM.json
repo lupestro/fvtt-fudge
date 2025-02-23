@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Spirit Magic. Shamans interact with spirits of varying powers. Spirits include ancestral spirits, anima (spirits that imbue every object; some anima are more powerful than others), and \"guardian spirits.\"</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

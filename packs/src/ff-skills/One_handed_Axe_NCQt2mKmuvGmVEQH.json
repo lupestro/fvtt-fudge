@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Using small axes as combat weapons.</p>",
     "level": -2,
-    "group": "Combat",
-    "group2": ""
+    "groups": [
+     "Combat"
+   ]
   },
   "effects": [],
   "flags": {

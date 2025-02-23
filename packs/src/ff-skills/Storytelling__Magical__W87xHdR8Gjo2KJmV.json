@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>You can enthrall an audience, and even sway their mood to your purposes.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

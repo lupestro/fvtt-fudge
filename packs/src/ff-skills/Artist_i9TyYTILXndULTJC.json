@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Creating aesthetically pleasing art in a given medium.  Each medium is a separate skill.</p>",
     "level": -2,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

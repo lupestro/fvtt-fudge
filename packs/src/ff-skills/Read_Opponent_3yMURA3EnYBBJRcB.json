@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Roughly estimating a given opponent's skill level in combat. An exceptionally good result may even reveal a particular combat \"style,\" if appropriate for the setting.</p>",
     "level": -2,
-    "group": "Combat",
-    "group2": ""
+    "groups": [
+     "Combat"
+   ]
   },
   "effects": [],
   "flags": {

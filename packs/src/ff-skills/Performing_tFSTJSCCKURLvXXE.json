@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Stage presence – actively entertaining people. You'll need another skill to actually entertain with, such as Juggler, Storyteller, Musician, etc. A musician without the Performing skill may be skilled at producing music, but lacks \"audience connection\" and won't be as popular as a musician with good Performing skill.</p>",
     "level": -2,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

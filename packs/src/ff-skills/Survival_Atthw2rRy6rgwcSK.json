@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Surviving in the wilds.  Includes basic fire making, food procurement, and shelter construction. Won't be fancy, but you'll be alive.</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {

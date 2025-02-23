@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Hunting and killing animals for food, hides, sport, or whatever.</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {

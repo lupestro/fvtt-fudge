@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Using a knife in combat, but not necessarily to throw it.</p>",
     "level": -2,
-    "group": "Combat",
-    "group2": ""
+    "groups": [
+     "Combat"
+   ]
   },
   "effects": [],
   "flags": {

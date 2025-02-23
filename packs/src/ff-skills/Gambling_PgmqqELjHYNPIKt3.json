@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Gaming for money. Note that some gambling includes games of skill, and others games of chance – this skill helps largely with the former, and knowledge of the latter, including a good estimate of the odds. Also the ability to cheat at games, and spot cheaters.</p>",
     "level": -2,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

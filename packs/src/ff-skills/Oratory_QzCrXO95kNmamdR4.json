@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Keeping the focus of a group of people through speaking, and attempting to sway them to your point of view. Opposed by group's average Reasoning-1.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

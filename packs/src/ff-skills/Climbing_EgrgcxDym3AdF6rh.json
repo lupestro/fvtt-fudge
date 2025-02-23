@@ -5,8 +5,10 @@
   "system": {
     "description": "<p>Climbing, either natural formations such as cliffs and trees, or man-made ones such as stone, brick, etc., (but not sheer) walls.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": "Covert"
+    "groups": [
+      "Athletic",
+      "Covert"
+    ]
   },
   "effects": [],
   "flags": {

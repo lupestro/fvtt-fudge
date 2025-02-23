@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Using a very long hand-held spear as a weapon – most useful in formations, especially against cavalry.</p>",
     "level": -2,
-    "group": "Combat",
-    "group2": ""
+    "groups": [
+     "Combat"
+   ]
   },
   "effects": [],
   "flags": {

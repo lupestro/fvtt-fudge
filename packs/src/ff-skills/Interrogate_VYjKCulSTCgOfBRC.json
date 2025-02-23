@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Extracting information from an unwilling subject. There are two basic types of interrogators: those who get their subjects to trust them, and those who psychologically abuse them. Chose one type. Opposed by Willpower.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

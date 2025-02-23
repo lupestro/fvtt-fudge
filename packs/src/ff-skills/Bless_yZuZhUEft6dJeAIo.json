@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>You can grant a +1 (or more, if the GM is willing) defensive bonus to someone, which lasts until the next combat ends.</p><p><b>Prerequisite:</b> Divine Favor</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

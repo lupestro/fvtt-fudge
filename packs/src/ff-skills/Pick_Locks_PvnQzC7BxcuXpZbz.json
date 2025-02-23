@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Opening locks without the correct key.  Penalty of –1 with improvised lockpicks. Difficult locks may have an additional penalty.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

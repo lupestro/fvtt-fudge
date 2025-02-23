@@ -13,12 +13,12 @@ const SKILL_LEVEL_POOR = -2;
  * Extend the base ActorSheet class to implement our character sheet.
  */
 
-export default class ActorSheetFudgeMajor extends ActorSheet {
+export default class ActorSheetFudgeCharacter extends ActorSheet {
 
   // -------- Overrides --------
 
   get template() {
-    return "systems/fudge-rpg/templates/major-actor.hbs";
+    return "systems/fudge-rpg/templates/character.hbs";
   }
 
   static get defaultOptions() {

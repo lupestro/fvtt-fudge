@@ -15,7 +15,7 @@
             <tr>
                 <th>{{ localize 'FUDGERPG.Level' }}</th>
                 <th>{{ localize 'FUDGERPG.Value' }}</th>
-                <th>{{ localize 'FUDGERPG.EPCost' }}</th>
+                {{!-- <th>{{ localize 'FUDGERPG.EPCost' }}</th>--}}
             </tr>
           </thead>
           <tbody>
@@ -23,7 +23,7 @@
               <tr>
                 <td>{{level.name}}</td>
                 <td>{{displayWithSign level.value}}</td>
-                <td>{{level.ep}}</td>
+                {{!--<td>{{level.ep}}</td> --}}
               </tr>
             {{/each}}
           </tbody>
@@ -32,13 +32,17 @@
       <div class="stats">
         <h2>{{localize 'FUDGERPG.GeneralTraits'}}</h2>
         <div class="fields">
-          <label>{{ localize 'FUDGERPG.FP' }}
+          <label>{{ localize 'FUDGERPG.Actor.Character.FIELDS.fp.label' }}
             <input id="fp" name="fp" type="text" value="{{actor.system.fp}}" 
-              placeholder="{{ localize 'FUDGERPG.FP' }}"/>
+              placeholder="{{ localize 'FUDGERPG.Actor.Character.FIELDS.FP.label' }}"/>
           </label>
-          <label>{{ localize 'FUDGERPG.EP' }}
+          <label>{{ localize 'FUDGERPG.Actor.Character.FIELDS.ep.label' }}
             <input id="ep" name="ep" type="text" value="{{actor.system.ep}}" 
-              placeholder="{{ localize 'FUDGERPG.EP' }}"/>
+              placeholder="{{ localize 'FUDGERPG.Actor.Character.FIELDS.EP.label' }}"/>
+          </label>
+          <label>{{ localize 'FUDGERPG.Actor.Character.FIELDS.mana.label' }}
+            <input id="mana" name="mana" type="text" value="{{actor.system.mana}}" 
+              placeholder="{{ localize 'FUDGERPG.Actor.Character.FIELDS.Mana.placeholder' }}"/>
           </label>
           <button id="fivepoint">{{localize 'FUDGERPG.FivePoint.Button'}}</button>
         </div>

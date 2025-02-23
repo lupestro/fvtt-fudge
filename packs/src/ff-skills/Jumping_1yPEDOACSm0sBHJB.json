@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Jumping for distance and accuracy.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

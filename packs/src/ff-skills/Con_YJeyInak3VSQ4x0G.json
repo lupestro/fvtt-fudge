@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Making people believe in some plan or product you are pushing.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Working with others trained in this skill to perform acrobatic maneuvers such as stacking, vaulting, trapeze work, etc.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

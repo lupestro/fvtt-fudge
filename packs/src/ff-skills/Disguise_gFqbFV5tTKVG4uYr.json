@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Passing for someone else under visual inspection.  There is a penalty for serious inspection, of course.  Opposed by Reasoning, though no roll is needed if the observer has no reason to be suspicious.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

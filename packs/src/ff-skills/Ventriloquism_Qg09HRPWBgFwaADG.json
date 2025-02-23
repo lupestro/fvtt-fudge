@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>\"throwing your voice\" so as to make it sound as if it comes from somewhere else.  Also disguising your voice.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

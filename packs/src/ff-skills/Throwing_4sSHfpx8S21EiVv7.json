@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Throwing things accurately, but not specifically optimized to do damage. That is, it's not a combat skill, though it could be used as one, with –1 to damage-dealing ability.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>The \"Black Arts.\" Sorcery relies on summoning demons and other powerful, evil beings to trick or bribe or force them into doing the sorcerer's bidding.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

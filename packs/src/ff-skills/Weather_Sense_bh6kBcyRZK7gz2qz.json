@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Predicting the weather for the near future.</p>",
     "level": -2,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

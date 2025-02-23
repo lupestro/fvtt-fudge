@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>A general skill to assess the value of something.  It won't be as accurate as a specific Professional skill (for example, a Potter will be a better judge of Pottery than someone with this skill), but as a broad skill allows a good general knowledge.</p>",
     "level": -2,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

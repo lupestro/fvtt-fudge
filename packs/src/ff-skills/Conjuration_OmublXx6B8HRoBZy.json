@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Creating objects (even creatures!) out of \"thin air\" – or making objects disappear.</p><p><b>Prerequisite:</b> Magical Talent (Scholarly Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

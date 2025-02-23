@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Administering emergency medical treatment knowledgeably, enhanced by divine insight.</p><p><b>Prerequisite:</b> Divine Favor</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Trained ability to notice and remember things – conscious application of Perception and memory. The player's notes are the character's memory.</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {

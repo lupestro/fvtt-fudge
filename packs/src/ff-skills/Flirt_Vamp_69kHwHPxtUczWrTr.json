@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Arousing sexual interest in an appropriate subject, for whatever reason. Opposed by Willpower.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

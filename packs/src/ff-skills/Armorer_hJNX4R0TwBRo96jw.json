@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Making, altering, and repairing armor.</p>",
     "level": -3,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>You can protect a person or all within a room-sized area from supernatural evil, either spells, spirits, undead, demons, etc.</p><p><b>Prerequisite:</b> Divine Favor</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Knowledge of the international situation in a given area, and of the internal politics of states within that area. May be for a broad area, such the entire known world, or a more focused area, such as Europe. In the latter case, the knowledge is more detailed.</p>",
     "level": -2,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

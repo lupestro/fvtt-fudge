@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>You practice a lot – better speed than non-runners, as well as distance.</p>",
     "level": -2,
-    "group": "Athletic",
-    "group2": ""
+    "groups": [
+     "Athletic"
+   ]
   },
   "effects": [],
   "flags": {

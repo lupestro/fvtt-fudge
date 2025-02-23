@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>You're remarkably accurate.</p> <p><b>Prerequisite:</b> Magical Talent (Hedge Magic)</p>",
     "level": -2,
-    "group": "Magic",
-    "group2": ""
+    "groups": [
+     "Magic"
+   ]
   },
   "effects": [],
   "flags": {

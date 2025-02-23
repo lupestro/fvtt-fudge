@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Misleading people into thinking you will perform an action you have no intention of performing.  Opposed by Reasoning.</p>",
     "level": -2,
-    "group": "Social",
-    "group2": ""
+    "groups": [
+     "Social"
+   ]
   },
   "effects": [],
   "flags": {

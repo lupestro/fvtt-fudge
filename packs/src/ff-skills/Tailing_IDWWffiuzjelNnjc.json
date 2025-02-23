@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Following someone without their noticing. Opposed by Perception.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

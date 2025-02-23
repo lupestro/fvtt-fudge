@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Determining if a given area has a trap of some sort set, and what type.</p>",
     "level": -2,
-    "group": "Covert",
-    "group2": ""
+    "groups": [
+     "Covert"
+   ]
   },
   "effects": [],
   "flags": {

@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Knowledge of legal matters.</p>",
     "level": -3,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

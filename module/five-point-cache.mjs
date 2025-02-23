@@ -33,7 +33,13 @@ const FUDGE_GENERAL_SKILL_LEVELS = [
   [[FAIR, 3]]
 ];
 
-export default class FivePointFudgeDoc {
+/**
+ * This is a copy of the system.fivepoint data with the methods necessary to manipulate it.
+ * Collecting group skills, because it loads compendia, is inherently asynchronous.
+ * All other methods are synchronous.
+ * Typical workflow makes a set of related changes to the cache, updating system.fivepoint when done. 
+ */
+export default class FivePointCache {
    constructor(fivePoint) {
         if (fivePoint) {
             const newGroups = [];
@@ -43,11 +49,11 @@ export default class FivePointFudgeDoc {
               }
             }
             this.unspent = fivePoint.unspent;
-            this.generalGroups = fivePoint.generalGroups;
+            this.generalgroups = fivePoint.generalgroups;
             this.groups = newGroups;
         } else {
             this.unspent = FUDGE_GROUP_POINTS;
-            this.generalGroups = [];
+            this.generalgroups = [];
             this.groups = [];
         }
     }
@@ -64,8 +70,10 @@ export default class FivePointFudgeDoc {
                     // eslint-disable-next-line no-await-in-loop
                     const item = await pack.getDocument(skill._id);
                     if (item) {
-                        this._pushItemGroupIntoGroupSkills(item.name, item.system.group, groupedSkills);
-                        this._pushItemGroupIntoGroupSkills(item.name, item.system.group2, groupedSkills);
+                        // eslint-disable-next-line max-depth
+                        for (const group of item.system.groups) {
+                            this._pushItemGroupIntoGroupSkills(item.name, group, groupedSkills);
+                        }
                     }
                 }
             }
@@ -113,23 +121,23 @@ export default class FivePointFudgeDoc {
 
     addGroupToGeneral(groupName) {
     // Validate this is valid to do
-        if (this.generalGroups.length === MAX_GENERAL_GROUPS || this.generalGroups.includes(groupName)) {
+        if (this.generalgroups.length === MAX_GENERAL_GROUPS || this.generalgroups.includes(groupName)) {
                 return false;
         }
         const groupData = this.groups.find( (aGroup) => aGroup.name === groupName);
         if (groupData && groupData.points > 0) {
             return false;
         }
-        this.generalGroups.push(groupName);
-        this.generalGroups.sort();
+        this.generalgroups.push(groupName);
+        this.generalgroups.sort();
         return true;
     }
 
     removeGroupFromGeneral(index) {
-        if (index < 0 || index >= this.generalGroups.length) {
+        if (index < 0 || index >= this.generalgroups.length) {
             return false;
         }
-        this.generalGroups.splice(index, 1);
+        this.generalgroups.splice(index, 1);
         return true;
     }
 
@@ -189,7 +197,7 @@ export default class FivePointFudgeDoc {
         if (groupName === "" ? points > GENERAL_GROUP_POINT_CAP : points > OTHER_GROUP_POINT_CAP) {
             return false;
         }
-        if (groupName !== "" && this.generalGroups.includes(groupName)) {
+        if (groupName !== "" && this.generalgroups.includes(groupName)) {
             return false;
         }
         // Perform it

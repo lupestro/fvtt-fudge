@@ -1,5 +1,11 @@
 # Fudge system for FoundryVTT
 
+## 2.4.0 - Now undergirded by data models
+- [FEATURE] Added field mana - no automation yet - in preparation for Fantasy Fudge magic
+- [FEATURE] Tightened up trait values list to take less space.
+- [INTERNAL] Based everything on data models
+- [INTERNAL] Adjusted some internal structures - provided migration and adjusted compendia to reflect change
+
 ## 2.3.0 - Small Improvements
 - [INFO] Updated README.md with pyramid dice information
 - [FEATURE] Provide UI for images on items

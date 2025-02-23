@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Catching fish for food, sale, barter, or sport.</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {

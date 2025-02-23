@@ -1,7 +1,9 @@
 import ActorFudge from "./documents/actor.mjs";
 import ItemFudge from "./documents/item.mjs";
-import ActorSheetFudgeMajor from "./applications/major-actor.mjs";
+import ActorSheetFudgeCharacter from "./applications/character.mjs";
 import ItemSheetFudge from "./applications/item.mjs";
+import {registerActorDataModels} from "./data-models/actor.mjs";
+import {registerItemDataModels} from "./data-models/item.mjs";
 import TraitRoll from "./trait-roll.mjs";
 import PyramidFudgeDie from "./pyramid-fudge-die.mjs";
 
@@ -163,22 +165,26 @@ Hooks.once("init", function() {
   CONFIG.Dice.rolls.push(TraitRoll);
   CONFIG.Dice.types.push(PyramidFudgeDie);
   CONFIG.Dice.terms[PYRAMID] = PyramidFudgeDie;
+  registerActorDataModels();
+  registerItemDataModels();
 
   Actors.unregisterSheet("core", ActorFudge);
-  Actors.registerSheet("fudge-rpg", ActorSheetFudgeMajor, {
-    types: ["major"],
+  Actors.registerSheet("fudge-rpg", ActorSheetFudgeCharacter, {
+    types: ["character"],
     makeDefault: true,
     label: "FUDGERPG.SheetClassCharacter"
   });
+  
   Items.unregisterSheet("core", ItemFudge);
   Items.registerSheet("fudge-rpg", ItemSheetFudge, {
     types: ["attributeset", "skill", "gift", "fault", "equipment"],
     makeDefault: true,
     label: "FUDGERPG.SheetClassItem"
   });
-Handlebars.registerHelper({displayWithSign});
-registerIndependentSystemSettings();
-loadPartials([]);
+
+  Handlebars.registerHelper({displayWithSign});
+  registerIndependentSystemSettings();
+  loadPartials([]);
   //   "systems/fudge-rpg/templates/partials/traitlevel-selector.hbs"
 });
 

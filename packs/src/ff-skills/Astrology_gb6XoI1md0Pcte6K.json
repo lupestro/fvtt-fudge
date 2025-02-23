@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>This is either simple astronomy or an actual potent forecasting and divination tool – ask the GM.</p>",
     "level": -2,
-    "group": "Knowledge",
-    "group2": ""
+    "groups": [
+     "Knowledge"
+   ]
   },
   "effects": [],
   "flags": {

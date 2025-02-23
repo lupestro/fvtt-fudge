@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Creating reasonably accurate and readable maps from observation.</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {

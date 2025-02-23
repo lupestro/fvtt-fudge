@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Making bows and arrows, including harvesting the appropriate material.</p>",
     "level": -3,
-    "group": "Professional",
-    "group2": ""
+    "groups": [
+     "Professional"
+   ]
   },
   "effects": [],
   "flags": {

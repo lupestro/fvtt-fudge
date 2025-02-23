@@ -5,8 +5,9 @@
   "system": {
     "description": "<p>Blending in with your surroundings so you don't stand out. Primarily used in natural settings – use Disguise in urban settings. (However, a case could be made for using Camouflage skill to hide in an alley, for example.)</p>",
     "level": -2,
-    "group": "Scouting",
-    "group2": ""
+    "groups": [
+     "Scouting"
+   ]
   },
   "effects": [],
   "flags": {
