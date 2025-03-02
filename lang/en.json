@@ -1,5 +1,17 @@
 {
     "FUDGERPG": {
+        "Types": {
+            "Actor": {
+                "character": "Character"
+            },
+            "Item": {
+                "attributeset": "Attribute Set",
+                "skill": "Skill",
+                "gift": "Gift",
+                "fault": "Fault",
+                "equipment": "Equipment"
+            }
+        },
         "Actor": {
             "Character": {
                 "FIELDS": {
@@ -13,92 +25,72 @@
                         "label": "Mana",
                         "placeholder": "Mana (with relevant gift)"
                     },
-                    "wounds": {
-                        "scratch": {
-                            "value": {
-                                "label": "Scratches" 
-                            },
-                            "max": {
-                                "label": "Max Scratches" 
-                            }
-                        },
-                        "hurt": {
-                            "value": {
-                                "label": "Hurts" 
-                            },
-                            "max": {
-                                "label": "Max Hurt" 
-                            }
-                        },
-                        "veryhurt": {
-                            "value": {
-                                "label": "Very Hurt" 
-                            },
-                            "max": {
-                                "label": "Max Very Hurt" 
-                            }
-                        },
-                        "incapacitated": {
-                            "value": {
-                                "label": "Incapacitated" 
-                            },
-                            "max": {
-                                "label": "Max Incapacitated" 
-                            }
-                        },
-                        "neardeath": {
-                            "value": {
-                                "label": "Near Death" 
-                            },
-                            "max": {
-                                "label": "Max Near Death" 
-                            }
-                        }
+                    "wounds.scratch.value": {
+                        "label": "Scratches" 
+                    },
+                    "wounds.scratch.max": {
+                        "label": "Max Scratches" 
+                    },
+                    "wounds.hurt.value": {
+                        "label": "Hurts" 
+                    },
+                    "wounds.hurt.max": {
+                        "label": "Max Hurt" 
+                    },
+                    "wounds.veryhurt.value": {
+                        "label": "Very Hurt" 
+                    },
+                    "wounds.veryhurt.max": {
+                        "label": "Max Very Hurt" 
+                    },
+                    "wounds.incapacitated.value": {
+                        "label": "Incapacitated" 
+                    },
+                    "wounds.incapacitated.max": {
+                        "label": "Max Incapacitated" 
+                    },
+                    "wounds.neardeath.value": {
+                        "label": "Near Death" 
+                    },
+                    "wounds.neardeath.max": {
+                        "label": "Max Near Death" 
                     },
                     "notes": {
                         "label" : "Character Notes"
                     },
-                    "unspent": {
-                        "attrlevels": {
-                            "hint": "Unspent Attribute Levels"
-                        },
-                        "skilllevels": {
-                            "hint": "Unspent Skill Levels"
-                        },
-                        "gifts": {
-                            "hint": "Unspent Gifts"
-                        },
-                        "faults": {
-                            "hint": "Unspent Faults"
-                        }
+                    "unspent.attrlevels": {
+                        "hint": "Unspent Attribute Levels"
                     },
-                    "fivepoint": {
-                        "unspent": {
-                            "label": "Unspent",
-                            "hint": "Unspent Group Points"
-                        },
-                        "generalgroups": {
-                            "label": "General Groups"
-                        },
-                        "groups": {
-                            "name" : {
-                                "label": "Group Name"
-                            },
-                            "narrow": {
-                                "label": "Narrow Group"
-                            },
-                            "points": {
-                                "label": "Group Points"
-                            },
-                            "levels": {
-                                "name": {
-                                    "label": "Skill Name"
-                                },
-                                "level": {
-                                    "label": "Level in Skill"
-                                }
-                            }
-                        }
+                    "unspent.skilllevels": {
+                        "hint": "Unspent Skill Levels"
+                    },
+                    "unspent.gifts": {
+                        "hint": "Unspent Gifts"
+                    },
+                    "unspent.faults": {
+                        "hint": "Unspent Faults"
+                    },
+                    "fivepoint.unspent": {
+                        "label": "Unspent",
+                        "hint": "Unspent Group Points"
+                    },
+                    "fivepoint.generalgroups": {
+                        "label": "General Groups"
+                    },
+                    "fivepoint.groups.name" : {
+                        "label": "Group Name"
+                    },
+                    "fivepoint.groups.narrow": {
+                        "label": "Narrow Group"
+                    },
+                    "fivepoint.groups.points": {
+                        "label": "Group Points"
+                    },
+                    "fivepoint.groups.levels.name": {
+                        "label": "Skill Name"
+                    },
+                    "fivepoint.groups.levels.level": {
+                        "label": "Level in Skill"
                     }
                 }
             }
@@ -111,13 +103,11 @@
             },
             "AttributeSet": {
                 "FIELDS": {
-                    "attributes": {
-                        "name": {
-                            "label": "Attribute Name"
-                        },
-                        "level": {
-                            "label": "Attribute Level"
-                        }
+                    "attributes.name": {
+                        "label": "Attribute Name"
+                    },
+                    "attributes.level": {
+                        "label": "Attribute Level"
                     },
                     "muscleweapon": {
                         "label": "Muscular attribute"
@@ -130,23 +120,16 @@
             "Skill": {
                 "FIELDS": {
                     "level": {
-                        "label" : "Skill Level"
+                        "label": "Skill Level"
                     },
                     "groups": {
                         "label": "Skill Groups"
-                    }
-                }      
-            },
-            "Gift": {
-                "FIELDS": {
-                    "cost": {
-                        "label" : "Power Cost"
-                    }
+                    }   
                 }      
             },
             "Equipment": {
                 "FIELDS": {
-                    "odf": {
+                    "odf":{
                         "label": "Offense"
                     },
                     "ddf": {
@@ -158,11 +141,67 @@
                 }      
             }
         },
-        "TraitLevels": "Trait Levels",
-        "TraitLevelsHint": "Set of named trait levels with numeric values - ** restart to apply **",
-        "TraitLevelsStandard": "Standard Trait Levels",
-        "TraitLevelsExtended": "Extended Trait Levels",
-        "TraitLevelsExpanded": "Expanded Trait Levels",
+        "Settings": {
+            "FIELDS": {
+                "traitlevels": {
+                    "label":"Trait Levels",
+                    "hint": "Set of named trait levels with numeric values - ** restart to apply **",
+                    "choices": {
+                        "standard":"Standard Trait Levels",
+                        "extended": "Extended Trait Levels",
+                        "expanded": "Expanded Trait Levels"
+                    }
+                },
+                "baseroll": { 
+                    "label": "Base Die Roll",
+                    "hint": "The die roll you choose affects the probability curve",
+                    "choices": {
+                        "standard": "4dF",
+                        "dsixes": "d6-d6",
+                        "pyramid": "2dP"
+                    }
+                },
+                "combatstyle": {
+                    "label": "Combat Style",
+                    "hint":  "Mechanics for orchestrating combat",
+                    "choices": {
+                        "storyelement": "By Story Element",
+                        "simultaneous": "Simultaneous",
+                        "altbyteam": "Team Initiative",
+                        "altbycharacter": "Individual Initiative"
+                    }
+                },
+                "creationstyle": {
+                    "label": "Character Creation Style",
+                    "hint":  "Mechanics for creating characters",
+                    "choices": {
+                        "subjective": "Subjective",
+                        "objective": "Objective",
+                        "fivepoint": "Five-point Fudge"
+                    }
+                },
+                "defaultattributeset": {
+                    "label": "Default Attribute Set",
+                    "hint": "The attribute set to provide when creating a new character"
+                },
+                "fivepointskillcompendium": {
+                    "label":  "Five-point Fudge Skills",
+                    "hint": "Skill compendium that defines skills for Five-point Fudge"    
+                },
+                "initialskilllevels": {
+                    "label": "Initial Skill Levels",
+                    "hint": "Number of levels for player to distribute among skills of new character"    
+                },
+                "initialattrlevels": {
+                    "label": "Initial Attribute Levels",
+                    "hint": "Number of levels for player to distribute among attributes of new character"    
+                } ,
+                "initialgifts": {
+                    "label": "Initial Gifts",
+                    "hint": "Number of gifts the player can give to new character"    
+                }
+            }
+        },
         "TraitLevel.Legendary": "Legendary",
         "TraitLevel.Heroic": "Heroic",
         "TraitLevel.Superb": "Superb",
@@ -173,23 +212,6 @@
         "TraitLevel.Poor": "Poor",
         "TraitLevel.Terrible": "Terrible",
         "TraitLevel.Abysmal": "Abysmal",
-
-        "DefaultAttributeSet": "Default Attribute Set",
-        "DefaultAttributeSetHint": "The attribute set to provide when creating a new character",
-        "InitialAttrLevels": "Initial Attribute Levels",
-        "InitialAttrLevelsHint": "Number of levels for player to distribute among attributes of new character",
-        "InitialSkillLevels": "Initial Skill Levels",
-        "InitialSkillLevelsHint": "Number of levels for player to distribute among skills of new character",
-        "InitialGifts": "Initial Gifts",
-        "InitialGiftsHint": "Number of gifts the player can give to new character",
-        "FivePointSkillCompendium": "Five-Point Fudge Skills",
-        "FivePointSkillCompendiumHint": "Skill Compendium Defining Skills for Five Point Fudge",
-
-        "BaseDieRoll": "Base Die Roll",
-        "BaseDieRollHint": "Affects Probability Curve",
-        "BaseDieRollFudge": "4dF",
-        "BaseDieRollDiffD6": "d6-d6",
-        "BaseDieRollPyramid": "2dP",
         "SheetClassCharacter": "Default FUDGE Character Sheet",
         "SheetClassItem": "Default FUDGE Item Sheet",
         "CharacterName": "Character Name",
@@ -225,25 +247,25 @@
         "NoActionsIncapacitated": "<p>This actor is Incapacitated, too wounded to act.</p>",
         "NoActionsNearDeath": "<p>This actor is Near Death, too wounded to act.</p>",
     
-        "AboutFudge.Title":"About FUDGE",
-        "AboutFudge.LegalNotice":
-        "<p>Fudge is a roleplaying game written by Steffan O'Sullivan, with extensive input from the Usenet community of rec.games.design and other online forums. The core rules of Fudge are available free on the Internet at http:/www.fudgerpg.com and other sites. Fudge was designed to be customized, and may be used with any gaming genre. Fudge gamemasters and game designers are encouraged to modify Fudge to suit their needs, and to share their modifications and additions with the Fudge community. The Fudge game system is copyrighted © 2000, 2005 by Grey Ghost Press, Inc., and is available for use under the Open Game License. See the fudgerpg.com website for more information.</p>\n<p>The Fudge logo is a trademark of Grey Ghost Press, Inc,. and is used under license. Logo design by Daniel M. Davis, www.agyris.net</p>",
-        
-        "FivePoint.Button": "5-pt",
-        "FivePoint.Title": "Five-Point Fudge Worksheet",
-        "FivePoint.UnspentGroupPoints":"Unspent Group Points",
-        "FivePoint.SkillGroups": "Skill Groups",
-        "FivePoint.BroadGroup": "Broad",
-        "FivePoint.NarrowGroup": "Narrow",
-        "FivePoint.GeneralGroup": "General",
-        "FivePoint.SkillLevels": "Skill Levels",
-        "FivePoint.GroupSkills": "Skills in Group",
-        "FivePoint.Apply": "Apply",
-        "FivePoint.UnsplitTitle": "How to undo a split",
-        "FivePoint.UnsplitContent": 
-        "<p>You have split a skill into two skills at the next lower level. To undo the split with the least disruption: <ul><li>Switch the group between Narrow and Broad</li><li>For the general group, remove the group point and re-add it</li></ul></p>",
-        "FivePoint.ConfirmTitle": "Are you sure?",
-        "FivePoint.ConfirmContent": 
-        "<p>Continuing will replace the skills in your character sheet with the skills in this dialog, and will set your remaining skill points to zero.</p><p><b>Are you sure you want to do this?</b></p>"
+        "AboutFudge": {
+            "Title":"About FUDGE",
+            "LegalNotice":"<p>Fudge is a roleplaying game written by Steffan O'Sullivan, with extensive input from the Usenet community of rec.games.design and other online forums. The core rules of Fudge are available free on the Internet at http:/www.fudgerpg.com and other sites. Fudge was designed to be customized, and may be used with any gaming genre. Fudge gamemasters and game designers are encouraged to modify Fudge to suit their needs, and to share their modifications and additions with the Fudge community. The Fudge game system is copyrighted © 2000, 2005 by Grey Ghost Press, Inc., and is available for use under the Open Game License. See the fudgerpg.com website for more information.</p>\n<p>The Fudge logo is a trademark of Grey Ghost Press, Inc,. and is used under license. Logo design by Daniel M. Davis, www.agyris.net</p>"
+        },
+        "FivePoint": {
+            "Button": "5-pt",
+            "Title": "Five-Point Fudge Worksheet",
+            "UnspentGroupPoints":"Unspent Group Points",
+            "SkillGroups": "Skill Groups",
+            "BroadGroup": "Broad",
+            "NarrowGroup": "Narrow",
+            "GeneralGroup": "General",
+            "SkillLevels": "Skill Levels",
+            "GroupSkills": "Skills in Group",
+            "Apply": "Apply",
+            "UnsplitTitle": "How to undo a split",
+            "UnsplitContent": "<p>You have split a skill into two skills at the next lower level. To undo the split with the least disruption: <ul><li>Switch the group between Narrow and Broad</li><li>For the general group, remove the group point and re-add it</li></ul></p>",
+            "ConfirmTitle": "Are you sure?",
+            "ConfirmContent": "<p>Continuing will replace the skills in your character sheet with the skills in this dialog, and will set your remaining skill points to zero.</p><p><b>Are you sure you want to do this?</b></p>"    
+        }
     }
 }
