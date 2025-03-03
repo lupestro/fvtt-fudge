@@ -89,7 +89,7 @@ jobs:
     # Create a zip file with all files required by the module to add to the release
     - name: Zip It
       run: |
-        zip ${{steps.get_vars.outputs.ZIP_NAME}} -r lang templates packs/attributes packs/journals packs/ff-*  styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json
+        zip ${{steps.get_vars.outputs.ZIP_NAME}} -r lang templates packs/* styles/*.css fudge.mjs fudge-compiled.mjs.map LICENSE.txt FudgeOGLicense.pdf fudge_srd.pdf README.md system.json template.json
 
     # Create a release for this specific version
     - name: Update Release with Files

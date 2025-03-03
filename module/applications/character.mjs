@@ -60,7 +60,7 @@ export default class ActorSheetFudgeCharacter extends ActorSheet {
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
     context.traitlevels = this.object.system.traitlevels;
     context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {async: true});
-  
+    context.creationstyle = game.settings.get("fudge-rpg", "creationstyle");
     return context;
   }
 
