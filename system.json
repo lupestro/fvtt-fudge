@@ -20,9 +20,7 @@
     "fudge.mjs"
   ],
   "styles": [
-    {
-      "src": "styles/fudge.css"
-    }
+    "styles/fudge.css"
   ],
   "documentTypes": {
     "Actor": {

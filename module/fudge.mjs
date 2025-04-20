@@ -20,9 +20,9 @@ const SETTING_SHOWS_FOR_CREATION_STYLE = {
   "initialgifts": ["objective", "fivepoint"]
 };
 
-const VersionNeutralActors = foundry.documents.collections.Actors ? foundry.documents.collections.Actors : Actors;
-const VersionNeutralItems = foundry.documents.collections.Items ? foundry.documents.collections.Items : Items;
-const versionNeutralLoadTemplates = foundry.applications.handlebars.loadTemplates
+const VersionNeutralActors = foundry.documents?.collections?.Actors ? foundry.documents.collections.Actors : Actors;
+const VersionNeutralItems = foundry.documents?.collections?.Items ? foundry.documents.collections.Items : Items;
+const versionNeutralLoadTemplates = foundry.applications?.handlebars?.loadTemplates
   ? foundry.applications.handlebars.loadTemplates
   : loadTemplates;
 

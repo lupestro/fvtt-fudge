@@ -1,5 +1,5 @@
-const VersionNeutralItemSheet = foundry.appv1.sheets.ItemSheet ? foundry.appv1.sheets.ItemSheet : ItemSheet;
-const VersionNeutralTextEditor = foundry.applications.ux.TextEditor.implementation 
+const VersionNeutralItemSheet = foundry.appv1?.sheets.ItemSheet ? foundry.appv1.sheets.ItemSheet : ItemSheet;
+const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementation 
   ? foundry.applications.ux.TextEditor.implementation 
   : TextEditor;
   

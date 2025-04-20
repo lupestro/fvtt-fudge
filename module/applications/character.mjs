@@ -11,8 +11,8 @@ const WOUND_MODIFIER_HURT = -1;
 const WOUND_MODIFIER_OK = 0;
 const SKILL_LEVEL_POOR = -2;
 
-const VersionNeutralActorSheet = foundry.appv1.sheets.ActorSheet ? foundry.appv1.sheets.ActorSheet : ActorSheet;
-const VersionNeutralTextEditor = foundry.applications.ux.TextEditor.implementation 
+const VersionNeutralActorSheet = foundry.appv1?.sheets?.ActorSheet ? foundry.appv1.sheets.ActorSheet : ActorSheet;
+const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementation 
   ? foundry.applications.ux.TextEditor.implementation 
   : TextEditor;
 
