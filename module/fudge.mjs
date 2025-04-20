@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 import ActorFudge from "./documents/actor.mjs";
 import ItemFudge from "./documents/item.mjs";
 import ActorSheetFudgeCharacter from "./applications/character.mjs";
@@ -18,6 +20,12 @@ const SETTING_SHOWS_FOR_CREATION_STYLE = {
   "initialgifts": ["objective", "fivepoint"]
 };
 
+const VersionNeutralActors = foundry.documents.collections.Actors ? foundry.documents.collections.Actors : Actors;
+const VersionNeutralItems = foundry.documents.collections.Items ? foundry.documents.collections.Items : Items;
+const versionNeutralLoadTemplates = foundry.applications.handlebars.loadTemplates
+  ? foundry.applications.handlebars.loadTemplates
+  : loadTemplates;
+
 // eslint-disable-next-line no-unused-vars
 const loadPartials = function(partials) {
   const paths = {};
@@ -26,7 +34,7 @@ const loadPartials = function(partials) {
     paths[`fudge.${path.split("/").pop().replace(".hbs", "")}`] = path;
   }
 
-  return loadTemplates(paths);
+  return versionNeutralLoadTemplates(paths);
 };
 
 const displayWithSign = function(num) {
@@ -101,6 +109,7 @@ const registerDefaultAttributeSet = function() {
   });
 };
 
+// eslint-disable-next-line no-unused-vars
 const registerFivePointSkillCompendium = function (characterCreationStyle) {
   game.settings.register("fudge-rpg", "fivepointskillcompendium", {
     name: "FUDGERPG.Settings.FIELDS.fivepointskillcompendium.label",
@@ -167,6 +176,7 @@ const registerCombatStyle = function() {
   });
 };
 
+// eslint-disable-next-line no-unused-vars
 const registerInitialSkillLevels = function(characterCreationStyle) {
   game.settings.register("fudge-rpg", "initialskilllevels", {
     name: "FUDGERPG.Settings.FIELDS.initialskilllevels.label",
@@ -190,6 +200,7 @@ const registerInitialAttributeLevels = function(characterCreationStyle) {
   });
 };
 
+// eslint-disable-next-line no-unused-vars
 const registerInitialGifts = function(characterCreationStyle) {
   game.settings.register("fudge-rpg", "initialgifts", {
     name: "FUDGERPG.Settings.FIELDS.initialgifts.label",
@@ -207,6 +218,7 @@ const showHideCharacterCreationSettings = function(html, value) {
     const div = control 
       ? control.parentElement.parentElement 
       : html.querySelector(`div[data-setting-id="fudge-rpg.${setting}"`);
+    // eslint-disable-next-line no-extra-parens
     const hide = !(SETTING_SHOWS_FOR_CREATION_STYLE[setting].includes(value));
     div.classList.toggle("setting-hidden", hide);
   }
@@ -224,15 +236,15 @@ Hooks.once("init", function() {
   registerActorDataModels();
   registerItemDataModels();
 
-  Actors.unregisterSheet("core", ActorFudge);
-  Actors.registerSheet("fudge-rpg", ActorSheetFudgeCharacter, {
+  VersionNeutralActors.unregisterSheet("core", ActorFudge);
+  VersionNeutralActors.registerSheet("fudge-rpg", ActorSheetFudgeCharacter, {
     types: ["character"],
     makeDefault: true,
     label: "FUDGERPG.SheetClassCharacter"
   });
   
-  Items.unregisterSheet("core", ItemFudge);
-  Items.registerSheet("fudge-rpg", ItemSheetFudge, {
+  VersionNeutralItems.unregisterSheet("core", ItemFudge);
+  VersionNeutralItems.registerSheet("fudge-rpg", ItemSheetFudge, {
     types: ["attributeset", "skill", "gift", "fault", "equipment"],
     makeDefault: true,
     label: "FUDGERPG.SheetClassItem"
@@ -274,7 +286,7 @@ Hooks.on("renderSettingsConfig", (app, arg) => {
   let elem = html.querySelector('select[id="settings-config-fudge-rpg.creationstyle"]');
   if (!elem) {
     // eslint-disable-next-line quotes
-    elem = html.querySelector('[data-setting-id="fudge-rpg.creationstyle"] select')
+    elem = html.querySelector('[data-setting-id="fudge-rpg.creationstyle"] select');
   }
   showHideCharacterCreationSettings(html, elem.value);
   // Change what is grayed as the user changes settings
