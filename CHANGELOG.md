@@ -1,5 +1,12 @@
 # Fudge system for FoundryVTT
 
+## 2.5.0 - Creation styles
+- [FEATURE] Now provides configuration of character creation styles 
+  - Character creation style affects what other config settings are relevant
+  - Horse-trading points for 5-point Fudge is different than for objective character creation
+  - There are no points to horse-trade at all for subjective character creation
+- [BUGFIX] Cleaned up the last few deprecation warnings for Foundry 13
+
 ## 2.4.0 - Now undergirded by data models
 - [FEATURE] Added field mana - no automation yet - in preparation for Fantasy Fudge magic
 - [FEATURE] Tightened up trait values list to take less space.
