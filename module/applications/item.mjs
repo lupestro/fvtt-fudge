@@ -1,4 +1,9 @@
-export default class ItemSheetFudge extends ItemSheet {
+const VersionNeutralItemSheet = foundry.appv1?.sheets.ItemSheet ? foundry.appv1.sheets.ItemSheet : ItemSheet;
+const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementation 
+  ? foundry.applications.ux.TextEditor.implementation 
+  : TextEditor;
+  
+export default class ItemSheetFudge extends VersionNeutralItemSheet {
   get template() {
     return "systems/fudge-rpg/templates/item.hbs";
   }
@@ -8,7 +13,7 @@ export default class ItemSheetFudge extends ItemSheet {
     const context = await super.getData(options);
     const {item} = context;
     foundry.utils.mergeObject(context, {
-      descriptionHTML: await TextEditor.enrichHTML(item.system.description, {async: true})
+      descriptionHTML: await VersionNeutralTextEditor.enrichHTML(item.system.description, {async: true})
     });
     if (item.type === "attributeset") {
       context.attributelist = item.system.attributes.map((attribute) => attribute.name).join("\n");

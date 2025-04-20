@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 import TraitRoll from "../trait-roll.mjs";
 import FivePointWorksheet from "./five-point.mjs";
 import {tradePoints} from "../trades.mjs";
@@ -9,11 +11,16 @@ const WOUND_MODIFIER_HURT = -1;
 const WOUND_MODIFIER_OK = 0;
 const SKILL_LEVEL_POOR = -2;
 
+const VersionNeutralActorSheet = foundry.appv1?.sheets?.ActorSheet ? foundry.appv1.sheets.ActorSheet : ActorSheet;
+const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementation 
+  ? foundry.applications.ux.TextEditor.implementation 
+  : TextEditor;
+
 /**
  * Extend the base ActorSheet class to implement our character sheet.
  */
 
-export default class ActorSheetFudgeCharacter extends ActorSheet {
+export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
 
   // -------- Overrides --------
 
@@ -59,8 +66,8 @@ export default class ActorSheetFudgeCharacter extends ActorSheet {
     }
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
     context.traitlevels = this.object.system.traitlevels;
-    context.notesHTML = await TextEditor.enrichHTML(actor.system.notes, {async: true});
-  
+    context.notesHTML = await VersionNeutralTextEditor.enrichHTML(actor.system.notes, {async: true});
+    context.creationstyle = game.settings.get("fudge-rpg", "creationstyle");
     return context;
   }
 
@@ -93,7 +100,7 @@ export default class ActorSheetFudgeCharacter extends ActorSheet {
 
   _onDrop(event) {
     if (event.toElement.classList.contains("occ-count")) {
-      const data = TextEditor.getDragEventData(event);
+      const data = VersionNeutralTextEditor.getDragEventData(event);
       if (data.from) {
         const srcElement = this.form.querySelector(`#${data.from}`);
         try {

@@ -24,6 +24,13 @@ main {
     padding-top: 5px;
 }
 
+button#fivepoint {
+    width:40px;
+}
+.setting-hidden {
+    display: none !important;
+}
+
 .title {
     text-align: center;
 }
@@ -260,4 +267,3 @@ main {
 .item-description .editor {
     flex: 1 1 200px;
 }
-

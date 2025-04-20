@@ -2,7 +2,7 @@
   "id": "fudge-rpg",
   "title": "Fudge RPG",
   "description": "Games based on the Freeform Universal Do-It-Yourself Gaming Engine (FUDGE).",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "authors": [
     {
       "name": "lupestro",
@@ -13,7 +13,7 @@
   ],
   "compatibility": {
     "minimum": "11",
-    "verified": "12.330",
+    "verified": "13.340",
     "maximum": "13"
   },
   "esmodules": [
@@ -25,30 +25,46 @@
   "documentTypes": {
     "Actor": {
       "character": {
-        "htmlFields":["notes"]
+        "htmlFields": [
+          "notes"
+        ]
       },
       "major": {
-        "htmlFields":["notes"]
+        "htmlFields": [
+          "notes"
+        ]
       }
     },
     "Item": {
       "traitlevelset": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "attributeset": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "skill": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "gift": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "fault": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       },
       "equipment": {
-        "htmlFields": ["description"]
+        "htmlFields": [
+          "description"
+        ]
       }
     }
   },
@@ -160,6 +176,6 @@
     }
   ],
   "url": "https://github.com/lupestro/fvtt-fudge/",
-  "manifest": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.4.0/system.json",
-  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.4.0/fudge-rpg-release-2.4.0.zip"
+  "manifest": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.5.0/system.json",
+  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.5.0/fudge-rpg-release-2.5.0.zip"
 }
