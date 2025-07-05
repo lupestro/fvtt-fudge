@@ -1,9 +1,6 @@
-const VersionNeutralItemSheet = foundry.appv1?.sheets.ItemSheet ? foundry.appv1.sheets.ItemSheet : ItemSheet;
-const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementation 
-  ? foundry.applications.ux.TextEditor.implementation 
-  : TextEditor;
-  
-export default class ItemSheetFudge extends VersionNeutralItemSheet {
+import {VNItemSheet, VNTextEditor} from "../ver-neutral.mjs";
+
+export default class ItemSheetFudge extends VNItemSheet {
 
   static _warnedAppV1 = true;
   
@@ -17,7 +14,7 @@ export default class ItemSheetFudge extends VersionNeutralItemSheet {
     const context = await super.getData(options);
     const {item} = context;
     foundry.utils.mergeObject(context, {
-      descriptionHTML: await VersionNeutralTextEditor.enrichHTML(item.system.description, {async: true})
+      descriptionHTML: await VNTextEditor.enrichHTML(item.system.description, {async: true})
     });
     if (item.type === "attributeset") {
       context.attributelist = item.system.attributes.map((attribute) => attribute.name).join("\n");

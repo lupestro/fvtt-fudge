@@ -1,5 +1,6 @@
 /* eslint-disable max-lines */
 
+import {VNActorSheet, VNTextEditor, vnFromUuid} from "../ver-neutral.mjs";
 import TraitRoll from "../trait-roll.mjs";
 import FivePointWorksheet from "./five-point.mjs";
 import {tradePoints} from "../trades.mjs";
@@ -11,16 +12,11 @@ const WOUND_MODIFIER_HURT = -1;
 const WOUND_MODIFIER_OK = 0;
 const SKILL_LEVEL_POOR = -2;
 
-const VersionNeutralActorSheet = foundry.appv1?.sheets?.ActorSheet ? foundry.appv1.sheets.ActorSheet : ActorSheet;
-const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementation 
-  ? foundry.applications.ux.TextEditor.implementation 
-  : TextEditor;
-
 /**
  * Extend the base ActorSheet class to implement our character sheet.
  */
 
-export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
+export default class ActorSheetFudgeCharacter extends VNActorSheet {
 
   static _warnedAppV1 = true;
   
@@ -52,9 +48,9 @@ export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
     }
 
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
-    const traitladder = await foundry.utils.fromUuid(game.settings.get("fudge-rpg", "traitladder"));
+    const traitladder = await vnFromUuid(game.settings.get("fudge-rpg", "traitladder"));
     context.traitlevels = traitladder.system.traits;
-    context.notesHTML = await VersionNeutralTextEditor.enrichHTML(actor.system.notes, {async: true});
+    context.notesHTML = await VNTextEditor.enrichHTML(actor.system.notes, {async: true});
     context.creationstyle = game.settings.get("fudge-rpg", "creationstyle");
     return context;
   }
@@ -91,7 +87,7 @@ export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
 
   _onDrop(event) {
     if (event.toElement.classList.contains("occ-count")) {
-      const data = VersionNeutralTextEditor.getDragEventData(event);
+      const data = VNTextEditor.getDragEventData(event);
       if (data.from) {
         const srcElement = this.form.querySelector(`#${data.from}`);
         try {

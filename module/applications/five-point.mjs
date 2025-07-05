@@ -1,11 +1,8 @@
 /* eslint-disable max-lines */
+import {VNTextEditor, vnFromUuid} from "../ver-neutral.mjs";
 
 const GENERAL_GROUP_LEVEL_CAP = 1;
 const OTHER_GROUP_LEVEL_CAP = 4;
-const VersionNeutralTextEditor = 
-  foundry.applications?.ux?.TextEditor.implementation 
-  ? foundry.applications.ux.TextEditor.implementation 
-  : TextEditor;
 
 const sortByName = function (first, second) {
   if (first.name < second.name) {
@@ -68,7 +65,7 @@ export default class FivePointWorksheet extends DocumentSheet {
     const context = super.getData(options);
     const cache = this.object.system.fivePointCache;
 
-    const traitladder = await foundry.utils.fromUuid(game.settings.get("fudge-rpg", "traitladder"));
+    const traitladder = await vnFromUuid(game.settings.get("fudge-rpg", "traitladder"));
     context.traitlevels = traitladder.system.traits;
 
     this.groups ??= await cache.collectGroupSkills(this.object);
@@ -125,7 +122,7 @@ export default class FivePointWorksheet extends DocumentSheet {
   /** @inheritDoc */
   async _onDrop(event) {
     if (event.toElement.classList.contains("skill-name")) {
-      const data = VersionNeutralTextEditor.getDragEventData(event);
+      const data = VNTextEditor.getDragEventData(event);
       if (data.from) {
         try {
           const target = event.toElement.closest(".fp-skill-level");
@@ -140,7 +137,7 @@ export default class FivePointWorksheet extends DocumentSheet {
         }
       }
     } else if (event.toElement.closest(".fp-general-group")) {
-      const data = VersionNeutralTextEditor.getDragEventData(event);
+      const data = VNTextEditor.getDragEventData(event);
       if (data.from) {
         try {
           const group = data.from;

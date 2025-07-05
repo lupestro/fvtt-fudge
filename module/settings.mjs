@@ -19,19 +19,18 @@ const registerSelection = function(name, defaultValue, choices, reload = false) 
     config: true,
     default: defaultValue,
     requiresReload: reload, 
-    type: String,
-    choices
+    type: new foundry.data.fields.StringField({required: true, choices})
   });
 };
 
-const registerNumeric = function(name, defaultValue) {
+const registerInteger = function(name, defaultValue) {
   game.settings.register("fudge-rpg", name, {
     name: `FUDGERPG.Settings.FIELDS.${name}.label`,
     hint: `FUDGERPG.Settings.FIELDS.${name}.hint`,
     scope: "world",
     config: true,
     default: defaultValue,
-    type: Number
+    type: new foundry.data.fields.NumberField({required: false, integer: true, min: 0, initial: 0})
   });
 };
 
@@ -92,13 +91,24 @@ export const registerSettings = function() {
   registerSelection("defaultattributeset", FANTASY_FUDGE_ATTRIBUTES, collectAttributes);
   registerChoices("creationstyle", "fivepoint", ["subjective", "objective", "fivepoint"]);
   registerSelection("fivepointskillcompendium", FANTASY_FUDGE_SKILLSET, getSkillCompendia);
-  registerNumeric("initialskilllevels", SKILL_LEVELS);
-  registerNumeric("initialgifts", GIFTS);
+  registerInteger("initialskilllevels", SKILL_LEVELS);
+  registerInteger("initialgifts", GIFTS);
   const style = game.settings.get("fudge-rpg", "creationstyle");
   if (style === "objective") {
-    registerNumeric("initialattrlevels", OBJECTIVE_ATTRIBUTE_LEVELS);
+    registerInteger("initialattrlevels", OBJECTIVE_ATTRIBUTE_LEVELS);
   } else {
-    registerNumeric("initialattrlevels", ATTRIBUTE_LEVELS);
+    registerInteger("initialattrlevels", ATTRIBUTE_LEVELS);
+  }
+};
+
+export const migrateSettings = function() {
+    // Fix up use of old default attribute set with new - the rest will need to wait until later.
+  const currentAttributeSet = game.settings.get("fudge-rpg", "defaultattributeset");
+  if (currentAttributeSet === "RqHSqHtArZYVOJap") {
+    game.settings.set("fudge-rpg", "defaultattributeset", "Compendium.fudge-rpg.attributes.Item.RqHSqHtArZYVOJap");
+  } else if (currentAttributeSet.indexOf(".") === -1) {
+    const newAttributeSet = Object.entries(getAttributeSets()).find(([uuid]) => uuid.endsWith(currentAttributeSet));
+    game.settings.set("fudge-rpg", "defaultattributeset", newAttributeSet ? newAttributeSet[0] : "");
   }
 };
 

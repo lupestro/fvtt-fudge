@@ -6,24 +6,13 @@ import {registerActorDataModels} from "./data-models/actor.mjs";
 import {registerItemDataModels} from "./data-models/item.mjs";
 import TraitRoll from "./trait-roll.mjs";
 import PyramidFudgeDie from "./pyramid-fudge-die.mjs";
-import {registerSettings, controlSettingsRendering} from "./settings.mjs";
+import {VNActors, VNItems, vnLoadTemplates} from "./ver-neutral.mjs";
+import {registerSettings, migrateSettings, controlSettingsRendering} from "./settings.mjs";
 
 CONFIG.Actor.documentClass = ActorFudge;
 CONFIG.Item.documentClass = ItemFudge;
 
 // Version-neutral (V13 vs. V12) references to key data structures
-const vnActors = 
-  foundry.documents?.collections?.Actors 
-  ? foundry.documents.collections.Actors 
-  : Actors;
-const vnItems = 
-  foundry.documents?.collections?.Items 
-  ? foundry.documents.collections.Items 
-  : Items;
-const vnLoadTemplates = 
-  foundry.applications?.handlebars?.loadTemplates
-  ? foundry.applications.handlebars.loadTemplates
-  : loadTemplates;
 
 const loadPartials = function(partials) {
   const paths = {};
@@ -43,15 +32,15 @@ Hooks.once("init", function() {
   registerActorDataModels();
   registerItemDataModels();
 
-  vnActors.unregisterSheet("core", ActorFudge);
-  vnActors.registerSheet("fudge-rpg", ActorSheetFudgeCharacter, {
+  VNActors.unregisterSheet("core", ActorFudge);
+  VNActors.registerSheet("fudge-rpg", ActorSheetFudgeCharacter, {
     types: ["character"],
     makeDefault: true,
     label: "FUDGERPG.SheetClassCharacter"
   });
   
-  vnItems.unregisterSheet("core", ItemFudge);
-  vnItems.registerSheet("fudge-rpg", ItemSheetFudge, {
+  VNItems.unregisterSheet("core", ItemFudge);
+  VNItems.registerSheet("fudge-rpg", ItemSheetFudge, {
     types: ["traitladder", "attributeset", "skill", "gift", "fault", "equipment"],
     makeDefault: true,
     label: "FUDGERPG.SheetClassItem"
@@ -70,6 +59,7 @@ Hooks.once("setup", function() {
 });
 
 Hooks.once("ready", function() {
+  migrateSettings();
   if (!game.user.getFlag("fudge-rpg", "visited")) {
     Dialog.prompt({
       title: game.i18n.localize("FUDGERPG.AboutFudge.Title"),

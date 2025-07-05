@@ -1,5 +1,7 @@
 /* Extend the base Actor class to implement additional system-specific logic. */
 import FivePointCache from "../five-point-cache.mjs";
+import {vnFromUuid} from "../ver-neutral.mjs";
+
 
 const DEFAULT_WOUND_MAX = {
   "scratch": 3,
@@ -68,7 +70,7 @@ export default class ActorFudge extends Actor {
         game.settings.get("fudge-rpg", "initialgifts")
     };
     const attrsetid = game.settings.get("fudge-rpg", "defaultattributeset");
-    const attributeset = await foundry.utils.fromUuid(attrsetid);
+    const attributeset = await vnFromUuid(attrsetid);
     if (attributeset) {
       updates.items = [attributeset.toObject()];
     }
@@ -163,7 +165,7 @@ export default class ActorFudge extends Actor {
     await this.deleteEmbeddedDocuments("Item", currentSkillIds);
 
     const uuids = Object.entries(newSkills).map(([, value]) => value.uuid);
-    const newSkillDocs = await Promise.all(uuids.map((uuid) => foundry.utils.fromUuid(uuid)));
+    const newSkillDocs = await Promise.all(uuids.map((uuid) => vnFromUuid(uuid)));
     newSkillDocs.sort(sortByName);
     const docs = await this.createEmbeddedDocuments("Item", newSkillDocs);
 

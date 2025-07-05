@@ -1,9 +1,5 @@
-const vnRenderTemplate = 
-  foundry.applications.handlebars.renderTemplate 
-  ? foundry.applications.handlebars.renderTemplate
-  : renderTemplate;
+import {vnRenderTemplate, vnFromUuid} from "./ver-neutral.mjs";
 
-foundry.applications.handlebars.renderTemplate
 export default class TraitRoll extends Roll {
   levelname(levelset) {
     const levelsetitem = levelset.find((levelInSet) => this.total === levelInSet.value);
@@ -29,7 +25,7 @@ export default class TraitRoll extends Roll {
   }
 
   async render(options) {
-    const traitladder = await foundry.utils.fromUuid(game.settings.get("fudge-rpg", "traitladder"));
+    const traitladder = await vnFromUuid(game.settings.get("fudge-rpg", "traitladder"));
     const LEVELSET = traitladder.system.traits;
     const isPrivate = options.isPrivate ?? false;
     const template = options.template ?? this.constructor.CHAT_TEMPLATE;
