@@ -2,7 +2,6 @@
  * Extend the base Item class to implement additional system-specific logic.
  */
 export default class ItemFudge extends Item {
-    // Except we don't have any additional document-level logic yet ... but perhaps we will ...
     static migrateData(data) {
       // Deal with naming changes when we moved to data models
       if (data.system && data.system.group) {

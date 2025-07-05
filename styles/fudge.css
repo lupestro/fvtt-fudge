@@ -248,6 +248,15 @@ button#fivepoint {
     width: 150px;
     min-width: 100px;
 }
+.itemsheet .properties #traits {
+    min-height: 100px;
+    height: 150px;
+    width: 150px;
+    min-width: 100px;
+}
+.itemsheet .properties .instruction {
+    font-style: italic;
+}
 .itemsheet .properties #damagecapacity, 
 .itemsheet .properties #muscleweapon {
     min-width: 100px;

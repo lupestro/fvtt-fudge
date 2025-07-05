@@ -15,6 +15,21 @@ class FudgeItemData extends foundry.abstract.TypeDataModel {
   }
 }
 
+class TraitLadderData extends FudgeItemData {
+
+  static LOCALIZATION_PREFIXES = ["FUDGERPG.Item.TraitLadder"];
+
+  static defineSchema() {
+    return {
+      ...super.defineSchema(),
+      traits: new ArrayField(new SchemaField({
+        name: new StringField({required:true}),
+        value: new NumberField({required: true, integer: true, min: -8, initial: 0})
+      }))
+    };
+  }
+}
+
 class AttributeSetData extends FudgeItemData {
 
   static LOCALIZATION_PREFIXES = ["FUDGERPG.Item.AttributeSet"];
@@ -78,6 +93,7 @@ class EquipmentData extends FudgeItemData {
 }
 
 export const registerItemDataModels = function () {
+  CONFIG.Item.dataModels.traitladder = TraitLadderData;
   CONFIG.Item.dataModels.attributeset = AttributeSetData;
   CONFIG.Item.dataModels.skill = SkillData;
   CONFIG.Item.dataModels.gift = GiftData;

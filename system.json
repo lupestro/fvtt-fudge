@@ -2,7 +2,7 @@
   "id": "fudge-rpg",
   "title": "Fudge RPG",
   "description": "Games based on the Freeform Universal Do-It-Yourself Gaming Engine (FUDGE).",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "authors": [
     {
       "name": "lupestro",
@@ -36,7 +36,7 @@
       }
     },
     "Item": {
-      "traitlevelset": {
+      "traitladder": {
         "htmlFields": [
           "description"
         ]
@@ -75,6 +75,7 @@
       "color": "#6666cc",
       "packs": [
         "attributes",
+        "ladders",
         "journals"
       ],
       "folders": [
@@ -98,6 +99,18 @@
       "name": "attributes",
       "label": "Fudge Attributes",
       "path": "packs/attributes",
+      "type": "Item",
+      "system": "fudge-rpg",
+      "flags": {},
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "ladders",
+      "label": "Fudge Trait Ladders",
+      "path": "packs/ladders",
       "type": "Item",
       "system": "fudge-rpg",
       "flags": {},
@@ -176,6 +189,6 @@
     }
   ],
   "url": "https://github.com/lupestro/fvtt-fudge/",
-  "manifest": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.5.0/system.json",
-  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.5.0/fudge-rpg-release-2.5.0.zip"
+  "manifest": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.6.0/system.json",
+  "download": "https://github.com/lupestro/fvtt-fudge/releases/download/release-2.6.0/fudge-rpg-release-2.6.0.zip"
 }

@@ -1,5 +1,13 @@
 # Fudge system for FoundryVTT
 
+## 2.6.0 - Configurable Trait Ladders
+- [FEATURE] Trait ladders are now user-creatable items. The trait ladder to use for a game can be selected in Settings.
+- [FEATURE] Settings choices from compendia are now determined when you open settings rather than when you start the game.
+- [BUGFIX] Issue creating new actor in V13 (rules on preCreate are now enforced.) Fix involved starting to use UUIDs.
+- [BUGFIX] Wounds and five point character creation were mortally wounded since data model changes in 2.4
+- [INTERNAL] Using UUID rather than _id to reference items looked up from packs is safer - applied it across the board.
+- [INTERNAL] Consolidated handling of settings and compendia into their own modules. Root fudge.mjs now just carries all the hooks.
+
 ## 2.5.0 - Creation styles
 - [FEATURE] Now provides configuration of character creation styles 
   - Character creation style affects what other config settings are relevant

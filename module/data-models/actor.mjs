@@ -23,11 +23,13 @@ class CharacterData extends foundry.abstract.TypeDataModel {
       ep: new NumberField({required: false, integer: true, min: 0, initial: 0}), 
       mana: new NumberField({required: false, integer: true, min: 0, initial: 0}), 
       wounds: new SchemaField({
-          scratch: new SchemaField(resourceField(0, 0)),
-          hurt: new SchemaField(resourceField(0, 0)),
-          veryhurt: new SchemaField(resourceField(0, 0)),
-          incapacitated: new SchemaField(resourceField(0, 0)),
-          neardeath: new SchemaField(resourceField(0, 0))
+          // eslint-disable-next-line no-magic-numbers
+          scratch: new SchemaField(resourceField(0, 3)),
+          // eslint-disable-next-line no-magic-numbers
+          hurt: new SchemaField(resourceField(0, 2)),
+          veryhurt: new SchemaField(resourceField(0, 1)),
+          incapacitated: new SchemaField(resourceField(0, 1)),
+          neardeath: new SchemaField(resourceField(0, 1))
       }),
       notes: new HTMLField(),
       unspent: new SchemaField({
@@ -40,11 +42,13 @@ class CharacterData extends foundry.abstract.TypeDataModel {
         unspent: new NumberField({required: true, integer: true, min: 0, initial: 5}),
         generalgroups: new ArrayField(new StringField(), {initial: []}),
         groups: new ArrayField(new SchemaField({
-          name: new StringField({required: true}),
+          // Group name
+          name: new StringField({required: true}), 
           narrow: new BooleanField({required: true, initial: false}),
           points: new NumberField({required: true, integer: true, min: 0, initial: 0}),
           splits: new ArrayField(new NumberField({required: true, integer: true, min: -8, initial: 0})),
           levels: new ArrayField(new SchemaField({
+            // Skill name
             name: new StringField({required: true}),
             level: new NumberField({required: true, integer: true, min: -8, initial: 0})
           }), {initial: []})

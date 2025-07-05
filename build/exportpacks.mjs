@@ -9,7 +9,7 @@ const packs = await fs.readdir("./packs");
 for (const pack of packs) {
   if (pack === ".gitattributes") continue;
   console.log("Unpacking " + pack);
-  const directory = `./packs/exported/${pack}`;
+  const directory = `./packs-srcnew/${pack}`;
   try {
     for (const file of await fs.readdir(directory)) {
       await fs.unlink(path.join(directory, file));
@@ -20,6 +20,6 @@ for (const pack of packs) {
   }
   await extractPack(
     `${MODULE_ID}/packs/${pack}`,
-    `${MODULE_ID}/packs/exported/${pack}`
+    `${MODULE_ID}/packs-srcnew/${pack}`
   );
 }

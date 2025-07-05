@@ -22,6 +22,8 @@ const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementa
 
 export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
 
+  static _warnedAppV1 = true;
+  
   // -------- Overrides --------
 
   get template() {
@@ -41,31 +43,17 @@ export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
   async getData(options) {
     const context = super.getData(options);
     const {actor} = context;
-
-    /*
-     * A constant is being used here as a temporary measure. 
-     * What should happen eventually: 
-     * * the actor defines the number of boxes at each level according to a game rule.
-     * * this method derives the following structure from that data and the actors wounds.
-     * Since we're not touching the actor yet and haven't defined a mechanism for customization
-     * we'll use a default constant set here for now.
-     */
-    context.woundlevels = {
-      scratch: [false, false, false],
-      hurt: [false],
-      veryhurt: [false],
-      incapacitated: [false],
-      neardeath: [false]
-    };
-    for (const level in context.actor.system.wounds) {
-      if ({}.hasOwnProperty.call(context.actor.system.wounds, level)) {
-        for (let box = 0; box < context.woundlevels[level].length; box += 1) {
-          context.woundlevels[level][box] = box < context.actor.system.wounds[level];
-        }
+    context.woundlevels = {};
+    for (const type of ["scratch", "hurt", "veryhurt", "incapacitated", "neardeath"]) {
+      context.woundlevels[type] = [];
+      for (let index = 0; index < context.actor.system.wounds[type].max; index += 1) {
+        context.woundlevels[type].push(index < context.actor.system.wounds[type].value);
       }
     }
+
     context.attributeset = this.object.items.find((item) => item.type === "attributeset");
-    context.traitlevels = this.object.system.traitlevels;
+    const traitladder = await foundry.utils.fromUuid(game.settings.get("fudge-rpg", "traitladder"));
+    context.traitlevels = traitladder.system.traits;
     context.notesHTML = await VersionNeutralTextEditor.enrichHTML(actor.system.notes, {async: true});
     context.creationstyle = game.settings.get("fudge-rpg", "creationstyle");
     return context;
@@ -78,6 +66,7 @@ export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
     html.find("#charname").change(this._onCharacterNameChange.bind(this));
     html.find("#fp").change(this._onScoreChange.bind(this));
     html.find("#ep").change(this._onScoreChange.bind(this));
+    html.find("#mana").change(this._onScoreChange.bind(this));
     html.find("#attribute-points").change(this._onAttributePointsChange.bind(this));
     html.find("#gift-points").change(this._onGiftPointsChange.bind(this));
     html.find("#skill-points").change(this._onSkillPointsChange.bind(this));
@@ -88,6 +77,8 @@ export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
     html.find("#fivepoint").click(this._onFivePointFudge.bind(this));
   }
 
+  // Overrides of existing event listeners
+  
   _onDragStart(event) {
     if (event.currentTarget.classList.contains("occ-count")) {
       event.dataTransfer.setData("text/plain", JSON.stringify({
@@ -181,7 +172,7 @@ export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
       }
     }
     const updates = {};
-    updates[`system.wounds.${levelToCheck}`] = newCount;
+    updates[`system.wounds.${levelToCheck}.value`] = newCount;
     await this.object.update(updates);
   }
   
@@ -299,6 +290,7 @@ export default class ActorSheetFudgeCharacter extends VersionNeutralActorSheet {
   }
 
   _onFivePointFudge() {
+    this.actor.refreshFivePointCache();
     new FivePointWorksheet(
       this.actor, 
       {popOut: true, resizable: true, width: 500}
