@@ -1,3 +1,8 @@
+import {
+    getCompendiumAndLocalSkills, 
+    getCompendiumAndLocalSkillIndices
+} from "./compendia.mjs";
+
 // BUG: Make this configurable in settings
 const FUDGE_GROUP_POINTS = 5; 
 const GENERAL_GROUP_POINT_CAP = 1;
@@ -15,16 +20,37 @@ FAIR = 0,
 // eslint-disable-next-line sort-vars
 MEDIOCRE = -1;
 
+/* 
+ * 0-4 group points: [
+ * [Narrow [Level, Count],...], 
+ * [Broad: [Level, Count],...]]
+ * ]
+ */
 const FUDGE_GROUP_SKILL_LEVELS = [
-  [[], []],
-  // eslint-disable-next-line no-magic-numbers
-  [[[FAIR, 3], [MEDIOCRE, 1]], [[GOOD, 1], [MEDIOCRE, 1]]],
-  // eslint-disable-next-line no-magic-numbers
-  [[[GOOD, 2], [FAIR, 4]], [[GREAT, 1], [GOOD, 1], [FAIR, 1]]],
-  // eslint-disable-next-line no-magic-numbers
-  [[[GREAT, 1], [GOOD, 3], [FAIR, 4]], [[GREAT, 1], [GOOD, 3], [FAIR, 4]]],
-  // eslint-disable-next-line no-magic-numbers
-  [[[SUPERB, 1], [GREAT, 2], [GOOD, 3], [FAIR, 3]], [[SUPERB, 1], [GREAT, 2], [GOOD, 3], [FAIR, 3]]
+  [[], []], 
+  [
+    // eslint-disable-next-line no-magic-numbers
+    [[FAIR, 3], [MEDIOCRE, 1]], 
+    // eslint-disable-next-line no-magic-numbers
+    [[GOOD, 1], [MEDIOCRE, 1]]
+  ],
+  [
+    // eslint-disable-next-line no-magic-numbers
+    [[GOOD, 2], [FAIR, 4]], 
+    // eslint-disable-next-line no-magic-numbers
+    [[GREAT, 1], [GOOD, 1], [FAIR, 1]]
+  ],
+  [
+    // eslint-disable-next-line no-magic-numbers
+    [[GREAT, 1], [GOOD, 3], [FAIR, 4]], 
+    // eslint-disable-next-line no-magic-numbers
+    [[GREAT, 1], [GOOD, 3], [FAIR, 4]]
+  ],
+  [
+    // eslint-disable-next-line no-magic-numbers
+    [[SUPERB, 1], [GREAT, 2], [GOOD, 3], [FAIR, 3]], 
+    // eslint-disable-next-line no-magic-numbers
+    [[SUPERB, 1], [GREAT, 2], [GOOD, 3], [FAIR, 3]]
   ]
 ];
 const FUDGE_GENERAL_SKILL_LEVELS = [
@@ -34,10 +60,11 @@ const FUDGE_GENERAL_SKILL_LEVELS = [
 ];
 
 /**
- * This is a copy of the system.fivepoint data with the methods necessary to manipulate it.
- * Collecting group skills, because it loads compendia, is inherently asynchronous.
- * All other methods are synchronous.
- * Typical workflow makes a set of related changes to the cache, updating system.fivepoint when done. 
+ * This is a copy of the system.fivepoint data with the methods necessary 
+ * to manipulate it. Collecting group skills, because it loads compendia, 
+ * is inherently asynchronous. All other methods are synchronous.
+ * Typical workflow makes a set of related changes to the cache, 
+ * updating system.fivepoint when done. 
  */
 export default class FivePointCache {
    constructor(fivePoint) {
@@ -61,70 +88,49 @@ export default class FivePointCache {
     // Public methods
 
     async collectGroupSkills() {
-        const groupedSkills = {};
-        const fivePointCompendium = game.settings.get("fudge-rpg", "fivepointskillcompendium");
-        for (const pack of game.packs) {  
-            if (pack.metadata.type === "Item" && pack.metadata.id === fivePointCompendium) {
-                const skills = pack.index.filter((item) => item.type === "skill");
-                for (const skill of skills ) {
-                    // eslint-disable-next-line no-await-in-loop
-                    const item = await pack.getDocument(skill._id);
-                    if (item) {
-                        // eslint-disable-next-line max-depth
-                        for (const group of item.system.groups) {
-                            this._pushItemGroupIntoGroupSkills(item.name, group, groupedSkills);
-                        }
-                    }
+        const groupSkills = {};
+        const compId = game.settings.get("fudge-rpg", "fivepointskillcompendium");
+        // We need to load the whole skill because we need access to its groups
+        const skills = await getCompendiumAndLocalSkills(compId);
+        for (const skill of skills) {
+            for (const group of skill.system.groups) {
+                if (group in groupSkills) {
+                    groupSkills[group].push(skill.name);
+                } else {
+                    groupSkills[group] = [skill.name];
                 }
             }
         }
-        const localItems = game.items.filter((item) => item.type === "skill" && 
-            item.system.group && groupedSkills[item.system.group]);
-        for (const item of localItems) {
-            groupedSkills[item.system.group].push(item.name);
-            if (groupedSkills[item.system.group2]) {
-                groupedSkills[item.system.group2].push(item.name);
-            }
-        }
-        return groupedSkills;
+        return groupSkills;
     }
 
     getSkillItems() {
         const skills = {};
-        const fivePointCompendium = game.settings.get("fudge-rpg", "fivepointskillcompendium");
-        for (const aGroup of this.groups) {
-            for (const aLevel of aGroup.levels) {
-                if (aLevel.name !== "") {
-                    skills[aLevel.name] = {level: aLevel.level, id: ""};
+        for (const group of this.groups) {
+            for (const level of group.levels) {
+                if (level.name !== "") {
+                    skills[level.name] = {level: level.level, uuid: ""};
                 }
             }
         }
-        for (const pack of game.packs) {  
-            if (pack.metadata.type === "Item") {
-                const packSkills = 
-                    pack.index.filter((item) => item.type === "skill" && pack.metadata.id === fivePointCompendium);
-                for (const skill of packSkills ) {
-                    if (skill.name in skills) {
-                        skills[skill.name].id = skill._id;
-                        skills[skill.name].pack = pack;
-                    }
-                }
+        const compId = game.settings.get("fudge-rpg", "fivepointskillcompendium");
+        const packSkills = getCompendiumAndLocalSkillIndices(compId);
+        for (const skill of packSkills ) {
+            if (skill.name in skills) {
+                skills[skill.name].uuid = skill.uuid;
             }
-        }
-        const localItems = game.items.filter((skill) => skill.type === "skill" && skill.name in skills);
-        for (const item of localItems) {
-            skills[item.name].id = item._id;
-            skills[item.name].pack = null;
         }
         return skills;
     }
 
     addGroupToGeneral(groupName) {
     // Validate this is valid to do
-        if (this.generalgroups.length === MAX_GENERAL_GROUPS || this.generalgroups.includes(groupName)) {
+        if (this.generalgroups.length === MAX_GENERAL_GROUPS || 
+            this.generalgroups.includes(groupName)) {
                 return false;
         }
-        const groupData = this.groups.find( (aGroup) => aGroup.name === groupName);
+        const groupData = 
+            this.groups.find( (aGroup) => aGroup.name === groupName);
         if (groupData && groupData.points > 0) {
             return false;
         }
@@ -143,20 +149,25 @@ export default class FivePointCache {
 
     addSkillToLevel(groupName, index, skillName) {
         const group = this.groups.find((aGroup) => aGroup.name === groupName);
-        if (!group || index < 0 || index >= group.levels.length || skillName === "") {
+        if (!group || index < 0 || index >= group.levels.length ) {
+            return false;
+        }
+        if (skillName === "") {
             return false;
         }
         const existingLevels = [];
         this.groups.forEach((aGroup) => {
-            const levelItem = aGroup.levels.find( (lvl) => lvl.name === skillName);
+            const levelItem = 
+                aGroup.levels.find( (lvl) => lvl.name === skillName);
             if (levelItem) {
                 existingLevels.push(levelItem);
             }
         });
-        group.levels[index].name = skillName;
+        // Remove first in case we're overwriting the name at the same index
         for (const existingLevel of existingLevels) {
             existingLevel.name = "";
         }
+        group.levels[index].name = skillName;
         return true;
     }
 
@@ -165,7 +176,8 @@ export default class FivePointCache {
         if (!group || index < 0 || index >= group.levels.length) {
             return false;
         }
-        if (typeof skillName !== "undefined" && group.levels[index].name !== skillName) {
+        if (typeof skillName !== "undefined" && 
+            group.levels[index].name !== skillName) {
             return false;
         }
         group.levels[index].name = "";
@@ -179,7 +191,10 @@ export default class FivePointCache {
         }
         const newLevel = group.levels[index].level - 1;
         group.levels[index].level = newLevel;
-        group.levels = [...group.levels.slice(0, index), {name: "", level: newLevel}, ...group.levels.slice(index)];
+        group.levels = 
+            [...group.levels.slice(0, index), 
+             {name: "", level: newLevel}, 
+             ...group.levels.slice(index)];
         group.levels.sort((first, second) => { 
             if (first.level < second.level) { 
                 return 1; 
@@ -194,7 +209,9 @@ export default class FivePointCache {
 
     setGroupPoints(groupName, points, narrow) {
         // Validate request- overdraft of unspent is permitted
-        if (groupName === "" ? points > GENERAL_GROUP_POINT_CAP : points > OTHER_GROUP_POINT_CAP) {
+        if (groupName === "" 
+                ? points > GENERAL_GROUP_POINT_CAP 
+                : points > OTHER_GROUP_POINT_CAP) {
             return false;
         }
         if (groupName !== "" && this.generalgroups.includes(groupName)) {
@@ -214,10 +231,15 @@ export default class FivePointCache {
         if (group) {
             group.points = points;
             group.narrow = narrow;
-            group.levels = this._reconcileLevels(group.levels, levelsToApply);
+            group.levels = this.#reconcileLevels(group.levels, levelsToApply);
         } else {
-            this.groups.push({name: groupName, points, narrow, levels: levelsToApply});
+            this.groups.push({
+                name: groupName, 
+                points, 
+                narrow, 
+                levels: levelsToApply});
         }
+        // ??? We're doing a filter and then throwing the result away?
         this.groups.filter((aGroup) => aGroup.points > 0 );
         let spent = 0;
         for (const aGroup of this.groups) {
@@ -229,21 +251,12 @@ export default class FivePointCache {
 
     // Private methods
 
-    _pushItemGroupIntoGroupSkills(itemName, groupName, result) {
-        if (groupName) {
-            if (groupName in result) {
-                result[groupName].push(itemName);
-            } else {
-                result[groupName] = [itemName];
-            }
-        }
-    }
-    
-    _reconcileLevels(currentLevels, newLevels) {
+    #reconcileLevels(currentLevels, newLevels) {
         // Stretagy: spread them down the new list and drop what won't fit
         for (const level of currentLevels) {
             if (level.name !== "") {
-                const targetLevel = newLevels.find( (aLevel) => aLevel.name === "");
+                const targetLevel = 
+                    newLevels.find( (aLevel) => aLevel.name === "");
                 if (targetLevel) {
                     targetLevel.name = level.name;
                 }

@@ -1,22 +1,26 @@
-const VersionNeutralItemSheet = foundry.appv1?.sheets.ItemSheet ? foundry.appv1.sheets.ItemSheet : ItemSheet;
-const VersionNeutralTextEditor = foundry.applications?.ux?.TextEditor.implementation 
-  ? foundry.applications.ux.TextEditor.implementation 
-  : TextEditor;
+import {VNItemSheet, VNTextEditor} from "../ver-neutral.mjs";
+
+export default class ItemSheetFudge extends VNItemSheet {
+
+  static _warnedAppV1 = true;
   
-export default class ItemSheetFudge extends VersionNeutralItemSheet {
+  // -------- Overrides --------
+
   get template() {
     return "systems/fudge-rpg/templates/item.hbs";
   }
 
-  /** @override */
   async getData(options) {
     const context = await super.getData(options);
     const {item} = context;
     foundry.utils.mergeObject(context, {
-      descriptionHTML: await VersionNeutralTextEditor.enrichHTML(item.system.description, {async: true})
+      descriptionHTML: await VNTextEditor.enrichHTML(item.system.description, {async: true})
     });
     if (item.type === "attributeset") {
       context.attributelist = item.system.attributes.map((attribute) => attribute.name).join("\n");
+    }
+    if (item.type === "traitladder") {
+      context.traitlist = item.system.traits.map((trait) => `${trait.name}: ${trait.value}`).join("\n");
     }
     if (this.object.system.groups) {
       // Only applies to skills
@@ -29,6 +33,7 @@ export default class ItemSheetFudge extends VersionNeutralItemSheet {
   activateListeners(html) {
     super.activateListeners(html);
     html.find("#itemname").change(this._onNameChange.bind(this));
+    html.find("#traits").change(this._onLadderChange.bind(this));
     html.find("#attributes").change(this._onAttributesChange.bind(this));
     html.find("#muscleweapon").change(this._onMuscleWeaponAttributeChange.bind(this));
     html.find("#damagecapacity").change(this._onDamageCapacityAttributeChange.bind(this));
@@ -38,6 +43,8 @@ export default class ItemSheetFudge extends VersionNeutralItemSheet {
     html.find("#ddf").change(this._onNumberFieldChange.bind(this));
     html.find("#quantity").change(this._onNumberFieldChange.bind(this));
   }
+
+  // -------- Event Listeners --------
 
   async _onNameChange(event) {
     await this.object.update({name: event.target.value.trim()});
@@ -59,6 +66,25 @@ export default class ItemSheetFudge extends VersionNeutralItemSheet {
       }
     }
     await this.object.update( {"system.attributes": newAttributes});
+  }
+  
+  async _onLadderChange(event) {
+    const rows = event.target.value.split("\n");
+    const newTraits = [];
+    for (const traitRow of rows) {
+      const traitData = traitRow.split(":");
+      if (traitData.length === 2) {
+        const cleanName = traitData[0].trim();
+        const cleanValue = traitData[1].trim();
+        if (cleanName !== "" && cleanValue !== "") {
+          const trait = {name: cleanName, value: parseInt(cleanValue, 10)};
+          if (!isNaN(trait.value)) {
+            newTraits.push(trait);
+          }
+        }
+      }
+    }
+    await this.object.update( {"system.traits": newTraits});
   }
 
   async _onMuscleWeaponAttributeChange(event) {

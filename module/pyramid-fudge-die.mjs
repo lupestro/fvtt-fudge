@@ -3,12 +3,14 @@
  * Mathematically behaves like 1d5-3
  * @extends {foundry.dice.terms.DiceTerm}
  */
+
+import {VNDiceTerm, VNDie} from "./ver-neutral.mjs";
+
  const MIN_VALUE = -2;
  const MAX_VALUE = 2;
  const ZERO_OFFSET = 3;
- const VersionNeutralDiceTerm = foundry.dice.terms.DiceTerm ? foundry.dice.terms.DiceTerm : DiceTerm;
- const VersionNeutralDie = foundry.dice.terms.Die ? foundry.dice.terms.Die : Die;
- export default class PyramidFudgeDie extends VersionNeutralDiceTerm {
+
+ export default class PyramidFudgeDie extends VNDiceTerm {
   constructor(termData) {
     super(termData);
     this.faces = 5;
@@ -19,14 +21,14 @@
 
   /** @inheritdoc */
   static MODIFIERS = {
-    "r": VersionNeutralDie.prototype.reroll,
-    "rr": VersionNeutralDie.prototype.rerollRecursive,
-    "k": VersionNeutralDie.prototype.keep,
-    "kh": VersionNeutralDie.prototype.keep,
-    "kl": VersionNeutralDie.prototype.keep,
-    "d": VersionNeutralDie.prototype.drop,
-    "dh": VersionNeutralDie.prototype.drop,
-    "dl": VersionNeutralDie.prototype.drop
+    "r": VNDie.prototype.reroll,
+    "rr": VNDie.prototype.rerollRecursive,
+    "k": VNDie.prototype.keep,
+    "kh": VNDie.prototype.keep,
+    "kl": VNDie.prototype.keep,
+    "d": VNDie.prototype.drop,
+    "dh": VNDie.prototype.drop,
+    "dl": VNDie.prototype.drop
   };
 
    /* -------------------------------------------- */

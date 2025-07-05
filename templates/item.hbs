@@ -20,6 +20,11 @@
           {{/each}}
         </select>
       {{/if}}
+      {{#if (eq item.type "traitladder")}}
+          <label for="traits">{{localize "FUDGERPG.TraitsEntry"}}</label>
+          <textarea id="traits" class="traitladder">{{traitlist}}</textarea>
+        <p class="instruction">{{localize "FUDGERPG.TraitsInstruction"}}</p>
+      {{/if}}
       {{#if (eq item.type "equipment")}}
         <label for="odf">{{localize "FUDGERPG.ODF"}} </label>
         <input class="numeric" name="odf" id="odf" type="text" value="{{item.system.odf}}"/>

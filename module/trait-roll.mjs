@@ -1,3 +1,5 @@
+import {vnRenderTemplate, vnFromUuid} from "./ver-neutral.mjs";
+
 export default class TraitRoll extends Roll {
   levelname(levelset) {
     const levelsetitem = levelset.find((levelInSet) => this.total === levelInSet.value);
@@ -23,32 +25,8 @@ export default class TraitRoll extends Roll {
   }
 
   async render(options) {
-    const LEVELSET = [
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Superb"), value: +3}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Great"), value: +2}, // eslint-disable-line no-magic-numbers
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Good"), value: +1},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Fair"), value: 0},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Mediocre"), value: -1},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Poor"), value: -2},
-      {name: game.i18n.localize("FUDGERPG.TraitLevel.Terrible"), value: -3}
-    ];
-    if (game.settings.get("fudge-rpg", "traitlevels") === "extended") {
-      LEVELSET.unshift(
-        {name: game.i18n.localize("FUDGERPG.TraitLevel.Legendary"), value: +5}, // eslint-disable-line no-magic-numbers
-        {name: game.i18n.localize("FUDGERPG.TraitLevel.Heroic"), value: +4} // eslint-disable-line no-magic-numbers
-      );
-      LEVELSET.push({
-        name: game.i18n.localize("FUDGERPG.TraitLevel.Abysmal"), value: -4 // eslint-disable-line no-magic-numbers
-      }); 
-    }
-    if (game.settings.get("fudge-rpg", "traitlevels") === "expanded") {
-      LEVELSET.unshift({
-        name: game.i18n.localize("FUDGERPG.TraitLevel.Legendary"), value: +4 // eslint-disable-line no-magic-numbers
-      });
-      LEVELSET.push({
-        name: game.i18n.localize("FUDGERPG.TraitLevel.Abysmal"), value: -4 // eslint-disable-line no-magic-numbers
-      });
-    }
+    const traitladder = await vnFromUuid(game.settings.get("fudge-rpg", "traitladder"));
+    const LEVELSET = traitladder.system.traits;
     const isPrivate = options.isPrivate ?? false;
     const template = options.template ?? this.constructor.CHAT_TEMPLATE;
     const {flavor} = options;
@@ -62,6 +40,6 @@ export default class TraitRoll extends Roll {
       tooltip: isPrivate ? "" : await super.getTooltip(),
       total: `${this.levelname(LEVELSET)} (${this.total})`
     };
-    return renderTemplate(template, chatData);
+    return vnRenderTemplate(template, chatData);
   }
 }

@@ -117,6 +117,16 @@
                     }
                 }      
             },
+            "TraitLadder": {
+                "FIELDS": {
+                    "trait.name": {
+                        "label": "Trait Name"
+                    },
+                    "trait.level": {
+                        "label": "Trait Level"
+                    }
+                }
+            },
             "Skill": {
                 "FIELDS": {
                     "level": {
@@ -143,14 +153,9 @@
         },
         "Settings": {
             "FIELDS": {
-                "traitlevels": {
-                    "label":"Trait Levels",
-                    "hint": "Set of named trait levels with numeric values - ** restart to apply **",
-                    "choices": {
-                        "standard":"Standard Trait Levels",
-                        "extended": "Extended Trait Levels",
-                        "expanded": "Expanded Trait Levels"
-                    }
+                "traitladder": {
+                    "label": "Trait Ladder",
+                    "hint": "The set of trait names and values to use for the game"
                 },
                 "baseroll": { 
                     "label": "Base Die Roll",
@@ -186,7 +191,7 @@
                 },
                 "fivepointskillcompendium": {
                     "label":  "Five-point Fudge Skills",
-                    "hint": "Skill compendium that defines skills for Five-point Fudge"    
+                    "hint": "Skill compendium that defines skills for Five-point Fudge"
                 },
                 "initialskilllevels": {
                     "label": "Initial Skill Levels",
@@ -240,6 +245,8 @@
         "Notes": "Notes",
         "Description": "Description",
         "AttributesEntry": "Attributes (one per line)",
+        "TraitsEntry": "Traits",
+        "TraitsInstruction":"(One per line - name: value)",
         "MuscleWeaponAttr": "Muscle Weapon Attribute",
         "DamageCapacityAttr": "Damage Capacity Attribute",
         "Rolling": "Rolling {traitname}...",
