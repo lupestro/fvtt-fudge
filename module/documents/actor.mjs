@@ -37,7 +37,7 @@ export default class ActorFudge extends Actor {
       data.system.fivepoint = data.system.fivePoint;
       delete data.system.fivePoint;
     }
-    Object.entries(DEFAULT_WOUND_MAX).forEach(([level,max]) => {
+    Object.entries(DEFAULT_WOUND_MAX).forEach(([level, max]) => {
       if (data.system && data.system.wounds && data.system.wounds[level]) {
         if (typeof data.system.wounds[level] === "number") {
           data.system.wounds[level] = {value: data.system.wounds[level], max};

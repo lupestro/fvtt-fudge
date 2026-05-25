@@ -23,7 +23,7 @@ class TraitLadderData extends FudgeItemData {
     return {
       ...super.defineSchema(),
       traits: new ArrayField(new SchemaField({
-        name: new StringField({required:true}),
+        name: new StringField({required: true}),
         value: new NumberField({required: true, integer: true, min: -8, initial: 0})
       }))
     };

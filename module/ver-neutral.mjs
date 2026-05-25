@@ -39,7 +39,8 @@ export const VNItems =
 export const vnFromUuid =
   foundry.utils?.fromUuid
     ? foundry.utils.fromUuid
-    : fromUuid;
+    : fromUuid; /* eslint-disable-line no-undef */
+
 
 export const vnRenderTemplate = 
   foundry.applications?.handlebars?.renderTemplate

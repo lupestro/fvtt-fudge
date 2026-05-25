@@ -233,11 +233,7 @@ export default class FivePointCache {
             group.narrow = narrow;
             group.levels = this.#reconcileLevels(group.levels, levelsToApply);
         } else {
-            this.groups.push({
-                name: groupName, 
-                points, 
-                narrow, 
-                levels: levelsToApply});
+            this.groups.push( {name: groupName, points, narrow, levels: levelsToApply});
         }
         // ??? We're doing a filter and then throwing the result away?
         this.groups.filter((aGroup) => aGroup.points > 0 );

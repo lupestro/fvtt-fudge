@@ -1,9 +1,10 @@
 import {VNItemSheet, VNTextEditor} from "../ver-neutral.mjs";
 
+const TRAIT_WITH_NAME_AND_VALUE = 2;
 export default class ItemSheetFudge extends VNItemSheet {
 
   static _warnedAppV1 = true;
-  
+
   // -------- Overrides --------
 
   get template() {
@@ -73,7 +74,7 @@ export default class ItemSheetFudge extends VNItemSheet {
     const newTraits = [];
     for (const traitRow of rows) {
       const traitData = traitRow.split(":");
-      if (traitData.length === 2) {
+      if (traitData.length === TRAIT_WITH_NAME_AND_VALUE) {
         const cleanName = traitData[0].trim();
         const cleanValue = traitData[1].trim();
         if (cleanName !== "" && cleanValue !== "") {
