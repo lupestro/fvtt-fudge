@@ -1,5 +1,8 @@
 # Fudge system for FoundryVTT
 
+## 2.7.0 - Minimal bump for Foundry V14
+- [FEATURE] Initially tested with V14 - you may encounter problems yet
+
 ## 2.6.0 - Configurable Trait Ladders
 - [BREAKING] Probably not for too many these days - still supports Foundry 12 and supports 13 but no longer supports Foundry 11.
   * Due to changes we will be making soon, this will probably be the very last version where it remains feasible to support Foundry 12. 
